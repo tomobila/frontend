@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="assets/fonts/feather/feather.css" />
+    <link rel="stylesheet" href="assets/libs/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="assets/libs/quill/dist/quill.core.css" />
+    <link rel="stylesheet" href="assets/libs/highlightjs/styles/vs2015.css" />
+
+    <!-- Map -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Theme CSS -->
+    <link rel="shortcut icon" href="assets/img/account/favicon/account.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/theme.min.css" id="stylesheetLight">
+    <!-- <link rel="stylesheet" href="assets/css/theme-dark.min.css" id="stylesheetDark"> -->
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Title -->
+    <title>GlobRes :: Account</title>
+
+</head>
+
+<body>
+
+    <!-- MODALS
+    ================================================== -->
+
+    <!-- Modal: -->
+    <div class="modal fade" id="modalMembers" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-card card">
+                    <div class="card-header">
+
+                        <!-- Title -->
+                        <h3 class="card-header-title" id="exampleModalCenterTitle">
+                            Add a User to <strong>Advertising tool</strong>
+                        </h3>
+
+                        <!-- Close -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="fe fe-x"></span>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-5">
+
+                                <form>
+                                    <div class="input-group input-group-merge">
+
+                                        <!-- Input -->
+                                        <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+
+                                        <!-- Prepend -->
+
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <span class="fe fe-search"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                <div class="list-group list-group-flush mt-2">
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+
+                                                <div class="avatar avatar-sm">
+                                                    <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                </div>
+
+                                            </div>
+                                            <div class="col ml-n2 text-left text-dark">
+
+                                                <h4 class="mb-0">
+                                                    Simone Piedalue
+                                                </h4>
+
+                                                <p class="small mb-0">
+                                                    <a href="mailto:DebraAMacklin@teleworm.us">simonepiedalue@telecom.fr</a>
+                                                </p>
+
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="checkbox" id="bb1" name="" class="custom-control-input" value="">
+                                                <label class="custom-control-label" for="bb1"></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+
+                                                <div class="avatar avatar-sm">
+                                                    <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                </div>
+
+                                            </div>
+                                            <div class="col ml-n2 text-left text-dark">
+
+                                                <h4 class="mb-0">
+                                                    Laura Bailey
+                                                </h4>
+
+                                                <p class="small mb-0">
+                                                    <a href="mailto:DebraAMacklin@teleworm.us">laura@telecom.fr</a>
+                                                </p>
+
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="checkbox" id="bb2" name="" class="custom-control-input" value="">
+                                                <label class="custom-control-label" for="bb2"></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+
+                                                <div class="avatar avatar-sm">
+                                                    <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                </div>
+
+                                            </div>
+                                            <div class="col ml-n2 text-left text-dark">
+
+                                                <h4 class="mb-0">
+                                                    Allen Lamar
+                                                </h4>
+
+                                                <p class="small mb-0">
+                                                    <a href="mailto:LamarRAllen@jourrapide.com">lamarrallen@jourrapide.com</a>
+                                                </p>
+
+
+
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="checkbox" id="bb3" name="" class="custom-control-input" value="">
+                                                <label class="custom-control-label" for="bb3"></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-7 pl-5">
+                                <div class="row">
+                                    <h4>
+                                        Partial access
+                                    </h4>
+                                    <div class="col-12">
+
+                                        <!-- Public profile -->
+                                        <div class="form-group row align-items-center mb-1">
+                                            <div class='col'>
+                                                <label class="mb-1">
+                                                    Advertising Platform
+                                                </label>
+
+                                                <small class="form-text text-muted">
+                                                    Publish as admin
+                                                </small>
+                                            </div>
+
+
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="switchOne">
+                                                    <label class="custom-control-label" for="switchOne"></label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12">
+
+                                        <div class="form-group row align-items-center mb-1">
+                                            <div class='col'>
+                                                <label class="mb-1">
+                                                    Module 2
+                                                </label>
+
+                                                <small class="form-text text-muted">
+                                                    Making your profile public means that anyone on the platforms 
+                                                </small>
+                                            </div>
+
+
+                                            <div class="col-auto">
+
+                                                <!-- Switch -->
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="switch2">
+                                                    <label class="custom-control-label" for="switch2"></label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12">
+
+                                        <div class="form-group row align-items-center">
+                                            <div class='col'>
+                                                <label class="mb-1">
+                                                    Module 3
+                                                </label>
+
+                                                <small class="form-text text-muted">
+                                                    Making your profile public means that anyone on the platforms 
+                                                </small>
+                                            </div>
+
+
+                                            <div class="col-auto">
+
+                                                <!-- Switch -->
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="switch2">
+                                                    <label class="custom-control-label" for="switch2"></label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <hr class="divider my-4">
+
+                                    <h4>
+                                        Total control
+                                    </h4>
+
+                                    <div class="col-12">
+
+                                        <div class="form-group row align-items-center">
+                                            <div class='col'>
+                                                <label class="mb-1">
+                                                    Manages the platform
+                                                </label>
+
+                                                <small class="form-text text-muted">
+                                                    Control the Platform and account settings and permissions. Perform all kinds of actions, view all activities and statistics and manage the roles of the Page. This is the most comprehensive access you can assign.                                                                        </small>
+                                            </div>
+
+
+                                            <div class="col-auto">
+
+                                                <!-- Switch -->
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="switch4">
+                                                    <label class="custom-control-label" for="switch4"></label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn btn-white mr-2" data-dismiss="modal">Cancel</button>
+                                        <button class="btn btn-primary">Save</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade account" id="joinWorkspace" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-m modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-card card">
+                    <div class="card-header justify-content-end border-0">
+
+                        <!-- Title -->
+                        <!-- <h3 class="card-header-title" id="exampleModalCenterTitle">
+                        Invite a Friend
+
+                        </h3> -->
+
+                        <!-- Close -->
+                        <button type="button" class="close btn btn-icon btn-sm" data-dismiss="modal" aria-label="Close">
+                            <span class="fe fe-x"></span>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body mx-4">
+
+                        <div class="text-center mb-5">
+
+                            <h2 class="mb-1">Invite a Friend</h2>
+                            <p class="text-gray-500 fs-3">If you need more info, please check out
+                                <a href="#" class="link-primary fw-bolder">FAQ Page</a></p>
+
+                        </div>
+
+
+                        <div class="btn btn-light  w-100 mb-2">
+                            <img width="18" alt="Logo" src="assets/img/account/logo/rs/google-icon.svg" class="h-20 mr-3">Invite Gmail mail
+                        </div>
+
+                        <hr class="compare__vs">
+
+                        <textarea class="form-control" data-toggle="autosize" rows="3" placeholder="Type or paste emails here..."></textarea>
+
+
+                        <div class="col text-right mt-4">
+                            <button class="btn btn-white mr-2" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary">Invite</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- NAVIGATION
+    ================================================== -->
+
+    
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md " id="sidebar">
+        <div class="container-fluid">
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand mb-4" href="index.html">
+                <!-- <img src="assets/img/logo.svg" class="navbar-brand-img mx-auto" alt="..."> -->
+                <svg id="logo_account" x="0px" y="0px" viewBox="0 0 505.7 154.4" style="enable-background:new 0 0 505.7 154.4;" xml:space="preserve">
+                  <g>
+                    <path d="M61.9,20.6h17.3v73h-17l-0.9-10.7c-4.1,8.6-15.5,12.7-23.7,12.9C16,95.9,0,82.6,0,57c0-25.2,16.7-38.3,38-38.2
+                      c9.8,0,19.1,4.6,23.2,11.8L61.9,20.6z M18.1,57c0,13.9,9.6,22.2,21.6,22.2c28.4,0,28.4-44.3,0-44.3C27.7,34.9,18.1,43.1,18.1,57z"
+                      />
+                    <path d="M151.3,84.2c-8.4,8.3-17.3,11.5-28.1,11.5C102,95.8,84.4,83,84.4,57.1c0-25.9,17.6-38.6,38.8-38.6c10.4,0,18.4,3,26.3,10.8
+                      l-11.4,12c-4.3-3.8-9.6-5.8-14.7-5.8c-12.1,0-21,8.9-21,21.6c0,13.9,9.5,21.3,20.7,21.3c5.8,0,11.5-1.6,16-6.1L151.3,84.2z"/>
+                    <path d="M214.5,84.2c-8.4,8.3-17.3,11.5-28.1,11.5c-21.2,0-38.8-12.7-38.8-38.6c0-25.9,17.6-38.6,38.8-38.6
+                      c10.4,0,18.4,3,26.3,10.8l-11.4,12c-4.3-3.8-9.6-5.8-14.7-5.8c-12.1,0-21,8.9-21,21.6c0,13.9,9.5,21.3,20.7,21.3
+                      c5.8,0,11.5-1.6,16-6.1L214.5,84.2z"/>
+                    <path d="M289.1,57.1c0,21-14.4,38-38,38s-37.9-17-37.9-38c0-20.9,14.5-38,37.7-38C274.1,19.1,289.1,36.3,289.1,57.1z M231.2,57.1
+                      c0,11.1,6.7,21.5,19.8,21.5c13.2,0,19.8-10.4,19.8-21.5c0-11-7.7-21.6-19.8-21.6C238,35.5,231.2,46.2,231.2,57.1z"/>
+                    <path d="M312.6,20.6v38.2c0,11.1,6.1,19.5,17.6,19.5c11.1,0,18.6-9.3,18.6-20.4V20.6h17.9v73.1h-16.1l-1.2-9.9
+                      c-7.5,7.4-14.5,11-24.7,11c-17.5,0-30.2-13.2-30.2-35.8V20.6H312.6z"/>
+                    <path d="M429.1,93.5V55.4c0-11.1-6.1-19.5-17.6-19.5c-11.1,0-18.7,9.3-18.7,20.4v37.3h-17.9V20.4h16.1l1.2,9.9
+                      c7.4-7.3,14.8-11,24-11c17.2,0,30.9,12.9,30.9,35.8v38.3H429.1z"/>
+                    <path d="M477.7,0v20.7h20.1v15.5h-20.3v31.5c0,7,3.8,10.4,9.5,10.4c2.8,0,6.1-0.9,8.7-2.2l5,15.4c-5.2,2.1-9.5,3-14.9,3.1
+                      C470,95,459.6,86,459.6,67.8V36.3H446V20.7h13.6V1.9L477.7,0z"/>
+                  </g>
+                  <g>
+                    <path d="M294.1,117c-3.9-3.9-9.4-5.8-14.5-5.8c-13.2,0-20,9.7-20,20.2c0,10.7,6.8,19.8,20,19.8c4.8,0,9.9-1.7,13.8-5.2v-12.7h-15.8
+                      v-3h19.1v16.9c-4.7,4.7-10.3,7.3-17.1,7.3c-15.4,0-23.3-10.7-23.3-23.1c-0.1-14.2,9.6-23.4,23.3-23.4c5.9,0,12,2.3,16.5,6.8
+                      L294.1,117z"/>
+                    <path d="M308,108.6v45.2h-3.2v-45.2H308z"/>
+                    <path d="M314.7,138c0-10.1,7.2-16.6,16.2-16.6c9,0,16.2,6.5,16.2,16.6c0,10.1-7.2,16.3-16.2,16.3
+                      C321.9,154.3,314.7,148.1,314.7,138z M344,138c0-8.3-5.9-13.6-13.1-13.6c-7.2,0-13.1,5.4-13.1,13.6s5.9,13.2,13.1,13.2
+                      C338.1,151.2,344,146.2,344,138z"/>
+                    <path d="M356.9,108.6v20.3c2.6-5.2,7.8-7.5,13.2-7.5c8.9,0,16,5.9,16,16.5c0,10.6-7,16.5-16,16.5c-5.4,0-10.7-2.7-13.3-7.6v7h-3.1
+                      v-45.2H356.9z M356.9,137.8c0,7.9,5.6,13.4,13.1,13.4c7.2,0,13.1-4.5,13.1-13.4c0-9-5.9-13.4-13.1-13.4
+                      C362.6,124.5,356.9,129.9,356.9,137.8z"/>
+                    <path d="M430,153.9h-4.6l-15.6-17.1h-12.3v17.1h-3.5v-45.2c6.7,0,13.2,0,19.9,0c9.8,0,14.8,7,14.9,14.1c0.1,7.4-4.8,13.8-14.7,13.8
+                      L430,153.9z M397.4,133.5h16c7.9,0,11.4-4.5,11.4-10.8c0.1-5.3-3.6-10.8-11-10.8h-16.4V133.5z"/>
+                    <path d="M432.7,137.9c0-9.6,7.2-16.5,16.2-16.5c9,0,17,5.5,15.8,18H436c0.6,7.5,6.4,11.8,13,11.8c4.2,0,9.1-1.7,11.5-4.8l2.3,1.8
+                      c-3.1,4.1-8.7,6.1-13.8,6.1C440,154.3,432.7,148.1,432.7,137.9z M461.9,136.6c-0.1-7.9-5.2-12.3-12.9-12.3c-6.6,0-12.3,4.5-13,12.3
+                      H461.9z"/>
+                    <path d="M494.2,127.8c-3.2-2.8-6.4-3.4-10-3.4c-5-0.1-9.8,1.8-9.6,5.9c0.1,4.3,5.7,5.1,9.7,5.8c5.7,1,13.5,1.9,13.2,9.4
+                      c-0.2,7-7.5,8.9-13.1,8.9s-11.2-2.1-14-6.4l2.3-2.1c2.6,3.8,7.4,5.4,11.7,5.4c3.9,0,9.8-1,10-6.1c0.1-4.6-5.2-5.5-10.4-6.3
+                      c-6.2-1-12.3-2.2-12.4-8.6c-0.1-6.3,6.2-9,12.7-8.9c4.7,0,8.7,1.3,11.9,4.3L494.2,127.8z"/>
+                  </g>
+                  </svg>
+            </a>
+
+            <!-- User (xs) -->
+            <div class="navbar-user d-md-none">
+
+                <!-- Dropdown -->
+                <div class="dropdown">
+
+                    <!-- Toggle -->
+                    <a href="#" id="sidebarIcon" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar avatar-sm avatar-online">
+                            <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
+                        </div>
+                    </a>
+
+                    <!-- Menu -->
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sidebarIcon">
+                        <a href="#" class="dropdown-item">Profile</a>
+                        <a href="settings.html" class="dropdown-item">Settings</a>
+                        <hr class="dropdown-divider">
+                        <a href="index.html" class="dropdown-item">Logout</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidebarCollapse">
+
+                <!-- Form -->
+                <form class="mt-4 mb-3 d-md-none">
+                    <div class="input-group input-group-rounded input-group-merge">
+                        <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span class="fe fe-search"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Navigation -->
+                <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard2.html">
+                            <i class="icon-Layout-grid mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sidebarDashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                            <i class="icon-Briefcase mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Workspaces
+                        </a>
+                        <div class="collapse show" id="sidebarDashboards">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="dashboard2.php" class="nav-link ">Main</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="joined.php" class="nav-link ">Joined </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="invitation.php">
+                            <i class="icon-Mail mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Invitations
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.html">
+                            <i class="icon-User mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notifications.php">
+                            <i class="icon-Notifications mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Notifications
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <!-- Divider -->
+                <hr class="navbar-divider my-3">
+
+                <!-- Heading -->
+                <h6 class="navbar-heading">
+                    Updates
+                </h6>
+
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-md-4">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="payement.php">
+                            <i class="icon-Credit-card mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                            </i> Billing
+                        </a>
+                    </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <i class="icon-Hummer1 mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i>Updates
+                            <span class="badge badge-primary ml-auto">v1.2</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="icon-Road-Cone  mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Help
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="icon-Settings mr-3 display-4">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i> Settings
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="mt-auto"></div>
+
+
+                <!-- User (md) -->
+                <div class="navbar-user d-none d-md-flex" id="sidebarUser">
+
+                    <!-- Icon -->
+                    <a href="#sidebarModalActivity" class="navbar-user-link" data-toggle="modal">
+                        <span class="icon">
+                <i class="fe fe-bell"></i>
+              </span>
+                    </a>
+
+                    <!-- Dropup -->
+                    <div class="dropup">
+
+                        <!-- Toggle -->
+                        <a href="#" id="sidebarIconCopy" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar avatar-sm avatar-online">
+                                <img src="https://mir-s3-cdn-cf.behance.net/user/115/6e35d422123289.5a5a7067d5efa.jpg" class="avatar-img rounded-circle" alt="...">
+                            </div>
+                        </a>
+
+                        <!-- Menu -->
+                        <div class="dropdown-menu" aria-labelledby="sidebarIconCopy">
+                            <a href="#" class="dropdown-item">Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <hr class="dropdown-divider">
+                            <a href="index.html" class="dropdown-item">Logout</a>
+                        </div>
+
+                    </div>
+
+                    <!-- Icon -->
+                    <a href="#sidebarModalSearch" class="navbar-user-link" data-toggle="modal">
+                        <span class="icon">
+                <i class="fe fe-search"></i>
+              </span>
+                    </a>
+
+                </div>
+
+
+            </div>
+            <!-- / .navbar-collapse -->
+
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- MAIN CONTENT
+    ================================================== -->
+    <div class="main-content">
+
+
+
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="container-fluid">
+
+                <!-- Body -->
+                <div class="header-body">
+                    <div class="row align-items-end">
+                        <div class="col">
+
+                            <h6 class="header-pretitle">
+                                Overview
+                            </h6>
+
+                            <!-- Title -->
+                            <h1 class="header-title">
+                                Dashboard
+                            </h1>
+
+                        </div>
+                        <div class="col-auto">
+
+                            <a href="#" data-toggle="modal" data-target="#joinWorkspace" class="btn btn-white lift mr-2">Join </a>
+                            <a href="join.php" class="btn btn-primary lift">Get Workspace</a>
+
+                        </div>
+                    </div>
+                    <!-- / .row -->
+                </div>
+                <!-- / .header-body -->
+
+            </div>
+        </div>
+        <!-- / .header -->
+
+
+        <!-- CARDS -->
+        <div class="container-fluid">
+            <div class="card alert alert-dismissible bg-light fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span class="fe fe-x"></span>
+                  </button>
+                <div class="card-body bg-light p-0">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-4 order-lg-2 ">
+
+                            <!-- Image -->
+                            <div class="text-center">
+                                <img src="assets/img/illustrations/happiness.svg" alt="..." class="img-fluid mt-n5 mt-lg-0  mr-md-n5" style="max-width: 142px;">
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-lg-8 px-4 py-3 order-lg-1">
+
+                            <!-- Title -->
+                            <h2>
+                                Welcome back! Mehdi
+                            </h2>
+
+                            <!-- Content -->
+                            <p class="text-muted">
+                                This is a true story and totally not made up. This is going to be better in the long run but for now this is the way it is.
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- / .row -->
+                </div>
+            </div>
+            <div class="row">
+
+
+                <div class="col-12 col-lg-6 col-xl">
+
+                    <!-- Hours -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+
+                                    <!-- Title -->
+                                    <h6 class="text-uppercase text-muted mb-2">
+                                        Total workspace
+                                    </h6>
+
+                                    <!-- Heading -->
+                                    <span class="h2 mb-0">3</span>
+
+                                </div>
+                                <div class="col-auto">
+
+                                    <!-- Icon -->
+                                    <span class="h2 fe fe-briefcase text-muted mb-0"></span>
+
+                                </div>
+                            </div>
+                            <!-- / .row -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-6 col-xl">
+
+                    <!-- Exit -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+
+                                    <!-- Title -->
+                                    <h6 class="text-uppercase text-muted mb-2">
+                                        Users
+                                    </h6>
+
+                                    <!-- Heading -->
+                                    <span class="h2 mb-0">7</span>
+
+                                </div>
+                                <div class="col-auto">
+
+                                    <!-- Chart -->
+                                    <div class="chart chart-sparkline">
+                                        <canvas class="chart-canvas" id="sparklineChart"></canvas>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- / .row -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-6 col-xl">
+
+                    <!-- Time -->
+                    <div class="card">
+                        <div class="card-body bg-light">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <a href="join.php">
+                                        <h6 class="text-uppercase text-muted mb-2">
+                                            Join
+                                        </h6>
+
+                                        <span class="h2 mb-0">workspace</span>
+
+                                </div>
+                                <div class="col-auto">
+
+                                    <span class="h2 fe fe-briefcase text-muted mb-0"></span>
+
+                                </div>
+                                </a>
+                            </div>
+                            <!-- / .row -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card" style="position: sticky;position: -webkit-sticky;top: 20px;">
+                        <div class="card-header">
+
+                            <!-- Title -->
+                            <h4 class="card-header-title">
+                                Workspaces
+                            </h4>
+
+                            <!-- Button -->
+                            <a href="#!" class="btn btn-sm btn-white">Add</a>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush my-n3">
+
+                                <div class="list-group-item">
+
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+
+                                            <a href="" class="avatar ">
+                                                <img src="https://mir-s3-cdn-cf.behance.net/user/115/6e35d422123289.5a5a7067d5efa.jpg" alt="..." class="avatar-img rounded-circle">
+                                            </a>
+
+                                        </div>
+                                        <div class="col ml-n2">
+
+                                            <!-- Title -->
+                                            <h4 class="mb-1">
+                                                <a href="">Advertising Tool</a>
+                                            </h4>
+
+                                            <!-- Text -->
+                                            <p class="small text-muted mb-0">
+                                                <time datetime="2018-06-21">Updated 2hr ago</time>
+                                            </p>
+
+                                        </div>
+                                        <div class="col-auto">
+
+                                            <!-- Dropdown -->
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fe fe-more-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="#!" class="dropdown-item">
+                                    Action
+                                  </a>
+                                                    <a href="#!" class="dropdown-item">
+                                    Another action
+                                  </a>
+                                                    <a href="#!" class="dropdown-item">
+                                    Something else here
+                                  </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+
+                                            <a href="" class="avatar ">
+                                                <img src="https://mir-s3-cdn-cf.behance.net/user/115/6e35d422123289.5a5a7067d5efa.jpg" alt="..." class="avatar-img rounded-circle">
+                                            </a>
+
+                                        </div>
+                                        <div class="col ml-n2">
+
+                                            <!-- Title -->
+                                            <h4 class="mb-1">
+                                                <a href="">Advertising Emailing</a>
+                                            </h4>
+
+                                            <!-- Text -->
+                                            <p class="small text-muted mb-0">
+                                                <time datetime="2018-06-21">Updated 2hr ago</time>
+                                            </p>
+
+                                        </div>
+                                        <div class="col-auto">
+
+                                            <!-- Dropdown -->
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fe fe-more-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="#!" class="dropdown-item">
+                                  Action
+                                </a>
+                                                    <a href="#!" class="dropdown-item">
+                                  Another action
+                                </a>
+                                                    <a href="#!" class="dropdown-item">
+                                  Something else here
+                                </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+
+                                            <a href="" class="avatar ">
+                                                <img src="https://mir-s3-cdn-cf.behance.net/user/115/6e35d422123289.5a5a7067d5efa.jpg" alt="..." class="avatar-img rounded-circle">
+                                            </a>
+
+                                        </div>
+                                        <div class="col ml-n2">
+
+                                            <!-- Title -->
+                                            <h4 class="mb-1">
+                                                <a href="">Reputation Tool</a>
+                                            </h4>
+
+                                            <!-- Text -->
+                                            <p class="small text-muted mb-0">
+                                                <time datetime="2018-06-21">Updated 2hr ago</time>
+                                            </p>
+
+                                        </div>
+                                        <div class="col-auto">
+
+                                            <!-- Dropdown -->
+                                            <div class="dropdown">
+                                                <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fe fe-more-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="#!" class="dropdown-item">
+                                Action
+                              </a>
+                                                    <a href="#!" class="dropdown-item">
+                                Another action
+                              </a>
+                                                    <a href="#!" class="dropdown-item">
+                                Something else here
+                              </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+
+                    <div class="card position-sticky sticky-top fixed-top">
+
+                        <div class="card-body">
+                            <div class="header-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+
+                                        <!-- Avatar -->
+                                        <div class="avatar avatar-lg ">
+                                            <img src="https://mir-s3-cdn-cf.behance.net/user/115/6e35d422123289.5a5a7067d5efa.jpg" alt="..." class="avatar-img rounded-circle">
+                                        </div>
+
+                                    </div>
+                                    <div class="col ml-n3 ml-md-n2">
+
+                                        <!-- Pretitle -->
+
+                                        <!-- Title -->
+                                        <h2 class="header-title">
+                                            Advertising Tool
+                                        </h2>
+                                        <h6 class="header-pretitle">
+                                            Workspace
+                                        </h6>
+
+                                    </div>
+                                    <div class="col-auto">
+
+                                        <!-- Button -->
+                                        <a href="#!" class="btn btn-lg btn-white ">
+                                            <span class="fe fe-link mr-2"></span> Go to platform
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <!-- / .row -->
+
+                                <ul class="mt-3 nav nav-tabs" id="" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="Users-tab" data-toggle="tab" href="#Users" role="tab" aria-controls="Users" aria-selected="true">Users</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link" id="Partners-tab" data-toggle="tab" href="#Partners" role="tab" aria-controls="Partners" aria-selected="false">Partners</a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Notifications-tab" data-toggle="tab" href="#Notifications" role="tab" aria-controls="Notifications" aria-selected="false">Notifications</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Upgrade-tab" data-toggle="tab" href="#Upgrade" role="tab" aria-controls="Upgrade" aria-selected="false">Upgrade</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Settings-tab" data-toggle="tab" href="#Settings" role="tab" aria-controls="Settings" aria-selected="false">Settings</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content mt-4" id="">
+
+                                    <div class="tab-pane fade show active px-7" id="Users" role="tabpanel" aria-labelledby="Users-tab">
+
+                                        <div class="row align-items-center mb-3">
+                                            <div class="col">
+
+
+                                                <h1 class="header-title">
+                                                    Users
+                                                </h1>
+
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#!" data-toggle="modal" data-target="#modalMembers" class="btn btn-light"> <span class="fe fe-user-plus mr-2"></span>Add users</a>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-muted">
+                                            These people have access to Advertising tool You can view, edit, or remove their permissions.
+                                        </p>
+
+                                        <div class="input-group input-group-m input-group-merge">
+
+                                            <input type="text" class="form-control form-control-prepended list-search" placeholder="Search">
+
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <span class="fe fe-search"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div id="accordion" class='mt-4'>
+                                            <div class="card mb-3">
+                                                <div class="card-header px-0 workspace__user" id="h1">
+
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c1" aria-expanded="true" aria-controls="c1">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+            
+                                                                    <div class="avatar">
+                                                                        <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                                    </div>
+            
+                                                                </div>
+                                                                <div class="col ml-n2 text-left text-dark">
+            
+                                                                    <h4 class="mb-1">
+                                                                        Richard L. Finday
+                                                                    </h4>
+            
+                                                                    <p class="small mb-0">
+                                                                        <a href="mailto:HowardLBrown@jourrapide.com"> richardlfinday@teleworm.us</a>
+                                                                    </p>
+            
+                                                                </div>
+                                                                <div class="col-auto">
+
+                                                                    <a href="#!" class="btn btn-sm btn-white remove">
+                                                                        <span class="fe fe-trash-2"></span>
+                                                                    </a>
+                                                                    <a href="#!" class="btn btn-sm btn-white border-0">
+                                                                        <span class="fe fe-chevron-down"></span>
+                                                                    </a>
+            
+                                                                </div>
+                                                            </div>
+                                                    </button>
+
+                                                </div>
+
+                                                <div id="c1" class="collapse show" aria-labelledby="h1" data-parent="#accordion">
+                                                    <div class="card-body bg-light">
+                                                        <div class="row py-3 bg-white">
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Partial access
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module Builder
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Publish as admin
+                                                                        </small>
+                                                                    </div>
+
+                                                                    <div class="col-auto">
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="enable_builder">
+                                                                            <label class="custom-control-label" for="enable_builder"></label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-12 pl-6 row sub_access enable_builder">
+                                                                <div class="col-12">
+                                                                    <div class="form-group row align-items-center mb-1">
+                                                                        <div class='col'>
+                                                                            <label class="mb-1">
+                                                                                Designer
+                                                                            </label>
+
+                                                                            <small class="form-text text-muted">
+                                                                                Publish as admin
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="col-auto">
+                                                                            <div class="custom-control custom-switch">
+                                                                                <input type="checkbox" class="custom-control-input" id="b1-1" checked>
+                                                                                <label class="custom-control-label" for="b1-1"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group row align-items-center mb-1">
+                                                                        <div class='col'>
+                                                                            <label class="mb-1">Publisher</label>
+
+                                                                            <small class="form-text text-muted">Publish as admin</small>
+                                                                        </div>
+
+                                                                        <div class="col-auto">
+                                                                            <div class="custom-control custom-switch">
+                                                                                <input type="checkbox" class="custom-control-input" id="b1-2" checked>
+                                                                                <label class="custom-control-label" for="b1-2"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group row align-items-center mb-1">
+                                                                        <div class='col'>
+                                                                            <label class="mb-1">
+                                                                                Marketer
+                                                                            </label>
+
+                                                                            <small class="form-text text-muted">
+                                                                                Publish as admin
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="col-auto">
+                                                                            <div class="custom-control custom-switch">
+                                                                                <input type="checkbox" class="custom-control-input" id="b1-3" checked>
+                                                                                <label class="custom-control-label" for="b1-3"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module Analytics
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="enable_analytics">
+                                                                            <label class="custom-control-label" for="enable_analytics"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-12 pl-6 row sub_access enable_analytics">
+                                                                <div class="col-12">
+                                                                    <div class="form-group row align-items-center mb-1">
+                                                                        <div class='col'>
+                                                                            <label class="mb-1">Marketer</label>
+
+                                                                            <small class="form-text text-muted">Publish as admin</small>
+                                                                        </div>
+
+                                                                        <div class="col-auto">
+                                                                            <div class="custom-control custom-switch">
+                                                                                <input type="checkbox" class="custom-control-input" id="b1-2" checked>
+                                                                                <label class="custom-control-label" for="b1-2"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group row align-items-center mb-1">
+                                                                        <div class='col'>
+                                                                            <label class="mb-1">
+                                                                                Analist
+                                                                            </label>
+
+                                                                            <small class="form-text text-muted">
+                                                                                Publish as admin
+                                                                            </small>
+                                                                        </div>
+
+                                                                        <div class="col-auto">
+                                                                            <div class="custom-control custom-switch">
+                                                                                <input type="checkbox" class="custom-control-input" id="b1-3" checked>
+                                                                                <label class="custom-control-label" for="b1-3"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module Emailing
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms n
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u1-3" checked>
+                                                                            <label class="custom-control-label" for="u1-3"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <hr class="divider my-4">
+
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Total control
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Manages the platform
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Control the Platform and account settings and permissions. Perform all kinds of actions, view all activities and statistics and manage the roles of the Page. This is the most comprehensive access you can assign.                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u1-4">
+                                                                            <label class="custom-control-label" for="u1-4"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mb-3">
+                                                <div class="card-header px-0 workspace__user" id="h2">
+
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c2" aria-expanded="false" aria-controls="c2">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+            
+                                                                    <div class="avatar">
+                                                                        <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                                    </div>
+            
+                                                                </div>
+                                                                <div class="col ml-n2 text-left text-dark">
+            
+                                                                    <h4 class="mb-1">
+                                                                        Howard Brown
+                                                                    </h4>
+            
+                                                                    <p class="small mb-0">
+                                                                        <a href="mailto:HowardLBrown@jourrapide.com"> howardbrown@jourrapide.com</a>
+                                                                    </p>
+            
+                                                                </div>
+                                                                <div class="col-auto">
+
+                                                                    <a href="#!" class="btn btn-sm btn-white remove">
+                                                                        <span class="fe fe-trash-2"></span>
+                                                                    </a>
+                                                                    <a href="#!" class="btn btn-sm btn-white border-0">
+                                                                        <span class="fe fe-chevron-down"></span>
+                                                                    </a>
+            
+                                                                </div>
+                                                            </div>
+                                                    </button>
+
+                                                </div>
+
+                                                <div id="c2" class="collapse" aria-labelledby="h2" data-parent="#accordion">
+                                                    <div class="card-body bg-light">
+                                                        <div class="row py-3 bg-white">
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Partial access
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 1 
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Publish as admin
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u2-1">
+                                                                            <label class="custom-control-label" for="u2-1"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 2
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u2-2" checked>
+                                                                            <label class="custom-control-label" for="u2-2"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 3
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms n
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u2-3">
+                                                                            <label class="custom-control-label" for="u2-3"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <hr class="divider my-4">
+
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Total control
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Manages the platform
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Control the Platform and account settings and permissions. Perform all kinds of actions, view all activities and statistics and manage the roles of the Page. This is the most comprehensive access you can assign.                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u2-4">
+                                                                            <label class="custom-control-label" for="u2-4"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mb-3">
+                                                <div class="card-header px-0 workspace__user" id="h3">
+
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#c3" aria-expanded="false" aria-controls="c3">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+            
+                                                                    <div class="avatar">
+                                                                        <img src="assets/img/user-placeholder.jpeg" alt="..." class="avatar-img rounded-circle">
+                                                                    </div>
+            
+                                                                </div>
+                                                                <div class="col ml-n2 text-left text-dark">
+            
+                                                                    <h4 class="mb-1">
+                                                                        Debra Macklin
+                                                                    </h4>
+            
+                                                                    <p class="small mb-0">
+                                                                        <a href="mailto:DebraAMacklin@teleworm.us">debraamacklin@teleworm.us</a>
+                                                                    </p>
+            
+                                                                </div>
+                                                                <div class="col-auto">
+
+                                                                    <a href="#!" class="btn btn-sm btn-white remove">
+                                                                        <span class="fe fe-trash-2"></span>
+                                                                    </a>
+                                                                    <a href="#!" class="btn btn-sm btn-white border-0">
+                                                                        <span class="fe fe-chevron-down"></span>
+                                                                    </a>
+            
+                                                                </div>
+                                                            </div>
+                                                    </button>
+
+                                                </div>
+
+                                                <div id="c3" class="collapse" aria-labelledby="h3" data-parent="#accordion">
+                                                    <div class="card-body bg-light">
+                                                        <div class="row py-3 bg-white">
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Partial access
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 1 
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Publish as admin
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u3-1" checked>
+                                                                            <label class="custom-control-label" for="u3-1"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center mb-1">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 2
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u3-2">
+                                                                            <label class="custom-control-label" for="u3-2"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Module 3
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Making your profile public means that anyone on the platforms 
+                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u3-3">
+                                                                            <label class="custom-control-label" for="u3-3"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <hr class="divider my-4">
+
+                                                            <div class="col-12">
+                                                                <h4>
+                                                                    Total control
+                                                                </h4>
+                                                            </div>
+
+                                                            <div class="col-12 pl-4">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <div class='col'>
+                                                                        <label class="mb-1">
+                                                                            Manages the platform
+                                                                        </label>
+
+                                                                        <small class="form-text text-muted">
+                                                                            Control the Platform and account settings and permissions. Perform all kinds of actions, view all activities and statistics and manage the roles of the Page. This is the most comprehensive access you can assign.                                                                        </small>
+                                                                    </div>
+
+
+                                                                    <div class="col-auto">
+
+                                                                        <!-- Switch -->
+                                                                        <div class="custom-control custom-switch">
+                                                                            <input type="checkbox" class="custom-control-input" id="u3-4">
+                                                                            <label class="custom-control-label" for="u3-4"></label>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="Partners" role="tabpanel" aria-labelledby="Partners-tab">
+
+                                    </div>
+                                    <div class="tab-pane fade" id="Notifications" role="tabpanel" aria-labelledby="Notifications-tab">
+                                        <div class="card-body">
+
+                                            <div class="list-group list-group-flush my-n3">
+                                                <div class="list-group-item">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+
+                                                            <h4 class="font-weight-base mb-1">
+                                                                Sales &amp; Promotions
+                                                            </h4>
+
+                                                            <small class="text-muted">
+                                            We only notify you for significant promotions
+                                            </small>
+                                                        </div>
+                                                        <div class="col-auto">
+
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input" id="subscriptionsSwitchOne" checked="">
+                                                                <label class="custom-control-label" for="subscriptionsSwitchOne"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+
+                                                            <h4 class="font-weight-base mb-1">
+                                                                Product updates
+                                                            </h4>
+
+                                                            <small class="text-muted">
+                                            Major changes in our product offering
+                                            </small>
+                                                        </div>
+                                                        <div class="col-auto">
+
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input" id="subscriptionsSwitchTwo" checked="">
+                                                                <label class="custom-control-label" for="subscriptionsSwitchTwo"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+
+                                                            <h4 class="font-weight-base mb-1">
+                                                                Newsletter
+                                                            </h4>
+
+                                                            <small class="text-muted">
+                                            Updates on what’s going on here at Landkit.
+                                            </small>
+                                                        </div>
+                                                        <div class="col-auto">
+
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input" id="subscriptionsSwitchThree" checked="">
+                                                                <label class="custom-control-label" for="subscriptionsSwitchThree"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="Upgrade" role="tabpanel" aria-labelledby="Upgrade-tab">
+                                        <div class="list row">
+                                            <div class="col-12 col-md-6 col-xl-4">
+
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <!-- Body -->
+                                                        <div class="text-center mb-2">
+
+                                                            <!-- Heading -->
+                                                            <h2 class="card-title">
+                                                                <a class="item-name" href="#">Advertising Tool</a>
+                                                            </h2>
+
+                                                            <!-- Text -->
+                                                            <p class="small text-muted mb-3">
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum optio sint exercitationem beatae.
+                                                            </p>
+
+
+
+                                                            <a href="#!" class="btn btn-primary ">Get</a>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-6 col-xl-4">
+
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <!-- Body -->
+                                                        <div class="text-center mb-2">
+
+                                                            <!-- Heading -->
+                                                            <h2 class="card-title">
+                                                                <a class="item-name" href="#">Price Comparison</a>
+                                                            </h2>
+
+                                                            <!-- Text -->
+                                                            <p class="small text-muted mb-3">
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum optio sint exercitationem beatae.
+                                                            </p>
+
+
+
+                                                            <a href="#!" class="btn btn-primary ">Get</a>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-6 col-xl-4">
+
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <!-- Body -->
+                                                        <div class="text-center mb-2">
+
+                                                            <!-- Heading -->
+                                                            <h2 class="card-title">
+                                                                <a class="item-name" href="#">RealRate Design</a>
+                                                            </h2>
+
+                                                            <!-- Text -->
+                                                            <p class="small text-muted mb-3">
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum optio sint exercitationem beatae.
+                                                            </p>
+
+
+
+                                                            <a href="#!" class="btn btn-primary ">Get</a>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-6 col-xl-4">
+
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <!-- Body -->
+                                                        <div class="text-center mb-2">
+
+                                                            <!-- Heading -->
+                                                            <h2 class="card-title">
+                                                                <a class="item-name" href="#">Website builder</a>
+                                                            </h2>
+
+                                                            <!-- Text -->
+                                                            <p class="small text-muted mb-3">
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum optio sint exercitationem beatae.
+                                                            </p>
+
+
+
+                                                            <a href="#!" class="btn btn-primary ">Get</a>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-6 col-xl-4">
+
+                                                <!-- Card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <!-- Body -->
+                                                        <div class="text-center mb-2">
+
+                                                            <!-- Heading -->
+                                                            <h2 class="card-title">
+                                                                <a class="item-name" href="#">Reputation Tool</a>
+                                                            </h2>
+
+                                                            <!-- Text -->
+                                                            <p class="small text-muted mb-3">
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum optio sint exercitationem beatae.
+                                                            </p>
+
+
+
+                                                            <a href="#!" class="btn btn-primary ">Get</a>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- / .main-content -->
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+    <!-- Libs JS -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/@shopify/draggable/lib/es5/draggable.bundle.legacy.js"></script>
+    <script src="assets/libs/autosize/dist/autosize.min.js"></script>
+    <script src="assets/libs/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="assets/libs/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="assets/libs/highlightjs/highlight.pack.min.js"></script>
+    <script src="assets/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+    <script src="assets/libs/list.js/dist/list.min.js"></script>
+    <script src="assets/libs/quill/dist/quill.min.js"></script>
+    <script src="assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="assets/libs/chart.js/Chart.extension.js"></script>
+
+    <!-- Map -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+    <!-- Theme JS -->
+    <!-- <script src="assets/js/theme.min.js"></script> -->
+    <script>
+        jQuery("#enable_builder").on("change", function() {
+            var _this = jQuery(this);
+            if (_this.is(":checked")) {
+                jQuery(".enable_builder").slideDown()
+            } else {
+                jQuery(".enable_builder").slideUp()
+            }
+        });
+
+        jQuery("#enable_analytics").on("change", function() {
+            var _this = jQuery(this);
+            if (_this.is(":checked")) {
+                jQuery(".enable_analytics").slideDown()
+            } else {
+                jQuery(".enable_analytics").slideUp()
+            }
+        });
+    </script>
+
+</body>
+
+</html>
