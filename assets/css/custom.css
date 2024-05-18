@@ -1,0 +1,10 @@
+.dataTables_wrapper {
+    background-color: white;
+    /* padding: 1rem; */
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 10px;
+    border-bottom: 0 !important
+}
