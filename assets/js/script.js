@@ -70,8 +70,42 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         {
-            data: 'attributes.Year',
-        }
+            data: 'id',
+            className: "d-flex align-items-center",
+            render: function (data, type, row) {
+
+                return `
+                    <div class="px-2">
+                        <button class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Archive" data-bs-original-title="Archive">
+                            <span class="fe fe-edit-2"></span>
+                        </button>
+
+                        <button  class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
+                            <span class="fe fe-trash-2"></span>
+                        </button>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <a class="dropdown-ellipses dropdown-toggle" href="crm-contacts.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="">
+                        <a href="crm-contacts.html#!" class="dropdown-item">
+                            Action
+                        </a>
+                        <a href="crm-contacts.html#!" class="dropdown-item">
+                            Another action
+                        </a>
+                        <a href="crm-contacts.html#!" class="dropdown-item">
+                            Something else here
+                        </a>
+                        </div>
+                    </div>
+                    `
+            },
+        },
+
     ]
 
     var myData = {};
@@ -80,6 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
         bPaginate: false,
         columns: columns,
         bFilter: true,
+        language: {
+            searchPlaceholder: "Recherche"
+        },
         bInfo: true,
         order: [[6, "asc"]],
         fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
