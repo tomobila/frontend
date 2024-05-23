@@ -1,9 +1,13 @@
+const client = {
+    id: 1,
+    name: 'Azaf car'
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const APICars = "http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=1";
+    const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
     const localhost = "http://localhost:1337"
     // console.log("dsd")
-
 
     fetch(APICars)
         .then(response => response.json())
@@ -18,20 +22,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return `
                     <div class="avatar avatar-sm align-middle me-3">
-                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded-circle">
+                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded">
                     </div>
                     <p class='m-0'>${row.attributes.Name}</p>
                     `
             },
         },
         {
-            data: 'attributes.Categorie',
-        },
-        {
             data: 'attributes.Make',
         },
         {
             data: 'attributes.Model',
+        },
+        {
+            data: 'attributes.Categorie',
         },
         {
             data: 'attributes.LicensePlate',
@@ -109,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 
     var myData = {};
+
     const initDatatable = new DataTable('#listCars', {
         processing: true,
         bPaginate: false,
@@ -131,6 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     })
 
+
+    const older = document.getElementById("older");
+    const newer = document.getElementById("newer");
+
+    older.addEventListener("click", () => {
+
+        console.log(initDatatable.page.info());
+        initDatatable.page('previous').draw('page')
+    })
+
+    newer.addEventListener("click", () => {
+        console.log("prev");
+        initDatatable.page('next').draw('page')
+    })
 
     document.getElementById('addCar').addEventListener('submit', function (event) {
         event.preventDefault();
