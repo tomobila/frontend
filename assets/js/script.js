@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetch(APICars)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data.data)
+            buildCarCard(data.data)
+        })
         .catch(err => console.error(err));
 
     const columns = [
@@ -21,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
 
                 return `
-                    <div class="avatar avatar-sm align-middle me-3">
-                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded">
+                    <div class="avatar avatar-lg align-middle me-3">
+                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded p-1">
                     </div>
                     <p class='m-0'>${row.attributes.Name}</p>
                     `
@@ -150,6 +153,90 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("prev");
         initDatatable.page('next').draw('page')
     })
+
+
+    const carsCard = document.getElementById('carsCard');
+
+    const buildCarCard = (cars) => {
+        const UI = cars.map((item) => {
+
+            return `
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="card">
+
+                <div class=" position-relative">
+                    <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
+                        ${item.attributes.Status}
+                    </span>
+                    <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
+                </div>
+
+                <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+
+                            <h2 class="card-title text-center">
+                            ${item.attributes.Name}
+                            </h2>
+
+                            <p class="small text-center text-muted mb-3">
+                            ${item.attributes.Make}
+                            </p>
+
+                            <p class="text-center mb-4">
+                            <span class="badge bg-secondary-soft">
+                                ${item.attributes.Categorie}
+                            </span>
+                            <span class="badge bg-secondary-soft">
+                                ${item.attributes.FuelType}
+                            </span>
+                            </p>
+                        </div>
+
+                        </div>
+
+                        <div class="row g-0 border-top border-bottom">
+                        <div class="col-4 py-4 text-center">
+
+                            <h6 class="text-uppercase text-muted">
+                            Followers
+                            </h6>
+
+                            <h2 class="mb-0">10.2k</h2>
+
+                        </div>
+                        <div class="col-4 py-4 text-center border-start">
+
+                            <h6 class="text-uppercase text-muted">
+                            Following
+                            </h6>
+
+                            <h2 class="mb-0">2.7k</h2>
+
+                        </div>
+                        <div class="col-4 py-4 text-center border-start">
+
+                            <h6 class="text-uppercase text-muted">
+                            Following
+                            </h6>
+
+                            <h2 class="mb-0">2.7k</h2>
+
+                        </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            `;
+
+        })
+
+        for (var i = 0; i < UI.length; i++) {
+            carsCard.innerHTML += UI[i];
+        }
+    }
 
     document.getElementById('addCar').addEventListener('submit', function (event) {
         event.preventDefault();
