@@ -4,7 +4,8 @@ const client = {
 }
 
 
-const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
+// const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
+const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 
 document.addEventListener("DOMContentLoaded", function () {
 
