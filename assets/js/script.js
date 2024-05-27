@@ -3,19 +3,16 @@ const client = {
     name: 'Azaf car'
 }
 
+
+const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
     const localhost = "http://localhost:1337"
     // console.log("dsd")
 
-    fetch(APICars)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.data)
-            buildCarCard(data.data)
-        })
-        .catch(err => console.error(err));
+
 
     const columns = [
         {
@@ -33,6 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             data: 'attributes.Make',
+            render: function (data, row) {
+                return `
+                <div class="avatar avatar-sm">
+                    <img src="../assets/img/brands2/${data}.svg" alt="car" class="avatar-img rounded ">
+                </div>
+                `
+            }
         },
         {
             data: 'attributes.Model',
@@ -143,132 +147,206 @@ document.addEventListener("DOMContentLoaded", function () {
     const older = document.getElementById("older");
     const newer = document.getElementById("newer");
 
-    older.addEventListener("click", () => {
 
-        console.log(initDatatable.page.info());
-        initDatatable.page('previous').draw('page')
-    })
+    if (older) {
 
-    newer.addEventListener("click", () => {
-        console.log("prev");
-        initDatatable.page('next').draw('page')
-    })
+        older.addEventListener("click", () => {
+
+            console.log(initDatatable.page.info());
+            initDatatable.page('previous').draw('page')
+        })
+    }
+    if (newer) {
+
+        newer.addEventListener("click", () => {
+            console.log("prev");
+            initDatatable.page('next').draw('page')
+        })
+    }
+
+
 
 
     const carsCard = document.getElementById('carsCard');
+    if (carsCard) {
+        fetch(APICars)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.data)
+                buildCarCard(data.data)
+            })
+            .catch(err => console.error(err));
+        const buildCarCard = (cars) => {
+            const UI = cars.map((item) => {
 
-    const buildCarCard = (cars) => {
-        const UI = cars.map((item) => {
-
-            return `
-            <div class="col-12 col-md-6 col-xl-4">
-                <div class="card">
-
-                <div class=" position-relative">
-                    <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
-                        ${item.attributes.Status}
-                    </span>
-                    <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
-                </div>
-
-                <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col">
-
-                            <h2 class="card-title text-center">
-                            ${item.attributes.Name}
-                            </h2>
-
-                            <p class="small text-center text-muted mb-3">
-                            ${item.attributes.Make}
-                            </p>
-
-                            <p class="text-center mb-4">
-                            <span class="badge bg-secondary-soft">
-                                ${item.attributes.Categorie}
-                            </span>
-                            <span class="badge bg-secondary-soft">
-                                ${item.attributes.FuelType}
-                            </span>
-                            </p>
-                        </div>
-
-                        </div>
-
-                        <div class="row g-0 border-top border-bottom">
-                        <div class="col-4 py-4 text-center">
-
-                            <h6 class="text-uppercase text-muted">
-                            Followers
-                            </h6>
-
-                            <h2 class="mb-0">10.2k</h2>
-
-                        </div>
-                        <div class="col-4 py-4 text-center border-start">
-
-                            <h6 class="text-uppercase text-muted">
-                            Following
-                            </h6>
-
-                            <h2 class="mb-0">2.7k</h2>
-
-                        </div>
-                        <div class="col-4 py-4 text-center border-start">
-
-                            <h6 class="text-uppercase text-muted">
-                            Following
-                            </h6>
-
-                            <h2 class="mb-0">2.7k</h2>
-
-                        </div>
-                        </div>
+                return `
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="card">
+    
+                    <div class=" position-relative">
+                        <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
+                            ${item.attributes.Status}
+                        </span>
+                        <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
                     </div>
-
-
+    
+                    <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                
+                                <div class="avatar avatar-sm">
+                                    <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded ">
+                                </div>
+                                <h2 class="card-title text-center">
+                                    ${item.attributes.Name}
+                                </h2>
+    
+                                <p class="small text-center text-muted mb-3">
+                                    ${item.attributes.Make}
+                                </p>
+    
+                                <p class="text-center mb-4">
+                                <span class="badge bg-secondary-soft">
+                                    ${item.attributes.Categorie}
+                                </span>
+                                <span class="badge bg-secondary-soft">
+                                    ${item.attributes.FuelType}
+                                </span>
+                                </p>
+                            </div>
+    
+                            </div>
+    
+                            <div class="row g-0 border-top border-bottom">
+                            <div class="col-4 py-4 text-center">
+    
+                                <h6 class="text-uppercase text-muted">
+                                Followers
+                                </h6>
+    
+                                <h2 class="mb-0">10.2k</h2>
+    
+                            </div>
+                            <div class="col-4 py-4 text-center border-start">
+    
+                                <h6 class="text-uppercase text-muted">
+                                Following
+                                </h6>
+    
+                                <h2 class="mb-0">2.7k</h2>
+    
+                            </div>
+                            <div class="col-4 py-4 text-center border-start">
+    
+                                <h6 class="text-uppercase text-muted">
+                                Following
+                                </h6>
+    
+                                <h2 class="mb-0">2.7k</h2>
+    
+                            </div>
+                            </div>
+                        </div>
+    
+    
+                    </div>
                 </div>
-            </div>
-            `;
+                `;
 
-        })
+            })
 
-        for (var i = 0; i < UI.length; i++) {
-            carsCard.innerHTML += UI[i];
+            for (var i = 0; i < UI.length; i++) {
+                carsCard.innerHTML += UI[i];
+            }
         }
     }
 
-    document.getElementById('addCar').addEventListener('submit', function (event) {
+    const formCar = document.getElementById("formscanCar")
+    formCar.addEventListener("click", (event) => {
         event.preventDefault();
 
-        var formData = new FormData(this);
-        const elements = this.elements; // 'this' refers to the form
-        const jsonData = {};
 
+        const fileInput = document.getElementById("filesCar");
+        const files = fileInput.files;
+        console.log('====================================');
+        console.log(files);
+        console.log('====================================');
+        if (files.length === 0) {
+            alert("Please select files to upload.");
+            return;
+        }
+        var formData = new FormData();
 
-        for (let element of elements) {
-            if (element.name && element.type !== 'submit') { // Ensure the element has a name and is not the submit button
-                if (element.type === 'file') {
-                    if (element.files.length > 0) { // Check if files are selected
-                        formData.append(element.name, element.files[0]); // Append each file to formData
-                    }
-                } else {
-                    // formData.append(element.name, element.value); // Append other input types to formData
-                    jsonData[element.name] = element.value;
-                }
-            }
+        for (let i = 0; i < files.length; i++) {
+            formData.append("upload", files[i]);
         }
 
-        formData.append('data', JSON.stringify(jsonData));
+        try {
+            fetch(APIScanCar, {
+                method: "POST",
+                body: formData,
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    console.log('====================================');
+                    console.log(response);
+                    console.log('====================================');
+                })
+                .then(data => {
+                    console.log(data)
+                })
+
+            // const response = fetch(APIScanCar, {
+            //     method: "POST",
+            //     body: formData,
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     mode: 'no-cors'
+            // });
+            // const result = response.json();
+            // console.log("Files uploaded successfully:", result);
+
+            // if (response.ok) {
+            // } else {
+            //     console.error("Failed to upload files:", response.statusText);
+            // }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    });
+
+    // document.getElementById('addCar').addEventListener('submit', function (event) {
+    //     event.preventDefault();
+
+    //     var formData = new FormData(this);
+    //     const elements = this.elements; // 'this' refers to the form
+    //     const jsonData = {};
 
 
-        fetch('http://localhost:1337/api/cars', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => console.log('Success:', data))
-            .catch((error) => console.error('Error:', error));
-    })
+    //     for (let element of elements) {
+    //         if (element.name && element.type !== 'submit') { // Ensure the element has a name and is not the submit button
+    //             if (element.type === 'file') {
+    //                 if (element.files.length > 0) { // Check if files are selected
+    //                     formData.append(element.name, element.files[0]); // Append each file to formData
+    //                 }
+    //             } else {
+    //                 jsonData[element.name] = element.value;
+    //             }
+    //         }
+    //     }
+
+    //     formData.append('data', JSON.stringify(jsonData));
+
+
+
+    // })
+
+
+
+
 
 })
