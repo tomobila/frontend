@@ -5,13 +5,14 @@ const client = {
 
 
 // const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
-const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
+const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
+const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
+
+const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
+const localhost = "http://localhost:1337"
+
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
-    const localhost = "http://localhost:1337"
-    // console.log("dsd")
 
 
 
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, row) {
                 return `
                 <div class="avatar avatar-sm">
-                    <img src="../assets/img/brands2/${data}.svg" alt="car" class="avatar-img rounded ">
+                    <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded ">
                 </div>
                 `
             }
@@ -196,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="col">
                                 
                                 <div class="avatar avatar-sm">
-                                    <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded ">
+                                    <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded ">
                                 </div>
                                 <h2 class="card-title text-center">
                                     ${item.attributes.Name}
@@ -262,62 +263,79 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    const formCar = document.getElementById("formscanCar")
-    formCar.addEventListener("click", (event) => {
+    // const formCar = document.getElementById("formscanCar")
+    const send = document.querySelector("#formscanCar");
+
+    send.addEventListener("click", async (event) => {
         event.preventDefault();
 
+        const formData = new FormData();
 
-        const fileInput = document.getElementById("filesCar");
-        const files = fileInput.files;
-        console.log('====================================');
-        console.log(files);
-        console.log('====================================');
-        if (files.length === 0) {
+        const fileInput = document.getElementById("filesCar").files;
+
+        for (let i = 0; i < fileInput.length; i++) {
+            formData.append("upload", fileInput[i]);
+        }
+
+        if (fileInput.length < 2) {
             alert("Please select files to upload.");
             return;
         }
-        var formData = new FormData();
 
-        for (let i = 0; i < files.length; i++) {
-            formData.append("upload", files[i]);
-        }
+        const response = await fetch(APIScanCar, {
+            method: "POST",
+            body: formData,
+        });
 
-        try {
-            fetch(APIScanCar, {
-                method: "POST",
-                body: formData,
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => {
-                    console.log('====================================');
-                    console.log(response);
-                    console.log('====================================');
-                })
-                .then(data => {
-                    console.log(data)
-                })
+        response.json().then(data => {
+            console.log(data.data);
 
-            // const response = fetch(APIScanCar, {
-            //     method: "POST",
-            //     body: formData,
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     mode: 'no-cors'
-            // });
-            // const result = response.json();
-            // console.log("Files uploaded successfully:", result);
 
-            // if (response.ok) {
-            // } else {
-            //     console.error("Failed to upload files:", response.statusText);
-            // }
-        } catch (error) {
-            console.error("Error:", error);
-        }
+
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+
+
+        // console.log(response.json());
+
+        // try {
+        //     fetch(APIScanCar, {
+        //         method: "POST",
+        //         body: formData,
+        //         mode: 'no-cors',
+        //         headers: {
+        //             "Content-Type": "multipart/form-data"
+        //         }
+
+        //     })
+        //         .then(response => {
+        //             console.log('====================================');
+        //             console.log(response);
+        //             console.log('====================================');
+        //         })
+        //         .then(data => {
+        //             console.log(data)
+        //         })
+
+        //     // const response = fetch(APIScanCar, {
+        //     //     method: "POST",
+        //     //     body: formData,
+        //     //     headers: {
+        //     //         'Content-Type': 'application/json'
+        //     //     },
+        //     //     mode: 'no-cors'
+        //     // });
+        //     // const result = response.json();
+        //     // console.log("Files uploaded successfully:", result);
+
+        //     // if (response.ok) {
+        //     // } else {
+        //     //     console.error("Failed to upload files:", response.statusText);
+        //     // }
+        // } catch (error) {
+        //     console.error("Error:", error);
+        // }
     });
 
     // document.getElementById('addCar').addEventListener('submit', function (event) {
