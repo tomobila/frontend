@@ -78,3 +78,74 @@ table.dataTable.no-footer {
     width: 100% !important;
     min-height: 380px;
 }
+
+.bottom-panel {
+    position: fixed;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.146);
+    padding: 20px;
+    background-color: #FAFAFA;
+    border-radius: 40px 40px 0px 0px;
+}
+
+.bottom-panel ul {
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.bottom-panel ul li {
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    color: #222222;
+}
+
+.bottom-panel ul li a {
+    color: #222222;
+}
+
+.luxa-footer-item {
+    background: transparent;
+    border-radius: 25px;
+    padding: 5px 10px;
+    align-items: center !important;
+    pointer-events: none;
+}
+
+.luxa-footer-item img {
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.luxa-footer-item.active img {
+    width: 20px;
+    height: 20px;
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+.bottom-panel ul li a span {
+    font-size: 10px;
+    font-weight: 500;
+    color: #222222;
+    text-transform: capitalize;
+    margin-left: 6px;
+    display: none;
+}
+
+.luxa-footer-item.active {
+    background: white;
+}
+
+.luxa-footer-item.active span {
+    display: inherit;
+    color: #1a49f8;
+}

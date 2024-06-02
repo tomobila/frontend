@@ -1,830 +1,1263 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
-    
+    <meta
+      name="description"
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+    />
+
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon"/>
-    
+    <link
+      rel="shortcut icon"
+      href="assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+
     <!-- Map CSS -->
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
+    />
+
     <!-- Libs CSS -->
     <link rel="stylesheet" href="assets/css/libs.bundle.css" />
-    
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/css/theme.bundle.css" id="stylesheetLight" />
-    <link rel="stylesheet" href="assets/css/theme-dark.bundle.css" id="stylesheetDark" />
 
-    <link rel="stylesheet" href="assets/css/custom.css">
-    
-    <style>body { display: none; }</style>
-    
+    <!-- Theme CSS -->
+    <link
+      rel="stylesheet"
+      href="assets/css/theme.bundle.css"
+      id="stylesheetLight"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/theme-dark.bundle.css"
+      id="stylesheetDark"
+    />
+
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <style>
+      body {
+        display: none;
+      }
+    </style>
+
     <!-- Title -->
 
     <title>Tomobila</title>
 
-    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+    <link
+      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      type="text/javascript"
+    ></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     <script src="assets/js/script.js"></script>
-    
   </head>
   <body>
-
-
-
     <!-- NAVIGATION -->
-   <nav class="navbar navbar-expand-lg" id="topnav">
-        <div class="container">
-      
-          <!-- Toggler -->
-          <button class="navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <!-- Brand -->
-          <a class="navbar-brand me-auto" href="./index.html">
-            <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img">
-          </a>
-      
-          <!-- Form -->
-          <form class="form-inline me-4 d-none d-lg-flex">
-            <div class="input-group input-group-rounded input-group-merge input-group-reverse" data-list="{&quot;valueNames&quot;: [&quot;name&quot;]}">
-      
-              <!-- Input -->
-              <input type="search" class="form-control dropdown-toggle list-search" data-bs-toggle="dropdown" placeholder="Search" aria-label="Search">
-      
-              <!-- Icon -->
-              <div class="input-group-text">
-                <i class="fe fe-search"></i>
-              </div>
-      
-              <!-- Menu -->
-              <div class="dropdown-menu dropdown-menu-card">
-                <div class="card-body">
-      
-                  <!-- List group -->
-                  <div class="list-group list-group-flush list-group-focus list my-n3"><a class="list-group-item" href="./team-overview.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar">
-                            <img src="./assets/img/avatars/teams/team-logo-1.jpg" alt="..." class="avatar-img rounded">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Airbnb
-                          </h4>
-      
-                          <!-- Time -->
-                          <p class="small text-body-secondary mb-0">
-                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Updated 2hr ago</time>
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./team-overview.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar">
-                            <img src="./assets/img/avatars/teams/team-logo-2.jpg" alt="..." class="avatar-img rounded">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Medium Corporation
-                          </h4>
-      
-                          <!-- Time -->
-                          <p class="small text-body-secondary mb-0">
-                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Updated 2hr ago</time>
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./project-overview.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-4by3">
-                            <img src="./assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Homepage Redesign
-                          </h4>
-      
-                          <!-- Time -->
-                          <p class="small text-body-secondary mb-0">
-                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Updated 4hr ago</time>
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./project-overview.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-4by3">
-                            <img src="./assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Travels &amp; Time
-                          </h4>
-      
-                          <!-- Time -->
-                          <p class="small text-body-secondary mb-0">
-                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Updated 4hr ago</time>
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./project-overview.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-4by3">
-                            <img src="./assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Safari Exploration
-                          </h4>
-      
-                          <!-- Time -->
-                          <p class="small text-body-secondary mb-0">
-                            <span class="fe fe-clock"></span> <time datetime="2018-05-24">Updated 4hr ago</time>
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./profile-posts.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar">
-                            <img src="./assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Dianna Smiley
-                          </h4>
-      
-                          <!-- Status -->
-                          <p class="text-body small mb-0">
-                            <span class="text-success">●</span> Online
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a><a class="list-group-item" href="./profile-posts.html">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar">
-                            <img src="./assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Title -->
-                          <h4 class="text-body text-focus mb-1 name">
-                            Ab Hadley
-                          </h4>
-      
-                          <!-- Status -->
-                          <p class="text-body small mb-0">
-                            <span class="text-danger">●</span> Offline
-                          </p>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a></div>
-      
-                </div>
-              </div> <!-- / .dropdown-menu -->
-      
+    <nav class="navbar navbar-expand-lg" id="topnav">
+      <div class="container">
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler me-auto"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+          aria-controls="navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand me-auto" href="./index.html">
+          <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img" />
+        </a>
+
+        <!-- Form -->
+        <form class="form-inline me-4 d-none d-lg-flex">
+          <div
+            class="input-group input-group-rounded input-group-merge input-group-reverse"
+            data-list='{"valueNames": ["name"]}'
+          >
+            <!-- Input -->
+            <input
+              type="search"
+              class="form-control dropdown-toggle list-search"
+              data-bs-toggle="dropdown"
+              placeholder="Search"
+              aria-label="Search"
+            />
+
+            <!-- Icon -->
+            <div class="input-group-text">
+              <i class="fe fe-search"></i>
             </div>
-          </form>
-      
-          <!-- User -->
-          <div class="navbar-user">
-      
-            <!-- Dropdown -->
-            <div class="dropdown me-4 d-none d-lg-flex">
-      
-              <!-- Toggle -->
-              <a href="#" class="navbar-user-link" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="icon active">
-                  <i class="fe fe-bell"></i>
-                </span>
-              </a>
-      
-              <!-- Menu -->
-              <div class="dropdown-menu dropdown-menu-end dropdown-menu-card">
-                <div class="card-header">
-      
-                  <!-- Title -->
-                  <h5 class="card-header-title">
-                    Notifications
-                  </h5>
-      
-                  <!-- Link -->
-                  <a href="#!" class="small">
-                    View all
+
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-card">
+              <div class="card-body">
+                <!-- List group -->
+                <div
+                  class="list-group list-group-flush list-group-focus list my-n3"
+                  ><a class="list-group-item" href="./team-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img
+                            src="./assets/img/avatars/teams/team-logo-1.jpg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name"> Airbnb </h4>
+
+                        <!-- Time -->
+                        <p class="small text-body-secondary mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 2hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./team-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img
+                            src="./assets/img/avatars/teams/team-logo-2.jpg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Medium Corporation
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-body-secondary mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 2hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img
+                            src="./assets/img/avatars/projects/project-1.jpg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Homepage Redesign
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-body-secondary mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img
+                            src="./assets/img/avatars/projects/project-2.jpg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Travels &amp; Time
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-body-secondary mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img
+                            src="./assets/img/avatars/projects/project-3.jpg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Safari Exploration
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-body-secondary mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./profile-posts.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-1.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Dianna Smiley
+                        </h4>
+
+                        <!-- Status -->
+                        <p class="text-body small mb-0">
+                          <span class="text-success">●</span> Online
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a
+                  ><a class="list-group-item" href="./profile-posts.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-2.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Ab Hadley
+                        </h4>
+
+                        <!-- Status -->
+                        <p class="text-body small mb-0">
+                          <span class="text-danger">●</span> Offline
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a></div
+                >
+              </div>
+            </div>
+            <!-- / .dropdown-menu -->
+          </div>
+        </form>
+
+        <!-- User -->
+        <div class="navbar-user">
+          <!-- Dropdown -->
+          <div class="dropdown me-4 d-none d-lg-flex">
+            <!-- Toggle -->
+            <a
+              href="#"
+              class="navbar-user-link"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="icon active">
+                <i class="fe fe-bell"></i>
+              </span>
+            </a>
+
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-card">
+              <div class="card-header">
+                <!-- Title -->
+                <h5 class="card-header-title"> Notifications </h5>
+
+                <!-- Link -->
+                <a href="#!" class="small"> View all </a>
+              </div>
+              <!-- / .card-header -->
+              <div class="card-body">
+                <!-- List group -->
+                <div
+                  class="list-group list-group-flush list-group-activity my-n3"
+                >
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-1.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Dianna Smiley</strong> shared your post with
+                          Ab Hadley, Adolfo Hess, and 3 others.
+                        </div>
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
                   </a>
-      
-                </div> <!-- / .card-header -->
-                <div class="card-body">
-      
-                  <!-- List group -->
-                  <div class="list-group list-group-flush list-group-activity my-n3">
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-2.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Dianna Smiley</strong> shared your post with Ab Hadley, Adolfo Hess, and 3 others.
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Ab Hadley</strong> reacted to your post with a
+                          😍
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-3.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Ab Hadley</strong> reacted to your post with a 😍
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Adolfo Hess</strong> commented
+                          <blockquote class="mb-0"
+                            >“I don’t think this really makes sense to do
+                            without approval from Johnathan since he’s the
+                            one...”
+                          </blockquote>
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-4.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Adolfo Hess</strong> commented <blockquote class="mb-0">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Daniela Dewitt</strong> subscribed to you.
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-5.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Daniela Dewitt</strong> subscribed to you.
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Miyah Myles</strong> shared your post with Ryu
+                          Duke, Glen Rouse, and 3 others.
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-6.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Miyah Myles</strong> shared your post with Ryu Duke, Glen Rouse, and 3 others.
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Ryu Duke</strong> reacted to your post with a
+                          😍
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-6.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-7.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Ryu Duke</strong> reacted to your post with a 😍
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Glen Rouse</strong> commented
+                          <blockquote class="mb-0"
+                            >“I don’t think this really makes sense to do
+                            without approval from Johnathan since he’s the
+                            one...”
+                          </blockquote>
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item text-reset" href="#!">
+                    <div class="row">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-sm">
+                          <img
+                            src="./assets/img/avatars/profiles/avatar-8.jpg"
+                            alt="..."
+                            class="avatar-img rounded-circle"
+                          />
                         </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Glen Rouse</strong> commented <blockquote class="mb-0">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Content -->
+                        <div class="small">
+                          <strong>Grace Gross</strong> subscribed to you.
                         </div>
-                      </div> <!-- / .row -->
-                    </a>
-                    <a class="list-group-item text-reset" href="#!">
-                      <div class="row">
-                        <div class="col-auto">
-      
-                          <!-- Avatar -->
-                          <div class="avatar avatar-sm">
-                            <img src="./assets/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
-                          </div>
-      
-                        </div>
-                        <div class="col ms-n2">
-      
-                          <!-- Content -->
-                          <div class="small">
-                            <strong>Grace Gross</strong> subscribed to you.
-                          </div>
-      
-                          <!-- Time -->
-                          <small class="text-body-secondary">
-                            2m ago
-                          </small>
-      
-                        </div>
-                      </div> <!-- / .row -->
-                    </a>
-                  </div>
-      
+
+                        <!-- Time -->
+                        <small class="text-body-secondary"> 2m ago </small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a>
                 </div>
-              </div> <!-- / .dropdown-menu -->
-      
-            </div>
-      
-            <!-- Dropdown -->
-            <div class="dropdown">
-      
-              <!-- Toggle -->
-              <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="./assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-              </a>
-      
-              <!-- Menu -->
-              <div class="dropdown-menu dropdown-menu-end">
-                <a href="./profile-posts.html" class="dropdown-item">Profile</a>
-                <a href="./account-general.html" class="dropdown-item">Settings</a>
-                <hr class="dropdown-divider">
-                <a href="./sign-in.html" class="dropdown-item">Logout</a>
               </div>
-      
             </div>
-      
+            <!-- / .dropdown-menu -->
           </div>
-      
-          <!-- Collapse -->
-          <div class="collapse navbar-collapse me-lg-auto order-lg-first" id="navbar">
-      
-            <!-- Form -->
-            <form class="mt-4 mb-3 d-md-none">
-              <input type="search" class="form-control form-control-rounded" placeholder="Search" aria-label="Search">
-            </form>
-      
-            <!-- Navigation -->
-            <ul class="navbar-nav me-lg-auto">
-             
-              
-              
-              <li class="nav-item">
-                <a class="nav-link" href="index.html" >
-                  Dashboard
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="vehicules.html" >
-                  Véhicules
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="clients.html" >
-                  Clients
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" >
-                  Contrats
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Paiements
-                </a>
-              </li>
-            </ul>
-      
+
+          <!-- Dropdown -->
+          <div class="dropdown">
+            <!-- Toggle -->
+            <a
+              href="#"
+              class="avatar avatar-sm avatar-online dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="./assets/img/avatars/profiles/avatar-1.jpg"
+                alt="..."
+                class="avatar-img rounded-circle"
+              />
+            </a>
+
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-end">
+              <a href="./profile-posts.html" class="dropdown-item">Profile</a>
+              <a href="./account-general.html" class="dropdown-item"
+                >Settings</a
+              >
+              <hr class="dropdown-divider" />
+              <a href="./sign-in.html" class="dropdown-item">Logout</a>
+            </div>
           </div>
-      
-        </div> <!-- / .container -->
-      </nav>
+        </div>
+
+        <!-- Collapse -->
+        <div
+          class="collapse navbar-collapse me-lg-auto order-lg-first"
+          id="navbar"
+        >
+          <!-- Form -->
+          <form class="mt-4 mb-3 d-md-none">
+            <input
+              type="search"
+              class="form-control form-control-rounded"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </form>
+
+          <!-- Navigation -->
+          <ul class="navbar-nav me-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"> Dashboard </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="vehicules.html"> Véhicules </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients.html"> Clients </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Contrats </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Paiements </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- / .container -->
+    </nav>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
-      
-
       <div class="header">
         <div class="container">
           <div class="header-body">
             <div class="row align-items-center">
               <div class="col">
-
                 <!-- Pretitle -->
-                <h6 class="header-pretitle">
-                  Overview
-                </h6>
+                <h6 class="header-pretitle"> Overview </h6>
 
                 <!-- Title -->
-                <h1 class="header-title text-truncate">
-                  Véhicules
-                </h1>
-
+                <h1 class="header-title text-truncate"> Véhicules </h1>
               </div>
               <div class="col-auto">
-
                 <!-- Navigation (button group) -->
                 <div class="nav btn-group d-inline-flex" role="tablist">
-                  <button class="btn btn-white active" id="contactsListTab" data-bs-toggle="tab" data-bs-target="#contactsListPane" role="tab" aria-controls="contactsListPane" aria-selected="true">
+                  <button
+                    class="btn btn-white"
+                    id="contactsListTab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#contactsListPane"
+                    role="tab"
+                    aria-controls="contactsListPane"
+                    aria-selected="true"
+                  >
                     <span class="fe fe-list"></span>
                   </button>
-                  <button class="btn btn-white" id="contactsCardsTab" data-bs-toggle="tab" data-bs-target="#contactsCardsPane" role="tab" aria-controls="contactsCardsPane" aria-selected="false">
+                  <button
+                    class="btn btn-white active"
+                    id="contactsCardsTab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#contactsCardsPane"
+                    role="tab"
+                    aria-controls="contactsCardsPane"
+                    aria-selected="false"
+                  >
                     <span class="fe fe-grid"></span>
                   </button>
-                </div> <!-- / .nav -->
+                </div>
+                <!-- / .nav -->
 
                 <!-- Buttons -->
                 <a href="n-vehicule.html" class="btn btn-primary ms-2">
                   Nouveau Véhicules
                 </a>
-
               </div>
-            </div> <!-- / .row -->
-
-            <div class="row align-items-center">
-                  <div class="col">
-
-                    <!-- Nav -->
-                    <ul class="nav nav-tabs nav-overflow header-tabs">
-                      <li class="nav-item">
-                        <a href="#!" class="nav-link text-nowrap active">
-                          All Cars <span class="badge rounded-pill bg-secondary-soft">627</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#!" class="nav-link text-nowrap">
-                          Your Cars <span class="badge rounded-pill bg-secondary-soft">198</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#!" class="nav-link text-nowrap">
-                          Deleted <span class="badge rounded-pill bg-secondary-soft">29</span>
-                        </a>
-                      </li>
-                    </ul>
-
-                  </div>
             </div>
-           
+            <!-- / .row -->
+
+            <!-- <div class="row align-items-center">
+              <div class="col">
+                <ul class="nav nav-tabs nav-overflow header-tabs">
+                  <li class="nav-item">
+                    <a href="#!" class="nav-link text-nowrap active">
+                      All Cars
+                      <span class="badge rounded-pill bg-secondary-soft"
+                        >627</span
+                      >
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#!" class="nav-link text-nowrap">
+                      Your Cars
+                      <span class="badge rounded-pill bg-secondary-soft"
+                        >198</span
+                      >
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#!" class="nav-link text-nowrap">
+                      Deleted
+                      <span class="badge rounded-pill bg-secondary-soft"
+                        >29</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
           </div>
         </div>
-        </div>
-       
-        <div class="tab-content">
-          <div class="tab-pane fade active show" id="contactsListPane" role="tabpanel" aria-labelledby="contactsListTab">
-            <div class="container">
-                <div class="row justify-content-center">
-                
+      </div>
 
-                  <table class="table table-sm" id="listCars">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">MARQUE</th>
-                            <th scope="col">Modele</th>
-                            <th scope="col">Categorie</th>
-                            <th scope="col">Matricule</th>
-                            <th scope="col">CARBURANT</th>
-                            <th scope="col">Status</th>
-                            <!-- <th scope="col">Année</th> -->
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                  </table>
-                  <div class="card-footer d-flex justify-content-between bg-white">
+      <div class="tab-content">
+        <div
+          class="tab-pane fade"
+          id="contactsListPane"
+          role="tabpanel"
+          aria-labelledby="contactsListTab"
+        >
+          <div class="container">
+            <div class="row justify-content-center">
+              <table class="table table-sm" id="listCars">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">MARQUE</th>
+                    <th scope="col">Modele</th>
+                    <th scope="col">Categorie</th>
+                    <th scope="col">Matricule</th>
+                    <th scope="col">CARBURANT</th>
+                    <th scope="col">Status</th>
+                    <!-- <th scope="col">Année</th> -->
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+              </table>
+              <div class="card-footer d-flex justify-content-between bg-white">
+                <ul
+                  class="list-pagination-prev pagination pagination-tabs card-pagination"
+                >
+                  <li class="page-item">
+                    <a
+                      class="page-link ps-0 pe-4 border-end"
+                      href="#"
+                      id="older"
+                    >
+                      <i class="fe fe-arrow-left me-1"></i> Prev
+                    </a>
+                  </li>
+                </ul>
 
-                          <ul class="list-pagination-prev pagination pagination-tabs card-pagination">
-                            <li class="page-item">
-                              <a class="page-link ps-0 pe-4 border-end" href="#" id="older">
-                                <i class="fe fe-arrow-left me-1"></i> Prev
-                              </a>
-                            </li>
-                          </ul>
+                <!-- Pagination -->
+                <ul
+                  class="list-pagination pagination pagination-tabs card-pagination"
+                  ><li class="active"
+                    ><a class="page" href="#" data-i="1" data-page="10"
+                      >1</a
+                    ></li
+                  ><li
+                    ><a class="page" href="#" data-i="2" data-page="10"
+                      >2</a
+                    ></li
+                  ><li
+                    ><a class="page" href="#" data-i="3" data-page="10"
+                      >3</a
+                    ></li
+                  ></ul
+                >
 
-                          <!-- Pagination -->
-                          <ul class="list-pagination pagination pagination-tabs card-pagination"><li class="active"><a class="page" href="#" data-i="1" data-page="10">1</a></li><li><a class="page" href="#" data-i="2" data-page="10">2</a></li><li><a class="page" href="#" data-i="3" data-page="10">3</a></li></ul>
-
-                          <!-- Pagination (next) -->
-                          <ul class="list-pagination-next pagination pagination-tabs card-pagination">
-                            <li class="page-item">
-                              <a class="page-link ps-4 pe-0 border-start" href="#" id="newer">
-                                Next <i class="fe fe-arrow-right ms-1"></i>
-                              </a>
-                            </li>
-                          </ul>
-                  </div>
-              </div> 
-
-
-
+                <!-- Pagination (next) -->
+                <ul
+                  class="list-pagination-next pagination pagination-tabs card-pagination"
+                >
+                  <li class="page-item">
+                    <a
+                      class="page-link ps-4 pe-0 border-start"
+                      href="#"
+                      id="newer"
+                    >
+                      Next <i class="fe fe-arrow-right ms-1"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="tab-pane" id="contactsCardsPane"  role="tabpanel" aria-labelledby="contactsListTab">
-            <div class="container">
-              <div class="row align-items-center mb-4">
-                    <div class="col">
+        </div>
+        <div
+          class="tab-pane active show"
+          id="contactsCardsPane"
+          role="tabpanel"
+          aria-labelledby="contactsListTab"
+        >
+          <div class="container">
+            <div class="row align-items-center mb-4">
+              <div class="col">
+                <!-- Form -->
+                <form>
+                  <div
+                    class="input-group input-group-lg input-group-merge input-group-reverse"
+                  >
+                    <input
+                      class="form-control list-search"
+                      type="search"
+                      placeholder="Search"
+                    />
+                    <span class="input-group-text">
+                      <i class="fe fe-search"></i>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <div class="col-auto me-n3">
+                <!-- Select -->
+                <form>
+                  <div
+                    class="choices"
+                    data-type="select-one"
+                    tabindex="0"
+                    role="listbox"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><div class="form-select form-select-sm form-control-flush"
+                      ><select
+                        class="form-select form-select-sm form-control-flush form-control"
+                        data-choices='{"searchEnabled": false}'
+                        hidden=""
+                        tabindex="-1"
+                        data-choice="active"
+                        ><option value="9 per page">9 per page</option></select
+                      ><div class="choices__list choices__list--single"
+                        ><div
+                          class="choices__item choices__item--selectable"
+                          data-item=""
+                          data-id="1"
+                          data-value="9 per page"
+                          data-custom-properties="null"
+                          aria-selected="true"
+                          >9 per page</div
+                        ></div
+                      ></div
+                    ><div
+                      class="choices__list dropdown-menu"
+                      aria-expanded="false"
+                      ><div class="choices__list" role="listbox"
+                        ><div
+                          class="choices__item dropdown-item choices__item--selectable is-highlighted"
+                          data-select-text="Press to select"
+                          data-choice=""
+                          data-choice-selectable=""
+                          data-id="1"
+                          data-value="9 per page"
+                          role="option"
+                          aria-selected="true"
+                        >
+                          9 per page </div
+                        ><div
+                          class="choices__item dropdown-item choices__item--selectable"
+                          data-select-text="Press to select"
+                          data-choice=""
+                          data-choice-selectable=""
+                          data-id="2"
+                          data-value="All"
+                          role="option"
+                        >
+                          All
+                        </div></div
+                      ></div
+                    >
+                  </div>
+                </form>
+              </div>
+              <div class="col-auto">
+                <!-- Dropdown -->
+                <div class="dropdown">
+                  <!-- Toggle -->
+                  <button
+                    class="btn btn-sm btn-white"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fe fe-sliders me-1"></i> Filter
+                    <span class="badge bg-primary ms-1 d-none">0</span>
+                  </button>
 
-                      <!-- Form -->
-                      <form>
-                        <div class="input-group input-group-lg input-group-merge input-group-reverse">
-                          <input class="form-control list-search" type="search" placeholder="Search">
-                          <span class="input-group-text">
-                            <i class="fe fe-search"></i>
-                          </span>
-                        </div>
-                      </form>
+                  <!-- Menu -->
+                  <form
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-card"
+                  >
+                    <div class="card-header">
+                      <!-- Title -->
+                      <h4 class="card-header-title"> Filters </h4>
 
+                      <!-- Link -->
+                      <button
+                        class="btn btn-sm btn-link text-reset d-none"
+                        type="reset"
+                      >
+                        <small>Clear filters</small>
+                      </button>
                     </div>
-                    <div class="col-auto me-n3">
-
-                      <!-- Select -->
-                      <form>
-                        <div class="choices" data-type="select-one" tabindex="0" role="listbox" aria-haspopup="true" aria-expanded="false"><div class="form-select form-select-sm form-control-flush"><select class="form-select form-select-sm form-control-flush form-control" data-choices="{&quot;searchEnabled&quot;: false}" hidden="" tabindex="-1" data-choice="active"><option value="9 per page">9 per page</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="9 per page" data-custom-properties="null" aria-selected="true">9 per page</div></div></div><div class="choices__list dropdown-menu" aria-expanded="false"><div class="choices__list" role="listbox"><div class="choices__item dropdown-item choices__item--selectable is-highlighted" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="1" data-value="9 per page" role="option" aria-selected="true">
-                            9 per page
-                          </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="2" data-value="All" role="option">
-                            All
-                          </div></div></div>
-                        </div>
-                      </form>
-
-                    </div>
-                    <div class="col-auto">
-
-                      <!-- Dropdown -->
-                      <div class="dropdown">
-
-                        <!-- Toggle -->
-                        <button class="btn btn-sm btn-white" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fe fe-sliders me-1"></i> Filter <span class="badge bg-primary ms-1 d-none">0</span>
-                        </button>
-
-                        <!-- Menu -->
-                        <form class="dropdown-menu dropdown-menu-end dropdown-menu-card">
-                          <div class="card-header">
-
-                            <!-- Title -->
-                            <h4 class="card-header-title">
-                              Filters
-                            </h4>
-
-                            <!-- Link -->
-                            <button class="btn btn-sm btn-link text-reset d-none" type="reset">
-                              <small>Clear filters</small>
-                            </button>
-
-                          </div>
-                          <div class="card-body">
-
-                            <!-- List group -->
-                            <div class="list-group list-group-flush mt-n4 mb-4">
-                              <div class="list-group-item">
-                                <div class="row">
-                                  <div class="col">
-
-                                    <!-- Text -->
-                                    <small>Title</small>
-
-                                  </div>
-                                  <div class="col-auto">
-
-                                    <!-- Select -->
-                                    <div class="choices" data-type="select-one" tabindex="0" role="listbox" aria-haspopup="true" aria-expanded="false"><div class="form-select form-select-sm"><select class="form-select form-select-sm form-control" name="item-title" data-choices="{&quot;searchEnabled&quot;: false}" hidden="" tabindex="-1" data-choice="active"><option value="*">Any</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="*" data-custom-properties="null" aria-selected="true">Any</div></div></div><div class="choices__list dropdown-menu" aria-expanded="false"><div class="choices__list" role="listbox"><div class="choices__item dropdown-item choices__item--selectable is-highlighted" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="1" data-value="*" role="option" aria-selected="true">
-              Any
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="2" data-value="Designer" role="option">
-              Designer
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="3" data-value="Developer" role="option">
-              Developer
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="4" data-value="Owner" role="option">
-              Owner
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="5" data-value="Founder" role="option">
-              Founder
-            </div></div></div></div>
-
-                                  </div>
-                                </div> <!-- / .row -->
-                              </div>
-                              <div class="list-group-item">
-                                <div class="row">
-                                  <div class="col">
-
-                                    <!-- Text -->
-                                    <small>Lead scrore</small>
-
-                                  </div>
-                                  <div class="col-auto">
-
-                                    <!-- Select -->
-                                    <div class="choices" data-type="select-one" tabindex="0" role="listbox" aria-haspopup="true" aria-expanded="false"><div class="form-select form-select-sm"><select class="form-select form-select-sm form-control" name="item-score" data-choices="{&quot;searchEnabled&quot;: false}" hidden="" tabindex="-1" data-choice="active"><option value="*">Any</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="*" data-custom-properties="null" aria-selected="true">Any</div></div></div><div class="choices__list dropdown-menu" aria-expanded="false"><div class="choices__list" role="listbox"><div class="choices__item dropdown-item choices__item--selectable is-highlighted" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="1" data-value="*" role="option" aria-selected="true">
-              Any
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="2" data-value="1/10" role="option">
-              1+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="3" data-value="2/10" role="option">
-              2+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="4" data-value="3/10" role="option">
-              3+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="5" data-value="4/10" role="option">
-              4+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="6" data-value="5/10" role="option">
-              5+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="7" data-value="6/10" role="option">
-              6+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="8" data-value="7/10" role="option">
-              7+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="9" data-value="8/10" role="option">
-              8+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="10" data-value="9/10" role="option">
-              9+
-            </div><div class="choices__item dropdown-item choices__item--selectable" data-select-text="Press to select" data-choice="" data-choice-selectable="" data-id="11" data-value="10/10" role="option">
-              10
-            </div></div></div></div>
-
-                                  </div>
-                                </div> <!-- / .row -->
-                              </div>
+                    <div class="card-body">
+                      <!-- List group -->
+                      <div class="list-group list-group-flush mt-n4 mb-4">
+                        <div class="list-group-item">
+                          <div class="row">
+                            <div class="col">
+                              <!-- Text -->
+                              <small>Title</small>
                             </div>
-
-                            <!-- Button -->
-                            <button class="btn w-100 btn-primary" type="submit">
-                              Apply filter
-                            </button>
-
+                            <div class="col-auto">
+                              <!-- Select -->
+                              <div
+                                class="choices"
+                                data-type="select-one"
+                                tabindex="0"
+                                role="listbox"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                ><div class="form-select form-select-sm"
+                                  ><select
+                                    class="form-select form-select-sm form-control"
+                                    name="item-title"
+                                    data-choices='{"searchEnabled": false}'
+                                    hidden=""
+                                    tabindex="-1"
+                                    data-choice="active"
+                                    ><option value="*">Any</option></select
+                                  ><div
+                                    class="choices__list choices__list--single"
+                                    ><div
+                                      class="choices__item choices__item--selectable"
+                                      data-item=""
+                                      data-id="1"
+                                      data-value="*"
+                                      data-custom-properties="null"
+                                      aria-selected="true"
+                                      >Any</div
+                                    ></div
+                                  ></div
+                                ><div
+                                  class="choices__list dropdown-menu"
+                                  aria-expanded="false"
+                                  ><div class="choices__list" role="listbox"
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable is-highlighted"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="1"
+                                      data-value="*"
+                                      role="option"
+                                      aria-selected="true"
+                                    >
+                                      Any </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="2"
+                                      data-value="Designer"
+                                      role="option"
+                                    >
+                                      Designer </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="3"
+                                      data-value="Developer"
+                                      role="option"
+                                    >
+                                      Developer </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="4"
+                                      data-value="Owner"
+                                      role="option"
+                                    >
+                                      Owner </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="5"
+                                      data-value="Founder"
+                                      role="option"
+                                    >
+                                      Founder
+                                    </div></div
+                                  ></div
+                                ></div
+                              >
+                            </div>
                           </div>
-                        </form>
-
+                          <!-- / .row -->
+                        </div>
+                        <div class="list-group-item">
+                          <div class="row">
+                            <div class="col">
+                              <!-- Text -->
+                              <small>Lead scrore</small>
+                            </div>
+                            <div class="col-auto">
+                              <!-- Select -->
+                              <div
+                                class="choices"
+                                data-type="select-one"
+                                tabindex="0"
+                                role="listbox"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                ><div class="form-select form-select-sm"
+                                  ><select
+                                    class="form-select form-select-sm form-control"
+                                    name="item-score"
+                                    data-choices='{"searchEnabled": false}'
+                                    hidden=""
+                                    tabindex="-1"
+                                    data-choice="active"
+                                    ><option value="*">Any</option></select
+                                  ><div
+                                    class="choices__list choices__list--single"
+                                    ><div
+                                      class="choices__item choices__item--selectable"
+                                      data-item=""
+                                      data-id="1"
+                                      data-value="*"
+                                      data-custom-properties="null"
+                                      aria-selected="true"
+                                      >Any</div
+                                    ></div
+                                  ></div
+                                ><div
+                                  class="choices__list dropdown-menu"
+                                  aria-expanded="false"
+                                  ><div class="choices__list" role="listbox"
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable is-highlighted"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="1"
+                                      data-value="*"
+                                      role="option"
+                                      aria-selected="true"
+                                    >
+                                      Any </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="2"
+                                      data-value="1/10"
+                                      role="option"
+                                    >
+                                      1+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="3"
+                                      data-value="2/10"
+                                      role="option"
+                                    >
+                                      2+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="4"
+                                      data-value="3/10"
+                                      role="option"
+                                    >
+                                      3+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="5"
+                                      data-value="4/10"
+                                      role="option"
+                                    >
+                                      4+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="6"
+                                      data-value="5/10"
+                                      role="option"
+                                    >
+                                      5+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="7"
+                                      data-value="6/10"
+                                      role="option"
+                                    >
+                                      6+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="8"
+                                      data-value="7/10"
+                                      role="option"
+                                    >
+                                      7+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="9"
+                                      data-value="8/10"
+                                      role="option"
+                                    >
+                                      8+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="10"
+                                      data-value="9/10"
+                                      role="option"
+                                    >
+                                      9+ </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="11"
+                                      data-value="10/10"
+                                      role="option"
+                                    >
+                                      10
+                                    </div></div
+                                  ></div
+                                ></div
+                              >
+                            </div>
+                          </div>
+                          <!-- / .row -->
+                        </div>
                       </div>
 
+                      <!-- Button -->
+                      <button class="btn w-100 btn-primary" type="submit">
+                        Apply filter
+                      </button>
                     </div>
-                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
+            <!--  -->
+            <!--  -->
 
-                  <!--  -->
-                  <!--  -->
-
-        <div class="list row" id="carsCard">
+            <div class="list row" id="carsCard"> </div>
+          </div>
+          <!-- / .main-content -->
         </div>
-        
+      </div>
+    </div>
 
-    </div> <!-- / .main-content -->
+    <div class="bottom-panel">
+      <ul>
+        <li>
+          <a href="index.html">
+            <div
+              class="d-flex align-items-center justify-content-center luxa-footer-item"
+            >
+              <img
+                src="assets/img/icons/home-smile-svgrepo-com (1).svg"
+                alt=""
+                srcset=""
+                width="20"
+              />
+              <span>Dashboard</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="vehicules.html">
+            <div
+              class="d-flex align-items-center justify-content-center luxa-footer-item active"
+            >
+              <img
+                src="assets/img/icons/car-svgrepo-com.svg"
+                alt=""
+                srcset=""
+                width="20"
+              />
+              <span>Véhicules</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="clients.html">
+            <div
+              class="d-flex align-items-center justify-content-center luxa-footer-item"
+            >
+              <img
+                src="assets/img/icons/users-svgrepo-com (2).svg"
+                alt=""
+                srcset=""
+                width="20"
+              />
+              <span>Clients</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="contrats.html">
+            <div
+              class="d-flex align-items-center justify-content-center luxa-footer-item"
+            >
+              <img
+                src="assets/img/icons/contract-svgrepo-com.svg"
+                alt=""
+                srcset=""
+                width="20"
+              />
+              <span>Contrats</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="paiments.html">
+            <div
+              class="d-flex align-items-center justify-content-center luxa-footer-item"
+            >
+              <img
+                src="assets/img/icons/money-bag-svgrepo-com.svg"
+                alt=""
+                srcset=""
+                width="20"
+              />
+              <span>Paiements</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
 
     <!-- JAVASCRIPT -->
     <!-- Map JS -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+
     <!-- Vendor JS -->
     <script src="assets/js/vendor.bundle.js"></script>
-    
+
     <!-- Theme JS -->
     <script src="assets/js/theme.bundle.js"></script>
-
   </body>
 </html>
