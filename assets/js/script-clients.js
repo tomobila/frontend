@@ -5,14 +5,28 @@ const client = {
 
 
 // const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
-// const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
-// const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
+const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 
-const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
+const APIClients = `http://localhost:1337/api/customers/?populate=*`;
 const localhost = "http://localhost:1337"
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    fetch(APIClients)
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
 
 
 
@@ -23,34 +37,26 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
 
                 return `
-                    <div class="avatar avatar-4by3 align-middle me-3" >
-                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded p-1">
+                    <div class="avatar avatar-sm me-3">
+                        <span class="avatar-title rounded-circle">
+                        ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
+                        </span>
                     </div>
-                    <p class='m-0'>${row.attributes.Name}</p>
+                    <b class='m-0'>${row.attributes.LastName} ${row.attributes.FirstName}</b>
                     `
             },
         },
         {
-            data: 'attributes.Make',
-            render: function (data, row) {
-                return `
-                <div class="avatar avatar-sm" title="${data}" style="background-image: url(../assets/img/brands/${data}.png);  background-repeat: no-repeat;  background-size: contain;">
-<!--                     <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
-                </div>
-                `
-            }
+            data: 'attributes.Phone',
         },
         {
-            data: 'attributes.Model',
+            data: 'attributes.CNI',
         },
         {
-            data: 'attributes.Categorie',
+            data: 'attributes.DriverLicenseNumber',
         },
         {
-            data: 'attributes.LicensePlate',
-        },
-        {
-            data: 'attributes.FuelType',
+            data: 'attributes.Email',
         },
         {
             data: 'id',
@@ -58,17 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
 
                 switch (row.attributes.Status) {
-                    case "Available":
+                    case "En contrat":
                         return `
                             <span class='item-score badge bg-success-soft'>${row.attributes.Status}</span>
                             `
                         break;
-                    case "Loue":
+                    case "Active":
                         return `
                             <span class='item-score badge bg-primary-soft'>${row.attributes.Status}</span>
                             `
                         break;
-                    case "maintenance":
+                    case "Desactive":
                         return `
                             <span class='item-score badge bg-warning-soft'>${row.attributes.Status}</span>
                             `
@@ -123,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var myData = {};
 
-    const initDatatable = new DataTable('#listCars', {
+    const initDatatable = new DataTable('#listClients', {
         processing: true,
         bPaginate: false,
         columns: columns,
@@ -132,12 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
             searchPlaceholder: "Recherche"
         },
         bInfo: true,
-        order: [[6, "asc"]],
+        order: [[5, "asc"]],
         fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
             return `${iStart}-${iEnd} to ${iTotal}`;
         },
         ajax: {
-            url: APICars,
+            url: APIClients,
             type: "GET",
             data: function (d) {
                 return $.extend(d, myData);
@@ -196,8 +202,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="row align-items-center">
                                 <div class="col">
                                 
-                                <div class="avatar avatar-sm" style="background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
-                                    <!-- <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded "> -->
+                                <div class="avatar avatar-sm">
+                                    <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded ">
                                 </div>
                                 <h2 class="card-title text-center">
                                     ${item.attributes.Name}

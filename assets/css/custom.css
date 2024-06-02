@@ -56,3 +56,25 @@ table.dataTable.no-footer {
     cursor: pointer;
     transition: all cubic-bezier(0.32, 0.73, 0.71, 0.43) .25s;
 }
+
+.glob__dragDrop--input {
+    width: 0px;
+    opacity: 0;
+}
+
+#frameRecto,
+#frameRecto2 {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#clearframeRecto,
+#clearframeRecto2 {
+    right: -20px;
+    top: -20px;
+}
+
+.cropper-container.cropper-bg {
+    width: 100% !important;
+    min-height: 380px;
+}
