@@ -19,15 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const columns = [
         {
             data: 'id',
-            className: "d-flex align-items-center mb-2",
+            className: "",
             render: function (data, type, row) {
 
                 return `
+                <div class="d-flex align-items-center mb-2">
                     <div class="avatar avatar-4by3 align-middle me-3" >
                         <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded p-1">
                     </div>
                     <p class='m-0'>${row.attributes.Name}</p>
-                    `
+                    </div>`
             },
         },
         {
@@ -84,16 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             data: 'id',
-            className: "d-flex align-items-center",
+            className: "",
             render: function (data, type, row) {
 
                 return `
-                    <div class="px-2">
-                        <button class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Archive" data-bs-original-title="Archive">
+                <div class="d-flex align-items-center">
+                    <div class="px-2 d-flex align-items-center">
+                        <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" data-bs-original-title="Archive">
                             <span class="fe fe-edit-2"></span>
                         </button>
 
-                        <button  class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
+                        <button  class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
                             <span class="fe fe-trash-2"></span>
                         </button>
                     </div>
@@ -114,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             Something else here
                         </a>
                         </div>
+                    </div>
                     </div>
                     `
             },
@@ -222,8 +225,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                             ${VStatus(item.attributes.Status)}
                         
-                        <div class="avatar avatar-sm  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
-                                    <!-- <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded "> -->
+                        <div class="avatar avatar-xs  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands2/${item.attributes.Make}.svg); background-repeat: no-repeat;  background-size: contain;">
+                                    <!-- <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded "> -->
                                 </div>
                         <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
                     </div>
@@ -255,35 +258,35 @@ document.addEventListener("DOMContentLoaded", function () {
     
                             <div class="row g-0 border-top border-bottom">
                                
-                             <div class="col-4 py-4 text-center ">
+                             <div class="col-4 py-3 text-center ">
     
                                 <h6 class="text-uppercase text-muted">
                                 Following
                                 </h6>
     
-                                <h2 class="mb-0">
+                                <h3 class="mb-0">
                                     ${item.attributes.Transmission}
-                                </h2>
+                                </h3>
     
                             </div>
-                            <div class="col-4 py-4 text-center border-start">
+                            <div class="col-4 py-3 text-center border-start">
     
                                 <h6 class="text-uppercase text-muted">
                                     Nb. places
                                 </h6>
     
-                                <h2 class="mb-0">
+                                <h3 class="mb-0">
                                 ${item.attributes.Seats}
-                                </h2>
+                                </h3>
     
                             </div>
-                            <div class="col-4 py-4 text-center border-start">
+                            <div class="col-4 py-3 text-center border-start">
     
                                 <h6 class="text-uppercase text-muted">
                                 Annee
                                 </h6>
     
-                                <h2 class="mb-0">${item.attributes.Year}</h2>
+                                <h3 class="mb-0">${item.attributes.Year}</h3>
     
                             </div>
                             </div>

@@ -87,68 +87,53 @@ document.addEventListener("DOMContentLoaded", function () {
         let file = fileRecto.files[0]
 
         if (file) {
-            $('#cropperModal').modal('show');
             previewRecto.classList.remove("d-none");
             frameRecto.src = URL.createObjectURL(file)
             imageRecto.src = URL.createObjectURL(file)
+            $('#cropperModal').modal('show');
 
-            cropper = new Cropper(imageRecto, {
-                aspectRatio: 16 / 9,
-                crop: function (e) {
-                    console.log(e.detail.width);
-                    console.log(e.detail.height);
-
-                },
-                viewMode: 3,
-                autoCropArea: 2,
-                dragMode: 'move',
-                responsive: true,
-                restore: true,
-                rotatable: true,
-                scalable: true
-            });
-            var contData = cropper.getContainerData();
-            cropper.setCropBoxData({ height: 3000, width: 3000 })
-
-            // let img = document.querySelectorAll('.ml__signature_view--img img')
-
-
-            // img.src = URL.createObjectURL(file)
-
-            // let paylaod = new FormData()
-            // paylaod.append("file", file)
-
-            // axios.post(urlUpload, paylaod)
-            //     .then(res => {
-
-            //         console.log('====================================');
-            //         console.log(res);
-            //         console.log('====================================');
-
-            //         if (res.status == 200) {
-
-            //             let containerImg = document.querySelectorAll(".ml__signature_view--img")
-            //             containerImg.forEach(item => {
-            //                 item.classList.remove("d-none")
-            //             })
-
-            //             let path = res.data.data.path
-            //             img.forEach(el => {
-            //                 el.src = path
-            //             })
-            //         }
-
-            //     })
-            //     .catch(err => {
-            //         console.log('====================================')
-            //         console.log(err)
-            //         console.log('====================================')
-            //     })
+            // cropper = new Cropper(imageRecto, {
+            //     aspectRatio: 16 / 9,
+            //     crop: function (e) {
+            //         // console.log(e.detail.width);
+            //         // console.log(e.detail.height);
+            //     },
+            //     viewMode: 3,
+            //     autoCropArea: 1,
+            //     center: true,
+            //     dragMode: 'move',
+            //     responsive: true,
+            //     restore: true,
+            //     rotatable: true,
+            //     scalable: true
+            // });
 
         }
 
-        // logoChanged = true
     })
+
+    $('#cropperModal').on('shown.bs.modal', function () {
+        cropper = new Cropper(imageRecto, {
+            aspectRatio: 16 / 9,
+            viewMode: 3,
+            autoCropArea: 1,
+            responsive: true,
+            restore: true,
+            dragMode: 'move',
+            rotatable: true,
+            scalable: true,
+            zoom: 0.7
+        });
+        // Force cropper to recalculate dimensions
+        cropper.reset();
+        // setTimeout(function () {
+        //     cropper.reset();
+        //     cropper.setCanvasData(cropper.getCanvasData()); // Ensure dimensions are recalculated
+        // }, 200);
+    }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+    });
 
     document.getElementById('cropButton').addEventListener('click', function () {
         var canvas = cropper.getCroppedCanvas();
@@ -156,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(dataUrl);
         frameRecto.src = dataUrl
         $('#cropperModal').modal('hide');
-
+        cropper.destroy();
+        cropper = null;
 
     });
 
