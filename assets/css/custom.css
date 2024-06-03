@@ -97,6 +97,7 @@ table.dataTable.no-footer {
     justify-content: space-around;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 .bottom-panel ul li {
@@ -107,29 +108,25 @@ table.dataTable.no-footer {
 }
 
 .bottom-panel ul li a {
-    color: #222222;
+    color: #ffffff;
 }
 
 .luxa-footer-item {
     background: transparent;
     border-radius: 25px;
-    padding: 5px 10px;
+    padding: 8px 15px;
     align-items: center !important;
     pointer-events: none;
 }
 
 .luxa-footer-item img {
-    -webkit-filter: grayscale(1);
-    -moz-filter: grayscale(1);
-    filter: grayscale(1);
+    filter: contrast(0);
 }
 
 .luxa-footer-item.active img {
-    width: 20px;
-    height: 20px;
-    -webkit-filter: grayscale(0);
-    -moz-filter: grayscale(0);
-    filter: grayscale(0);
+    width: 15px;
+    height: 15px;
+    filter: contrast(1);
 }
 
 .bottom-panel ul li a span {
@@ -142,12 +139,12 @@ table.dataTable.no-footer {
 }
 
 .luxa-footer-item.active {
-    background: white;
+    background: #1a49f8;
 }
 
 .luxa-footer-item.active span {
     display: inherit;
-    color: #1a49f8;
+    color: #ffffff;
 }
 
 .vCard {
