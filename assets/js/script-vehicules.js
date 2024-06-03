@@ -178,17 +178,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 buildCarCard(data.data)
             })
             .catch(err => console.error(err));
-        const buildCarCard = (cars) => {
-            const UI = cars.map((item) => {
 
+        const buildCarCard = (cars) => {
+
+            const UI = cars.map((item) => {
                 return `
                 <div class="col-12 col-md-6 col-xl-4">
-                    <div class="card">
+                    <a href="vehicule.html?id=${item.id}" class="card vCard">
     
-                    <div class=" position-relative">
+                    <div class="position-relative">
                         <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
                             ${item.attributes.Status}
                         </span>
+                        <div class="avatar avatar-sm  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
+                                    <!-- <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded "> -->
+                                </div>
                         <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
                     </div>
     
@@ -196,10 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="row align-items-center">
                                 <div class="col">
                                 
-                                <div class="avatar avatar-sm" style="background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
-                                    <!-- <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded "> -->
-                                </div>
-                                <h2 class="card-title text-center">
+
+                                <h2 class="card-title text-center mb-0">
                                     ${item.attributes.Name}
                                 </h2>
     
@@ -220,38 +222,43 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
     
                             <div class="row g-0 border-top border-bottom">
-                            <div class="col-4 py-4 text-center">
-    
-                                <h6 class="text-uppercase text-muted">
-                                Followers
-                                </h6>
-    
-                                <h2 class="mb-0">10.2k</h2>
-    
-                            </div>
-                            <div class="col-4 py-4 text-center border-start">
+                               
+                             <div class="col-4 py-4 text-center ">
     
                                 <h6 class="text-uppercase text-muted">
                                 Following
                                 </h6>
     
-                                <h2 class="mb-0">2.7k</h2>
+                                <h2 class="mb-0">
+                                    ${item.attributes.Transmission}
+                                </h2>
     
                             </div>
                             <div class="col-4 py-4 text-center border-start">
     
                                 <h6 class="text-uppercase text-muted">
-                                Following
+                                    Nb. places
                                 </h6>
     
-                                <h2 class="mb-0">2.7k</h2>
+                                <h2 class="mb-0">
+                                ${item.attributes.Seats}
+                                </h2>
+    
+                            </div>
+                            <div class="col-4 py-4 text-center border-start">
+    
+                                <h6 class="text-uppercase text-muted">
+                                Annee
+                                </h6>
+    
+                                <h2 class="mb-0">${item.attributes.Year}</h2>
     
                             </div>
                             </div>
                         </div>
     
     
-                    </div>
+                    </a>
                 </div>
                 `;
 

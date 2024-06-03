@@ -149,3 +149,11 @@ table.dataTable.no-footer {
     display: inherit;
     color: #1a49f8;
 }
+
+.vCard {
+    color: black;
+}
+
+.vCard:hover {
+    color: #000;
+}
