@@ -94,13 +94,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             cropper = new Cropper(imageRecto, {
                 aspectRatio: 16 / 9,
+                crop: function (e) {
+                    console.log(e.detail.width);
+                    console.log(e.detail.height);
+
+                },
                 viewMode: 3,
+                autoCropArea: 2,
                 dragMode: 'move',
                 responsive: true,
                 restore: true,
                 rotatable: true,
                 scalable: true
             });
+            var contData = cropper.getContainerData();
+            cropper.setCropBoxData({ height: 3000, width: 3000 })
 
             // let img = document.querySelectorAll('.ml__signature_view--img img')
 

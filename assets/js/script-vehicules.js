@@ -166,7 +166,39 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
+    const VStatus = (statu) => {
+        switch (statu) {
+            case "Available":
+                return `
+                    <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
+                        ${statu}
+                    </span>
+                `
+                break;
+            case "Loue":
+                return `
+                    <span class="badge bg-primary-soft position-absolute" style="top: 10px; right: 10px;">
+                        ${statu}
+                    </span>
+                `
+                break;
+            case "maintenance":
+                return `
+                    <span class="badge bg-danger-soft position-absolute" style="top: 10px; right: 10px;">
+                        ${statu}
+                    </span>
+                `
+                break;
 
+            default:
+                return `
+                    <span class="badge bg-primary-soft position-absolute" style="top: 10px; right: 10px;">
+                        ${statu}
+                    </span>
+                `
+                break;
+        }
+    }
 
 
     const carsCard = document.getElementById('carsCard');
@@ -187,9 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="vehicule.html?id=${item.id}" class="card vCard">
     
                     <div class="position-relative">
-                        <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
-                            ${item.attributes.Status}
-                        </span>
+                        
+                            ${VStatus(item.attributes.Status)}
+                        
                         <div class="avatar avatar-sm  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
                                     <!-- <img src="../assets/img/brands/${item.attributes.Make}.png" alt="car" class="avatar-img rounded "> -->
                                 </div>
@@ -273,101 +305,101 @@ document.addEventListener("DOMContentLoaded", function () {
     // const formCar = document.getElementById("formscanCar")
     const send = document.querySelector("#formscanCar");
 
-    send.addEventListener("click", async (event) => {
-        event.preventDefault();
+    // send.addEventListener("click", async (event) => {
+    //     event.preventDefault();
 
-        const formData = new FormData();
+    //     const formData = new FormData();
 
-        const fileInput = document.getElementById("filesCar").files;
+    //     const fileInput = document.getElementById("filesCar").files;
 
-        for (let i = 0; i < fileInput.length; i++) {
-            formData.append("upload", fileInput[i]);
-        }
+    //     for (let i = 0; i < fileInput.length; i++) {
+    //         formData.append("upload", fileInput[i]);
+    //     }
 
-        if (fileInput.length < 2) {
-            alert("Please select files to upload.");
-            return;
-        }
+    //     if (fileInput.length < 2) {
+    //         alert("Please select files to upload.");
+    //         return;
+    //     }
 
-        const response = await fetch(APIScanCar, {
-            method: "POST",
-            body: formData,
-        });
-        const car_brands = document.getElementById("car_brands");
-        const car_model = document.getElementById("car_model");
-        const car_nb_places = document.getElementById("car_nb_places");
-        const car_fuel = document.getElementById("car_fuel");
-        const car_immatriculation_w = document.getElementById("car_immatriculation_w");
-        const car_immatriculation = document.getElementById("car_immatriculation");
-        const car_first_use = document.getElementById("car_first_use")
-
-
-        response.json().then(data => {
-            console.log(data.data);
-            let DATA = data.data
-            // console.log(data.data.brand)
-            car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
-            car_model.value = String(DATA.model)
-            car_nb_places.value = DATA.numberOfSeats
-            car_fuel.value = DATA.fuelType
-            car_immatriculation.value = DATA.registrationNumber
-            car_immatriculation_w.value = DATA.registrationNumber
-            car_first_use.value = DATA.firstRegistrationDate
-            console.log(new Date(DATA.firstRegistrationDate))
-
-            // DATA.registrationNumber
-            // DATA.firstRegistrationDate
-            // DATA.numberOfSeats
-            // DATA.fuelType
-            // DATA.firstRegistrationDate
-            // DATA.chassisNumber
+    //     const response = await fetch(APIScanCar, {
+    //         method: "POST",
+    //         body: formData,
+    //     });
+    //     const car_brands = document.getElementById("car_brands");
+    //     const car_model = document.getElementById("car_model");
+    //     const car_nb_places = document.getElementById("car_nb_places");
+    //     const car_fuel = document.getElementById("car_fuel");
+    //     const car_immatriculation_w = document.getElementById("car_immatriculation_w");
+    //     const car_immatriculation = document.getElementById("car_immatriculation");
+    //     const car_first_use = document.getElementById("car_first_use")
 
 
-        }).catch(error => {
-            console.error('Error:', error);
-        });
+    //     response.json().then(data => {
+    //         console.log(data.data);
+    //         let DATA = data.data
+    //         // console.log(data.data.brand)
+    //         car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
+    //         car_model.value = String(DATA.model)
+    //         car_nb_places.value = DATA.numberOfSeats
+    //         car_fuel.value = DATA.fuelType
+    //         car_immatriculation.value = DATA.registrationNumber
+    //         car_immatriculation_w.value = DATA.registrationNumber
+    //         car_first_use.value = DATA.firstRegistrationDate
+    //         console.log(new Date(DATA.firstRegistrationDate))
+
+    //         // DATA.registrationNumber
+    //         // DATA.firstRegistrationDate
+    //         // DATA.numberOfSeats
+    //         // DATA.fuelType
+    //         // DATA.firstRegistrationDate
+    //         // DATA.chassisNumber
 
 
-        // console.log(response.json());
+    //     }).catch(error => {
+    //         console.error('Error:', error);
+    //     });
 
-        // try {
-        //     fetch(APIScanCar, {
-        //         method: "POST",
-        //         body: formData,
-        //         mode: 'no-cors',
-        //         headers: {
-        //             "Content-Type": "multipart/form-data"
-        //         }
 
-        //     })
-        //         .then(response => {
-        //             console.log('====================================');
-        //             console.log(response);
-        //             console.log('====================================');
-        //         })
-        //         .then(data => {
-        //             console.log(data)
-        //         })
+    //     // console.log(response.json());
 
-        //     // const response = fetch(APIScanCar, {
-        //     //     method: "POST",
-        //     //     body: formData,
-        //     //     headers: {
-        //     //         'Content-Type': 'application/json'
-        //     //     },
-        //     //     mode: 'no-cors'
-        //     // });
-        //     // const result = response.json();
-        //     // console.log("Files uploaded successfully:", result);
+    //     // try {
+    //     //     fetch(APIScanCar, {
+    //     //         method: "POST",
+    //     //         body: formData,
+    //     //         mode: 'no-cors',
+    //     //         headers: {
+    //     //             "Content-Type": "multipart/form-data"
+    //     //         }
 
-        //     // if (response.ok) {
-        //     // } else {
-        //     //     console.error("Failed to upload files:", response.statusText);
-        //     // }
-        // } catch (error) {
-        //     console.error("Error:", error);
-        // }
-    });
+    //     //     })
+    //     //         .then(response => {
+    //     //             console.log('====================================');
+    //     //             console.log(response);
+    //     //             console.log('====================================');
+    //     //         })
+    //     //         .then(data => {
+    //     //             console.log(data)
+    //     //         })
+
+    //     //     // const response = fetch(APIScanCar, {
+    //     //     //     method: "POST",
+    //     //     //     body: formData,
+    //     //     //     headers: {
+    //     //     //         'Content-Type': 'application/json'
+    //     //     //     },
+    //     //     //     mode: 'no-cors'
+    //     //     // });
+    //     //     // const result = response.json();
+    //     //     // console.log("Files uploaded successfully:", result);
+
+    //     //     // if (response.ok) {
+    //     //     // } else {
+    //     //     //     console.error("Failed to upload files:", response.statusText);
+    //     //     // }
+    //     // } catch (error) {
+    //     //     console.error("Error:", error);
+    //     // }
+    // });
 
     // document.getElementById('addCar').addEventListener('submit', function (event) {
     //     event.preventDefault();

@@ -74,9 +74,16 @@ table.dataTable.no-footer {
     top: -20px;
 }
 
-.cropper-container.cropper-bg {
+/* .cropper-container.cropper-bg {
     width: 100% !important;
     min-height: 380px;
+    max-height: 500px;
+} */
+
+.cropper-canvas,
+.cropper-container img {
+    /* width: 100% !important;
+    height: auto !important; */
 }
 
 .bottom-panel {
@@ -156,4 +163,13 @@ table.dataTable.no-footer {
 
 .vCard:hover {
     color: #000;
+}
+
+#imageRecto {
+    width: 100%;
+    height: auto;
+}
+
+.cropper-container.cropper-bg {
+    width: 100% !important;
 }
