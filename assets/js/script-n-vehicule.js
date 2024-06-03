@@ -122,7 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
             dragMode: 'move',
             rotatable: true,
             scalable: true,
-            zoom: 0.7
+            // guides: true,
+            // cropBoxMovable: true,
+            // cropBoxResizable: true,
         });
         // Force cropper to recalculate dimensions
         cropper.reset();
@@ -130,6 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
         //     cropper.reset();
         //     cropper.setCanvasData(cropper.getCanvasData()); // Ensure dimensions are recalculated
         // }, 200);
+    }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
     }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
