@@ -71,15 +71,10 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
-      type="text/css"
-    />
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> -->
+    
   </head>
   <body>
-    <div class="modal fade" id="cropperModal" tabindex="-1" role="dialog" aria-labelledby="cropperModalLabel" >
+    <div class="modal fade show" id="cropperModal" tabindex="-1" role="dialog" aria-labelledby="cropperModalLabel" >
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -420,16 +415,16 @@
               <a class="nav-link" href="index.html"> Dashboard </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="vehicules.html"> Véhicules </a>
+              <a class="nav-link active" href="vehicules.html">Véhicules</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Clients </a>
+              <a class="nav-link" href="#">Clients</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Contrats </a>
+              <a class="nav-link" href="#">Contrats</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Paiements </a>
+              <a class="nav-link" href="#">Paiements</a>
             </li>
           </ul>
         </div>
@@ -456,43 +451,52 @@
             </div>
 
             <!-- Form -->
-            <form enctype="multipart/form-data">
-              <!-- <h2 class="mb-2">
-                Carte Grise Véhicule
-                <span class="badge bg-primary-soft ms-1 mt-n1">Document</span>
-              </h2>
-              <hr class="my-5" /> -->
+            
+             
 
-              <div class="row mb-4">
-                <form action="#" enctype="multipart/form-data">
+              <form action="#" enctype="multipart/form-data" >
+                <div class="position-relative">
+
+                
+                <diV class="card loaderScan position-absolute start-0 top-0 z-10 w-100 d-none" style="z-index:1">
+                    <div class="position-relative card-body">
+                      <h3 class="text-muted text-center mb-4">Scanning...</h3>
+                      <img src="https://cdn-icons-png.flaticon.com/512/9751/9751675.png" width="200" alt="" class="positio n-absolute mx-auto d-flex">
+                      <embed src="https://lottie.host/embed/5bf3949e-ea60-4a7c-896f-4d20aacd27d8/qSalTleEE5.json" type="" id="scanLoader" class="d-noe position-absolute top-50 start-50 translate-middle">
+                    </div>
+                  </diV>
+                
+                
+                  <div class="row mb-4 justify-content-end componentScan">
+                
                    <div class="col-12 col-md-6 ">
-                  <label for="fileRecto" class="camera">
-                    <div
-                      id="previewRecto"
-                      class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                      
-                      <button
-                        id="clearframeRecto"
-                        class="btn btn-danger rounded-circle position-absolute">
-                        <span class="fe fe-x"></span>
-                      </button>
-                      <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                        <img src="" alt="preview" id="frameRecto" class="" />
-                      </div>
-                    </div>
-                    <div class="btn btn-primary rounded-circle mb-3">
-                      <span class="fe fe-upload-cloud"></span>
-                    </div>
-                    <div>Recto Carte</div>
-                    <p class="text-muted small">SVG, PNG, JPG  (max. 1920x900)</p>
-                  </label>
-                  <input
-                    type="file"
-                    name="filerecto"
-                    accept="image/x-png,image/gif,image/jpeg"
-                    id="fileRecto"
-                    class="glob__dragDrop--input"
-                  />
+                      <label for="fileRecto" class="camera">
+                        <div
+                          id="previewRecto"
+                          class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                          
+                          <button
+                            id="clearframeRecto"
+                            class="btn btn-danger rounded-circle position-absolute">
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                            <img src="" alt="preview" id="frameRecto" class="" />
+                          </div>
+                        </div>
+                        <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-upload-cloud"></span>
+                        </div>
+                        <div>Recto Carte</div>
+                        <p class="text-muted small">SVG, PNG, JPG  (max. 1920x900)</p>
+                      </label>
+                      <input
+                        type="file"
+                        name="filerecto"
+                        accept="image/x-png,image/gif,image/jpeg"
+                        id="fileRecto"
+                        class="glob__dragDrop--input"
+                      />
                     </div>
                     <div class="col-12 col-md-6">
                       <label for="fileRecto2" class="camera">
@@ -522,44 +526,178 @@
                         class="glob__dragDrop--input"
                       />
                     </div>
-                    <div class="col-12 col-md-4">
-
+                    <div class="col-12 col-md-4 ">
                       <button type="submit" class="btn btn-primary w-100" id="formscanCar" >
                         <span class="fe fe-maximize me-2"></span> Scan
                       </button>
                     </div>
+                    
+                  </div>
+                  </div>
                 </form>
-               
-              </div>
-              <!-- <input
-                type="file"
-                name="file"
-                id="filesCar"
-                multiple="multiple"
-              />
-              <br /> -->
-              <!-- <div class="row justify-content-between align-items-center">
-                <div class="col">
-                  <div class="row align-items-center">
-                    <div class="col ms-n2">
-                      
-                      <h4 class="mb-1"> Your avatar </h4>
+             
 
+              <div class="card carDetailsScan d-none">
+                  <div class="card-body">
+
+                    <div class="list-group list-group-flush my-n3">
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Marque
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+                            <!-- Time -->
+                            <span class="small text-muted" id="n-marque">
+                              --
+                            </span>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Model
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                            <span class="small text-muted" id="n-model">
+                              --
+                            </span>
+
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Immatriculation
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                            <a href="#" class="small" id="n-immatriculation">
+                              --
+                            </a>
+
+                          </div>
+                        </div> 
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <!-- Title -->
+                            <h5 class="mb-0">
+                              Numero Chassis
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                            <!-- Text -->
+                            <small class="text-muted" id="n-nchassis">
+                              --
+                            </small>
+
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Carburant
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                            <small class="text-muted" id="n-fuyel">
+                              --
+                            </small>
+
+                          </div>
+                        </div> 
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Expiry Date
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                           <small class="text-muted" id="n-exdate">
+                              --
+                            </small>
+
+                          </div>
+                        </div> 
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+
+                            <h5 class="mb-0">
+                              Nomber de Places
+                            </h5>
+
+                          </div>
+                          <div class="col-auto">
+
+                            <small class="text-muted" id="n-nbplaces">
+                              --
+                            </small>
+
+                          </div>
+                        </div> 
+                      </div>
                       
-                      <small class="text-muted">
-                        PNG or JPG no bigger than 1000px wide and tall.
-                      </small>
+                    </div>
+
+                    <div class="my-4">
+                      <button class="btn btn-light border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Re-Scanner" data-bs-original-title="Re-Scanner">
+                          <span class="fe fe-repeat"></span>
+                      </button>
+                      <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
+                          <span class="fe fe-edit-2"></span>
+                      </button>
+                      <button class="btn btn-primary border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Sauvegarder" data-bs-original-title="Edit">
+                          <span class="fe fe-save"></span>
+                      </button>
                     </div>
                   </div>
-                  
+                  <!-- <button type="submit" class="btn btn-primary w-100" id="" >
+                    Enregistrer
+                  </button> -->
+  
                 </div>
-                <div class="col-auto">
-                  
-                  <button class="btn btn-sm btn-primary"> Upload </button>
-                </div>
-              </div> -->
 
-              <div class="row">
+
+                
+
+              <div class="d-none">
+                  <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label class="form-label">Libelle</label>
@@ -976,30 +1114,12 @@
                   </div>
                 </div>
               </div>
-
-              <button class="btn btn-primary"> Enregistrer Véhicule </button>
-
-              <form
-                action="#"
-                method="post"
-                enctype="multipart/form-data"
-                
-              >
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <!-- <input type="file" name="" id="filesCar" multiple="multiple" /> -->
-              <!-- <input type="submit" value="send" id="formscanCar" /> -->
-              <!-- </form> -->
+              </div>
+             
 
               <!-- Divider -->
               <hr class="my-5" />
-            </form>
 
-            <br />
           </div>
         </div>
         <!-- / .row -->

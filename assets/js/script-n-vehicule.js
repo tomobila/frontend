@@ -13,12 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const fileRecto = document.getElementById("fileRecto")
     const fileRecto2 = document.getElementById("fileRecto2")
-    const send = document.querySelector("#formscanCar");
+    const scan = document.querySelector("#formscanCar");
 
-    send.addEventListener("click", async (event) => {
+    scan.addEventListener("click", async (event) => {
         event.preventDefault();
 
         const formData = new FormData();
+        const loaderScan = document.querySelector(".loaderScan");
+        const componentScan = document.querySelector(".componentScan");
+        const carDetailsScan = document.querySelector(".carDetailsScan");
+
+
+        loaderScan.classList.remove('d-none')
+        componentScan.classList.add("opacity-0")
 
         let f1 = fileRecto.files[0];
         let f2 = fileRecto2.files[0];
@@ -39,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData,
         });
+
         const car_brands = document.getElementById("car_brands");
         const car_model = document.getElementById("car_model");
         const car_nb_places = document.getElementById("car_nb_places");
@@ -48,21 +56,52 @@ document.addEventListener("DOMContentLoaded", function () {
         const car_first_use = document.getElementById("car_first_use")
 
 
+        const marque = document.getElementById("n-marque")
+        const model = document.getElementById("n-model")
+        const immatriculation = document.getElementById("n-immatriculation")
+        const nchassis = document.getElementById("n-nchassis")
+        const fuyel = document.getElementById("n-fuyel")
+        const exdate = document.getElementById("n-exdate")
+        const nbplaces = document.getElementById("n-nbplaces")
+
+
+
         response.json().then(data => {
             console.log(data.data);
             let DATA = data.data
+
+            loaderScan.classList.add('d-none')
+            componentScan.classList.add("d-none")
+            carDetailsScan.classList.remove('d-none')
+
+
             // console.log(data.data.brand)
             car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
-            car_model.value = String(DATA.model)
+            car_model.value = String(DATA.model.charAt(0).toUpperCase() + DATA.model.slice(1).toLowerCase());
             car_nb_places.value = DATA.numberOfSeats
             car_fuel.value = DATA.fuelType
-            car_immatriculation.value = DATA.registrationNumber
-            car_immatriculation_w.value = DATA.registrationNumber
+
+            let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
+            let resultRegistrationNumber = DATA.registrationNumber.substring(index);
+
+
+            car_immatriculation.value = resultRegistrationNumber
+            car_immatriculation_w.value = resultRegistrationNumber
             car_first_use.value = DATA.firstRegistrationDate
             console.log(new Date(DATA.firstRegistrationDate))
 
+            marque.innerHTML = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
+            model.innerHTML = String(DATA.model.charAt(0).toUpperCase() + DATA.model.slice(1).toLowerCase());
+            immatriculation.innerHTML = resultRegistrationNumber
+            nchassis.innerHTML = DATA.chassisNumber
+            fuyel.innerHTML = DATA.fuelType
+            exdate.innerHTML = DATA.expiryDate
+            nbplaces.innerHTML = DATA.numberOfSeats
 
         }).catch(error => {
+            loaderScan.classList.add('d-none')
+            componentScan.classList.remove("opacity-0")
+            carDetailsScan.classList.add('d-none')
             console.error('Error:', error);
         });
     });
@@ -135,10 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
-    }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-    });
+    })
 
     document.getElementById('cropButton').addEventListener('click', function () {
         var canvas = cropper.getCroppedCanvas();

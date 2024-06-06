@@ -10,6 +10,7 @@ const client = {
 
 const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
 const localhost = "http://localhost:1337"
+const APICar = `http://localhost:1337/api/cars/`
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
             data: 'attributes.Make',
             render: function (data, row) {
                 return `
-                <div class="avatar avatar-sm" title="${data}" style="background-image: url(../assets/img/brands/${data}.png);  background-repeat: no-repeat;  background-size: contain;">
-<!--                     <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
+                <div class="avatar avatar-xs" title="${data}" style="background-image: url(../assets/img/brands2/${data}.svg);  background-repeat: no-repeat;  background-size: contain;">
+                    <!--  <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
                 </div>
                 `
             }
@@ -91,11 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 return `
                 <div class="d-flex align-items-center">
                     <div class="px-2 d-flex align-items-center">
-                        <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" data-bs-original-title="Archive">
+                        <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip"  data-item-id="${row.id}" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
                             <span class="fe fe-edit-2"></span>
                         </button>
 
-                        <button  class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
+                        <button  class="btn btn-white border-0 rounded-circle ms-0 singleCarDelete" data-item-id="${row.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
                             <span class="fe fe-trash-2"></span>
                         </button>
                     </div>
@@ -124,6 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ]
 
+
+
+
+
+
     var myData = {};
 
     const initDatatable = new DataTable('#listCars', {
@@ -147,6 +153,85 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
     })
+
+
+    const noCar = `
+      <div class="row my-6">
+          <div class="col">
+              
+                  <div class=" text-center">
+
+                      <div class="card-avatar avatar avatar-xxl mx-auto"  style="width: 200px;height: auto">
+                          <img src="../assets/img/icons/noCar.png" alt="" class="avatar-img rounded">
+                      </div>
+
+                      <h2 class="mb-2">
+                      Pas encore de voiture
+                      </h2>
+
+                      <p class="card-text text-muted small">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      </p>
+
+                        <a href="./n-vehicule.html" class="btn btn- btn-primary px-3 mx-auto">Ajouter Véhicule</a>
+
+                  </div>
+                  
+                  
+          </div>
+        </div>`
+
+    var carIdToDelete = 0;
+
+    initDatatable.on('draw', function () {
+
+        const singleCarDelete = document.querySelectorAll(".singleCarDelete");
+        singleCarDelete.forEach(item => {
+
+            item.addEventListener('click', event => {
+
+                event.stopPropagation();
+                carIdToDelete = item.getAttribute('data-item-id');
+                console.log('====================================');
+                console.log(carIdToDelete);
+                console.log('====================================');
+                $('#confirmationModal').modal('show');
+
+            });
+        });
+    })
+
+
+    // DELETE CAR
+
+    document.getElementById('confirmDelete').addEventListener('click', function () {
+        if (carIdToDelete != 0) {
+
+            fetch(`${APICar}${carIdToDelete}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    initDatatable.ajax.reload();
+
+                    $('#confirmationModal').modal('hide');
+                    // alert('Item deleted successfully');
+                    carIdToDelete = 0;
+                })
+                .catch(error => {
+                    initDatatable.ajax.reload();
+                    // Handle error
+                    $('#confirmationModal').modal('hide');
+                    // alert('Error deleting item: ' + error.message);
+                    carIdToDelete = null;
+                });
+        }
+    });
 
 
     const older = document.getElementById("older");
@@ -209,8 +294,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(APICars)
             .then(response => response.json())
             .then(data => {
-                console.log(data.data)
-                buildCarCard(data.data)
+                let count = data.data.length
+                console.log(count)
+                count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
             })
             .catch(err => console.error(err));
 
