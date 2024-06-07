@@ -55,15 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("upload", f1);
         formData.append("upload", f2);
 
-        // for (let i = 0; i < fileInput.length; i++) {
-        //     formData.append("upload", fileInput[i]);
-        // }
-
-        // if (fileInput.length < 2) {
-        //     alert("Please select files to upload.");
-        //     return;
-        // }
-
         const response = await fetch(APIScanCar, {
             method: "POST",
             body: formData,
@@ -87,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
             let resultRegistrationNumber = DATA.registrationNumber.substring(index);
 
-
             car_immatriculation.value = resultRegistrationNumber
             car_immatriculation_w.value = resultRegistrationNumber
             car_first_use.value = DATA.firstRegistrationDate
@@ -98,7 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
             immatriculation.innerHTML = resultRegistrationNumber
             nchassis.innerHTML = DATA.chassisNumber
             fuyel.innerHTML = DATA.fuelType
-            exdate.innerHTML = DATA.expiryDate
+            // exdate.innerHTML = DATA.expiryDate
+
+            flatpickr("#car_first_use", {
+                defaultDate: DATA.expiryDate
+            });
             nbplaces.innerHTML = DATA.numberOfSeats
 
         }).catch(error => {
@@ -108,8 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         });
     });
-
-
 
     const frameRecto = document.querySelector('#frameRecto')
     const frameRecto2 = document.querySelector('#frameRecto2')
@@ -156,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $('#cropperModal').on('shown.bs.modal', function () {
         cropper = new Cropper(imageRecto, {
-            aspectRatio: 16 / 9,
+            // aspectRatio: 16 / 9,
             viewMode: 3,
             autoCropArea: 1,
             responsive: true,
@@ -170,10 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         // Force cropper to recalculate dimensions
         cropper.reset();
-        // setTimeout(function () {
-        //     cropper.reset();
-        //     cropper.setCanvasData(cropper.getCanvasData()); // Ensure dimensions are recalculated
-        // }, 200);
     }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
@@ -190,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
     fileRecto2.addEventListener('change', () => {
 
         let file = fileRecto2.files[0]
@@ -201,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     })
-
     clearframeRecto.addEventListener("click", (e) => {
         e.stopPropagation()
         e.preventDefault()
@@ -239,10 +225,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const jsonData = {
             data: {
+                Agency: client.id,
                 Make: marque.innerText,
-                Model: model.innerText
+                Model: model.innerText,
+                exdate: exdate.innerText,
+                Seats: nbplaces.innerText,
+                FuelType: fuyel.innerText,
+                LicensePlate: immatriculation.innerText
+
             }
-        };
+        }
+        console.log('====================================');
+        console.log(jsonData);
+        console.log('====================================');
 
         const jsonString = JSON.stringify(jsonData);
 

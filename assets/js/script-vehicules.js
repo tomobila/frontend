@@ -12,6 +12,9 @@ const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][
 const localhost = "http://localhost:1337"
 const APICar = `http://localhost:1337/api/cars/`
 
+const fallbackImageUrl = 'assets/img/default_lrg.jpg'
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -23,10 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
             className: "",
             render: function (data, type, row) {
 
+                const imageUrl = row.attributes.MainImage && row.attributes.MainImage.data && row.attributes.MainImage.data.attributes && row.attributes.MainImage.data.attributes.url
+                    ? `${localhost}${row.attributes.MainImage.data.attributes.url}`
+                    : fallbackImageUrl;
+
                 return `
                 <div class="d-flex align-items-center mb-2">
                     <div class="avatar avatar-4by3 align-middle me-3" >
-                        <img src="${localhost}${row.attributes.MainImage.data.attributes.url}" class="avatar-img rounded p-1">
+                        <img src="${imageUrl}" class="avatar-img rounded p-1">
                     </div>
                     <p class='m-0'>${row.attributes.Name}</p>
                     </div>`
@@ -295,14 +302,18 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 let count = data.data.length
-                console.log(count)
+                console.log(data.data)
                 count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
             })
             .catch(err => console.error(err));
 
         const buildCarCard = (cars) => {
 
+
             const UI = cars.map((item) => {
+                const imageUrl = item.attributes.MainImage && item.attributes.MainImage.data && item.attributes.MainImage.data.attributes && item.attributes.MainImage.data.attributes.url
+                    ? `${localhost}${item.attributes.MainImage.data.attributes.url}`
+                    : fallbackImageUrl;
                 return `
                 <div class="col-12 col-md-6 col-xl-4">
                     <a href="vehicule.html?id=${item.id}" class="card vCard">
@@ -314,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="avatar avatar-xs  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands2/${item.attributes.Make}.svg); background-repeat: no-repeat;  background-size: contain;">
                                     <!-- <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded "> -->
                                 </div>
-                        <img src="${localhost}${item.attributes.MainImage.data.attributes.url}" alt="..." class="card-img-top px-6 pt-4">
+                        <img src="${imageUrl}" alt="..." class="card-img-top px-6 pt-4">
                     </div>
     
                     <div class="card-body">
@@ -347,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
                              <div class="col-4 py-3 text-center ">
     
                                 <h6 class="text-uppercase text-muted">
-                                Following
+                                Transmission
                                 </h6>
     
                                 <h3 class="mb-0">
@@ -390,134 +401,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-
-    // const formCar = document.getElementById("formscanCar")
-    const send = document.querySelector("#formscanCar");
-
-    // send.addEventListener("click", async (event) => {
-    //     event.preventDefault();
-
-    //     const formData = new FormData();
-
-    //     const fileInput = document.getElementById("filesCar").files;
-
-    //     for (let i = 0; i < fileInput.length; i++) {
-    //         formData.append("upload", fileInput[i]);
-    //     }
-
-    //     if (fileInput.length < 2) {
-    //         alert("Please select files to upload.");
-    //         return;
-    //     }
-
-    //     const response = await fetch(APIScanCar, {
-    //         method: "POST",
-    //         body: formData,
-    //     });
-    //     const car_brands = document.getElementById("car_brands");
-    //     const car_model = document.getElementById("car_model");
-    //     const car_nb_places = document.getElementById("car_nb_places");
-    //     const car_fuel = document.getElementById("car_fuel");
-    //     const car_immatriculation_w = document.getElementById("car_immatriculation_w");
-    //     const car_immatriculation = document.getElementById("car_immatriculation");
-    //     const car_first_use = document.getElementById("car_first_use")
-
-
-    //     response.json().then(data => {
-    //         console.log(data.data);
-    //         let DATA = data.data
-    //         // console.log(data.data.brand)
-    //         car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
-    //         car_model.value = String(DATA.model)
-    //         car_nb_places.value = DATA.numberOfSeats
-    //         car_fuel.value = DATA.fuelType
-    //         car_immatriculation.value = DATA.registrationNumber
-    //         car_immatriculation_w.value = DATA.registrationNumber
-    //         car_first_use.value = DATA.firstRegistrationDate
-    //         console.log(new Date(DATA.firstRegistrationDate))
-
-    //         // DATA.registrationNumber
-    //         // DATA.firstRegistrationDate
-    //         // DATA.numberOfSeats
-    //         // DATA.fuelType
-    //         // DATA.firstRegistrationDate
-    //         // DATA.chassisNumber
-
-
-    //     }).catch(error => {
-    //         console.error('Error:', error);
-    //     });
-
-
-    //     // console.log(response.json());
-
-    //     // try {
-    //     //     fetch(APIScanCar, {
-    //     //         method: "POST",
-    //     //         body: formData,
-    //     //         mode: 'no-cors',
-    //     //         headers: {
-    //     //             "Content-Type": "multipart/form-data"
-    //     //         }
-
-    //     //     })
-    //     //         .then(response => {
-    //     //             console.log('====================================');
-    //     //             console.log(response);
-    //     //             console.log('====================================');
-    //     //         })
-    //     //         .then(data => {
-    //     //             console.log(data)
-    //     //         })
-
-    //     //     // const response = fetch(APIScanCar, {
-    //     //     //     method: "POST",
-    //     //     //     body: formData,
-    //     //     //     headers: {
-    //     //     //         'Content-Type': 'application/json'
-    //     //     //     },
-    //     //     //     mode: 'no-cors'
-    //     //     // });
-    //     //     // const result = response.json();
-    //     //     // console.log("Files uploaded successfully:", result);
-
-    //     //     // if (response.ok) {
-    //     //     // } else {
-    //     //     //     console.error("Failed to upload files:", response.statusText);
-    //     //     // }
-    //     // } catch (error) {
-    //     //     console.error("Error:", error);
-    //     // }
-    // });
-
-    // document.getElementById('addCar').addEventListener('submit', function (event) {
-    //     event.preventDefault();
-
-    //     var formData = new FormData(this);
-    //     const elements = this.elements; // 'this' refers to the form
-    //     const jsonData = {};
-
-
-    //     for (let element of elements) {
-    //         if (element.name && element.type !== 'submit') { // Ensure the element has a name and is not the submit button
-    //             if (element.type === 'file') {
-    //                 if (element.files.length > 0) { // Check if files are selected
-    //                     formData.append(element.name, element.files[0]); // Append each file to formData
-    //                 }
-    //             } else {
-    //                 jsonData[element.name] = element.value;
-    //             }
-    //         }
-    //     }
-
-    //     formData.append('data', JSON.stringify(jsonData));
-
-
-
-    // })
-
-
-
-
 
 })

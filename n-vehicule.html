@@ -640,7 +640,7 @@
                           <div class="col">
 
                             <h5 class="mb-0">
-                              Expiry Date
+                              Date d'expiration
                             </h5>
 
                           </div>
@@ -696,24 +696,10 @@
 
                 
 
-              <div class="d-none">
-                  <div class="row">
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Libelle</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Catégorie</label>
-                    <select class="form-select">
-                      <option selected>SUV</option>
-                      <option>Eco</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
+              <div class="d-non e">
+                <div class="row">
+
+                  <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label class="form-label">Marque</label>
                     <select id="car_brands" name="car_brands" class="form-select">
@@ -794,12 +780,6 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
-                    <label class="form-label">Année</label>
-                    <input type="number" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
                     <label class="form-label">Carburant</label>
                     <select id="car_fuel" class="form-select">
                       <option selected>Essence</option>
@@ -807,6 +787,55 @@
                     </select>
                   </div>
                 </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Année</label>
+                    <input type="number" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Nombre de places</label>
+                    <input type="number" id="car_nb_places" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+
+                    <label class="form-label">
+                      Date de première utilisation
+                    </label>
+                    <input
+                      id="car_first_use"
+                      type="text"
+                      class="form-control flatpickr-input"
+                      data-flatpickr=""
+                      readonly="readonly"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Libelle</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Catégorie</label>
+                    <select class="form-select">
+                      <option selected>SUV</option>
+                      <option>Eco</option>
+                    </select>
+                  </div>
+                </div>
+                
+
+                
+                
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label class="form-label">Transmission</label>
@@ -929,30 +958,8 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre de places</label>
-                    <input type="number" id="car_nb_places" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <!-- Birthday -->
-                  <div class="form-group">
-                    <!-- Label -->
-                    <label class="form-label">
-                      Date de première utilisation
-                    </label>
+                
 
-                    <!-- Input -->
-                    <input
-                      id="car_first_use"
-                      type="text"
-                      class="form-control flatpickr-input"
-                      data-flatpickr=""
-                      readonly="readonly"
-                    />
-                  </div>
-                </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label class="form-label">Status</label>
