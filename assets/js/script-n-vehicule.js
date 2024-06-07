@@ -1,6 +1,12 @@
 
+const client = {
+    id: 4,
+    name: 'Azaf car'
+}
+
 const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
+const APICar = `http://localhost:1337/api/cars/`
 
 // const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
 const localhost = "http://localhost:1337"
@@ -8,6 +14,22 @@ const localhost = "http://localhost:1337"
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    const car_brands = document.getElementById("car_brands");
+    const car_model = document.getElementById("car_model");
+    const car_nb_places = document.getElementById("car_nb_places");
+    const car_fuel = document.getElementById("car_fuel");
+    const car_immatriculation_w = document.getElementById("car_immatriculation_w");
+    const car_immatriculation = document.getElementById("car_immatriculation");
+    const car_first_use = document.getElementById("car_first_use")
+
+
+    const marque = document.getElementById("n-marque")
+    const model = document.getElementById("n-model")
+    const immatriculation = document.getElementById("n-immatriculation")
+    const nchassis = document.getElementById("n-nchassis")
+    const fuyel = document.getElementById("n-fuyel")
+    const exdate = document.getElementById("n-exdate")
+    const nbplaces = document.getElementById("n-nbplaces")
 
     var cropper;
 
@@ -47,31 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
             body: formData,
         });
 
-        const car_brands = document.getElementById("car_brands");
-        const car_model = document.getElementById("car_model");
-        const car_nb_places = document.getElementById("car_nb_places");
-        const car_fuel = document.getElementById("car_fuel");
-        const car_immatriculation_w = document.getElementById("car_immatriculation_w");
-        const car_immatriculation = document.getElementById("car_immatriculation");
-        const car_first_use = document.getElementById("car_first_use")
-
-
-        const marque = document.getElementById("n-marque")
-        const model = document.getElementById("n-model")
-        const immatriculation = document.getElementById("n-immatriculation")
-        const nchassis = document.getElementById("n-nchassis")
-        const fuyel = document.getElementById("n-fuyel")
-        const exdate = document.getElementById("n-exdate")
-        const nbplaces = document.getElementById("n-nbplaces")
-
-
-
         response.json().then(data => {
             console.log(data.data);
             let DATA = data.data
 
             loaderScan.classList.add('d-none')
-            componentScan.classList.add("d-none")
+            componentScan.classList.remove("opacity-0")
             carDetailsScan.classList.remove('d-none')
 
 
@@ -227,4 +230,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     })
+
+
+
+
+    saveCar.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const jsonData = {
+            data: {
+                Make: marque.innerText,
+                Model: model.innerText
+            }
+        };
+
+        const jsonString = JSON.stringify(jsonData);
+
+        try {
+            // Send the POST request with JSON data
+            const response = await fetch(APICar, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: jsonString
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Data added successfully:', data);
+        } catch (error) {
+            console.error('Error adding data:', error);
+        }
+    });
+
+
 })
