@@ -35,15 +35,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const fileRecto = document.getElementById("fileRecto")
     const fileRecto2 = document.getElementById("fileRecto2")
-    const scan = document.querySelector("#formscanCar");
+    const scan = document.querySelector("#formscanCar")
+
+    function resetProgressBar() {
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = '0%';
+        progressBar.setAttribute('aria-valuenow', 0);
+    }
+
+    function updateProgressBar(percent) {
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = percent + '%';
+        progressBar.setAttribute('aria-valuenow', percent);
+    }
 
     scan.addEventListener("click", async (event) => {
         event.preventDefault();
+        resetProgressBar();
+
 
         const formData = new FormData();
         const loaderScan = document.querySelector(".loaderScan");
         const componentScan = document.querySelector(".componentScan");
         const carDetailsScan = document.querySelector(".carDetailsScan");
+        const carDetailModal = document.querySelector("#carDetailModal")
 
 
         loaderScan.classList.remove('d-none')
@@ -55,6 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("upload", f1);
         formData.append("upload", f2);
 
+        for (let i = 0; i <= 100; i++) {
+            await new Promise(resolve => setTimeout(resolve, 150)); // Simulate API delay
+            updateProgressBar(i);
+        }
+
         const response = await fetch(APIScanCar, {
             method: "POST",
             body: formData,
@@ -63,17 +83,22 @@ document.addEventListener("DOMContentLoaded", function () {
         response.json().then(data => {
             console.log(data.data);
             let DATA = data.data
+            updateProgressBar(100);
+            $('#carDetailModal').modal('show');
+
 
             loaderScan.classList.add('d-none')
             componentScan.classList.remove("opacity-0")
             carDetailsScan.classList.remove('d-none')
-
 
             // console.log(data.data.brand)
             car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
             car_model.value = String(DATA.model.charAt(0).toUpperCase() + DATA.model.slice(1).toLowerCase());
             car_nb_places.value = DATA.numberOfSeats
             car_fuel.value = DATA.fuelType
+            flatpickr("#car_first_use", {
+                defaultDate: DATA.expiryDate
+            })
 
             let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
             let resultRegistrationNumber = DATA.registrationNumber.substring(index);
@@ -88,11 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             immatriculation.innerHTML = resultRegistrationNumber
             nchassis.innerHTML = DATA.chassisNumber
             fuyel.innerHTML = DATA.fuelType
-            // exdate.innerHTML = DATA.expiryDate
-
-            flatpickr("#car_first_use", {
-                defaultDate: DATA.expiryDate
-            });
+            exdate.innerHTML = DATA.expiryDate
             nbplaces.innerHTML = DATA.numberOfSeats
 
         }).catch(error => {
@@ -223,32 +244,39 @@ document.addEventListener("DOMContentLoaded", function () {
     saveCar.addEventListener("click", async (e) => {
         e.preventDefault();
 
+        // const jsonData = {}
         const jsonData = {
-            data: {
-                Agency: client.id,
-                Make: marque.innerText,
-                Model: model.innerText,
-                exdate: exdate.innerText,
-                Seats: nbplaces.innerText,
-                FuelType: fuyel.innerText,
-                LicensePlate: immatriculation.innerText
+            Agency: client.id,
+            Make: marque.innerText,
+            Model: model.innerText,
+            exdate: exdate.innerText,
+            Seats: nbplaces.innerText,
+            FuelType: fuyel.innerText,
+            LicensePlate: immatriculation.innerText,
+            // RegistrationDocument:
+        }
 
+        const formData = new FormData();
+        const registrationDocumentFile = fileRecto.files[0];
+
+
+        formData.append('data', new Blob([JSON.stringify(jsonData)], { type: 'application/json' }));
+        // formData.append(registrationDocumentFile.name, registrationDocumentFile);
+
+        if (fileRecto.type === 'file') {
+
+            if (fileRecto.files.length > 0) { // Check if files are selected
+                formData.append('RegistrationDocument', fileRecto.files[0]); // Append each file to formData
             }
         }
-        console.log('====================================');
-        console.log(jsonData);
-        console.log('====================================');
 
-        const jsonString = JSON.stringify(jsonData);
 
         try {
             // Send the POST request with JSON data
             const response = await fetch(APICar, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: jsonString
+                'Content-Type': 'multipart/form-data',
+                body: formData
             });
 
             if (!response.ok) {
