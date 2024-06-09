@@ -19,7 +19,37 @@ function formatISODate(isoString) {
     return `${day}-${month}-${year}`;
 }
 
+const componentAI = document.querySelector(".componentAI")
+const componentManuel = document.querySelector(".componentManuel")
+const sManuel = document.querySelector("#sManuel")
+const sAI = document.querySelector("#sAI")
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
+    const methodAction = document.querySelectorAll(".methodAction")
+    methodAction.forEach((btn) => {
+
+        btn.addEventListener("click", (e) => {
+            methodAction.forEach((el) => {
+                el.classList.remove("active")
+            })
+
+            btn.classList.add("active");
+            let container = btn.getAttribute('data-container')
+            console.log('====================================');
+            console.log(document.querySelector(container));
+            console.log('====================================');
+            let componentAction = document.querySelectorAll(".componentAction")
+            componentAction.forEach((el) => {
+                el.classList.add("d-none")
+            })
+            document.querySelector('.' + container).classList.remove("d-none");
+        })
+    })
+
 
     const car_brands = document.getElementById("car_brands");
     const car_model = document.getElementById("car_model");
@@ -304,6 +334,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
+
+        jsonData.RentalRate = parseFloat(jsonData.RentalRate) ?? 0.0;
+        jsonData.Seats = parseInt(jsonData.Seats) ?? 0;
+        jsonData.Mileage = parseFloat(jsonData.Mileage) ?? 0.0;
+
         console.log('====================================');
         console.log(jsonData);
         console.log('====================================');

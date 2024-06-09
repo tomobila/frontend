@@ -615,15 +615,29 @@
                 <div class="row align-items-center">
                   <div class="col">
                     <h6 class="header-pretitle">Nouveau</h6>
-
                     <h1 class="header-title">Véhicule</h1>
+                  </div>
+                  <div class="col-auto">
+
+                    <div class="nav btn-group d-inline-flex">
+                      <button class="btn btn-white methodAction" id="sManuel" data-container="componentManuel">
+                        <span class="fe fe-clipboard"></span> Saisie Manuel
+                      </button>
+                      <button class="btn btn-white methodAction active" id="sAI" data-container="componentAI">
+                        <span class="fe fe-crosshair"></span> Scan avec AI
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Form -->
-
+            <div class="componentAI componentAction">
+              <div class="alert alert-warning" role="alert">
+                    <span class="fe fe-alert-circle"></span>
+                    Merci de nous fournir une image scannée de haute qualité, bien centrée et recadrée.
+                  </div>
               <form enctype="multipart/form-data" >
                 <div class="position-relative">
 
@@ -639,7 +653,7 @@
                     </div>
                   </diV> -->
                 
-                  <div class="row mb-4 justify-content-end componentScan">
+                  <div class="row mb-4 justify-content-end">
                 
                     <div class="col-12 col-md-6 ">
                       <label for="fileRecto" class="camera">
@@ -708,11 +722,14 @@
 
                 </div>
               </form>
-                
-              <form action="#"  enctype="multipart/form-data" class="AddNewCar">
-                <input type="file" name="files.MainImage">
-                <div class="">
-                  <div class="row">
+            </div>
+              
+              
+              <div class="componentManuel componentAction d-none">
+                <form action="#"  enctype="multipart/form-data" class="AddNewCar">
+                  <input type="file" name="files.MainImage">
+                  <div class="">
+                    <div class="row">
 
                     <div class="col-12 col-md-6">
                     <div class="form-group">
@@ -1206,7 +1223,10 @@
                   <button class="btn btn-primary" type="submit">Enregistrer </button>
                 </div>
               </form>
-             <br><br>
+              </div>
+              
+             <br>
+             <br>
           </div>
         </div>
         <!-- / .row -->
