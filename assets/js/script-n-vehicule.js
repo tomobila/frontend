@@ -5,12 +5,19 @@ const client = {
 }
 
 const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
-const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
-const APICar = `http://localhost:1337/api/cars/`
+const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/vehicle-registration"
+const APICar = `http://localhost:1337/api/cars`
 
 // const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
 const localhost = "http://localhost:1337"
 
+function formatISODate(isoString) {
+    const date = new Date(isoString);
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1; // Months are zero-based, so we add 1
+    const year = date.getUTCFullYear();
+    return `${day}-${month}-${year}`;
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -37,43 +44,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const fileRecto2 = document.getElementById("fileRecto2")
     const scan = document.querySelector("#formscanCar")
 
-    function resetProgressBar() {
-        const progressBar = document.getElementById('progress-bar');
-        progressBar.style.width = '0%';
-        progressBar.setAttribute('aria-valuenow', 0);
-    }
-
-    function updateProgressBar(percent) {
-        const progressBar = document.getElementById('progress-bar');
-        progressBar.style.width = percent + '%';
-        progressBar.setAttribute('aria-valuenow', percent);
-    }
-
     scan.addEventListener("click", async (event) => {
         event.preventDefault();
-        resetProgressBar();
+        // resetProgressBar();
 
 
         const formData = new FormData();
-        const loaderScan = document.querySelector(".loaderScan");
         const componentScan = document.querySelector(".componentScan");
         const carDetailsScan = document.querySelector(".carDetailsScan");
-        const carDetailModal = document.querySelector("#carDetailModal")
+        // const loaderScan = document.querySelector(".loaderScan");
+        // const carDetailModal = document.querySelector("#carDetailModal")
 
-
-        loaderScan.classList.remove('d-none')
-        componentScan.classList.add("opacity-0")
+        // loaderScan.classList.remove('d-none')
+        // componentScan.classList.add("opacity-0")
 
         let f1 = fileRecto.files[0];
         let f2 = fileRecto2.files[0];
 
         formData.append("upload", f1);
         formData.append("upload", f2);
-
-        for (let i = 0; i <= 100; i++) {
-            await new Promise(resolve => setTimeout(resolve, 150)); // Simulate API delay
-            updateProgressBar(i);
-        }
 
         const response = await fetch(APIScanCar, {
             method: "POST",
@@ -83,13 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
         response.json().then(data => {
             console.log(data.data);
             let DATA = data.data
-            updateProgressBar(100);
+            // updateProgressBar(100);
             $('#carDetailModal').modal('show');
-
-
-            loaderScan.classList.add('d-none')
-            componentScan.classList.remove("opacity-0")
-            carDetailsScan.classList.remove('d-none')
 
             // console.log(data.data.brand)
             car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
@@ -117,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nbplaces.innerHTML = DATA.numberOfSeats
 
         }).catch(error => {
-            loaderScan.classList.add('d-none')
-            componentScan.classList.remove("opacity-0")
+            // loaderScan.classList.add('d-none')
+            // componentScan.classList.remove("opacity-0")
             carDetailsScan.classList.add('d-none')
             console.error('Error:', error);
         });
@@ -241,54 +225,100 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    saveCar.addEventListener("click", async (e) => {
-        e.preventDefault();
+    // saveCar.addEventListener("click", async (e) => {
+    //     e.preventDefault();
 
-        // const jsonData = {}
-        const jsonData = {
-            Agency: client.id,
-            Make: marque.innerText,
-            Model: model.innerText,
-            exdate: exdate.innerText,
-            Seats: nbplaces.innerText,
-            FuelType: fuyel.innerText,
-            LicensePlate: immatriculation.innerText,
-            // RegistrationDocument:
-        }
+    //     // const jsonData = {}
+    //     const jsonData = {
+    //         Agency: client.id,
+    //         Make: marque.innerText,
+    //         Model: model.innerText,
+    //         exdate: exdate.innerText,
+    //         Seats: nbplaces.innerText,
+    //         FuelType: fuyel.innerText,
+    //         LicensePlate: immatriculation.innerText,
+    //         // RegistrationDocument:
+    //     }
 
-        const formData = new FormData();
-        const registrationDocumentFile = fileRecto.files[0];
+    //     const formData = new FormData();
+    //     const registrationDocumentFile = fileRecto.files[0];
 
 
-        formData.append('data', new Blob([JSON.stringify(jsonData)], { type: 'application/json' }));
-        // formData.append(registrationDocumentFile.name, registrationDocumentFile);
+    //     formData.append('data', new Blob([JSON.stringify(jsonData)], { type: 'application/json' }));
+    //     // formData.append(registrationDocumentFile.name, registrationDocumentFile);
 
-        if (fileRecto.type === 'file') {
+    //     if (fileRecto.type === 'file') {
 
-            if (fileRecto.files.length > 0) { // Check if files are selected
-                formData.append('RegistrationDocument', fileRecto.files[0]); // Append each file to formData
+    //         if (fileRecto.files.length > 0) { // Check if files are selected
+    //             formData.append('RegistrationDocument', fileRecto.files[0]); // Append each file to formData
+    //         }
+    //     }
+
+
+    //     try {
+    //         // Send the POST request with JSON data
+    //         const response = await fetch(APICar, {
+    //             method: "POST",
+    //             'Content-Type': 'multipart/form-data',
+    //             body: formData
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! Status: ${response.status}`);
+    //         }
+
+    //         const data = await response.json();
+    //         console.log('Data added successfully:', data);
+    //     } catch (error) {
+    //         console.error('Error adding data:', error);
+    //     }
+    // });
+
+
+
+
+    document.querySelector('.AddNewCar').addEventListener('submit', function (event) {
+
+
+        event.preventDefault();
+
+        var formData = new FormData(this);
+        const elements = this.elements; // 'this' refers to the form
+        const jsonData = {}
+        jsonData["Agency"] = client.id
+
+
+        for (let element of elements) {
+            if (element.name && element.type !== 'submit') { // Ensure the element has a name and is not the submit button
+                if (element.type === 'file') {
+                    if (element.files.length > 0) { // Check if files are selected
+                        formData.append(element.name, element.files[0]); // Append each file to formData
+                    }
+                } else if (element.type === 'radio') {
+                    if (element.checked) {
+                        jsonData[element.name] = element.value;
+
+                    }
+                } else {
+                    jsonData[element.name] = element.value;
+                }
             }
         }
+        console.log('====================================');
+        console.log(jsonData);
+        console.log('====================================');
+
+        formData.append('data', JSON.stringify(jsonData));
 
 
-        try {
-            // Send the POST request with JSON data
-            const response = await fetch(APICar, {
-                method: "POST",
-                'Content-Type': 'multipart/form-data',
-                body: formData
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            console.log('Data added successfully:', data);
-        } catch (error) {
-            console.error('Error adding data:', error);
-        }
-    });
+        fetch(APICar, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch((error) => console.error('Error:', error));
+    })
 
 
 })

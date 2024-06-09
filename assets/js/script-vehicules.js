@@ -19,7 +19,6 @@ const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 document.addEventListener("DOMContentLoaded", function () {
 
 
-
     const columns = [
         {
             data: 'id',

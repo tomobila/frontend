@@ -170,3 +170,20 @@ table.dataTable.no-footer {
 .cropper-crop-box {
     width: 100% !important;
 }
+
+
+.btn-group-toggle .btn-check:checked+.color {
+    position: relative;
+}
+
+.btn-group-toggle .btn-check:checked+.color::after {
+    position: absolute;
+    z-index: 1;
+    content: "\e92b";
+    font-family: Feather !important;
+    color: #fff;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.466);
+}

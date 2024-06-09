@@ -251,9 +251,9 @@
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="">Save</button> -->
-                    <button class="btn btn-light border-0 rounded-circle me-2" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Re-Scanner" data-bs-original-title="Re-Scanner">
+                    <!-- <button class="btn btn-light border-0 rounded-circle me-2" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Re-Scanner" data-bs-original-title="Re-Scanner">
                           <span class="fe fe-repeat"></span>
-                      </button>
+                      </button> -->
                       <button class="btn btn-light border-0 rounded-circle me-2" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
                           <span class="fe fe-edit-2"></span>
                       </button>
@@ -623,30 +623,25 @@
             </div>
 
             <!-- Form -->
-            
-             
 
               <form enctype="multipart/form-data" >
                 <div class="position-relative">
 
-                
-                <diV class="card loaderScan posi tion-absolute start-0 top-0 z-10 w-100 d-noe" style="z-index:1">
+                <!-- <diV class="card loaderScan posi tion-absolute start-0 top-0 z-10 w-100 d-noe" style="z-index:1">
                     <div class="position-relative card-body">
                       <h3 class="text-muted text-center mb-4">Scanning...</h3>
                       <img src="https://cdn-icons-png.flaticon.com/512/9751/9751675.png" width="200" alt="" class="positio n-absolute mx-auto d-flex">
                       <embed src="https://lottie.host/embed/5bf3949e-ea60-4a7c-896f-4d20aacd27d8/qSalTleEE5.json" type="" id="scanLoader" class="d-noe position-absolute top-50 start-50 translate-middle">
-
                         
                       <div class="progress progress-sm mt-4">
                         <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </div>
-                  </diV>
-                
+                  </diV> -->
                 
                   <div class="row mb-4 justify-content-end componentScan">
                 
-                   <div class="col-12 col-md-6 ">
+                    <div class="col-12 col-md-6 ">
                       <label for="fileRecto" class="camera">
                         <div
                           id="previewRecto"
@@ -710,441 +705,507 @@
                     </div>
                     
                   </div>
-                  </div>
-                </form>
-             
 
-
-
+                </div>
+              </form>
                 
+              <form action="#"  enctype="multipart/form-data" class="AddNewCar">
+                <input type="file" name="files.MainImage">
+                <div class="">
+                  <div class="row">
 
-              <div class="d-non e">
-                <div class="row">
+                    <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Marque</label>
+                      <select id="car_brands" name="Make" class="form-select">
+                        <option value="Acura">Acura</option>
+                        <option value="Alfa Romeo">Alfa Romeo</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Bentley">Bentley</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Buick">Buick</option>
+                        <option value="Cadillac">Cadillac</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Chrysler">Chrysler</option>
+                        <option value="Citroën">Citroën</option>
+                        <option value="Dacia">Dacia</option>
+                        <option value="Dodge">Dodge</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Genesis">Genesis</option>
+                        <option value="GMC">GMC</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Infiniti">Infiniti</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Jeep">Jeep</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Lancia">Lancia</option>
+                        <option value="Land Rover">Land Rover</option>
+                        <option value="Lexus">Lexus</option>
+                        <option value="Maserati">Maserati</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="McLaren">McLaren</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="MINI">MINI</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Ram">Ram</option>
+                        <option value="Renault">Renault</option>
+                        <option value="Rolls-Royce">Rolls-Royce</option>
+                        <option value="Saab">Saab</option>
+                        <option value="Scion">Scion</option>
+                        <option value="SEAT">SEAT</option>
+                        <option value="Škoda">Škoda</option>
+                        <option value="Smart">Smart</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Vauxhall">Vauxhall</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Volvo">Volvo</option>
+                      </select>
+                    </div>
+                    </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Modèl</label>
+                      <input type="text" id="car_model" name="Model" class="form-control" />
+                    </div>
+                  </div>
 
                   <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Marque</label>
-                    <select id="car_brands" name="car_brands" class="form-select">
-                      <option value="Acura">Acura</option>
-                      <option value="Alfa Romeo">Alfa Romeo</option>
-                      <option value="Aston Martin">Aston Martin</option>
-                      <option value="Audi">Audi</option>
-                      <option value="Bentley">Bentley</option>
-                      <option value="BMW">BMW</option>
-                      <option value="Buick">Buick</option>
-                      <option value="Cadillac">Cadillac</option>
-                      <option value="Chevrolet">Chevrolet</option>
-                      <option value="Chrysler">Chrysler</option>
-                      <option value="Citroën">Citroën</option>
-                      <option value="Dacia">Dacia</option>
-                      <option value="Dodge">Dodge</option>
-                      <option value="Ferrari">Ferrari</option>
-                      <option value="Fiat">Fiat</option>
-                      <option value="Ford">Ford</option>
-                      <option value="Genesis">Genesis</option>
-                      <option value="GMC">GMC</option>
-                      <option value="Honda">Honda</option>
-                      <option value="Hyundai">Hyundai</option>
-                      <option value="Infiniti">Infiniti</option>
-                      <option value="Jaguar">Jaguar</option>
-                      <option value="Jeep">Jeep</option>
-                      <option value="Kia">Kia</option>
-                      <option value="Lamborghini">Lamborghini</option>
-                      <option value="Lancia">Lancia</option>
-                      <option value="Land Rover">Land Rover</option>
-                      <option value="Lexus">Lexus</option>
-                      <option value="Maserati">Maserati</option>
-                      <option value="Mazda">Mazda</option>
-                      <option value="McLaren">McLaren</option>
-                      <option value="Mercedes-Benz">Mercedes-Benz</option>
-                      <option value="MINI">MINI</option>
-                      <option value="Mitsubishi">Mitsubishi</option>
-                      <option value="Nissan">Nissan</option>
-                      <option value="Opel">Opel</option>
-                      <option value="Peugeot">Peugeot</option>
-                      <option value="Porsche">Porsche</option>
-                      <option value="Ram">Ram</option>
-                      <option value="Renault">Renault</option>
-                      <option value="Rolls-Royce">Rolls-Royce</option>
-                      <option value="Saab">Saab</option>
-                      <option value="Scion">Scion</option>
-                      <option value="SEAT">SEAT</option>
-                      <option value="Škoda">Škoda</option>
-                      <option value="Smart">Smart</option>
-                      <option value="Subaru">Subaru</option>
-                      <option value="Suzuki">Suzuki</option>
-                      <option value="Tesla">Tesla</option>
-                      <option value="Toyota">Toyota</option>
-                      <option value="Vauxhall">Vauxhall</option>
-                      <option value="Volkswagen">Volkswagen</option>
-                      <option value="Volvo">Volvo</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Modèl</label>
-                    <input type="text" id="car_model" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Immatriculation W</label>
-                    <input type="text" id="car_immatriculation_w" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Immatriculation</label>
-                    <input type="text"  id="car_immatriculation" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Carburant</label>
-                    <select id="car_fuel" class="form-select">
-                      <option selected>Essence</option>
-                      <option>Diesel</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Année</label>
-                    <input id="car_year" type="number" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre de places</label>
-                    <input type="number" id="car_nb_places" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-
-                    <label class="form-label">
-                      Date de première utilisation
-                    </label>
-                    <input
-                      id="car_first_use"
-                      type="text"
-                      class="form-control flatpickr-input"
-                      data-flatpickr=""
-                      readonly="readonly"
-                    />
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Libelle</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Catégorie</label>
-                    <select class="form-select">
-                      <option selected>SUV</option>
-                      <option>Eco</option>
-                    </select>
-                  </div>
-                </div>
-                
-
-                
-                
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Transmission</label>
-                    <div class="btn-group-toggle">
-                      <input
-                        type="radio"
-                        class="btn-check"
-                        name="options"
-                        id="option1"
-                        autocomplete="off"
-                        checked=""
-                      />
-                      <label class="btn btn-white me-2" for="option1">
-                        <!-- <i class="fe fe-check-circle"></i> -->
-                        Manuel
-                      </label>
-
-                      <input
-                        type="radio"
-                        class="btn-check"
-                        name="options"
-                        id="option2"
-                        autocomplete="off"
-                      />
-                      <label class="btn btn-white" for="option2">
-                        <!-- <i class="fe fe-check-circle"></i>  -->
-                        Automatic
-                      </label>
+                    <div class="form-group">
+                      <label class="form-label">Immatriculation W</label>
+                      <input type="text" id="car_immatriculation_w" name="LicensePlateWW" class="form-control" />
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Coleur</label>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Immatriculation</label>
+                      <input type="text"  id="car_immatriculation" name="LicensePlate" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Carburant</label>
+                      <select id="car_fuel" class="form-select" name="FuelType">
+                        <option selected>Essence</option>
+                        <option>Diesel</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Année</label>
+                      <input id="car_year" type="number" class="form-control" />
+                    </div>
+                  </div> -->
 
-                    <div class="colors">
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(251, 82, 82)"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="-49 141 512 512"
-                            width="20"
-                            height="20"
-                            aria-hidden="true"
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Nombre de places</label>
+                      <input type="number" id="car_nb_places" class="form-control" name="Seats" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+
+                      <label class="form-label">
+                        Date de première utilisation
+                      </label>
+                      <input
+                        id="car_first_use"
+                        type="text"
+                        class="form-control flatpickr-input"
+                        data-flatpickr=""
+                        readonly="readonly"
+                        name="FisrtUse"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Libelle</label>
+                      <input type="text" class="form-control" name="Name"/>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Catégorie</label>
+                      <select class="form-select" name="Categorie">
+                        <option selected>Économique</option>
+                        <option>Compacte</option>
+                        <option>Luxe</option>
+                        <option>SUV</option>
+                        <option>Décapotable</option>
+                        <option>Sport</option>
+                        <option>Familiale</option>
+                        <option>Décapotable</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Transmission</label>
+                      <div class="btn-group-toggle">
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="Transmission"
+                          id="Manuel"
+                          value="Manuel"
+                          checked=""
+                        />
+                        <label class="btn btn-white me-2" for="Manuel">
+                          Manuel
+                        </label>
+
+                        <input
+                          type="radio"
+                          class="btn-check"
+                          name="Transmission"
+                          id="Automatic"
+                          value="Automatic"
+                          autocomplete="off"
+                        />
+                        <label class="btn btn-white" for="Automatic">
+                          Automatic
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Coleur</label>
+
+                      <div class="btn-group-toggle">
+                        <input type="radio" class="btn-check" name="Color" name="options" id="orange" value="orange">
+                        <label class="color" for="orange">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                              style="background-color: rgb(252, 161, 32)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="yellow" value="yellow">
+                        <label class="color" for="yellow">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(252, 219, 126)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="green" value="green">
+                        <label class="color" for="green">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(74, 210, 149)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="skay" value="skay">
+                        <label class="color" for="skay">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(146, 205, 250)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="blue" value="blue">
+                        <label class="color" for="blue">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(18, 115, 235)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="purple" value="purple">
+                        <label class="color" for="purple">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(128, 128, 241)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="darkgray" value="darkgray">
+                        <label class="color" for="darkgray">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(29, 38, 45)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="gray" value="gray">
+                        <label class="color" for="gray">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                            style="background-color: rgb(186, 200, 211)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="Color" name="options" id="white" checked  value="white">
+                        <label class="color" for="white">
+                          <span class="avatar avatar-xs">
+                            <div
+                              class="avatar-title rounded-circle"
+                              style="background-color: rgb(255, 255, 255)"
+                            >
+                            </div>
+                          </span>
+                        </label>
+                
+
+                       
+                      </div>
+
+                      <!-- <div class="colors" >
+                      
+                        <span class="avatar avatar-xs">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(18, 115, 235)"
                           >
-                            <path
-                              fill="white"
-                              d="M127 552.25a24.92 24.92 0 0 1-17.678-7.322l-101-101c-9.763-9.763-9.763-25.593 0-35.355 9.764-9.764 25.592-9.764 35.355 0l83.339 83.34 243.323-242.857c9.771-9.754 25.602-9.74 35.355.033 9.754 9.772 9.739 25.602-.033 35.355l-261 260.5A24.92 24.92 0 0 1 127 552.25"
-                            ></path>
-                          </svg>
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(252, 161, 32)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(252, 219, 126)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(74, 210, 149)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(146, 205, 250)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(18, 115, 235)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(128, 128, 241)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(29, 38, 45)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle"
-                          style="background-color: rgb(186, 200, 211)"
-                        >
-                        </div>
-                      </span>
-                      <span class="avatar avatar-xs">
-                        <div
-                          class="avatar-title rounded-circle border"
-                          style="background-color: rgb(255, 255, 255)"
-                        >
-                        </div>
-                      </span>
+                          </div>
+                        </span>
+                        <span class="avatar avatar-xs">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(128, 128, 241)"
+                          >
+                          </div>
+                        </span>
+                        <span class="avatar avatar-xs">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(29, 38, 45)"
+                          >
+                          </div>
+                        </span>
+                        <span class="avatar avatar-xs">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(186, 200, 211)"
+                          >
+                          </div>
+                        </span>
+                        <span class="avatar avatar-xs">
+                          <div
+                            class="avatar-title rounded-circle border"
+                            style="background-color: rgb(255, 255, 255)"
+                          >
+                          </div>
+                        </span>
+                      </div> -->
                     </div>
                   </div>
-                </div>
 
-                
+                  
 
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Status</label>
-                    <select class="form-select">
-                      <option selected>Active</option>
-                      <option>Loue</option>
-                    </select>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Status</label>
+                      <select class="form-select" name="Status">
+                        <option selected>Available</option>
+                        <option>Loue</option>
+                        <option>Maintenance</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Kilométrage</label>
-                    <div class="input-group input-group-merge mb-3">
-                      <input
-                        class="form-control"
-                        placeholder=""
-                        type="number"
-                        aria-label="Input group appended"
-                        aria-describedby="inputGroup"
-                      />
-                      <div class="input-group-text" id="inputGroup">
-                        <span class="fe fe-sliders"></span>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Kilométrage</label>
+                      <div class="input-group input-group-merge mb-3">
+                        <input
+                          class="form-control"
+                          placeholder=""
+                          type="number"
+                          aria-label="Input group appended"
+                          aria-describedby="inputGroup"
+                          name="Mileage"
+                        />
+                        <div class="input-group-text" id="inputGroup">
+                          <span class="fe fe-sliders"></span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <!-- / .row -->
+                  </div>
 
-              <hr class="my-5" />
-              <h2 class="mb-4">
-                Prix de Location
-                <span class="badge bg-primary-soft ms-1 mt-n1"
-                  >Moroccan Dirham</span
-                >
-              </h2>
-              <!-- <hr class="my-5" /> -->
 
-              <div class="row">
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Prix par Jour</label>
-                    <div class="input-group input-group-merge mb-3">
-                      <input
-                        class="form-control"
-                        placeholder=""
-                        type="number"
-                        aria-label="Input group appended"
-                        aria-describedby="inputGroup"
-                      />
-                      <div class="input-group-text" id="inputGroup">
-                        <span class="fe fe-dollar-sign"></span>
+                  <hr class="my-5" />
+                  <h2 class="mb-4">
+                    Prix de Location
+                    <span class="badge bg-primary-soft ms-1 mt-n1"
+                      >Moroccan Dirham</span
+                    >
+                  </h2>
+                  <!-- <hr class="my-5" /> -->
+
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="form-group">
+                        <label class="form-label">Prix par Jour</label>
+                        <div class="input-group input-group-merge mb-3">
+                          <input
+                            class="form-control"
+                            placeholder=""
+                            type="number"
+                            aria-label="Input group appended"
+                            aria-describedby="inputGroup"
+                            name="RentalRate"
+                          />
+                          <div class="input-group-text" id="inputGroup">
+                            <span class="fe fe-dollar-sign"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-group">
+                        <label class="form-label">Prix par Heure</label>
+                        <div class="input-group input-group-merge mb-3">
+                          <input
+                            class="form-control"
+                            placeholder=""
+                            type="number"
+                            aria-label="Input group appended"
+                            aria-describedby="inputGroup"
+                          />
+                          <div class="input-group-text" id="inputGroup">
+                            <span class="fe fe-dollar-sign"></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <label class="form-label">Prix par Heure</label>
-                    <div class="input-group input-group-merge mb-3">
-                      <input
-                        class="form-control"
-                        placeholder=""
-                        type="number"
-                        aria-label="Input group appended"
-                        aria-describedby="inputGroup"
-                      />
-                      <div class="input-group-text" id="inputGroup">
-                        <span class="fe fe-dollar-sign"></span>
+
+                  <hr class="my-5" />
+                  <h2 class="mb-4">
+                    Caractéristiques du Véhicule
+                  </h2>
+                  <!-- <hr class="my-5" /> -->
+                  <div class="row">
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="GPS"
+                          checked
+                        />
+                        <label class="form-check-label" for="GPS"
+                          >Système de navigation</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="Climatisation"
+                        />
+                        <label class="form-check-label" for="Climatisation">
+                          Climatisation</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="Bluetooth"
+                        />
+                        <label class="form-check-label" for="Bluetooth">
+                          Bluetooth</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="RV" />
+                        <label class="form-check-label" for="RV">
+                          Régulateur de vitesse</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="TO" />
+                        <label class="form-check-label" for="TO">
+                          Toit ouvrant</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="CR" />
+                        <label class="form-check-label" for="CR">
+                          Caméra de recul</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="VE" />
+                        <label class="form-check-label" for="VE">
+                          Vitres électriques
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="DD" />
+                        <label class="form-check-label" for="DD">
+                          Démarrage à distance
+                        </label>
                       </div>
                     </div>
                   </div>
+                  <button class="btn btn-primary" type="submit">Enregistrer </button>
                 </div>
-              </div>
-
-              <hr class="my-5" />
-              <h2 class="mb-4">
-                Caractéristiques du Véhicule
-                <!-- <span class="badge bg-primary-soft ms-1 mt-n1"
-                  ></span> -->
-              </h2>
-              <!-- <hr class="my-5" /> -->
-              <div class="row">
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="GPS"
-                      checked
-                    />
-                    <label class="form-check-label" for="GPS"
-                      >Système de navigation</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="Climatisation"
-                    />
-                    <label class="form-check-label" for="Climatisation">
-                      Climatisation</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="Bluetooth"
-                    />
-                    <label class="form-check-label" for="Bluetooth">
-                      Bluetooth</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="RV" />
-                    <label class="form-check-label" for="RV">
-                      Régulateur de vitesse</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="TO" />
-                    <label class="form-check-label" for="TO">
-                      Toit ouvrant</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="CR" />
-                    <label class="form-check-label" for="CR">
-                      Caméra de recul</label
-                    >
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="VE" />
-                    <label class="form-check-label" for="VE">
-                      Vitres électriques
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="DD" />
-                    <label class="form-check-label" for="DD">
-                      Démarrage à distance
-                    </label>
-                  </div>
-                </div>
-              </div>
-              </div>
-             
+              </form>
+             <br><br>
           </div>
         </div>
         <!-- / .row -->
