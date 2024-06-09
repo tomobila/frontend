@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: 'attributes.Make',
             render: function (data, row) {
                 return `
-                <div class="avatar avatar-xs" title="${data}" style="background-image: url(../assets/img/brands2/${data}.svg);  background-repeat: no-repeat;  background-size: contain;">
+                <div class="avatar avatar-sm" title="${data}" style="background-image: url(../assets/img/brands/${data}.png);  background-repeat: no-repeat;  background-size: contain;">
                     <!--  <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
                 </div>
                 `
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                             ${VStatus(item.attributes.Status)}
                         
-                        <div class="avatar avatar-xs  position-absolute" style="top: 15px; left: 15px;background-image: url(../assets/img/brands2/${item.attributes.Make}.svg); background-repeat: no-repeat;  background-size: contain;">
+                        <div class="avatar avatar-xs  position-absolute" style="top: 15px;    width: 100vw; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
                                     <!-- <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded "> -->
                                 </div>
                         <img src="${imageUrl}" alt="..." class="card-img-top px-6 pt-4">
