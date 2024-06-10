@@ -294,6 +294,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function splitStringIntoSpans(str) {
+        // Split the string into an array of elements using the hyphen as the delimiter
+        const elements = str.split('-');
+
+        // Create an array to hold the HTML for each span
+        const spans = elements.map(element => {
+            // Create the HTML for the span element
+            return `<span>${element}</span>`;
+        });
+
+        // Join the array of spans into a single string
+        return spans.join('');
+    }
 
     const carsCard = document.getElementById('carsCard');
     if (carsCard) {
@@ -313,6 +326,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const imageUrl = item.attributes.MainImage && item.attributes.MainImage.data && item.attributes.MainImage.data.attributes && item.attributes.MainImage.data.attributes.url
                     ? `${localhost}${item.attributes.MainImage.data.attributes.url}`
                     : fallbackImageUrl;
+
+                const spansHtml = splitStringIntoSpans(item.attributes.LicensePlate);
+                console.log(spansHtml)
                 return `
                 <div class="col-12 col-md-6 col-xl-4">
                     <a href="vehicule.html?id=${item.id}" class="card vCard">
@@ -341,12 +357,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </p>
     
                                 <p class="text-center mb-4">
-                                <span class="badge bg-secondary-soft">
-                                    ${item.attributes.Categorie}
-                                </span>
-                                <span class="badge bg-secondary-soft">
-                                    ${item.attributes.FuelType}
-                                </span>
+                                   <!-- <img src="assets/img/plaque.png" alt="plaque" class="w-100" />
+                                    <span>${spansHtml}</span>-->
+                                    <span class="badge bg-secondary-soft">
+                                        ${item.attributes.Categorie}
+                                    </span>
+                                    <span class="badge bg-secondary-soft">
+                                        ${item.attributes.FuelType}
+                                    </span>
                                 </p>
                             </div>
     
