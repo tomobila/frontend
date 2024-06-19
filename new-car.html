@@ -730,6 +730,48 @@
             </div>
 
             <form method="post" action="#" id="addCar" enctype="multipart/form-data">
+              <div class="row mb-4 justify-content-end">
+                
+                    <div class="col-12 col-md-6 ">
+                      <label for="fileRecto" class="camera">
+                        <div id="previewRecto" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                          
+                          <button id="clearframeRecto" class="btn btn-danger rounded-circle position-absolute">
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                            <img src="" alt="preview" id="frameRecto" class="">
+                          </div>
+                        </div>
+                        <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-upload-cloud"></span>
+                        </div>
+                        <div>Recto Carte</div>
+                        <p class="text-muted small">SVG, PNG, JPG  (max. 1920x900)</p>
+                      </label>
+                      <input type="file" name="files.RegistrationDocument" accept="image/x-png,image/gif,image/jpeg" id="fileRecto" class="glob__dragDrop--input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="fileRecto2" class="camera">
+                        <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                          <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                            <img src="" alt="preview" id="frameRecto2" class="">
+                          </div>
+                        </div>
+                        <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-upload-cloud"></span>
+                        </div>
+                        <div class="">Verso Carte</div>
+                        <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p>
+                      </label>
+                      <input type="file" name="filerecto2" accept="image/x-png,image/gif,image/jpeg" id="fileRecto2" class="glob__dragDrop--input">
+                    </div>
+                    
+                    
+                  </div>
               <div class="row mb-3">
                 <div class="col-6">
                   <label for="formFile" class="form-label">Image principale</label>

@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const exdate = document.getElementById("n-exdate")
     const nbplaces = document.getElementById("n-nbplaces")
 
-    var cropper;
 
     const fileRecto = document.getElementById("fileRecto")
     const fileRecto2 = document.getElementById("fileRecto2")
@@ -117,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
             let resultRegistrationNumber = DATA.registrationNumber.substring(index);
 
-            car_immatriculation.value = resultRegistrationNumber
-            car_immatriculation_w.value = resultRegistrationNumber
+            car_immatriculation.value = DATA.registrationNumber
+            car_immatriculation_w.value = DATA.registrationNumber
             car_first_use.value = DATA.firstRegistrationDate
             console.log(new Date(DATA.firstRegistrationDate))
 
@@ -148,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const clearframeRecto2 = document.querySelector("#clearframeRecto2")
 
     // UPLOAD FILE
+    var cropper;
 
     fileRecto.addEventListener('change', () => {
 
@@ -161,29 +161,13 @@ document.addEventListener("DOMContentLoaded", function () {
             imageRecto.src = URL.createObjectURL(file)
             $('#cropperModal').modal('show');
 
-            // cropper = new Cropper(imageRecto, {
-            //     aspectRatio: 16 / 9,
-            //     crop: function (e) {
-            //         // console.log(e.detail.width);
-            //         // console.log(e.detail.height);
-            //     },
-            //     viewMode: 3,
-            //     autoCropArea: 1,
-            //     center: true,
-            //     dragMode: 'move',
-            //     responsive: true,
-            //     restore: true,
-            //     rotatable: true,
-            //     scalable: true
-            // });
-
         }
 
     })
 
     $('#cropperModal').on('shown.bs.modal', function () {
         cropper = new Cropper(imageRecto, {
-            // aspectRatio: 16 / 9,
+            aspectRatio: 16 / 9,
             viewMode: 3,
             autoCropArea: 1,
             responsive: true,
@@ -191,9 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dragMode: 'move',
             rotatable: true,
             scalable: true,
-            // guides: true,
-            // cropBoxMovable: true,
-            // cropBoxResizable: true,
         });
         // Force cropper to recalculate dimensions
         cropper.reset();

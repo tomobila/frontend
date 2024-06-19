@@ -48,15 +48,7 @@
 
     <title>Tomobila</title>
 
-    <link
-      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"
-    />
+   
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
@@ -83,7 +75,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img id="imageRecto" src="" alt="Picture">
+                    <img id="imageRecto" src="" class="w-100" alt="Picture">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -619,20 +611,20 @@
                   </div>
                   <div class="col-auto">
 
-                    <div class="nav btn-group d-inline-flex">
+                    <!-- <div class="nav btn-group d-inline-flex">
                       <button class="btn btn-white methodAction" id="sManuel" data-container="componentManuel">
                         <span class="fe fe-clipboard"></span> Saisie Manuel
                       </button>
                       <button class="btn btn-white methodAction active" id="sAI" data-container="componentAI">
                         <span class="fe fe-crosshair"></span> Scan avec AI
                       </button>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Form -->
+            
             <div class="componentAI componentAction">
               <div class="alert alert-warning" role="alert">
                     <span class="fe fe-alert-circle"></span>
@@ -670,10 +662,13 @@
                             <img src="" alt="preview" id="frameRecto" class="" />
                           </div>
                         </div>
-                        <div class="btn btn-primary rounded-circle mb-3">
-                          <span class="fe fe-upload-cloud"></span>
+                        <div class="avatar avatar-xl mb-3">
+                          <img src="/assets/img/icons/car-registration.svg" alt="..." class="avatar-img rounded">
                         </div>
-                        <div>Recto Carte</div>
+                        <!-- <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-camera"></span>
+                        </div> -->
+                        <div>Carte grise</div>
                         <p class="text-muted small">SVG, PNG, JPG  (max. 1920x900)</p>
                       </label>
                       <input
@@ -698,10 +693,14 @@
                             <img src="" alt="preview" id="frameRecto2" class="" />
                           </div>
                         </div>
-                        <div class="btn btn-primary rounded-circle mb-3">
-                          <span class="fe fe-upload-cloud"></span>
+                        <div class="avatar avatar-xl mb-3">
+                          <img src="/assets/img/icons/car-registration.svg" alt="..." class="avatar-img rounded">
                         </div>
-                        <div class="">Verso Carte</div>
+                        <!-- <img src="assets/img/icons/assets/img/icons/car-registration.svg" alt=""> -->
+                        <!-- <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-camera"></span>
+                        </div> -->
+                        <div class="">Carte grise (verso) </div>
                         <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p>
                       </label>
                       <input
@@ -727,7 +726,8 @@
               
               <div class="componentManuel componentAction d-none">
                 <form action="#"  enctype="multipart/form-data" class="AddNewCar">
-                  <input type="file" name="files.MainImage">
+
+                  <!-- <input type="file" name="files.MainImage"> -->
                   <div class="">
                     <div class="row">
 
@@ -761,7 +761,7 @@
                         <option value="Kia">Kia</option>
                         <option value="Lamborghini">Lamborghini</option>
                         <option value="Lancia">Lancia</option>
-                        <option value="Land Rover">Land Rover</option>
+                        <option value="Land-Rover">Land Rover</option>
                         <option value="Lexus">Lexus</option>
                         <option value="Maserati">Maserati</option>
                         <option value="Mazda">Mazda</option>
@@ -819,12 +819,6 @@
                       </select>
                     </div>
                   </div>
-                  <!-- <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label class="form-label">Année</label>
-                      <input id="car_year" type="number" class="form-control" />
-                    </div>
-                  </div> -->
 
                   <div class="col-12 col-md-6">
                     <div class="form-group">
@@ -900,17 +894,6 @@
                         <option>Sport</option>
                         <option>Familiale</option>
                         <option>Décapotable</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
-                      <label class="form-label">Status</label>
-                      <select class="form-select" name="Status">
-                        <option selected>Available</option>
-                        <option>Loue</option>
-                        <option>Maintenance</option>
                       </select>
                     </div>
                   </div>
@@ -1021,49 +1004,9 @@
                             </div>
                           </span>
                         </label>
-                
-
                        
                       </div>
 
-                      <!-- <div class="colors" >
-                      
-                        <span class="avatar avatar-xs">
-                          <div
-                            class="avatar-title rounded-circle"
-                            style="background-color: rgb(18, 115, 235)"
-                          >
-                          </div>
-                        </span>
-                        <span class="avatar avatar-xs">
-                          <div
-                            class="avatar-title rounded-circle"
-                            style="background-color: rgb(128, 128, 241)"
-                          >
-                          </div>
-                        </span>
-                        <span class="avatar avatar-xs">
-                          <div
-                            class="avatar-title rounded-circle"
-                            style="background-color: rgb(29, 38, 45)"
-                          >
-                          </div>
-                        </span>
-                        <span class="avatar avatar-xs">
-                          <div
-                            class="avatar-title rounded-circle"
-                            style="background-color: rgb(186, 200, 211)"
-                          >
-                          </div>
-                        </span>
-                        <span class="avatar avatar-xs">
-                          <div
-                            class="avatar-title rounded-circle border"
-                            style="background-color: rgb(255, 255, 255)"
-                          >
-                          </div>
-                        </span>
-                      </div> -->
                     </div>
                   </div>
 
@@ -1086,6 +1029,155 @@
                       </div>
                     </div>
                   </div>
+                  </div>
+                  <div class="row mb-4 justify-content-end">
+                
+                    <div class="col-12 col-md-4">
+
+                      <label for="fileRecto" class="camera">
+                        <div id="previewRecto" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                          
+                          <button id="clearframeRecto" class="btn btn-danger rounded-circle position-absolute">
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                            <img src="" alt="preview" id="frameRecto" class="">
+                          </div>
+                        </div>
+                        <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                          <span class="fe fe-camera"></span>
+                        </div>
+                        <div>Main photo</div>
+                        <p class="text-muted small">SVG, PNG, JPG</p>
+                      </label>
+                      <input type="file" name="files.RegistrationDocument" accept="image/x-png,image/gif,image/jpeg" id="fileRecto" class="glob__dragDrop--input">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">Status</label>
+                          <select class="form-select" name="Status">
+                            <option selected>Available</option>
+                            <option>Loue</option>
+                            <option>Maintenance</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-8">
+                      <div class="row">
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-sm btn-primary rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Front</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Back</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Top</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Bottom</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Right</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                        <div class="col-md-4 col-6">
+                          <label for="" class="camera">
+                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
+                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
+                                <span class="fe fe-x"></span>
+                              </button>
+                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
+                                <img src="" alt="preview" id="frameRecto2" class="">
+                              </div>
+                            </div>
+                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
+                              <span class="fe fe-plus"></span>
+                            </div>
+                            <div class="">Left</div>
+                            <!-- <p class="text-muted small">SVG, PNG, JPG (max. 1920x900)</p> -->
+                          </label>
+                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                    
                   </div>
 
 

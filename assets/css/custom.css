@@ -187,3 +187,7 @@ table.dataTable.no-footer {
     transform: translate(-50%, -50%);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.466);
 }
+
+.componentManuel .camera {
+    height: 130px;
+}

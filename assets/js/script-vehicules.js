@@ -1,5 +1,5 @@
 const client = {
-    id: 4,
+    id: 1,
     name: 'Azaf car'
 }
 
@@ -17,7 +17,6 @@ const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 
 
 document.addEventListener("DOMContentLoaded", function () {
-
 
     const columns = [
         {
@@ -42,8 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
             data: 'attributes.Make',
             render: function (data, row) {
                 return `
+                <div class="d-flex align-items-end justify-content-start">
                 <div class="avatar avatar-sm" title="${data}" style="background-image: url(../assets/img/brands/${data}.png);  background-repeat: no-repeat;  background-size: contain;">
                     <!--  <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
+                </div>
                 </div>
                 `
             }
@@ -109,18 +110,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                     <div class="dropdown">
-                        <a class="dropdown-ellipses dropdown-toggle" href="crm-contacts.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fe fe-more-vertical"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                            Action
+                        <a href="#" class="dropdown-item">
+                            Assurance
                         </a>
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                            Another action
+                        <a href="#!" class="dropdown-item">
+                            Vidange
                         </a>
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                            Something else here
+                        <a href="#!" class="dropdown-item">
+                            Visite Technique
+                        </a>
+                        <a href="#!" class="dropdown-item">
+                            Vignette
                         </a>
                         </div>
                     </div>
@@ -130,10 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
     ]
-
-
-
-
 
 
     var myData = {};
@@ -333,79 +333,78 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="col-12 col-md-6 col-xl-4">
                     <a href="vehicule.html?id=${item.id}" class="card vCard">
     
-                    <div class="position-relative">
-                        
-                            ${VStatus(item.attributes.Status)}
-                        
-                        <div class="avatar avatar-xs  position-absolute" style="top: 15px;    width: 100vw; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
-                                    <!-- <img src="../assets/img/brands2/${item.attributes.Make}.svg" alt="car" class="avatar-img rounded "> -->
-                                </div>
-                        <img src="${imageUrl}" alt="..." class="card-img-top px-6 pt-4">
-                    </div>
-    
-                    <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
+                        <div class="position-relative">
+                                ${VStatus(item.attributes.Status)} 
+                            <div class="avatar avatar-xs  position-absolute" style="top: 15px;    width: 100vw; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
                                 
-
-                                <h2 class="card-title text-center mb-0">
-                                    ${item.attributes.Name}
-                                </h2>
-    
-                                <p class="small text-center text-muted mb-3">
-                                    ${item.attributes.Make}
-                                </p>
-    
-                                <p class="text-center mb-4">
-                                   <!-- <img src="assets/img/plaque.png" alt="plaque" class="w-100" />
-                                    <span>${spansHtml}</span>-->
-                                    <span class="badge bg-secondary-soft">
-                                        ${item.attributes.Categorie}
-                                    </span>
-                                    <span class="badge bg-secondary-soft">
-                                        ${item.attributes.FuelType}
-                                    </span>
-                                </p>
                             </div>
-    
-                            </div>
-    
-                            <div class="row g-0 border-top border-bottom">
-                               
-                             <div class="col-4 py-3 text-center ">
-    
-                                <h6 class="text-uppercase text-muted">
-                                Transmission
-                                </h6>
-    
-                                <h3 class="mb-0">
-                                    ${item.attributes.Transmission}
-                                </h3>
-    
-                            </div>
-                            <div class="col-4 py-3 text-center border-start">
-    
-                                <h6 class="text-uppercase text-muted">
-                                    Nb. places
-                                </h6>
-    
-                                <h3 class="mb-0">
-                                ${item.attributes.Seats}
-                                </h3>
-    
-                            </div>
-                            <div class="col-4 py-3 text-center border-start">
-    
-                                <h6 class="text-uppercase text-muted">
-                                Annee
-                                </h6>
-    
-                                <h3 class="mb-0">${item.attributes.Year}</h3>
-    
-                            </div>
-                            </div>
+                            <img src="${imageUrl}" alt="..." class="card-img-top px-6 pt-4">
                         </div>
-    
+        
+                        <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        
+
+                                        <h2 class="card-title text-center mb-0">
+                                            ${item.attributes.Name}
+                                        </h2>
+            
+                                        <p class="small text-center text-muted mb-3">
+                                            ${item.attributes.Make}
+                                        </p>
+            
+                                        <p class="text-center mb-4">
+                                        <!-- <img src="assets/img/plaque.png" alt="plaque" class="w-100" />
+                                            <span>${spansHtml}</span>-->
+                                            <span class="badge bg-secondary-soft">
+                                                ${item.attributes.Categorie}
+                                            </span>
+                                            <span class="badge bg-secondary-soft">
+                                                ${item.attributes.FuelType}
+                                            </span>
+                                        </p>
+                                    </div>
+        
+                                </div>
+        
+                                <div class="row g-0 border-top border-bottom">
+                                
+                                    <div class="col-4 py-3 text-center ">
+            
+                                        <h6 class="text-uppercase text-muted">
+                                            Transmission
+                                        </h6>
+            
+                                        <h3 class="mb-0">
+                                            ${item.attributes.Transmission}
+                                        </h3>
+            
+                                    </div>
+                                    <div class="col-4 py-3 text-center border-start">
+            
+                                        <h6 class="text-uppercase text-muted">
+                                            Nb. places
+                                        </h6>
+            
+                                        <h3 class="mb-0">
+                                            ${item.attributes.Seats}
+                                        </h3>
+            
+                                    </div>
+                                    <div class="col-4 py-3 text-center border-start">
+            
+                                        <h6 class="text-uppercase text-muted">
+                                            Annee
+                                        </h6>
+            
+                                        <h3 class="mb-0">${item.attributes.Year}</h3>
+            
+                                    </div>
+                                </div>
+                                    dd
+                                
+                            </div>
     
                     </a>
                 </div>
