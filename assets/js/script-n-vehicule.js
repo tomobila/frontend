@@ -75,8 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     scan.addEventListener("click", async (event) => {
         event.preventDefault();
-        // resetProgressBar();
-
 
         const formData = new FormData();
         const componentScan = document.querySelector(".componentScan");
@@ -99,11 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         response.json().then(data => {
+
             console.log(data.data);
             let DATA = data.data
-            // updateProgressBar(100);
-            $('#carDetailModal').modal('show');
 
+            // $('#carDetailModal').modal('show');
             // console.log(data.data.brand)
             car_brands.value = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
             car_model.value = String(DATA.model.charAt(0).toUpperCase() + DATA.model.slice(1).toLowerCase());
@@ -113,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 defaultDate: DATA.expiryDate
             })
 
-            let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
-            let resultRegistrationNumber = DATA.registrationNumber.substring(index);
+            // let index = DATA.registrationNumber.indexOf("MA") + 2; // Get the index right after "MA"
+            // let resultRegistrationNumber = DATA.registrationNumber.substring(index);
 
             car_immatriculation.value = DATA.registrationNumber
             car_immatriculation_w.value = DATA.registrationNumber
@@ -123,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             marque.innerHTML = String(DATA.brand.charAt(0).toUpperCase() + DATA.brand.slice(1).toLowerCase());
             model.innerHTML = String(DATA.model.charAt(0).toUpperCase() + DATA.model.slice(1).toLowerCase());
-            immatriculation.innerHTML = resultRegistrationNumber
+            immatriculation.innerHTML = DATA.registrationNumber
             nchassis.innerHTML = DATA.chassisNumber
             fuyel.innerHTML = DATA.fuelType
             exdate.innerHTML = DATA.expiryDate

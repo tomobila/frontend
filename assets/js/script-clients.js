@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
 
                 return `
-                    <div class="avatar avatar-lg me-3">
+                    <div class="avatar avatar-sm me-3">
                         <span class="avatar-title rounded-circle">
                         ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
                         </span>

@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         </h2>
             
                                         <p class="small text-center text-muted mb-3">
-                                            ${item.attributes.Make}
+                                            ${item.attributes.Model}
                                         </p>
             
                                         <p class="text-center mb-4">
