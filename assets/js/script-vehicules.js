@@ -18,6 +18,12 @@ const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 
 document.addEventListener("DOMContentLoaded", function () {
 
+
+    fetch('http://localhost:1337/api/cars/count')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+
     const columns = [
         {
             data: 'id',
