@@ -22,9 +22,6 @@
     
     <!-- Title -->
  <style>
-  .fc .fc-scrollgrid table{
-    width: 170px !important;
-  }
     .fc-event-custom {
       padding: 5px;
       /* background-color: #1a49f8; */
@@ -42,7 +39,6 @@
       border: 0;
     }
     .fc-theme-standard td, .fc-theme-standard th {
-      width: 50px;
       border: 0;
     }
     .fc-direction-ltr .fc-timeline-slot{
@@ -57,138 +53,47 @@
         white-space: nowrap;
       color: rgb(161, 161, 161);
     }
-    /*  */
     .fc-license-message
     {
       opacity: 0;
     }
-    .fc .fc-scrollgrid-liquid {
+    .fc .fc-scrollgrid {
         border: 0;
     }
-    .fc .fc-resource-timeline-divider {
-        
-
-        width: 1px;
+    td.fc-resource-timeline-divider.fc-cell-shaded {
+      width: 1px;
     }
+    .fc-direction-ltr .fc-timeline-slot {
+      width: 50px;
+  }
+  .fc-scroller::-webkit-scrollbar\ {
+    scrollbar-width: none;
+  }
+  .fc-scroller::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
 
+.fc .fc-button-primary {
+    background-color: #95aac9;
+    border-color: #95aac9;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    background-color: #1a49f8;
+    border-color: #1a49f8;
+}
   </style>
     <title>Tomobila</title>
 
-        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
-            <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.14/index.global.min.js'></script>
-
-        <script>
-
-          document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              // headerToolbar: {
-              //   center: 'dayGridMonth,resourceTimelineWeek' // buttons for switching between views
-              // },
-              slotLabelFormat: [
-                { day:'numeric' }, // top level of text
-                // { weekday: 'short' } // lower level of text
-              ],
-              chedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', 
-              headerToolbar: {
-                  left: 'prev,next',
-                  center: 'title',
-                  right: 'resourceTimelineMonth,next30Days'
-                },
-                views: {
-                  next10Days: {
-                    type: 'resourceTimeline',
-                    duration: { days: 10 },
-                    buttonText: '10 days'
-                  },
-                  next30Days: {
-                    type: 'resourceTimeline',
-                    duration: { days: 30 },
-                    buttonText: 'Next 30 jours'
-                  }
-                },
-              initialView: 'resourceTimelineMonth',
-              aspectRatio: 2.5,
-              // initialDate: new Date(),
-              initialDate: new Date().toISOString().split('T')[0],
-              editable: true,
-              selectable: true,
-              resourceAreaHeaderContent: 'Vehicules',
-              // resourceAreaHeaderContent: ' ',
-              resources:[
-                {
-                  "id": "a",
-                  "title": "Dacia A",
-                  "eventColor": "#1a49f8"
-                },
-                {
-                  "id": "b",
-                  "title": "Duster black",
-                  "eventColor": "#1a49f8"
-                },
-                {
-                  "id": "c",
-                  "title": "Mercedes C",
-                  "eventColor": "#000",
-                  "eventColor": "#1a49f8"
-                }
-              ],
-              dayCellContent: function(arg) {
-                arg.dayNumberText = arg.dayNumberText.replace(/.*(\d{1,2}).*/, '$1');
-              },
-              events: [
-                { id: '1', resourceId: 'a', title: 'Mehdi', start: '2024-06-13T10:00:00', end: '2024-06-26T12:00:00' },
-                { id: '2', resourceId: 'b', title: 'Soufiane', start: '2024-06-07T13:00:00', end: '2024-06-23T15:00:00' },
-                { id: '3', resourceId: 'c', title: 'Azahro', start: '2024-06-20T09:00:00', end: '2024-06-29T11:00:00' }
-              ],
-               eventContent: function(arg) {
-                let event = arg.event;
-                let now = new Date();
-                let start = event.start;
-                let end = event.end;
-
-                let progress = 0;
-                if (now > start && now < end) {
-                  progress = ((now - start) / (end - start)) * 100;
-                  console.log(progress);
-                } else if (now >= end) {
-                  progress = 100;
-                }
-
-                let customHtml = `
-                  <div class="fc-event-custom d-flex">
-                    <div class="avatar avatar-xs me-3">
-                        <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
-                    </div>
-                    <div class="d-flex flex-1 w-100">
-
-                      <div class="fc-event-progress-container w-100">
-                         <div class="fc-event-title">${event.title}</div>
-                        <div class="fc-event-progress-bar bg-white h-2" style="width: ${progress}%" ></div>
-                      </div>
-                      <span> ${Math.round(progress)}%</span>
-                      
-                    </div>
-                      </div>
-                      `;
-                      return { html: customHtml };
-                      
-                    // <div class="fc-event-time">${event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${event.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-              }
-            });
-            calendar.render();
-          });
-
-        </script>
+      
 
 
-    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
+    <!-- <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"> -->
     
-    <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
 
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
     <link rel="stylesheet" href="assets/css/custom.css" />
     
   </head>
@@ -208,27 +113,170 @@
           </a> -->
       
           <!-- Form -->
-          <form class="form-inline me-4 d-none d-lg-flex">
-            <div class="input-group input-group-rounded input-group-merge input-group-reverse" data-list="{&quot;valueNames&quot;: [&quot;name&quot;]}">
-      
-              <!-- Input -->
-              <input type="search" class="form-control dropdown-toggle list-search" data-bs-toggle="dropdown" placeholder="Search" aria-label="Search">
-      
-              <!-- Icon -->
-              <div class="input-group-text">
-                <i class="fe fe-search"></i>
-              </div>
-      
-              <!-- Menu -->
-              <div class="dropdown-menu dropdown-menu-card">
-                <div class="card-body">
-      
-      
-                </div>
-              </div> <!-- / .dropdown-menu -->
-      
+       <form class="form-inline me-4 d-none d-lg-flex mb-0">
+          <div class="input-group input-group-rounded input-group-merge input-group-reverse" data-list="{&quot;valueNames&quot;: [&quot;name&quot;]}">
+            <!-- Input -->
+            <input type="search" class="form-control dropdown-toggle list-search" data-bs-toggle="dropdown" placeholder="Search" aria-label="Search">
+
+            <!-- Icon -->
+            <div class="input-group-text">
+              <i class="fe fe-search"></i>
             </div>
-          </form>
+
+            <!-- Menu -->
+            <div class="dropdown-menu dropdown-menu-card">
+              <div class="card-body">
+                <!-- List group -->
+                <div class="list-group list-group-flush list-group-focus list my-n3"><a class="list-group-item" href="team-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img src="assets/img/avatars/teams/team-logo-1.jpg" alt="..." class="avatar-img rounded">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name"> Airbnb </h4>
+
+                        <!-- Time -->
+                        <p class="small text-muted mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 2hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="team-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img src="assets/img/avatars/teams/team-logo-2.jpg" alt="..." class="avatar-img rounded">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Medium Corporation
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-muted mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 2hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Homepage Redesign
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-muted mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Travels &amp; Time
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-muted mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="project-overview.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-4by3">
+                          <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Safari Exploration
+                        </h4>
+
+                        <!-- Time -->
+                        <p class="small text-muted mb-0">
+                          <span class="fe fe-clock"></span>
+                          <time datetime="2018-05-24">Updated 4hr ago</time>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="profile-posts.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Dianna Smiley
+                        </h4>
+
+                        <!-- Status -->
+                        <p class="text-body small mb-0">
+                          <span class="text-success">●</span> Online
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row --> </a><a class="list-group-item" href="profile-posts.html">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <div class="avatar">
+                          <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                        </div>
+                      </div>
+                      <div class="col ms-n2">
+                        <!-- Title -->
+                        <h4 class="text-body text-focus mb-1 name">
+                          Ab Hadley
+                        </h4>
+
+                        <!-- Status -->
+                        <p class="text-body small mb-0">
+                          <span class="text-danger">●</span> Offline
+                        </p>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </a></div>
+              </div>
+            </div>
+            <!-- / .dropdown-menu -->
+          </div>
+        </form>
       
           <!-- User -->
           <div class="navbar-user">
@@ -366,7 +414,7 @@
 
                 <!-- Button -->
                 <a href="index.html#!" class="btn btn-primary lift">
-                  Create Report
+                  Nouveau
                 </a>
 
               </div>
@@ -377,7 +425,7 @@
        
         <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6 col-xl">
+          <div class="col-6 col-lg-6 col-xl">
 
             <!-- Value  -->
             <div class="card">
@@ -396,9 +444,9 @@
                     </span>
 
                     <!-- Badge -->
-                    <span class="badge bg-success-soft mt-n1">
+                    <!-- <span class="badge bg-success-soft mt-n1">
                       +3.5%
-                    </span>
+                    </span> -->
                   </div>
                   <div class="col-auto">
 
@@ -411,7 +459,7 @@
             </div>
 
           </div>
-          <div class="col-12 col-lg-6 col-xl">
+          <div class="col-6 col-lg-6 col-xl">
 
             <!-- Hours -->
             <div class="card">
@@ -441,7 +489,7 @@
             </div>
 
           </div>
-          <div class="col-12 col-lg-6 col-xl">
+          <div class="col-6 col-lg-6 col-xl">
 
             <!-- Exit -->
             <div class="card">
@@ -475,7 +523,7 @@
             </div>
 
           </div>
-          <div class="col-12 col-lg-6 col-xl">
+          <div class="col-6 col-lg-6 col-xl">
 
             <!-- Time -->
             <div class="card">
@@ -485,18 +533,19 @@
 
                      <!-- Title -->
                     <h6 class="text-uppercase text-muted mb-2">
-                      benifices
+                       benifices
                     </h6>
                     
                     <!-- Heading -->
                     <span class="h2 mb-0">
-                      24,500 Mad
+                      24500
+                       <!-- Mad -->
                     </span>
 
                     <!-- Badge -->
-                    <span class="badge bg-success-soft mt-n1">
+                    <!-- <span class="badge bg-success-soft mt-n1">
                       +3.5%
-                    </span>
+                    </span> -->
 
                   </div>
                   <div class="col-auto">
@@ -512,7 +561,7 @@
           </div>
         </div> <!-- / .row -->
 
-        <div class="row">
+         <div class="row">
           <div class="col-12">
             <div class="card card-body">
               <div id="calendar"></div>
@@ -522,333 +571,7 @@
         </div>
 
         <div class="row">
-          <div class="col-12 col-xl-8">
-
-            <!-- Convertions -->
-            <div class="card">
-              <div class="card-header">
-
-                <!-- Title -->
-                <h4 class="card-header-title">
-                  Total Revenues
-                </h4>
-
-                <!-- Caption -->
-                <span class="text-muted me-3">
-                  Charges:
-                </span>
-
-                <!-- Switch -->
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" id="cardToggle" data-toggle="chart" data-target="#conversionsChart" data-trigger="change" data-action="add" data-dataset="1" />
-                  <label class="form-check-label" for="cardToggle"></label>
-                </div>
-
-              </div>
-              <div class="card-body">
-
-                <!-- Chart -->
-                <div class="chart">
-                  <canvas id="conversionsChart" class="chart-canvas"></canvas>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-xl-4">
-
-            <!-- Traffic -->
-            <div class="card">
-              <div class="card-header">
-
-                <!-- Title -->
-                <h4 class="card-header-title">
-                  Traffic Channels
-                </h4>
-
-                <!-- Tabs -->
-                <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="0">
-                    <a href="index.html#" class="nav-link active" data-bs-toggle="tab">
-                      All
-                    </a>
-                  </li>
-                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="1">
-                    <a href="index.html#" class="nav-link" data-bs-toggle="tab">
-                      Direct
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
-              <div class="card-body">
-
-                <!-- Chart -->
-                <div class="chart chart-appended">
-                  <canvas id="trafficChart" class="chart-canvas" data-toggle="legend" data-target="#trafficChartLegend"></canvas>
-                </div>
-
-                <!-- Legend -->
-                <div id="trafficChartLegend" class="chart-legend"></div>
-
-              </div>
-            </div>
-          </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-12 col-xl-4">
-
-            <!-- Projects -->
-            <div class="card card-fill">
-              <div class="card-header">
-
-                <!-- Title -->
-                <h4 class="card-header-title">
-                  Projects
-                </h4>
-
-                <!-- Link -->
-                <a href="project-overview.html" class="small">View all</a>
-
-              </div>
-              <div class="card-body">
-
-                <!-- List group -->
-                <div class="list-group list-group-flush my-n3">
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-
-                        <!-- Avatar -->
-                        <a href="project-overview.html" class="avatar avatar-4by3">
-                          <img src="assets/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
-                        </a>
-
-                      </div>
-                      <div class="col ms-n2">
-
-                        <!-- Title -->
-                        <h4 class="mb-1">
-                          <a href="project-overview.html">Homepage Redesign</a>
-                        </h4>
-
-                        <!-- Time -->
-                        <p class="card-text small text-muted">
-                          <time datetime="2018-05-24">Updated 4hr ago</time>
-                        </p>
-
-                      </div>
-                      <div class="col-auto">
-
-                        <!-- Dropdown -->
-                        <div class="dropdown">
-                          <a href="index.html#" class="dropdown-ellipses dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end">
-                            <a href="index.html#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div> <!-- / .row -->
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-
-                        <!-- Avatar -->
-                        <a href="project-overview.html" class="avatar avatar-4by3">
-                          <img src="assets/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
-                        </a>
-
-                      </div>
-                      <div class="col ms-n2">
-
-                        <!-- Title -->
-                        <h4 class="mb-1">
-                          <a href="project-overview.html">Travels & Time</a>
-                        </h4>
-
-                        <!-- Time -->
-                        <p class="card-text small text-muted">
-                          <time datetime="2018-05-24">Updated 4hr ago</time>
-                        </p>
-
-                      </div>
-                      <div class="col-auto">
-
-                        <!-- Dropdown -->
-                        <div class="dropdown">
-                          <a href="index.html#" class="dropdown-ellipses dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end">
-                            <a href="index.html#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div> <!-- / .row -->
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-
-                        <!-- Avatar -->
-                        <a href="project-overview.html" class="avatar avatar-4by3">
-                          <img src="assets/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
-                        </a>
-
-                      </div>
-                      <div class="col ms-n2">
-
-                        <!-- Title -->
-                        <h4 class="mb-1">
-                          <a href="project-overview.html">Safari Exploration</a>
-                        </h4>
-
-                        <!-- Time -->
-                        <p class="card-text small text-muted">
-                          <time datetime="2018-05-24">Updated 4hr ago</time>
-                        </p>
-
-                      </div>
-                      <div class="col-auto">
-
-                        <!-- Dropdown -->
-                        <div class="dropdown">
-                          <a href="index.html#" class="dropdown-ellipses dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end">
-                            <a href="index.html#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div> <!-- / .row -->
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-
-                        <!-- Avatar -->
-                        <a href="project-overview.html" class="avatar avatar-4by3">
-                          <img src="assets/img/avatars/projects/project-5.jpg" alt="..." class="avatar-img rounded">
-                        </a>
-
-                      </div>
-                      <div class="col ms-n2">
-
-                        <!-- Title -->
-                        <h4 class="mb-1">
-                          <a href="project-overview.html">Personal Site</a>
-                        </h4>
-
-                        <!-- Time -->
-                        <p class="card-text small text-muted">
-                          <time datetime="2018-05-24">Updated 4hr ago</time>
-                        </p>
-
-                      </div>
-                      <div class="col-auto">
-
-                        <!-- Dropdown -->
-                        <div class="dropdown">
-                          <a href="index.html#" class="dropdown-ellipses dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end">
-                            <a href="index.html#!" class="dropdown-item">
-                              Action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Another action
-                            </a>
-                            <a href="index.html#!" class="dropdown-item">
-                              Something else here
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div> <!-- / .row -->
-                  </div>
-                </div>
-
-              </div> <!-- / .card-body -->
-            </div> <!-- / .card -->
-          </div>
-          <div class="col-12 col-xl-8">
-
-            <!-- Sales -->
-            <div class="card">
-              <div class="card-header">
-
-                <!-- Title -->
-                <h4 class="card-header-title">
-                  Sales
-                </h4>
-
-                <!-- Nav -->
-                <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="0">
-                    <a class="nav-link active" href="index.html#" data-bs-toggle="tab">
-                      All
-                    </a>
-                  </li>
-                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="1">
-                    <a class="nav-link" href="index.html#" data-bs-toggle="tab">
-                      Direct
-                    </a>
-                  </li>
-                  <li class="nav-item" data-toggle="chart" data-target="#salesChart" data-trigger="click" data-action="toggle" data-dataset="2">
-                    <a class="nav-link" href="index.html#" data-bs-toggle="tab">
-                      Organic
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
-              <div class="card-body">
-
-                <!-- Chart -->
-                <div class="chart">
-                  <canvas id="salesChart" class="chart-canvas"></canvas>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div> <!-- / .row -->
-        <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-xl-12">
 
             <!-- Goals -->
             <div class="card">
@@ -858,7 +581,7 @@
 
                     <!-- Title -->
                     <h4 class="card-header-title">
-                      Goals
+                    5 Dernier Réservations
                     </h4>
 
                   </div>
@@ -866,7 +589,7 @@
 
                     <!-- Button -->
                     <a href="index.html#!" class="btn btn-sm btn-white">
-                      Export
+                      Voir tous
                     </a>
 
                   </div>
@@ -1137,7 +860,297 @@
             </div>
 
           </div>
+          <div class="col-12 col-xl-8">
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  les Impayés
+                </h4>
+
+                <!-- Button -->
+                <a href="#" class="btn btn-sm btn-white">
+                  Tous
+                </a>
+
+              </div>
+              <div class="table-responsive mb-0">
+                <table class="table table-sm table-nowrap card-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        Member
+                      </th>
+                      
+                      <th>
+                        Completion
+                      </th>
+                      <th>
+                        Effective Rate
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+
+                        <!-- Avatar -->
+                        <a href="https://dashkit.goodthemes.co/profile-posts.htmL" class="avatar avatar-xs d-inline-block me-2">
+                          <img src="assets/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                        </a>
+
+                        <!-- Title -->
+                        <span>Dianna Smiley</span>
+
+                      </td>
+                      
+                      <td>
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">
+
+                            <!-- Value -->
+                            <span class="me-2">55%</span>
+
+                          </div>
+                          <div class="col">
+
+                            <!-- Progress -->
+                            <div class="progress progress-sm">
+                              <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </td>
+                      <td>
+                        $55.25
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+
+                        <!-- Avatar -->
+                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block me-2">
+                          <img src="assets/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                        </a>
+
+                        <!-- Title -->
+                        <span>Ab Hadley</span>
+
+                      </td>
+                      
+                      <td>
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">
+
+                            <!-- Value -->
+                            <span class="me-2">25%</span>
+
+                          </div>
+                          <div class="col">
+
+                            <!-- Progress -->
+                            <div class="progress progress-sm">
+                              <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </td>
+                      <td>
+                        $122
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+
+                        <!-- Avatar -->
+                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block me-2">
+                          <img src="assets/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
+                        </a>
+
+                        <!-- Title -->
+                        <span>Adolfo Hess</span>
+
+                      </td>
+                     
+                      <td>
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">
+
+                            <!-- Value -->
+                            <span class="me-2">55%</span>
+
+                          </div>
+                          <div class="col">
+
+                            <!-- Progress -->
+                            <div class="progress progress-sm">
+                              <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </td>
+                      <td>
+                        $55.25
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+
+                        <!-- Avatar -->
+                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block me-2">
+                          <img src="assets/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
+                        </a>
+
+                        <!-- Title -->
+                        <span>Daniela Dewitt</span>
+
+                      </td>
+                      
+                      <td>
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">
+
+                            <!-- Value -->
+                            <span class="me-2">25%</span>
+
+                          </div>
+                          <div class="col">
+
+                            <!-- Progress -->
+                            <div class="progress progress-sm">
+                              <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </td>
+                      <td>
+                        $122.52
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+
+                        <!-- Avatar -->
+                        <a href="profile-posts.html" class="avatar avatar-xs d-inline-block me-2">
+                          <img src="assets/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
+                        </a>
+
+                        <!-- Title -->
+                        <span>Miyah Myles</span>
+
+                      </td>
+                     
+                      <td>
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">
+
+                            <!-- Value -->
+                            <span class="me-2">55%</span>
+
+                          </div>
+                          <div class="col">
+
+                            <!-- Progress -->
+                            <div class="progress progress-sm">
+                              <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                          </div>
+                        </div> <!-- / .row -->
+                      </td>
+                      <td>
+                        $55.25%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-4">
+
+            <!-- Traffic -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Paiements
+                </h4>
+
+                <!-- Tabs -->
+                <!-- <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="0">
+                    <a href="index.html#" class="nav-link active" data-bs-toggle="tab">
+                      All
+                    </a>
+                  </li>
+                  <li class="nav-item" data-toggle="chart" data-target="#trafficChart" data-trigger="click" data-action="toggle" data-dataset="1">
+                    <a href="index.html#" class="nav-link" data-bs-toggle="tab">
+                      Direct
+                    </a>
+                  </li>
+                </ul> -->
+
+              </div>
+              <div class="card-body">
+
+                <!-- Chart -->
+                <div class="chart chart-appended">
+                  <canvas id="trafficChart" class="chart-canvas" data-toggle="legend" data-target="#trafficChartLegend"></canvas>
+                </div>
+
+                <!-- Legend -->
+                <div id="trafficChartLegend" class="chart-legend"></div>
+
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="row">
+          <div class="col-12 col-xl-12">
+
+            <!-- Convertions -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Revenues vs Expenses
+                </h4>
+
+                <!-- Caption -->
+                <span class="text-muted me-3">
+                  Expenses
+                </span>
+
+                <!-- Switch -->
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="cardToggle" data-toggle="chart" data-target="#conversionsChart" data-trigger="change" data-action="add" data-dataset="1" />
+                  <label class="form-check-label" for="cardToggle"></label>
+                </div>
+
+              </div>
+              <div class="card-body">
+
+                <!-- Chart -->
+                <div class="chart">
+                  <canvas id="conversionsChart" class="chart-canvas"></canvas>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          
         </div> <!-- / .row -->
+
+    
         
       </div>
 
@@ -1229,13 +1242,165 @@
 
     <!-- JAVASCRIPT -->
     <!-- Map JS -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script> -->
     
     <!-- Vendor JS -->
     <script src="assets/js/vendor.bundle.js"></script>
     
     <!-- Theme JS -->
     <script src="assets/js/theme.bundle.js"></script>
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+            <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.14/index.global.min.js'></script>
 
+        <script>
+
+          document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              // headerToolbar: {
+              //   center: 'dayGridMonth,resourceTimelineWeek' // buttons for switching between views
+              // },
+              slotLabelFormat: [
+                { day:'numeric' }, // top level of text
+                // { weekday: 'short' } // lower level of text
+              ],
+              chedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', 
+              headerToolbar: {
+                  left: 'title',
+                  center: '',
+                  right: 'prev,next, resourceTimelineMonth,next15Days,next30Days'
+                },
+                views: {
+                  next15Days: {
+                    type: 'resourceTimeline',
+                    duration: { days: 15 },
+                    buttonText: '15 days'
+                  },
+                  next30Days: {
+                    type: 'resourceTimeline',
+                    duration: { days: 30 },
+                    buttonText: '30 days'
+                  }
+                },
+              initialView: 'resourceTimelineMonth',
+              aspectRatio: 3.5,
+              // initialDate: new Date(),
+              initialDate: new Date().toISOString().split('T')[0],
+              editable: true,
+              selectable: true,
+              resourceAreaHeaderContent: 'Vehicules',
+              resources:[
+                {
+                  "id": "a",
+                  "title": "Dacia A",
+                  "eventColor": "#1a49f8",
+                  "img":"http://localhost:1337/uploads/Nouveau_projet_30_71b1439196.jpg",
+                },
+                {
+                  "id": "b",
+                  "title": "Duster black",
+                  "img":"http://localhost:1337/uploads/Nouveau_projet_37_9854d035c8.jpg",
+                  "eventColor": "#1a49f8"
+                },
+                {
+                  "id": "c",
+                  "title": "Ranf Rover C",
+                  "img":"http://localhost:1337/uploads/rane_sport_75b7266a5e.jpg",
+                  "eventColor": "#000",
+                  "eventColor": "#1a49f8"
+                },
+                {
+                  "id": "d",
+                  "title": "Mercedes C",
+                  "img":"http://localhost:1337/uploads/r_evoque_3c199538ed.jpg",
+                  "eventColor": "#000",
+                  "eventColor": "green"
+                }
+              ],
+              dayCellContent: function(arg) {
+                arg.dayNumberText = arg.dayNumberText.replace(/.*(\d{1,2}).*/, '$1');
+              },
+              events: [
+                { id: '1', resourceId: 'a', title: 'Mehdi', start: '2024-06-13T10:00:00', end: '2024-06-26T12:00:00' },
+                { id: '2', resourceId: 'b', title: 'Soufiane', start: '2024-06-03T13:00:00', end: '2024-06-23T15:00:00' },
+                { id: '3', resourceId: 'c', title: 'Azahro', start: '2024-06-20T09:00:00', end: '2024-06-29T11:00:00' },
+                { id: '1', resourceId: 'd', title: 'Rachid', start: '2024-06-11', end: '2024-06-16' },
+                { id: '1', resourceId: 'd', title: 'Hamid', start: '2024-06-02', end: '2024-06-11' },
+              ],
+              resourceLabelContent: function(arg) {
+                let resource = arg.resource;
+                console.log(resource)
+
+
+                let HTLM = `
+                <div class="d-flex align-items-center mb-2">
+                    <div class="avatar avatar-4by3 align-middle me-3">
+                        <img src="${resource.extendedProps.img}" class="avatar-img rounded p-1">
+                    </div>
+                    <p class="m-0">${resource.title} </p>
+                    </div>`
+
+                    let container = document.createElement('div');
+                    container.classList.add('d-flex', 'align-items-center');
+
+                    let container2 = document.createElement('div');
+                    container2.classList.add('avatar', 'avatar-4by3', 'align-middle', 'me-3');
+                    
+                    let img = document.createElement('img')
+                    img.classList.add('avatar-img', 'rounded', 'p-1')
+                    img.src = resource.extendedProps.img; // Use the image URL from the resource
+                    
+                    let title = document.createElement('p');
+                    title.classList.add('m-0');
+                    title.innerText = resource.title;
+
+                    container2.appendChild(img)
+
+
+                    container.appendChild(container2);
+                    container.appendChild(title);
+                    
+                    return { domNodes: [container] };
+              },
+               eventContent: function(arg) {
+
+                let event = arg.event;
+                let now = new Date();
+                let start = event.start;
+                let end = event.end;
+
+                let progress = 0;
+                if (now > start && now < end) {
+                  progress = ((now - start) / (end - start)) * 100;
+                  console.log(progress);
+                } else if (now >= end) {
+                  progress = 100;
+                }
+
+                let customHtml = `
+                  <div class="fc-event-custom d-flex">
+                    <div class="avatar avatar-xs me-3">
+                        <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
+                    </div>
+                    <div class="d-flex flex-1 w-100">
+
+                      <div class="fc-event-progress-container w-100">
+                         <div class="fc-event-title">${event.title}</div>
+                        <div class="fc-event-progress-bar bg-white h-2" style="width: ${progress}%" ></div>
+                      </div>
+                      <span> ${Math.round(progress)}%</span>
+                      
+                    </div>
+                      </div>
+                      `;
+                      return { html: customHtml };
+                      
+                    // <div class="fc-event-time">${event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${event.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+              }
+            });
+            calendar.render();
+          });
+
+        </script>
   </body>
 </html>
