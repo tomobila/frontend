@@ -21,7 +21,7 @@
     <style>body { display: none; }</style>
     
     <!-- Title -->
- <style>
+    <style>
     .fc-event-custom {
       padding: 5px;
       /* background-color: #1a49f8; */
@@ -65,23 +65,38 @@
     }
     .fc-direction-ltr .fc-timeline-slot {
       width: 50px;
-  }
-  .fc-scroller::-webkit-scrollbar\ {
-    scrollbar-width: none;
-  }
-  .fc-scroller::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
-}
+    }
+    .fc-scroller::-webkit-scrollbar\ {
+      scrollbar-width: none;
+    }
+    .fc-scroller::-webkit-scrollbar {
+      display: none; /* Hides the scrollbar */
+    }
 
-.fc .fc-button-primary {
-    background-color: #95aac9;
-    border-color: #95aac9;
-}
-.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
-    background-color: #1a49f8;
-    border-color: #1a49f8;
-}
-  </style>
+    .fc .fc-button-primary {
+        background-color: #95aac9;
+        border-color: #95aac9;
+    }
+    .fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+        background-color: #1a49f8;
+        border-color: #1a49f8;
+    }
+    @media screen and (max-width:640px) {
+      .fc .fc-toolbar.fc-header-toolbar{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .fc .fc-toolbar.fc-header-toolbar .fc-toolbar-chunk {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        justify-items: end;
+        width: 100%;
+        
+      }
+    }
+    </style>
     <title>Tomobila</title>
 
       
@@ -1268,7 +1283,7 @@
               headerToolbar: {
                   left: 'title',
                   center: '',
-                  right: 'prev,next, resourceTimelineMonth,next15Days,next30Days'
+                  right: 'prev,next resourceTimelineMonth,next15Days,next30Days'
                 },
                 views: {
                   next15Days: {
@@ -1327,6 +1342,9 @@
                 { id: '1', resourceId: 'd', title: 'Rachid', start: '2024-06-11', end: '2024-06-16' },
                 { id: '1', resourceId: 'd', title: 'Hamid', start: '2024-06-02', end: '2024-06-11' },
               ],
+              windowResize: function(view) {
+                console.log('The calendar has adjusted to a window resize');
+              },
               resourceLabelContent: function(arg) {
                 let resource = arg.resource;
                 console.log(resource)
@@ -1398,6 +1416,23 @@
                     // <div class="fc-event-time">${event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${event.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
               }
             });
+            
+            function updateAspectRatio() {
+              if (window.innerWidth < 600) {
+                calendar.setOption('aspectRatio', 0.75); // Example ratio for small screens
+                calendar.setOption('headerToolbar', {
+                  left: 'title prev,next',
+                  center: '',
+                  right: ''
+                });
+              } else {
+                calendar.setOption('aspectRatio', 3.5); // Example ratio for larger screens
+              }
+            }
+            
+            window.addEventListener('resize', updateAspectRatio);
+            updateAspectRatio();
+            
             calendar.render();
           });
 
