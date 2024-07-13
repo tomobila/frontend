@@ -723,14 +723,11 @@
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <!-- Alert -->
                 <div
-                  class="alert alert-primary alert-dismissible fade show"
+                  class="alert alert-warning alert-dismissible fade show"
                   role="alert"
                 >
-                  This project is forecasted to complete below budget!
-
-                  <!-- Close -->
+                  Prochaine Vidange: 20 Nov 2024
                   <button
                     type="button"
                     class="btn-close"
@@ -1498,7 +1495,9 @@
           role="tabpanel"
           aria-labelledby="reportTab"
         >
-          <div class="container">Report</div>
+          <div class="container">
+            <div id="calendar"></div>
+          </div>
         </div>
         <div
           class="tab-pane"
@@ -1687,5 +1686,23 @@
 
     <!-- Theme JS -->
     <script src="assets/js/theme.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.14/index.global.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reportTab = document.querySelector("#reportTab");
+        var calendarEl = document.getElementById("calendar");
+        reportTab.addEventListener("click", function () {
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            timeZone: "UTC",
+            initialView: "dayGridMonth",
+            events: "https://fullcalendar.io/api/demo-feeds/events.json",
+            editable: true,
+            selectable: true,
+          });
+          calendar.render();
+        });
+      });
+    </script>
   </body>
 </html>
