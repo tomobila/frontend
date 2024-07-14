@@ -634,10 +634,10 @@
               </div>
               <div class="col ms-n3 ms-md-n2">
                 <!-- Pretitle -->
-                <h6 class="header-pretitle" id="vMake"></h6>
+                <h6 class="header-pretitle" id="vMake">Fiat</h6>
 
                 <!-- Title -->
-                <h1 class="header-title" id="vName"> </h1>
+                <h1 class="header-title" id="vName">500</h1>
               </div>
               <div class="col-12 col-md-auto mt-3 mt-md-0">
                 <a href="#!" class="btn btn-primary"> Reserver </a>
@@ -675,9 +675,23 @@
                       aria-controls="docPane"
                       aria-selected="true"
                     >
-                      Documents
+                      Maintenance
                     </a>
                   </li>
+                  <!-- <li class="nav-item">
+                    <a
+                      href="#"
+                      class="nav-link text-nowrap"
+                      id="docTab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#docPane"
+                      role="tab"
+                      aria-controls="docPane"
+                      aria-selected="true"
+                    >
+                      Maintenance
+                    </a>
+                  </li> -->
                   <li class="nav-item">
                     <a
                       href="#"
@@ -724,7 +738,7 @@
             <div class="row">
               <div class="col-12">
                 <div
-                  class="alert alert-warning alert-dismissible fade show"
+                  class="alert alert-primary alert-dismissible fade show"
                   role="alert"
                 >
                   Prochaine Vidange: 20 Nov 2024
@@ -734,93 +748,6 @@
                     data-bs-dismiss="alert"
                     aria-label="Close"
                   ></button>
-                </div>
-
-                <!-- Card -->
-                <div class="card">
-                  <div class="card-header">
-                    <!-- Tabs -->
-                    <ul class="nav nav-tabs card-header-tabs">
-                      <li
-                        class="nav-item"
-                        data-toggle="chart"
-                        data-target="#overviewChart"
-                        data-trigger="click"
-                        data-action="toggle"
-                        data-dataset="0"
-                      >
-                        <a
-                          class="nav-link active"
-                          href="project-overview.html#"
-                          data-bs-toggle="tab"
-                        >
-                          Earned
-                        </a>
-                      </li>
-                      <li
-                        class="nav-item"
-                        data-toggle="chart"
-                        data-target="#overviewChart"
-                        data-trigger="click"
-                        data-action="toggle"
-                        data-dataset="1"
-                      >
-                        <a
-                          class="nav-link"
-                          href="project-overview.html#"
-                          data-bs-toggle="tab"
-                        >
-                          Hours Worked
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <!-- Chart -->
-                    <div class="chart">
-                      <canvas
-                        id="overviewChart"
-                        class="chart-canvas"
-                        width="2132"
-                        height="600"
-                        style="
-                          display: block;
-                          box-sizing: border-box;
-                          height: 300px;
-                          width: 1066px;
-                        "
-                      ></canvas>
-                      <div
-                        id="chart-tooltip"
-                        role="tooltip"
-                        class="popover bs-popover-top"
-                        style="
-                          visibility: hidden;
-                          left: 46px;
-                          top: 244.4px;
-                          transform: translateX(-50%) translateY(-100%)
-                            translateY(-1rem);
-                        "
-                        ><div class="popover-arrow translate-middle-x"></div
-                        ><div class="popover-content"
-                          ><div
-                            ><h3 class="popover-header text-center text-nowrap"
-                              >Jan</h3
-                            ></div
-                          ><div
-                            ><div
-                              class="popover-body d-flex align-items-center text-nowrap justify-content-center"
-                              ><span
-                                class="popover-body-indicator"
-                                style="background-color: rgb(44, 123, 229)"
-                              ></span>
-                              $0k</div
-                            ></div
-                          ></div
-                        ></div
-                      ></div
-                    >
-                  </div>
                 </div>
               </div>
             </div>
@@ -953,532 +880,1415 @@
                 </div>
               </div>
             </div>
-            <!-- / .row -->
-            <div class="row">
-              <div class="col-12 col-xl-8">
-                <!-- Performance -->
-                <div class="card">
-                  <div class="card-header">
-                    <!-- Title -->
-                    <h4 class="card-header-title"> Performance </h4>
 
-                    <!-- Button -->
-                    <a
-                      href="project-overview.html#!"
-                      class="btn btn-sm btn-white"
-                    >
-                      Export
-                    </a>
-                  </div>
-                  <div class="table-responsive mb-0">
-                    <table class="table table-sm table-nowrap card-table">
-                      <thead>
-                        <tr>
-                          <th> Member </th>
-                          <th> Schedule </th>
-                          <th> Hours Billed </th>
-                          <th> Completion </th>
-                          <th> Effective Rate </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <!-- Avatar -->
-                            <a
-                              href="https://dashkit.goodthemes.co/profile-posts.htmL"
-                              class="avatar avatar-xs d-inline-block me-2"
-                            >
-                              <img
-                                src="assets/img/avatars/profiles/avatar-1.jpg"
-                                alt="..."
-                                class="avatar-img rounded-circle"
-                              />
-                            </a>
-
-                            <!-- Title -->
-                            <span>Dianna Smiley</span>
-                          </td>
-                          <td>
-                            <span class="text-success">●</span> On Schedule
-                          </td>
-                          <td> 271 </td>
-                          <td>
-                            <div class="row align-items-center g-0">
-                              <div class="col-auto">
-                                <!-- Value -->
-                                <span class="me-2">55%</span>
-                              </div>
-                              <div class="col">
-                                <!-- Progress -->
-                                <div class="progress progress-sm">
-                                  <div
-                                    class="progress-bar bg-secondary"
-                                    role="progressbar"
-                                    style="width: 55%"
-                                    aria-valuenow="55"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- / .row -->
-                          </td>
-                          <td> $55.25% </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <!-- Avatar -->
-                            <a
-                              href="profile-posts.html"
-                              class="avatar avatar-xs d-inline-block me-2"
-                            >
-                              <img
-                                src="assets/img/avatars/profiles/avatar-2.jpg"
-                                alt="..."
-                                class="avatar-img rounded-circle"
-                              />
-                            </a>
-
-                            <!-- Title -->
-                            <span>Ab Hadley</span>
-                          </td>
-                          <td> <span class="text-warning">●</span> Delayed </td>
-                          <td> 44 </td>
-                          <td>
-                            <div class="row align-items-center g-0">
-                              <div class="col-auto">
-                                <!-- Value -->
-                                <span class="me-2">25%</span>
-                              </div>
-                              <div class="col">
-                                <!-- Progress -->
-                                <div class="progress progress-sm">
-                                  <div
-                                    class="progress-bar bg-secondary"
-                                    role="progressbar"
-                                    style="width: 25%"
-                                    aria-valuenow="25"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- / .row -->
-                          </td>
-                          <td> $122.52% </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <!-- Avatar -->
-                            <a
-                              href="profile-posts.html"
-                              class="avatar avatar-xs d-inline-block me-2"
-                            >
-                              <img
-                                src="assets/img/avatars/profiles/avatar-3.jpg"
-                                alt="..."
-                                class="avatar-img rounded-circle"
-                              />
-                            </a>
-
-                            <!-- Title -->
-                            <span>Adolfo Hess</span>
-                          </td>
-                          <td>
-                            <span class="text-success">●</span> On Schedule
-                          </td>
-                          <td> 271 </td>
-                          <td>
-                            <div class="row align-items-center g-0">
-                              <div class="col-auto">
-                                <!-- Value -->
-                                <span class="me-2">55%</span>
-                              </div>
-                              <div class="col">
-                                <!-- Progress -->
-                                <div class="progress progress-sm">
-                                  <div
-                                    class="progress-bar bg-secondary"
-                                    role="progressbar"
-                                    style="width: 55%"
-                                    aria-valuenow="55"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- / .row -->
-                          </td>
-                          <td> $55.25% </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <!-- Avatar -->
-                            <a
-                              href="profile-posts.html"
-                              class="avatar avatar-xs d-inline-block me-2"
-                            >
-                              <img
-                                src="assets/img/avatars/profiles/avatar-4.jpg"
-                                alt="..."
-                                class="avatar-img rounded-circle"
-                              />
-                            </a>
-
-                            <!-- Title -->
-                            <span>Daniela Dewitt</span>
-                          </td>
-                          <td> <span class="text-warning">●</span> Delayed </td>
-                          <td> 44 </td>
-                          <td>
-                            <div class="row align-items-center g-0">
-                              <div class="col-auto">
-                                <!-- Value -->
-                                <span class="me-2">25%</span>
-                              </div>
-                              <div class="col">
-                                <!-- Progress -->
-                                <div class="progress progress-sm">
-                                  <div
-                                    class="progress-bar bg-secondary"
-                                    role="progressbar"
-                                    style="width: 25%"
-                                    aria-valuenow="25"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- / .row -->
-                          </td>
-                          <td> $122.52% </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <!-- Avatar -->
-                            <a
-                              href="profile-posts.html"
-                              class="avatar avatar-xs d-inline-block me-2"
-                            >
-                              <img
-                                src="assets/img/avatars/profiles/avatar-5.jpg"
-                                alt="..."
-                                class="avatar-img rounded-circle"
-                              />
-                            </a>
-
-                            <!-- Title -->
-                            <span>Miyah Myles</span>
-                          </td>
-                          <td>
-                            <span class="text-success">●</span> On Schedule
-                          </td>
-                          <td> 271 </td>
-                          <td>
-                            <div class="row align-items-center g-0">
-                              <div class="col-auto">
-                                <!-- Value -->
-                                <span class="me-2">55%</span>
-                              </div>
-                              <div class="col">
-                                <!-- Progress -->
-                                <div class="progress progress-sm">
-                                  <div
-                                    class="progress-bar bg-secondary"
-                                    role="progressbar"
-                                    style="width: 55%"
-                                    aria-valuenow="55"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- / .row -->
-                          </td>
-                          <td> $55.25% </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-xl-4">
-                <!-- Latest Files -->
-                <div class="card">
-                  <div class="card-header">
-                    <!-- Title -->
-                    <h4 class="card-header-title"> Latest Files </h4>
-
-                    <!-- Link -->
-                    <a href="project-overview.html#!" class="small">View all</a>
-                  </div>
-                  <div class="card-body">
-                    <!-- List group -->
-                    <div class="list-group list-group-flush my-n3">
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <a href="project-overview.html#!" class="avatar">
-                              <img
-                                src="assets/img/files/file-1.jpg"
-                                alt="..."
-                                class="avatar-img rounded"
-                              />
-                            </a>
-                          </div>
-                          <div class="col ms-n2">
-                            <!-- Title -->
-                            <h4 class="mb-1">
-                              <a href="project-overview.html#!"
-                                >Launchday Logo</a
-                              >
-                            </h4>
-
-                            <!-- Time -->
-                            <p class="card-text small text-muted">
-                              2.5kb SVG
-                            </p>
-                          </div>
-                          <div class="col-auto">
-                            <!-- Dropdown -->
-                            <div class="dropdown">
-                              <a
-                                href="project-overview.html#"
-                                class="dropdown-ellipses dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="fe fe-more-vertical"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Another action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Something else here
-                                </a>
-                              </div>
-                            </div>
-                          </div>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne"
+                    aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne"
+                  >
+                    Parameters
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="panelsStayOpen-headingOne"
+                >
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Marque</label>
+                          <select
+                            id="car_brands"
+                            name="Make"
+                            class="form-select"
+                          >
+                            <option value="Acura">Acura</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Bentley">Bentley</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Buick">Buick</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Citroën">Citroën</option>
+                            <option value="Dacia">Dacia</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Genesis">Genesis</option>
+                            <option value="GMC">GMC</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Infiniti">Infiniti</option>
+                            <option value="Jaguar">Jaguar</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Lancia">Lancia</option>
+                            <option value="Land-Rover">Land Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Maserati">Maserati</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="MINI">MINI</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Ram">Ram</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Rolls-Royce">Rolls-Royce</option>
+                            <option value="Saab">Saab</option>
+                            <option value="Scion">Scion</option>
+                            <option value="SEAT">SEAT</option>
+                            <option value="Škoda">Škoda</option>
+                            <option value="Smart">Smart</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Vauxhall">Vauxhall</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                          </select>
                         </div>
-                        <!-- / .row -->
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <a href="project-overview.html#!" class="avatar">
-                              <img
-                                src="assets/img/files/file-2.jpg"
-                                alt="..."
-                                class="avatar-img rounded"
-                              />
-                            </a>
-                          </div>
-                          <div class="col ms-n2">
-                            <!-- Title -->
-                            <h4 class="mb-1">
-                              <a href="project-overview.html#!">Example Grid</a>
-                            </h4>
-
-                            <!-- Time -->
-                            <p class="card-text small text-muted">
-                              1.5mb PNG
-                            </p>
-                          </div>
-                          <div class="col-auto">
-                            <!-- Dropdown -->
-                            <div class="dropdown">
-                              <a
-                                href="project-overview.html#"
-                                class="dropdown-ellipses dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="fe fe-more-vertical"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Another action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Something else here
-                                </a>
-                              </div>
-                            </div>
-                          </div>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Modèl</label>
+                          <input
+                            type="text"
+                            id="car_model"
+                            name="Model"
+                            class="form-control"
+                          />
                         </div>
-                        <!-- / .row -->
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <a href="project-overview.html#!" class="avatar">
-                              <div
-                                class="avatar-title rounded bg-white text-secondary"
-                              >
-                                <span class="fe fe-folder"></span>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="col ms-n2">
-                            <!-- Title -->
-                            <h4 class="mb-1">
-                              <a href="project-overview.html#!"
-                                >Screenshot Collection</a
-                              >
-                            </h4>
 
-                            <!-- Time -->
-                            <p class="card-text small text-muted">
-                              6.9mb directory
-                            </p>
-                          </div>
-                          <div class="col-auto">
-                            <!-- Dropdown -->
-                            <div class="dropdown">
-                              <a
-                                href="project-overview.html#"
-                                class="dropdown-ellipses dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="fe fe-more-vertical"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Another action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
-                                >
-                                  Something else here
-                                </a>
-                              </div>
-                            </div>
-                          </div>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Immatriculation W</label>
+                          <input
+                            type="text"
+                            id="car_immatriculation_w"
+                            name="LicensePlateWW"
+                            class="form-control"
+                          />
                         </div>
-                        <!-- / .row -->
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <!-- Avatar -->
-                            <a href="project-overview.html#!" class="avatar">
-                              <img
-                                src="assets/img/files/file-3.jpg"
-                                alt="..."
-                                class="avatar-img rounded"
-                              />
-                            </a>
-                          </div>
-                          <div class="col ms-n2">
-                            <!-- Title -->
-                            <h4 class="mb-1">
-                              <a href="project-overview.html#!"
-                                >Launchday Cover</a
-                              >
-                            </h4>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Immatriculation</label>
+                          <input
+                            type="text"
+                            id="car_immatriculation"
+                            name="LicensePlate"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Carburant</label>
+                          <select
+                            id="car_fuel"
+                            class="form-select"
+                            name="FuelType"
+                          >
+                            <option selected="">Essence</option>
+                            <option>Diesel</option>
+                          </select>
+                        </div>
+                      </div>
 
-                            <!-- Time -->
-                            <p class="card-text small text-muted">
-                              750kb JPG
-                            </p>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Nombre de places</label>
+                          <input
+                            type="number"
+                            id="car_nb_places"
+                            class="form-control"
+                            name="Seats"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">
+                            Date de première utilisation
+                          </label>
+                          <input
+                            id="car_first_use"
+                            type="text"
+                            class="form-control flatpickr-input"
+                            data-flatpickr=""
+                            readonly="readonly"
+                            name="FisrtUse"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Transmission</label>
+                          <div class="btn-group-toggle">
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Transmission"
+                              id="Manuel"
+                              value="Manuel"
+                              checked=""
+                            />
+                            <label class="btn btn-white me-2" for="Manuel">
+                              Manuel
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Transmission"
+                              id="Automatic"
+                              value="Automatic"
+                              autocomplete="off"
+                            />
+                            <label class="btn btn-white" for="Automatic">
+                              Automatic
+                            </label>
                           </div>
-                          <div class="col-auto">
-                            <!-- Dropdown -->
-                            <div class="dropdown">
-                              <a
-                                href="project-overview.html#"
-                                class="dropdown-ellipses dropdown-toggle"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="fe fe-more-vertical"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Libelle</label>
+                          <input type="text" class="form-control" name="Name" />
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Catégorie</label>
+                          <select class="form-select" name="Categorie">
+                            <option selected="">Économique</option>
+                            <option>Compacte</option>
+                            <option>Luxe</option>
+                            <option>SUV</option>
+                            <option>Décapotable</option>
+                            <option>Sport</option>
+                            <option>Familiale</option>
+                            <option>Décapotable</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Coleur</label>
+
+                          <div class="btn-group-toggle">
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="orange"
+                              value="orange"
+                            />
+                            <label class="color" for="orange">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(252, 161, 32)"
                                 >
-                                  Action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="yellow"
+                              value="yellow"
+                            />
+                            <label class="color" for="yellow">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(252, 219, 126)"
                                 >
-                                  Another action
-                                </a>
-                                <a
-                                  href="project-overview.html#!"
-                                  class="dropdown-item"
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="green"
+                              value="green"
+                            />
+                            <label class="color" for="green">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(74, 210, 149)"
                                 >
-                                  Something else here
-                                </a>
-                              </div>
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="skay"
+                              value="skay"
+                            />
+                            <label class="color" for="skay">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(146, 205, 250)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="blue"
+                              value="blue"
+                            />
+                            <label class="color" for="blue">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(18, 115, 235)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="purple"
+                              value="purple"
+                            />
+                            <label class="color" for="purple">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(128, 128, 241)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="darkgray"
+                              value="darkgray"
+                            />
+                            <label class="color" for="darkgray">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(29, 38, 45)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="gray"
+                              value="gray"
+                            />
+                            <label class="color" for="gray">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(186, 200, 211)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+
+                            <input
+                              type="radio"
+                              class="btn-check"
+                              name="Color"
+                              id="white"
+                              checked=""
+                              value="white"
+                            />
+                            <label class="color" for="white">
+                              <span class="avatar avatar-xs">
+                                <div
+                                  class="avatar-title rounded-circle"
+                                  style="background-color: rgb(255, 255, 255)"
+                                >
+                                </div>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Kilométrage</label>
+                          <div class="input-group input-group-merge mb-3">
+                            <input
+                              class="form-control"
+                              placeholder=""
+                              type="number"
+                              aria-label="Input group appended"
+                              aria-describedby="inputGroup"
+                              name="Mileage"
+                            />
+                            <div class="input-group-text" id="inputGroup">
+                              <span class="fe fe-sliders"></span>
                             </div>
                           </div>
                         </div>
-                        <!-- / .row -->
                       </div>
                     </div>
                   </div>
-                  <!-- / .card-body -->
                 </div>
-                <!-- / .card -->
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseTwo"
+                  >
+                    Tariffs
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingTwo"
+                >
+                  <div class="accordion-body">
+                    <h2 class="mb-4">
+                      Prix de Location
+                      <span class="badge bg-primary-soft ms-1 mt-n1"
+                        >Moroccan Dirham</span
+                      >
+                    </h2>
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Prix par Jour</label>
+                          <div class="input-group input-group-merge mb-3">
+                            <input
+                              class="form-control"
+                              placeholder=""
+                              type="number"
+                              aria-label="Input group appended"
+                              aria-describedby="inputGroup"
+                              name="RentalRate"
+                            />
+                            <div class="input-group-text" id="inputGroup">
+                              <span class="fe fe-dollar-sign"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div class="form-group">
+                          <label class="form-label">Prix par Heure</label>
+                          <div class="input-group input-group-merge mb-3">
+                            <input
+                              class="form-control"
+                              placeholder=""
+                              type="number"
+                              aria-label="Input group appended"
+                              aria-describedby="inputGroup"
+                            />
+                            <div class="input-group-text" id="inputGroup">
+                              <span class="fe fe-dollar-sign"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree"
+                  >
+                    Extra
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingThree"
+                >
+                  <div class="accordion-body">
+                    <h2 class="mb-4"> Caractéristiques du Véhicule </h2>
+                    <div class="row">
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="GPS"
+                            checked=""
+                          />
+                          <label class="form-check-label" for="GPS"
+                            >Système de navigation</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="Climatisation"
+                          />
+                          <label class="form-check-label" for="Climatisation">
+                            Climatisation</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="Bluetooth"
+                          />
+                          <label class="form-check-label" for="Bluetooth">
+                            Bluetooth</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="RV"
+                          />
+                          <label class="form-check-label" for="RV">
+                            Régulateur de vitesse</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="TO"
+                          />
+                          <label class="form-check-label" for="TO">
+                            Toit ouvrant</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="CR"
+                          />
+                          <label class="form-check-label" for="CR">
+                            Caméra de recul</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="VE"
+                          />
+                          <label class="form-check-label" for="VE">
+                            Vitres électriques
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 mb-4">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="DD"
+                          />
+                          <label class="form-check-label" for="DD">
+                            Démarrage à distance
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit"
+                      >Enregistrer
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-heading4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapse4"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapse4"
+                  >
+                    Documents
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapse4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-heading4"
+                >
+                  <div class="accordion-body">
+                    <!-- row -->
+                    <div class="row">
+                      <div class="col-12">
+                        <!-- Files -->
+                        <div class="card">
+                          <div class="card-header">
+                            <!-- Title -->
+                            <h4 class="card-header-title">Documents</h4>
+
+                            <!-- Select -->
+                            <form class="me-3">
+                              <div
+                                class="choices"
+                                data-type="select-one"
+                                tabindex="0"
+                                role="listbox"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <div
+                                  class="form-select form-select-sm form-control-flush"
+                                >
+                                  <select
+                                    class="form-select form-select-sm form-control-flush form-control"
+                                    data-choices='{"searchEnabled": false}'
+                                    hidden=""
+                                    tabindex="-1"
+                                    data-choice="active"
+                                  >
+                                    <option value="">Sort order</option>
+                                  </select>
+                                  <div
+                                    class="choices__list choices__list--single"
+                                    ><div
+                                      class="choices__item choices__placeholder choices__item--selectable"
+                                      data-item=""
+                                      data-id="1"
+                                      data-value=""
+                                      data-custom-properties="null"
+                                      aria-selected="true"
+                                      >Sort order</div
+                                    ></div
+                                  ></div
+                                ><div
+                                  class="choices__list dropdown-menu"
+                                  aria-expanded="false"
+                                  ><div class="choices__list" role="listbox"
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--disabled"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-disabled=""
+                                      aria-disabled="true"
+                                      data-id="1"
+                                      data-value=""
+                                      role="option"
+                                    >
+                                      Sort order </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable is-highlighted"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="2"
+                                      data-value="asc"
+                                      role="option"
+                                      aria-selected="true"
+                                    >
+                                      Asc </div
+                                    ><div
+                                      class="choices__item dropdown-item choices__item--selectable"
+                                      data-select-text="Press to select"
+                                      data-choice=""
+                                      data-choice-selectable=""
+                                      data-id="3"
+                                      data-value="desc"
+                                      role="option"
+                                    >
+                                      Desc
+                                    </div></div
+                                  ></div
+                                ></div
+                              >
+                            </form>
+
+                            <!-- Button -->
+                            <a
+                              href="project-files.html#!"
+                              class="btn btn-sm btn-primary"
+                            >
+                              Upload
+                            </a>
+                          </div>
+                          <div class="card-header">
+                            <!-- Form -->
+                            <form>
+                              <div
+                                class="input-group input-group-flush input-group-merge input-group-reverse"
+                              >
+                                <!-- Input -->
+                                <input
+                                  class="form-control list-search"
+                                  type="search"
+                                  placeholder="Search"
+                                />
+
+                                <!-- Prepend -->
+                                <div class="input-group-text">
+                                  <span class="fe fe-search"></span>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="card-body">
+                            <!-- List -->
+                            <ul
+                              class="list-group list-group-lg list-group-flush list my-n4"
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <img
+                                        src="assets/img/files/file-1.jpg"
+                                        alt="..."
+                                        class="avatar-img rounded"
+                                      />
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Launchday Logo</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      2.5kb SVG
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <img
+                                        src="assets/img/files/file-2.jpg"
+                                        alt="..."
+                                        class="avatar-img rounded"
+                                      />
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Example Grid</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      1.5mb PNG
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <span
+                                        class="avatar-title rounded bg-white text-secondary"
+                                      >
+                                        <span class="fe fe-folder"></span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Screenshot Collection</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      6.9mb directory
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <span
+                                        class="avatar-title rounded bg-white text-secondary"
+                                      >
+                                        <span class="fe fe-package"></span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Database migration (compressed)</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      5.9mb ZIP
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <img
+                                        src="assets/img/files/file-3.jpg"
+                                        alt="..."
+                                        class="avatar-img rounded"
+                                      />
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Launchday Cover</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      750kb JPG
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <span
+                                        class="avatar-title rounded bg-white text-secondary"
+                                      >
+                                        <span class="fe fe-film"></span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Prototype Screencap</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      23.5mb MOV
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row --> </li
+                              ><li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <img
+                                        src="assets/img/files/file-4.jpg"
+                                        alt="..."
+                                        class="avatar-img rounded"
+                                      />
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >Header block example</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      1.2mb PNG
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row -->
+                              </li>
+                              <li class="list-group-item">
+                                <div class="row align-items-center">
+                                  <div class="col-auto">
+                                    <!-- Avatar -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="avatar avatar-lg"
+                                    >
+                                      <span
+                                        class="avatar-title rounded bg-white text-secondary"
+                                      >
+                                        <span class="fe fe-pie-chart"></span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                  <div class="col ms-n2">
+                                    <!-- Title -->
+                                    <h4 class="mb-1 name">
+                                      <a href="project-files.html#!"
+                                        >User test results slides</a
+                                      >
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p class="card-text small text-muted mb-1">
+                                      1.1mb PPTX
+                                    </p>
+
+                                    <!-- Time -->
+                                    <p class="card-text small text-muted">
+                                      Uploaded by Dianna Smiley on
+                                      <time datetime="2018-01-03"
+                                        >Jan 3, 2018</time
+                                      >
+                                    </p>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Button -->
+                                    <a
+                                      href="project-files.html#!"
+                                      class="btn btn-sm btn-white d-none d-md-inline-block"
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                  <div class="col-auto">
+                                    <!-- Dropdown -->
+                                    <div class="dropdown">
+                                      <a
+                                        href="project-files.html#"
+                                        class="dropdown-ellipses dropdown-toggle"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                      >
+                                        <i class="fe fe-more-vertical"></i>
+                                      </a>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-end"
+                                      >
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Another action
+                                        </a>
+                                        <a
+                                          href="project-files.html#!"
+                                          class="dropdown-item"
+                                        >
+                                          Something else here
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- / .row -->
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- / .row -->
           </div>
         </div>
         <div
@@ -1696,7 +2506,7 @@
           var calendar = new FullCalendar.Calendar(calendarEl, {
             timeZone: "UTC",
             initialView: "dayGridMonth",
-            events: "https://fullcalendar.io/api/demo-feeds/events.json",
+            // events: "https://fullcalendar.io/api/demo-feeds/events.json",
             editable: true,
             selectable: true,
           });

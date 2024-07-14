@@ -191,3 +191,7 @@ table.dataTable.no-footer {
 .componentManuel .camera {
     height: 130px;
 }
+
+.avatar-img {
+    object-fit: contain;
+}
