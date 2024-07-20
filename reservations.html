@@ -629,18 +629,6 @@
                 <h1 class="header-title text-truncate"> Reservations </h1>
               </div>
               <div class="col-auto">
-                <!-- Navigation (button group) -->
-                <!-- <div class="nav btn-group d-inline-flex" role="tablist">
-                  <button class="btn btn-white active" id="contactsListTab" data-bs-toggle="tab" data-bs-target="#contactsListPane" role="tab" aria-controls="contactsListPane" aria-selected="true">
-                    <span class="fe fe-list"></span>
-                  </button>
-                  <button class="btn btn-white" id="contactsCardsTab" data-bs-toggle="tab" data-bs-target="#contactsCardsPane" role="tab" aria-controls="contactsCardsPane" aria-selected="false">
-                    <span class="fe fe-grid"></span>
-                  </button>
-                </div>  -->
-                <!-- / .nav -->
-
-                <!-- Buttons -->
                 <a href="#" class="btn btn-primary ms-2">
                   Nouveau Reservation
                 </a>
@@ -652,21 +640,14 @@
       </div>
       <div class="container">
         <div class="card">
-          <div class="card-header">
-            <!-- Title -->
-            <h4 class="card-header-title"> Search </h4>
-
-            <!-- Button -->
-            <!-- <a href="widgets.html#!" class="btn btn-sm btn-white"> Export </a> -->
-          </div>
           <div class="table-responsive mb-0">
             <table class="table table-sm table-nowrap card-table">
               <thead>
                 <tr>
                   <th> Date creation </th>
                   <th> Véhicule </th>
-                  <th> Date de Départ </th>
-                  <th> Date d'Arrivée </th>
+                  <th> Periode </th>
+                  <!-- <th> Date d'Arrivée </th> -->
                   <th>Nb. jour</th>
                   <th>Clients</th>
                   <th>Statut</th>
@@ -690,17 +671,33 @@
                           class="avatar-img rounded p-1"
                         />
                       </div>
-                      <p class="m-0">Black Tucson </p>
+                      <div>
+                        <p class="m-0">Black Tucson </p>
+                        <span
+                          class="mb-3 px-2 border-gray border border-black d-inline-block rounded-1"
+                        >
+                          <span class="fw-bold">
+                            <span class="border-end border-gray px-2"
+                              >212142</span
+                            >
+                            <span class="border-end border-gray px-2">A</span>
+                            <span>13</span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td>
-                    <time datetime="2018-07-30">21 Jui 2024</time><br />
-                    <time datetime="2018-07-30">12:00</time>
+                    <div>
+                      <time datetime="2018-07-30">21 Jui 2024</time><br />
+                      <time datetime="2018-07-30">12:00</time>
+                    </div>
+                    <div>
+                      <time datetime="2018-07-30">28 Jui 2024</time><br />
+                      <time datetime="2018-07-30">12:00</time>
+                    </div>
                   </td>
-                  <td>
-                    <time datetime="2018-07-30">28 Jui 2024</time><br />
-                    <time datetime="2018-07-30">12:00</time>
-                  </td>
+                  <!-- <td> </td> -->
                   <td> 25 </td>
                   <td>
                     <div class="avatar-group d-none d-sm-flex">

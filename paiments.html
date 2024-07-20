@@ -648,161 +648,71 @@
       </div>
       <div class="container">
         <div class="card">
-          <div class="card-header">
-            <!-- Title -->
-            <h4 class="card-header-title"> Search </h4>
-
-            <!-- Button -->
-            <!-- <a href="widgets.html#!" class="btn btn-sm btn-white"> Export </a> -->
-          </div>
-          <div class="table-responsive mb-0">
+          <div class="table-responsive">
             <table class="table table-sm table-nowrap card-table">
               <thead>
                 <tr>
-                  <th> Date creation </th>
-                  <th> Véhicule </th>
-                  <th> Date de Départ </th>
-                  <th> Date d'Arrivée </th>
-                  <th>Nb. jour</th>
-                  <th>Clients</th>
-                  <th>Statut</th>
-                  <th>Paiements</th>
-                  <th>Actions</th>
-                  <th> </th>
+                  <th>contrat ID</th>
+                  <th>Date</th>
+                  <th>Méthode</th>
+                  <th>Amount</th>
+                  <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="fs-base">
                 <tr>
-                  <!-- <td> RA-2407 </td> -->
-                  <td
-                    ><time datetime="2018-07-30">07/30/18</time><br />
-                    <time datetime="2018-07-30">12:00</time>
-                  </td>
+                  <td> Invoice #10395 </td>
                   <td>
-                    <div class="d-flex align-items-center mb-2">
-                      <div class="avatar avatar-4by3 align-middle me-3">
-                        <img
-                          src="http://localhost:1337/uploads/Nouveau_projet_30_71b1439196.jpg"
-                          class="avatar-img rounded p-1"
-                        />
-                      </div>
-                      <p class="m-0">Black Tucson </p>
-                    </div>
+                    <time datetime="2020-04-24">Apr. 24, 2020</time>
                   </td>
+                  <td>Cheque</td>
+                  <td> $29.00 </td>
                   <td>
-                    <time datetime="2018-07-30">21 Jui 2024</time><br />
-                    <time datetime="2018-07-30">12:00</time>
+                    <span class="badge bg-danger">Rejected</span>
                   </td>
+                </tr>
+                <tr>
+                  <td> Invoice #10244 </td>
                   <td>
-                    <time datetime="2018-07-30">28 Jui 2024</time><br />
-                    <time datetime="2018-07-30">12:00</time>
+                    <time datetime="2020-03-24">Mar. 24, 2020</time>
                   </td>
-                  <td> 25 </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
                   <td>
-                    <div class="avatar-group d-none d-sm-flex">
-                      <a
-                        href="#"
-                        class="avatar avatar-xs"
-                        data-bs-toggle="tooltip"
-                        title=""
-                        data-bs-original-title="Adolfo Hess"
-                      >
-                        <span class="avatar-title rounded-circle"> ML </span>
-                      </a>
-                      <a
-                        href="#"
-                        class="avatar avatar-xs"
-                        data-bs-toggle="tooltip"
-                        title=""
-                        data-bs-original-title="Daniela Dewitt"
-                      >
-                        <span class="avatar-title rounded-circle"> AV </span>
-                      </a>
-                    </div>
+                    <span class="badge bg-success">Paid</span>
                   </td>
-
+                </tr>
+                <tr>
+                  <td> Invoice #10119 </td>
                   <td>
-                    <div class="row align-items-center g-0">
-                      <div class="col-auto">
-                        <span class="me-2">55%</span>
-                      </div>
-                      <div class="col">
-                        <!-- Progress -->
-                        <div class="progress progress-sm">
-                          <div
-                            class="progress-bar bg-secondary"
-                            role="progressbar"
-                            style="width: 55%"
-                            aria-valuenow="55"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <span>$149.99</span>
-                      </div>
-                    </div>
-                    <!-- / .row -->
+                    <time datetime="2020-02-24">Feb. 24, 2020</time>
                   </td>
-                  <td> <span class="text-success">●</span> On Schedule </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
                   <td>
-                    <div class="px-2">
-                      <button
-                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="bottom"
-                        title="Voire"
-                        data-bs-original-title="Voire"
-                      >
-                        <span class="fe fe-eye"></span>
-                      </button>
-
-                      <button
-                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="bottom"
-                        title="Archive"
-                        data-bs-original-title="Archive"
-                      >
-                        <span class="fe fe-edit-2"></span>
-                      </button>
-
-                      <button
-                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="bottom"
-                        title="Delete"
-                        data-bs-original-title="Delete"
-                      >
-                        <span class="fe fe-trash-2"></span>
-                      </button>
-                    </div>
+                    <span class="badge bg-warning">En cours</span>
                   </td>
+                </tr>
+                <tr>
+                  <td> Invoice #10062 </td>
                   <td>
-                    <div class="dropdown">
-                      <a
-                        class="dropdown-ellipses dropdown-toggle"
-                        href="crm-contacts.html#"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <i class="fe fe-more-vertical"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-end" style="">
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                          Action
-                        </a>
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                          Another action
-                        </a>
-                        <a href="crm-contacts.html#!" class="dropdown-item">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
+                    <time datetime="2020-01-24">Jan. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-success">Paid</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td> Invoice #10062 </td>
+                  <td>
+                    <time datetime="2020-01-24">Jan. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-success">Paid</span>
                   </td>
                 </tr>
               </tbody>
