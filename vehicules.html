@@ -69,6 +69,437 @@
   <body>
     <div
       class="modal fade"
+      id="modalEditCar"
+      tabindex="-1"
+      aria-labelledby="modalEditCar"
+      data-bs-backdrop="static"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit vehicule</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Marque</label>
+                    <select id="car_brands" name="Make" class="form-select">
+                      <option value="Acura">Acura</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Bentley">Bentley</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Buick">Buick</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Chrysler">Chrysler</option>
+                      <option value="Citroën">Citroën</option>
+                      <option value="Dacia">Dacia</option>
+                      <option value="Dodge">Dodge</option>
+                      <option value="Ferrari">Ferrari</option>
+                      <option value="Fiat">Fiat</option>
+                      <option value="Ford">Ford</option>
+                      <option value="Genesis">Genesis</option>
+                      <option value="GMC">GMC</option>
+                      <option value="Honda">Honda</option>
+                      <option value="Hyundai">Hyundai</option>
+                      <option value="Infiniti">Infiniti</option>
+                      <option value="Jaguar">Jaguar</option>
+                      <option value="Jeep">Jeep</option>
+                      <option value="Kia">Kia</option>
+                      <option value="Lamborghini">Lamborghini</option>
+                      <option value="Lancia">Lancia</option>
+                      <option value="Land-Rover">Land Rover</option>
+                      <option value="Lexus">Lexus</option>
+                      <option value="Maserati">Maserati</option>
+                      <option value="Mazda">Mazda</option>
+                      <option value="McLaren">McLaren</option>
+                      <option value="Mercedes-Benz">Mercedes-Benz</option>
+                      <option value="MINI">MINI</option>
+                      <option value="Mitsubishi">Mitsubishi</option>
+                      <option value="Nissan">Nissan</option>
+                      <option value="Opel">Opel</option>
+                      <option value="Peugeot">Peugeot</option>
+                      <option value="Porsche">Porsche</option>
+                      <option value="Ram">Ram</option>
+                      <option value="Renault">Renault</option>
+                      <option value="Rolls-Royce">Rolls-Royce</option>
+                      <option value="Saab">Saab</option>
+                      <option value="Scion">Scion</option>
+                      <option value="SEAT">SEAT</option>
+                      <option value="Škoda">Škoda</option>
+                      <option value="Smart">Smart</option>
+                      <option value="Subaru">Subaru</option>
+                      <option value="Suzuki">Suzuki</option>
+                      <option value="Tesla">Tesla</option>
+                      <option value="Toyota">Toyota</option>
+                      <option value="Vauxhall">Vauxhall</option>
+                      <option value="Volkswagen">Volkswagen</option>
+                      <option value="Volvo">Volvo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Modèl</label>
+                    <input
+                      type="text"
+                      id="car_model"
+                      name="Model"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Immatriculation W</label>
+                    <input
+                      type="text"
+                      id="car_immatriculation_w"
+                      name="LicensePlateWW"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Immatriculation</label>
+                    <input
+                      type="text"
+                      id="car_immatriculation"
+                      name="LicensePlate"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-2">
+                  <div class="form-group">
+                    <label class="form-label">Carburant</label>
+                    <select id="car_fuel" class="form-select" name="FuelType">
+                      <option selected="">Essence</option>
+                      <option>Diesel</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                  <div class="form-group">
+                    <label class="form-label">Nombre de places</label>
+                    <input
+                      type="number"
+                      id="car_nb_places"
+                      class="form-control"
+                      name="Seats"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                  <div class="form-group">
+                    <label class="form-label"> Annèe </label>
+                    <input
+                      id="car_first_use"
+                      type="text"
+                      class="form-control flatpickr-input"
+                      data-flatpickr=""
+                      readonly="readonly"
+                      name="FisrtUse"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control" name="Name" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Catégorie</label>
+                    <select class="form-select" name="Categorie">
+                      <option selected="">Économique</option>
+                      <option>Compacte</option>
+                      <option>Luxe</option>
+                      <option>SUV</option>
+                      <option>Décapotable</option>
+                      <option>Sport</option>
+                      <option>Familiale</option>
+                      <option>Décapotable</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">Transmission</label>
+                    <div class="btn-group-toggle">
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Transmission"
+                        id="Manuel"
+                        value="Manuel"
+                        checked=""
+                      />
+                      <label class="btn btn-white me-3" for="Manuel">
+                        Manuel
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Transmission"
+                        id="Automatic"
+                        value="Automatic"
+                        autocomplete="off"
+                      />
+                      <label class="btn btn-white" for="Automatic">
+                        Automatic
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Kilométrage</label>
+                    <div class="input-group input-group-merge mb-3">
+                      <input
+                        class="form-control"
+                        placeholder=""
+                        type="number"
+                        aria-label="Input group appended"
+                        aria-describedby="inputGroup"
+                        name="Mileage"
+                      />
+                      <div class="input-group-text" id="inputGroup">
+                        <span class="fe fe-sliders"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label">Prix par Jour</label>
+                    <div class="input-group input-group-merge mb-3">
+                      <input
+                        class="form-control"
+                        placeholder=""
+                        type="number"
+                        aria-label="Input group appended"
+                        aria-describedby="inputGroup"
+                        name="RentalRate"
+                      />
+                      <div class="input-group-text" id="inputGroup">
+                        <span class="fe fe-dollar-sign"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label class="form-label">Coleur</label>
+
+                    <div class="btn-group-toggle">
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="red"
+                        value="red"
+                        checked=""
+                      />
+                      <label class="color" for="orange">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: red"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="orange"
+                        value="orange"
+                      />
+                      <label class="color" for="orange">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(252, 161, 32)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="yellow"
+                        value="yellow"
+                      />
+                      <label class="color" for="yellow">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(252, 219, 126)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="green"
+                        value="green"
+                      />
+                      <label class="color" for="green">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(74, 210, 149)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="skay"
+                        value="skay"
+                      />
+                      <label class="color" for="skay">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(146, 205, 250)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="blue"
+                        value="blue"
+                      />
+                      <label class="color" for="blue">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(18, 115, 235)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="purple"
+                        value="purple"
+                      />
+                      <label class="color" for="purple">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(128, 128, 241)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="darkgray"
+                        value="darkgray"
+                      />
+                      <label class="color" for="darkgray">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(29, 38, 45)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="gray"
+                        value="gray"
+                      />
+                      <label class="color" for="gray">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(186, 200, 211)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+
+                      <input
+                        type="radio"
+                        class="btn-check"
+                        name="Color"
+                        id="white"
+                        value="white"
+                      />
+                      <label class="color" for="white">
+                        <span class="avatar avatar-sm">
+                          <div
+                            class="avatar-title rounded-circle"
+                            style="background-color: rgb(246, 246, 246)"
+                          >
+                          </div>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal"
+              >Annuler</button
+            >
+            <button type="button" class="btn btn-primary" id="updateCar">
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
       id="confirmationModal"
       tabindex="-1"
       role="dialog"
@@ -92,10 +523,7 @@
             Êtes-vous sûr de vouloir supprimer cette vehicule ?
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal"
               >Cancel</button
             >
             <button type="button" class="btn btn-danger" id="confirmDelete"
@@ -105,12 +533,447 @@
         </div>
       </div>
     </div>
+    <!-- Assurance -->
+    <div
+      class="modal fade"
+      id="updateAssurance"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateAssurance"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirmationModalLabel">Assurance</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label"> Fait le </label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-group mb-1">
+                  <label class="form-label">Expirer apres </label>
+                  <select name="" class="form-control" id="">
+                    <option value="3 mois">3 mois</option>
+                    <option value="3 mois">6 mois</option>
+                    <option value="3 mois">9 mois</option>
+                    <option value="3 mois">12 mois</option>
+                    <option value="3 mois">24 mois</option>
+                  </select>
+                </div>
+                <small class="form-text text-muted">25-Avr-2025 </small>
+              </div>
+              <!-- <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Date d'expiration </label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div> -->
+              <div class="col-12 col-md-2">
+                <div class="form-group">
+                  <label class="form-label">Prix </label>
+                  <input
+                    type="number"
+                    name=""
+                    class="form-control"
+                    placeholder="2500"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <label for="fileRecto" class="camera">
+                  <div
+                    id="previewRecto"
+                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                  >
+                    <button
+                      id="clearframeRecto"
+                      class="btn btn-danger rounded-circle position-absolute"
+                    >
+                      <span class="fe fe-x"></span>
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center w-100 h-100"
+                    >
+                      <img src="" alt="preview" id="frameRecto" class="" />
+                    </div>
+                  </div>
+
+                  <div class="btn btn-primary rounded-circle mb-3">
+                    <span class="fe fe-camera"></span>
+                  </div>
+                  <div>Attachement</div>
+                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
+                </label>
+                <input
+                  type="file"
+                  name="files.RegistrationDocument"
+                  accept="image/x-png,image/gif,image/jpeg"
+                  id="fileRecto"
+                  class="glob__dragDrop--input"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmDelete">
+              Assurer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Vidange -->
+    <div
+      class="modal fade"
+      id="updateVidange"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateVidange"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirmationModalLabel">Vidange</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Date de vidange</label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Kilométrage</label>
+                  <div class="input-group input-group-merge mb-3">
+                    <input
+                      class="form-control"
+                      placeholder=""
+                      type="number"
+                      aria-label="Input group appended"
+                      aria-describedby="inputGroup"
+                      name="Mileage"
+                    />
+                    <div class="input-group-text" id="inputGroup">
+                      <span class="fe fe-sliders"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-2">
+                <div class="form-group">
+                  <label class="form-label">Prix </label>
+                  <input
+                    type="number"
+                    name=""
+                    class="form-control"
+                    placeholder="2500"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <label for="fileRecto" class="camera">
+                  <div
+                    id="previewRecto"
+                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                  >
+                    <button
+                      id="clearframeRecto"
+                      class="btn btn-danger rounded-circle position-absolute"
+                    >
+                      <span class="fe fe-x"></span>
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center w-100 h-100"
+                    >
+                      <img src="" alt="preview" id="frameRecto" class="" />
+                    </div>
+                  </div>
+
+                  <div class="btn btn-primary rounded-circle mb-3">
+                    <span class="fe fe-camera"></span>
+                  </div>
+                  <div>Attachement</div>
+                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
+                </label>
+                <input
+                  type="file"
+                  name="files.RegistrationDocument"
+                  accept="image/x-png,image/gif,image/jpeg"
+                  id="fileRecto"
+                  class="glob__dragDrop--input"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmDelete">
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Visite technique -->
+    <div
+      class="modal fade"
+      id="updateVisite"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateVisite"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirmationModalLabel">
+              Visite Technique
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Fait le </label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-12 col-md-5">
+                <div class="form-group mb-1">
+                  <label class="form-label">Expirer apres </label>
+                  <select name="" class="form-control" id="">
+                    <!-- <option value="3 mois">3 mois</option> -->
+                    <option value="3 mois">6 mois</option>
+                    <!-- <option value="3 mois">9 mois</option> -->
+                    <option value="3 mois">12 mois</option>
+                    <!-- <option value="3 mois">24 mois</option> -->
+                  </select>
+                </div>
+                <small class="form-text text-muted">25-Avr-2025 </small>
+              </div>
+              <div class="col-12 col-md-2">
+                <div class="form-group">
+                  <label class="form-label">Prix </label>
+                  <input
+                    type="number"
+                    name=""
+                    class="form-control"
+                    placeholder="2500"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <label for="fileRecto" class="camera">
+                  <div
+                    id=""
+                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                  >
+                    <button
+                      id="clearframeRecto"
+                      class="btn btn-danger rounded-circle position-absolute"
+                    >
+                      <span class="fe fe-x"></span>
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center w-100 h-100"
+                    >
+                      <img src="" alt="preview" id="frameRecto" class="" />
+                    </div>
+                  </div>
+
+                  <div class="btn btn-primary rounded-circle mb-3">
+                    <span class="fe fe-camera"></span>
+                  </div>
+                  <div>Attachement</div>
+                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
+                </label>
+                <input
+                  type="file"
+                  name="files.RegistrationDocument"
+                  accept="image/x-png,image/gif,image/jpeg"
+                  id="fileRecto"
+                  class="glob__dragDrop--input"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmDelete">
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vignette -->
+    <div
+      class="modal fade"
+      id="updateVignette"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateVignette"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Vignette</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Fait le </label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div>
+
+              <!-- <div class="col-12 col-md-5">
+                <div class="form-group mb-1">
+                  <label class="form-label">Expirer apres </label>
+                  <select name="" class="form-control" id="">
+                    <option value="3 mois">6 mois</option>
+                    <option value="3 mois">12 mois</option>
+                  </select>
+                </div>
+                <small class="form-text text-muted">25-Avr-2025 </small>
+              </div> -->
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Prix </label>
+                  <input
+                    type="number"
+                    name=""
+                    class="form-control"
+                    placeholder="2500"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <label for="fileRecto" class="camera">
+                  <div
+                    id=""
+                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                  >
+                    <button
+                      id="clearframeRecto"
+                      class="btn btn-danger rounded-circle position-absolute"
+                    >
+                      <span class="fe fe-x"></span>
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center w-100 h-100"
+                    >
+                      <img src="" alt="preview" id="frameRecto" class="" />
+                    </div>
+                  </div>
+
+                  <div class="btn btn-primary rounded-circle mb-3">
+                    <span class="fe fe-camera"></span>
+                  </div>
+                  <div>Attachement</div>
+                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
+                </label>
+                <input
+                  type="file"
+                  name="files.RegistrationDocument"
+                  accept="image/x-png,image/gif,image/jpeg"
+                  id="fileRecto"
+                  class="glob__dragDrop--input"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="confirmDelete">
+              Enregistrer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-lg" id="topnav">
       <div class="container">
         <!-- Brand -->
         <a class="navbar-brand me-auto" href="./index.html">
-          <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img" />
+          <!-- <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img" /> -->
         </a>
 
         <!-- Form -->
@@ -1210,10 +2073,53 @@
                       <i class="fe fe-more-vertical"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end">
-                      <a href="#" class="dropdown-item"> Assurance </a>
-                      <a href="#!" class="dropdown-item"> Vidange </a>
-                      <a href="#!" class="dropdown-item"> Visite Technique </a
-                      ><a href="#!" class="dropdown-item"> Vignette </a>
+                      <a
+                        href="#"
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#updateAssurance"
+                      >
+                        Assurance
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVidange"
+                        data-bs-toggle="modal"
+                      >
+                        Vidange
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVisite"
+                        data-bs-toggle="modal"
+                      >
+                        Visite Technique
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVignette"
+                        data-bs-toggle="modal"
+                      >
+                        Vignette
+                      </a>
+                      <hr />
+                      <a
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEditCar"
+                      >
+                        Editer
+                      </a>
+                      <a
+                        class="dropdown-item text-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#confirmationModal"
+                      >
+                        Supprimer
+                      </a>
                     </div>
                   </div>
 
