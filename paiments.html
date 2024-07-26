@@ -61,6 +61,111 @@
     <script src="assets/js/script-contrats.js"></script>
   </head>
   <body>
+    <!-- Add payement -->
+    <div
+      class="modal fade"
+      id="addPaiment"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addPaiment"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirmationModalLabel">
+              Ajouter un paiement
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-5">
+                <div class="form-group">
+                  <label class="form-label">Fait le </label>
+                  <input
+                    type="text"
+                    class="form-control flatpickr-input"
+                    data-flatpickr=""
+                    readonly="readonly"
+                    name=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="form-group mb-1">
+                  <label class="form-label">Méthode de paiement</label>
+                  <select name="" class="form-control" id="">
+                    <option value="">Especes</option>
+                    <option value="">Cheque</option>
+                    <option value="">Carte bancaire</option>
+                  </select>
+                </div>
+                <!-- <small class="form-text text-muted">25-Avr-2025 </small> -->
+              </div>
+              <div class="col-12 col-md-3">
+                <div class="form-group">
+                  <label class="form-label">Montant </label>
+                  <input
+                    type="number"
+                    name=""
+                    class="form-control"
+                    placeholder="2500"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-12">
+                <label for="fileRecto" class="camera">
+                  <div
+                    id=""
+                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                  >
+                    <button
+                      id="clearframeRecto"
+                      class="btn btn-danger rounded-circle position-absolute"
+                    >
+                      <span class="fe fe-x"></span>
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center w-100 h-100"
+                    >
+                      <img src="" alt="preview" id="frameRecto" class="" />
+                    </div>
+                  </div>
+
+                  <div class="btn btn-primary rounded-circle mb-3">
+                    <span class="fe fe-camera"></span>
+                  </div>
+                  <div>Attachement</div>
+                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
+                </label>
+                <input
+                  type="file"
+                  name="files.RegistrationDocument"
+                  accept="image/x-png,image/gif,image/jpeg"
+                  id="fileRecto"
+                  class="glob__dragDrop--input"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="">
+              Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- NAVIGATION -->
     <nav class="navbar navbar-expand-lg" id="topnav">
       <div class="container">
@@ -639,7 +744,14 @@
                 <!-- / .nav -->
 
                 <!-- Buttons -->
-                <a href="#" class="btn btn-primary ms-2"> Nouveau Paiement </a>
+                <a
+                  href="#"
+                  class="btn btn-primary ms-2"
+                  data-bs-target="#addPaiment"
+                  data-bs-toggle="modal"
+                >
+                  Nouveau Paiement
+                </a>
               </div>
             </div>
             <!-- / .row -->
@@ -661,7 +773,7 @@
               </thead>
               <tbody class="fs-base">
                 <tr>
-                  <td> Invoice #10395 </td>
+                  <td> #10395 </td>
                   <td>
                     <time datetime="2020-04-24">Apr. 24, 2020</time>
                   </td>
@@ -672,7 +784,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> Invoice #10244 </td>
+                  <td> #10244 </td>
                   <td>
                     <time datetime="2020-03-24">Mar. 24, 2020</time>
                   </td>
@@ -683,7 +795,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> Invoice #10119 </td>
+                  <td> #10119 </td>
                   <td>
                     <time datetime="2020-02-24">Feb. 24, 2020</time>
                   </td>
@@ -694,7 +806,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> Invoice #10062 </td>
+                  <td> #10062 </td>
                   <td>
                     <time datetime="2020-01-24">Jan. 24, 2020</time>
                   </td>
@@ -705,7 +817,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td> Invoice #10062 </td>
+                  <td> #10062 </td>
                   <td>
                     <time datetime="2020-01-24">Jan. 24, 2020</time>
                   </td>
