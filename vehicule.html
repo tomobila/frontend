@@ -644,6 +644,15 @@
 
                 <!-- Title -->
                 <h1 class="header-title" id="vName">500</h1>
+                <span
+                  class="mt-2 px-2 border-gray border border-black d-inline-block rounded-1"
+                >
+                  <span class="fw-bold">
+                    <span class="border-end border-gray px-2"> 212142 </span>
+                    <span class="border-end border-gray px-2">A</span>
+                    <span>13</span>
+                  </span>
+                </span>
               </div>
               <div class="col-12 col-md-auto mt-3 mt-md-0">
                 <a href="#!" class="btn btn-primary"> Reserver </a>
@@ -2928,70 +2937,49 @@
         >
           <div class="container">
             <div class="card">
-              <div class="card-header">
-                <!-- Title -->
-                <h4 class="card-header-title"> Search </h4>
-
-                <!-- Button -->
-                <!-- <a href="widgets.html#!" class="btn btn-sm btn-white"> Export </a> -->
-              </div>
               <div class="table-responsive mb-0">
                 <table class="table table-sm table-nowrap card-table">
                   <thead>
                     <tr>
                       <th> Date creation </th>
-                      <!-- <th> Véhicule </th> -->
-                      <th> Date de Départ </th>
-                      <th> Date d'Arrivée </th>
-                      <th>Nb. jour</th>
-                      <th>Clients</th>
-                      <th>Statut</th>
+                      <th> Periode </th>
+                      <th>Client</th>
+                      <th>Prix</th>
                       <th>Paiements</th>
+                      <th>Statut</th>
                       <th>Actions</th>
-                      <th> </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td
-                        ><time datetime="2018-07-30">07/30/18</time><br />
-                        <time datetime="2018-07-30">12:00</time>
+                      <td>
+                        <div
+                          class="d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <time>07 Avr 2024</time>
+                          <time>12:00:00</time>
+                        </div>
                       </td>
 
                       <td>
-                        <time datetime="2018-07-30">21 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td>
-                        <time datetime="2018-07-30">28 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td> 25 </td>
-                      <td>
-                        <div class="avatar-group d-none d-sm-flex">
-                          <a
-                            href="#"
-                            class="avatar avatar-xs"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            data-bs-original-title="Adolfo Hess"
-                          >
-                            <span class="avatar-title rounded-circle">
-                              ML
-                            </span>
-                          </a>
-                          <a
-                            href="#"
-                            class="avatar avatar-xs"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            data-bs-original-title="Daniela Dewitt"
-                          >
-                            <span class="avatar-title rounded-circle">
-                              AV
-                            </span>
-                          </a>
+                        <div>
+                          <time>21 Jui 2024</time> -
+                          <time>12:00:00</time>
                         </div>
+                        <div>
+                          <time>28 Jui 2024</time> -
+                          <time>12:00:00</time>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex align-items-center flex-column">
+                          <h4 class="fw-normal mb-1">Soufiane Bahad</h4>
+                          <a href="tel:000000" class="text-muted">0777551234</a>
+                        </div>
+                      </td>
+                      <td>
+                        <span>1400</span>
                       </td>
 
                       <td>
@@ -3003,7 +2991,7 @@
                             <!-- Progress -->
                             <div class="progress progress-sm">
                               <div
-                                class="progress-bar bg-secondary"
+                                class="progress-bar bg-warning"
                                 role="progressbar"
                                 style="width: 55%"
                                 aria-valuenow="55"
@@ -3012,21 +3000,19 @@
                               ></div>
                             </div>
                           </div>
-                          <div class="col-auto">
-                            <span>$149.99</span>
-                          </div>
                         </div>
-                        <!-- / .row -->
                       </td>
-                      <td> <span class="text-success">●</span> On cours </td>
                       <td>
-                        <div class="px-2">
+                        <span class="badge bg-success-soft">Terminé</span>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
                           <button
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Voire"
+                            title="Voire"
+                            data-bs-original-title="Voir"
                           >
                             <span class="fe fe-eye"></span>
                           </button>
@@ -3035,76 +3021,79 @@
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Archive"
+                            title="Archive"
+                            data-bs-original-title="Edit"
                           >
                             <span class="fe fe-edit-2"></span>
                           </button>
-
-                          <button
-                            class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Delete"
-                          >
-                            <span class="fe fe-trash-2"></span>
-                          </button>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="dropdown">
-                          <a
-                            class="dropdown-ellipses dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a href="#!" class="dropdown-item"> Action </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
+                          <div class="dropdown ms-2">
+                            <a
+                              class="dropdown-ellipses dropdown-toggle"
+                              href="crm-contacts.html#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="fe fe-more-vertical"></i>
                             </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                              <a href="#" class="dropdown-item">
+                                Prologation
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                Something else here
+                              </a>
+                            </div>
                           </div>
+
+                          <!-- <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Delete"
+                        data-bs-original-title="Delete"
+                      >
+                        <span class="fe fe-trash-2"></span>
+                      </button> -->
                         </div>
                       </td>
+                      <!-- <td>
+                    
+                  </td> -->
                     </tr>
                     <tr>
-                      <td
-                        ><time datetime="2018-07-30">07/30/18</time><br />
-                        <time datetime="2018-07-30">12:00</time>
+                      <td>
+                        <div
+                          class="d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <time>07 Avr 2024</time>
+                          <time>12:00:00</time>
+                        </div>
                       </td>
 
                       <td>
-                        <time datetime="2018-07-30">21 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td>
-                        <time datetime="2018-07-30">28 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td> 25 </td>
-                      <td>
-                        <div class="avatar-group d-none d-sm-flex">
-                          <a
-                            href="#"
-                            class="avatar avatar-xs"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            data-bs-original-title="Daniela Dewitt"
-                          >
-                            <span class="avatar-title rounded-circle">
-                              AV
-                            </span>
-                          </a>
+                        <div>
+                          <time>21 Jui 2024</time> -
+                          <time>12:00:00</time>
                         </div>
+                        <div>
+                          <time>28 Jui 2024</time> -
+                          <time>12:00:00</time>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex align-items-center flex-column">
+                          <h4 class="fw-normal mb-1">Soufiane Bahad</h4>
+                          <a href="tel:000000" class="text-muted">0777551234</a>
+                        </div>
+                      </td>
+                      <td>
+                        <span>1400</span>
                       </td>
 
                       <td>
@@ -3116,7 +3105,7 @@
                             <!-- Progress -->
                             <div class="progress progress-sm">
                               <div
-                                class="progress-bar bg-secondary"
+                                class="progress-bar bg-warning"
                                 role="progressbar"
                                 style="width: 55%"
                                 aria-valuenow="55"
@@ -3125,21 +3114,19 @@
                               ></div>
                             </div>
                           </div>
-                          <div class="col-auto">
-                            <span>$149.99</span>
-                          </div>
                         </div>
-                        <!-- / .row -->
                       </td>
-                      <td> <span class="text-primary">●</span> Termine </td>
                       <td>
-                        <div class="px-2">
+                        <span class="badge bg-success-soft">Terminé</span>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
                           <button
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Voire"
+                            title="Voire"
+                            data-bs-original-title="Voir"
                           >
                             <span class="fe fe-eye"></span>
                           </button>
@@ -3148,87 +3135,80 @@
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Archive"
+                            title="Archive"
+                            data-bs-original-title="Edit"
                           >
                             <span class="fe fe-edit-2"></span>
                           </button>
-
-                          <button
-                            class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Delete"
-                          >
-                            <span class="fe fe-trash-2"></span>
-                          </button>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="dropdown">
-                          <a
-                            class="dropdown-ellipses dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a href="#!" class="dropdown-item"> Action </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
+                          <div class="dropdown ms-2">
+                            <a
+                              class="dropdown-ellipses dropdown-toggle"
+                              href="crm-contacts.html#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="fe fe-more-vertical"></i>
                             </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-end"
+                              style=""
+                            >
+                              <a href="#" class="dropdown-item"> Action </a>
+                              <a href="#" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                Something else here
+                              </a>
+                            </div>
                           </div>
+
+                          <!-- <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Delete"
+                        data-bs-original-title="Delete"
+                      >
+                        <span class="fe fe-trash-2"></span>
+                      </button> -->
                         </div>
                       </td>
+                      <!-- <td>
+                    
+                  </td> -->
                     </tr>
                     <tr>
-                      <td
-                        ><time datetime="2018-07-30">07/30/18</time><br />
-                        <time datetime="2018-07-30">12:00</time>
+                      <td>
+                        <div
+                          class="d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <time>07 Avr 2024</time>
+                          <time>12:00:00</time>
+                        </div>
                       </td>
 
                       <td>
-                        <time datetime="2018-07-30">21 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td>
-                        <time datetime="2018-07-30">28 Jui 2024</time><br />
-                        <time datetime="2018-07-30">12:00</time>
-                      </td>
-                      <td> 25 </td>
-                      <td>
-                        <div class="avatar-group d-none d-sm-flex">
-                          <a
-                            href="#"
-                            class="avatar avatar-xs"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            data-bs-original-title="Adolfo Hess"
-                          >
-                            <span class="avatar-title rounded-circle">
-                              ML
-                            </span>
-                          </a>
-                          <a
-                            href="#"
-                            class="avatar avatar-xs"
-                            data-bs-toggle="tooltip"
-                            title=""
-                            data-bs-original-title="Daniela Dewitt"
-                          >
-                            <span class="avatar-title rounded-circle">
-                              AV
-                            </span>
-                          </a>
+                        <div>
+                          <time>21 Jui 2024</time> -
+                          <time>12:00:00</time>
                         </div>
+                        <div>
+                          <time>28 Jui 2024</time> -
+                          <time>12:00:00</time>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex align-items-center flex-column">
+                          <h4 class="fw-normal mb-1">Soufiane Bahad</h4>
+                          <a href="tel:000000" class="text-muted">0777551234</a>
+                        </div>
+                      </td>
+                      <td>
+                        <span>1400</span>
                       </td>
 
                       <td>
@@ -3240,7 +3220,7 @@
                             <!-- Progress -->
                             <div class="progress progress-sm">
                               <div
-                                class="progress-bar bg-secondary"
+                                class="progress-bar bg-warning"
                                 role="progressbar"
                                 style="width: 55%"
                                 aria-valuenow="55"
@@ -3249,21 +3229,19 @@
                               ></div>
                             </div>
                           </div>
-                          <div class="col-auto">
-                            <span>$149.99</span>
-                          </div>
                         </div>
-                        <!-- / .row -->
                       </td>
-                      <td> <span class="text-primary">●</span> Termine </td>
                       <td>
-                        <div class="px-2">
+                        <span class="badge bg-success-soft">Terminé</span>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
                           <button
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Voire"
+                            title="Voire"
+                            data-bs-original-title="Voir"
                           >
                             <span class="fe fe-eye"></span>
                           </button>
@@ -3272,46 +3250,50 @@
                             class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
                             data-bs-toggle="tooltip"
                             data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Archive"
+                            title="Archive"
+                            data-bs-original-title="Edit"
                           >
                             <span class="fe fe-edit-2"></span>
                           </button>
-
-                          <button
-                            class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="bottom"
-                            title=""
-                            data-bs-original-title="Delete"
-                          >
-                            <span class="fe fe-trash-2"></span>
-                          </button>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="dropdown">
-                          <a
-                            class="dropdown-ellipses dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="fe fe-more-vertical"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a href="#!" class="dropdown-item"> Action </a>
-                            <a href="#!" class="dropdown-item">
-                              Another action
+                          <div class="dropdown ms-2">
+                            <a
+                              class="dropdown-ellipses dropdown-toggle"
+                              href="crm-contacts.html#"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="fe fe-more-vertical"></i>
                             </a>
-                            <a href="#!" class="dropdown-item">
-                              Something else here
-                            </a>
+                            <div
+                              class="dropdown-menu dropdown-menu-end"
+                              style=""
+                            >
+                              <a href="#" class="dropdown-item"> Action </a>
+                              <a href="#" class="dropdown-item">
+                                Another action
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                Something else here
+                              </a>
+                            </div>
                           </div>
+
+                          <!-- <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Delete"
+                        data-bs-original-title="Delete"
+                      >
+                        <span class="fe fe-trash-2"></span>
+                      </button> -->
                         </div>
                       </td>
+                      <!-- <td>
+                    
+                  </td> -->
                     </tr>
                   </tbody>
                 </table>

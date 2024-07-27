@@ -74,7 +74,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title" id="confirmationModalLabel">
-              Ajouter un paiement
+              Ajouter Paiement
             </h4>
             <button
               type="button"
@@ -116,10 +116,17 @@
                     type="number"
                     name=""
                     class="form-control"
-                    placeholder="2500"
+                    placeholder="100"
                   />
                 </div>
               </div>
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label class="form-label">Comment </label>
+                  <textarea name="" class="form-control" id=""></textarea>
+                </div>
+              </div>
+
               <div class="col-12 col-md-12">
                 <label for="fileRecto" class="camera">
                   <div
@@ -183,9 +190,9 @@
         </button>
 
         <!-- Brand -->
-        <a class="navbar-brand me-auto" href="./index.html">
+        <!-- <a class="navbar-brand me-auto" href="./index.html">
           <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img" />
-        </a>
+        </a> -->
 
         <!-- Form -->
         <form class="form-inline me-4 d-none d-lg-flex">
@@ -723,39 +730,82 @@
       <div class="header">
         <div class="container">
           <div class="header-body">
-            <div class="row align-items-center">
+            <div class="row align-items-end">
               <div class="col">
                 <!-- Pretitle -->
-                <h6 class="header-pretitle"> Overview </h6>
+                <h6 class="header-pretitle text-secondary"> Overview </h6>
 
                 <!-- Title -->
-                <h1 class="header-title text-truncate"> Paiements </h1>
+                <h1 class="header-title"> Paiements </h1>
               </div>
               <div class="col-auto">
-                <!-- Navigation (button group) -->
-                <!-- <div class="nav btn-group d-inline-flex" role="tablist">
-                  <button class="btn btn-white active" id="contactsListTab" data-bs-toggle="tab" data-bs-target="#contactsListPane" role="tab" aria-controls="contactsListPane" aria-selected="true">
-                    <span class="fe fe-list"></span>
-                  </button>
-                  <button class="btn btn-white" id="contactsCardsTab" data-bs-toggle="tab" data-bs-target="#contactsCardsPane" role="tab" aria-controls="contactsCardsPane" aria-selected="false">
-                    <span class="fe fe-grid"></span>
-                  </button>
-                </div>  -->
-                <!-- / .nav -->
-
-                <!-- Buttons -->
+                <!-- Nav -->
+                <ul class="nav nav-tabs header-tabs">
+                  <li
+                    class="nav-item"
+                    data-toggle="chart"
+                    data-target="#earningsChart"
+                    data-trigger="click"
+                    data-action="toggle"
+                    data-dataset="0"
+                  >
+                    <span
+                      class="nav-link text-center active"
+                      data-bs-toggle="tab"
+                    >
+                      <h6 class="header-pretitle text-secondary"> Total </h6>
+                      <h3 class="mb-0"> $19.2k </h3>
+                    </span>
+                  </li>
+                  <li
+                    class="nav-item"
+                    data-toggle="chart"
+                    data-target="#earningsChart"
+                    data-trigger="click"
+                    data-action="toggle"
+                    data-dataset="1"
+                  >
+                    <span class="nav-link text-center" data-bs-toggle="tab">
+                      <h6 class="header-pretitle text-secondary">
+                        en attente
+                      </h6>
+                      <h3 class="mb-0"> 92.1k </h3>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-auto">
                 <a
                   href="#"
                   class="btn btn-primary ms-2"
                   data-bs-target="#addPaiment"
                   data-bs-toggle="modal"
                 >
-                  Nouveau Paiement
+                  Ajouter Paiement
                 </a>
               </div>
             </div>
             <!-- / .row -->
           </div>
+          <!-- <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col">
+                <h6 class="header-pretitle"> Overview </h6>
+
+                <h1 class="header-title text-truncate"> Paiements </h1>
+              </div>
+              <div class="col-auto">
+                <a
+                  href="#"
+                  class="btn btn-primary ms-2"
+                  data-bs-target="#addPaiment"
+                  data-bs-toggle="modal"
+                >
+                  Ajouter Paiement
+                </a>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
       <div class="container">
