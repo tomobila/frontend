@@ -629,6 +629,65 @@
                     <a href="#!" class="btn btn-primary ms-2 lift"> Envoyer </a>
                   </div>
                 </div>
+
+                <div class="row align-items-center mt-4">
+                  <div class="col">
+                    <button
+                      class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      title="Edit"
+                      data-bs-original-title="Edit"
+                    >
+                      <span class="fe fe-edit-2"></span>
+                    </button>
+                    <button
+                      class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      title="Voir"
+                      data-bs-original-title="Voir"
+                    >
+                      <span class="fe fe-eye"></span>
+                    </button>
+                    <button
+                      class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      title="Telecharger"
+                      data-bs-original-title="Telecharger"
+                    >
+                      <span class="fe fe-download-cloud"></span>
+                    </button>
+                    <button
+                      class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      title="Print"
+                      data-bs-original-title="Print"
+                    >
+                      <span class="fe fe-printer"></span>
+                    </button>
+                    <button
+                      class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="bottom"
+                      title="Partager"
+                      data-bs-original-title="Partager"
+                    >
+                      <span class="fe fe-share-2"></span>
+                    </button>
+                  </div>
+                  <div class="col-auto text-end">
+                    <div class="form-group mb-0">
+                      <label class="form-label">Status </label>
+                      <select name="" class="form-control p-3" id="">
+                        <option value="">En Cours</option>
+                        <option value="">Termine</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -867,7 +926,7 @@
                       <div class="row align-items-center flex-column">
                         <div class="col">
                           <h6 class="text-uppercase text-muted mb-4">
-                            Livraison
+                            Réception
                           </h6>
                           <div class="row">
                             <div class="col-6">
@@ -947,7 +1006,7 @@
                           <th class="px-0 bg-transparent border-top-0">
                             <span class="h6">Description</span>
                           </th>
-                          <th class="px-0 bg-transparent border-top-0">
+                          <th class="px-0 bg-transparent border-top-0 text-end">
                             <span class="h6">Nb. jours</span>
                           </th>
                           <th class="px-0 bg-transparent border-top-0 text-end">
@@ -957,22 +1016,32 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="px-0"> Dacia logan </td>
-                          <td class="px-0"> 12 </td>
-                          <td class="px-0 text-end"> 6,250 </td>
+                          <td class="px-0 h4"> Dacia logan </td>
+                          <td class="px-0 h4 text-end"> 12 </td>
+                          <td class="px-0 h4 text-end"> 6,250 </td>
                         </tr>
                         <tr>
                           <td class="px-0"> Livraison </td>
-                          <td class="px-0"> 1 </td>
+                          <td class="px-0 text-end"> 1 </td>
                           <td class="px-0 text-end"> 0 </td>
                         </tr>
                         <tr>
-                          <td class="px-0 border-top border-top-2">
+                          <td class="px-0"> Avance </td>
+                          <td class="px-0"> </td>
+                          <td class="px-0 text-end"> - 100 </td>
+                        </tr>
+                        <tr>
+                          <td class="px-0"> Reduction </td>
+                          <td class="px-0 text-end"> </td>
+                          <td class="px-0 text-end"> 0 </td>
+                        </tr>
+                        <tr>
+                          <td class="px-0 border-top border-top">
                             <strong>Total</strong>
                           </td>
                           <td
                             colspan="2"
-                            class="px-0 text-end border-top border-top-2"
+                            class="px-0 text-end border-top border-top"
                           >
                             <span class="h3">7,000 </span>
                           </td>
@@ -990,11 +1059,22 @@
                           <div class="row align-items-center">
                             <div class="col">
                               <h6 class="text-uppercase text-muted mb-2">
-                                Locataire
+                                Signature agent
                               </h6>
+
+                              <span class="avatar avatar-xl avatar-4by3 border">
+                                <img
+                                  src="https://www.jsign.com/wp-content/uploads/2022/06/graphic-signature-completeness.png"
+                                  alt="..."
+                                  class="avatar-img rounded"
+                                />
+                              </span>
                             </div>
+
                             <div class="col-auto">
-                              <button class="btn btn-rounded-circle btn-white">
+                              <button
+                                class="btn btn-rounded-circle btn-primary"
+                              >
                                 <span class="fe fe-edit-2"></span>
                               </button>
                             </div>
@@ -1008,11 +1088,12 @@
                           <div class="row align-items-center">
                             <div class="col">
                               <h6 class="text-uppercase text-muted mb-2">
-                                Signature Client
+                                Signature Locataire
                               </h6>
-                              <span class="avatar avatar-lg avatar-4by3">
+
+                              <span class="avatar avatar-xl avatar-4by3 border">
                                 <img
-                                  src="assets/img/avatars/projects/project-1.jpg"
+                                  src="assets/img/sign.svg"
                                   alt="..."
                                   class="avatar-img rounded"
                                 />
@@ -1020,8 +1101,10 @@
                             </div>
 
                             <div class="col-auto">
-                              <button class="btn btn-rounded-circle btn-white">
-                                +
+                              <button
+                                class="btn btn-rounded-circle btn-primary"
+                              >
+                                <span class="fe fe-edit-2"></span>
                               </button>
                             </div>
                           </div>
