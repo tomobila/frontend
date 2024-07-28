@@ -73,7 +73,7 @@
       <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="confirmationModalLabel">Clients</h4>
+            <h3 class="modal-title" id="confirmationModalLabel">Clients</h3>
             <button class="btn btn-rounded-circle btn-white">+</button>
           </div>
           <div class="modal-body p-0">
@@ -906,7 +906,11 @@
                         </div>
                         <div class="col-auto">
                           <!-- Icon -->
-                          <button class="btn btn-rounded-circle btn-white">
+                          <button
+                            class="btn btn-rounded-circle btn-white"
+                            data-bs-toggle="modal"
+                            data-bs-target="#listClients"
+                          >
                             +
                           </button>
                         </div>
