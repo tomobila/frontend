@@ -7,7 +7,7 @@ const client = {
 // const APIScanCar = 'http://164.90.163.130:3000/api/v1/upload/customer-id'
 const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 
-const APIClients = `http://localhost:1337/api/customers/?populate=*`;
+const APIClients = `http://localhost:1338/api/customers?populate=*`;
 const localhost = "http://localhost:1337"
 
 
@@ -39,24 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 return `
                     <div class="avatar avatar-sm me-3">
                         <span class="avatar-title rounded-circle">
-                        ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
+                        ${row.attributes.lastName.charAt(0).toUpperCase()}${row.attributes.firstName.charAt(0).toUpperCase()}
                         </span>
                     </div>
-                    <b class='m-0'>${row.attributes.LastName} ${row.attributes.FirstName}</b>
+                    <b class='m-0'>${row.attributes.lastName} ${row.attributes.firstName}</b>
                     `
             },
         },
         {
-            data: 'attributes.Phone',
+            data: 'attributes.phone',
         },
         {
-            data: 'attributes.CNI',
+            data: 'attributes.cniNumber',
         },
         {
-            data: 'attributes.DriverLicenseNumber',
+            data: 'attributes.driverLicenseNumber',
         },
         {
-            data: 'attributes.Email',
+            data: 'attributes.email',
         },
         {
             data: 'id',
