@@ -100,16 +100,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
 
 
-    // notyf.success({
-    //     message: "test",
-    //     duration: 1500,
-    //     position: {
-    //         x: "center",
-    //         y: "bottom",
-    //     },
-    // })
-
-
     const older = document.getElementById("older");
     const newer = document.getElementById("newer");
 
@@ -131,6 +121,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     listClients.on('draw', function () {
 
         const singleCustomerDelete = document.querySelectorAll(".singleCustomerDelete");
+        const singleCustomerEdit = document.querySelectorAll(".singleCustomerEdit");
+
+        singleCustomerEdit.forEach(item => {
+            item.addEventListener('click', event => {
+                event.stopPropagation();
+                const customerIdToEdit = item.getAttribute('data-item-id');
+                console.log(`Edit button clicked for customer ID: ${customerIdToEdit}`);
+                // Add your logic for editing the customer
+                // For example, open a modal with a form to edit the customer's details
+            });
+        });
         singleCustomerDelete.forEach(item => {
 
             item.addEventListener('click', event => {
@@ -145,8 +146,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
         });
     })
-
-    document.getElementById('confirmDelete').addEventListener('click', function () {
+    const deleteButton = document.getElementById('confirmDelete')
+    deleteButton.addEventListener('click', function () {
         if (carIdToDelete != 0) {
 
             fetch(`${APICustomer}${carIdToDelete}`, {
@@ -177,12 +178,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                             y: "bottom",
                         },
                     })
-                    // alert('Item deleted successfully');
                     carIdToDelete = 0;
                 })
                 .catch(error => {
                     listClients.ajax.reload();
-                    // Handle error
                     $('#confirmationModal').modal('hide');
                     carIdToDelete = 0;
                 });
