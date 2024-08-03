@@ -8,12 +8,21 @@
       content="A fully featured admin theme which can be used to build CRM, CMS, etc."
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
     <!-- Favicon -->
     <link
       rel="shortcut icon"
       href="assets/favicon/favicon.ico"
       type="image/x-icon"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="assets/js/dayjs/plugin/customParseFormat/index.js"></script>
 
     <!-- Map CSS -->
     <link
@@ -698,14 +707,15 @@
               <table class="table table-sm" id="listClients">
                 <thead>
                   <tr>
+                    <th scope="col">Date d'ajoute</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Téléphone</th>
                     <th scope="col">CIN/Passport</th>
                     <th scope="col">N° Permis</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Statut</th>
+                    <!-- <th scope="col">Statut</th> -->
                     <th>Actions</th>
-                    <th></th>
+                    <!-- <th></th> -->
                   </tr>
                 </thead>
               </table>
