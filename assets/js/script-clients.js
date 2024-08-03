@@ -10,8 +10,8 @@ const localhost = "http://localhost:1338"
 const APIClients = `http://localhost:1338/api/agencies/1?populate[agency_customers][populate]=*`;
 const newApiCustomers = `http://localhost:1338/api/customers/?populate[agency_customer][populate]=agency&filters[agency_customer][agency][id][$eq]=1`
 // console.log();
-var customParseFormat = require("dayjs/plugin/customParseFormat");
-dayjs.extend(customParseFormat)
+// var customParseFormat = require("dayjs/plugin/customParseFormat");
+// dayjs.extend(customParseFormat)
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             data: 'publishedAt',
             render: function (data, type, row) {
-                return `${dayjs(data, "MM-DD-YYYY")}`
+                return `${moment().format(data, 'h:mm:ss a')}`
             }
         }
         ,
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     searchPlaceholder: "Recherche"
                 },
                 bInfo: true,
-                order: [[5, "asc"]],
+                order: [[0, "desc"]],
                 fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
                     return `${iStart}-${iEnd} to ${iTotal}`;
                 },
@@ -186,22 +186,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // })
 
 
-    //     const older = document.getElementById("older");
-    // const newer = document.getElementById("newer");
+    const older = document.getElementById("older");
+    const newer = document.getElementById("newer");
 
-    // if (older) {
+    if (older) {
 
-    //     older.addEventListener("click", () => {
-    //         // console.log(initDatatable.page.info());
-    //         initDatatable.page('previous').draw('page')
-    //     })
-    // }
-    // if (newer) {
+        older.addEventListener("click", () => {
+            // console.log(initDatatable.page.info());
+            initDatatable.page('previous').draw('page')
+        })
+    }
+    if (newer) {
 
-    //     newer.addEventListener("click", () => {
-    //         initDatatable.page('next').draw('page')
-    //     })
-    // }
+        newer.addEventListener("click", () => {
+            initDatatable.page('next').draw('page')
+        })
+    }
 
 
 
