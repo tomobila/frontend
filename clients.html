@@ -78,6 +78,120 @@
   <body>
     <div
       class="modal fade"
+      id="createModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="createModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="createModalLabel">Ajouter Customer</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="createCustomerForm">
+              <div class="form-group">
+                <label for="createFirstName">First Name</label>
+                <input type="text" class="form-control" id="createFirstName" />
+              </div>
+              <div class="form-group">
+                <label for="createLastName">Last Name</label>
+                <input type="text" class="form-control" id="createLastName" />
+              </div>
+              <div class="form-group">
+                <label for="createEmail">Email</label>
+                <input type="email" class="form-control" id="createEmail" />
+              </div>
+              <div class="form-group">
+                <label for="createPhone">Phone</label>
+                <input type="text" class="form-control" id="createPhone" />
+              </div>
+              <div class="form-group">
+                <label for="createDateOfBirth">Date of Birth</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="createDateOfBirth"
+                />
+              </div>
+              <div class="form-group">
+                <label for="createDriverLicenseNumber"
+                  >Driver License Number</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="createDriverLicenseNumber"
+                />
+              </div>
+              <div class="form-group">
+                <label for="createAddress">Address</label>
+                <input type="text" class="form-control" id="createAddress" />
+              </div>
+              <div class="form-group">
+                <label for="createDriverLicenseExpiration"
+                  >Driver License Expiration</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="createDriverLicenseExpiration"
+                />
+              </div>
+              <div class="form-group">
+                <label for="createCniNumber">CNI Number</label>
+                <input type="text" class="form-control" id="createCniNumber" />
+              </div>
+              <div class="form-group">
+                <label for="createCniExpiration">CNI Expiration</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="createCniExpiration"
+                />
+              </div>
+              <!-- <div class="form-group">
+                <label for="createIsBlacklisted">Is Blacklisted</label>
+                <input
+                  type="checkbox"
+                  class="form-control"
+                  id="createIsBlacklisted"
+                />
+              </div>
+              <div class="form-group">
+                <label for="createBlacklistReason">Blacklist Reason</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="createBlacklistReason"
+                />
+              </div> -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-dismiss="modal">
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveCreateCustomer"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
       id="editModal"
       tabindex="-1"
       role="dialog"
@@ -443,9 +557,13 @@
                 <!-- / .nav -->
 
                 <!-- Buttons -->
-                <a href="n-client.html" class="btn btn-primary ms-2">
+                <button
+                  class="btn btn-rounded btn-primary"
+                  data-bs-target="#createModal"
+                  data-bs-toggle="modal"
+                >
                   Nouveau Client
-                </a>
+                </button>
               </div>
             </div>
             <!-- / .row -->
