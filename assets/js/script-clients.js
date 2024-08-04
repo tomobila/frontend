@@ -67,6 +67,21 @@ const tableColumns = [
 
 ]
 
+function populateEditForm(customer) {
+    document.getElementById('editCustomerId').value = customer.id;
+    document.getElementById('editFirstName').value = customer.attributes.firstName;
+    document.getElementById('editLastName').value = customer.attributes.lastName;
+    document.getElementById('editEmail').value = customer.attributes.email;
+    document.getElementById('editPhone').value = customer.attributes.phone;
+    document.getElementById('editDateOfBirth').value = customer.attributes.DateOfBirth;
+    document.getElementById('editDriverLicenseNumber').value = customer.attributes.driverLicenseNumber;
+    document.getElementById('editAddress').value = customer.attributes.address;
+    document.getElementById('editDriverLicenseExpiration').value = customer.attributes.driverLicenseExpiration;
+    document.getElementById('editCniNumber').value = customer.attributes.cniNumber;
+    document.getElementById('editCniExpiration').value = customer.attributes.cniExpiration;
+    // document.getElementById('editIsBlacklisted').checked = customer.isBlacklisted;
+    // document.getElementById('editBlacklistReason').value = customer.blacklistReason;
+}
 
 document.addEventListener("DOMContentLoaded", async function () {
     var notyf = new Notyf();
@@ -126,10 +141,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         singleCustomerEdit.forEach(item => {
             item.addEventListener('click', event => {
                 event.stopPropagation();
+                // const customerIdToEdit = item.getAttribute('data-item-id');
+                // const customer = flattenedData.find(c => c.id == customerIdToEdit);
                 const customerIdToEdit = item.getAttribute('data-item-id');
-                console.log(`Edit button clicked for customer ID: ${customerIdToEdit}`);
-                // Add your logic for editing the customer
-                // For example, open a modal with a form to edit the customer's details
+                fetch(`${APICustomer}${customerIdToEdit}`)
+                    .then(response => response.json())
+                    .then(customer => {
+
+                        populateEditForm(customer.data);
+                        $('#editModal').modal('show');
+                    });
+                // populateEditForm(customer);
+                // $('#editModal').modal('show');
+
             });
         });
         singleCustomerDelete.forEach(item => {
@@ -138,14 +162,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 event.stopPropagation();
                 carIdToDelete = item.getAttribute('data-item-id');
-                console.log('====================================');
-                console.log(carIdToDelete);
-                console.log('====================================');
                 $('#confirmationModal').modal('show');
 
             });
         });
     })
+
+
+    // DELETE Customer
     const deleteButton = document.getElementById('confirmDelete')
     deleteButton.addEventListener('click', function () {
         if (carIdToDelete != 0) {
@@ -186,11 +210,62 @@ document.addEventListener("DOMContentLoaded", async function () {
                     carIdToDelete = 0;
                 });
         }
+    })
+
+    // EDIT CUSTOMER
+
+    const saveEditCustomerButton = document.getElementById('saveEditCustomer');
+    saveEditCustomerButton.addEventListener('click', function () {
+        const customerId = document.getElementById('editCustomerId').value;
+        const updatedCustomer = {
+            data: {
+                firstName: document.getElementById('editFirstName').value,
+                lastName: document.getElementById('editLastName').value,
+                email: document.getElementById('editEmail').value,
+                phone: document.getElementById('editPhone').value,
+                dateOfBirth: document.getElementById('editDateOfBirth').value,
+                driverLicenseNumber: document.getElementById('editDriverLicenseNumber').value,
+                address: document.getElementById('editAddress').value,
+                driverLicenseExpiration: document.getElementById('editDriverLicenseExpiration').value,
+                cniNumber: document.getElementById('editCniNumber').value,
+                cniExpiration: document.getElementById('editCniExpiration').value,
+                // isBlacklisted: document.getElementById('editIsBlacklisted').checked,
+                // blacklistReason: document.getElementById('editBlacklistReason').value
+            }
+        };
+
+        fetch(`${APICustomer}${customerId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedCustomer)
+        })
+            .then(response => response.json())
+            .then(data => {
+                listClients.ajax.reload();
+                $('#editModal').modal('hide');
+                notyf.success({
+                    message: "Customer updated successfully",
+                    duration: 1500,
+                    position: {
+                        x: "center",
+                        y: "bottom",
+                    },
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                notyf.error({
+                    message: "Failed to update customer",
+                    duration: 1500,
+                    position: {
+                        x: "center",
+                        y: "bottom",
+                    },
+                });
+            });
     });
-
-
-
-
 
 
 
