@@ -8,7 +8,8 @@ const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer
 const localhost = "http://localhost:1338"
 // const APIClients = `http://localhost:1338/api/agencies/1?populate[agency_customers][populate]=*`;
 const APICustomer = "http://localhost:1338/api/customers/"
-const newApiCustomers = `http://localhost:1338/api/customers/?populate[agency_customer][populate]=agency&filters[agency_customer][agency][id][$eq]=1`
+// const newApiCustomers = `http://localhost:1338/api/customers/?populate[agency_customer][populate]=agency&filters[agency_customer][agency][id][$eq]=1`
+const newApiCustomers = 'http://localhost:1338/api/customers/?populate=*&filters[agency][id][$eq]=1'
 
 
 const tableColumns = [

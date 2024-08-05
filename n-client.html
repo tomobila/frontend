@@ -47,14 +47,18 @@
     <!-- Title -->
 
     <title>Tomobila</title>
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       type="text/javascript"
     ></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-    <script src="assets/js/script-n-vehicule.js"></script>
+    <script src="assets/js/script-n-client.js"></script>
 
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css"
@@ -106,10 +110,10 @@
       role="dialog"
       aria-labelledby="cropperModalLabel"
     >
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Véhicule informations</h5>
+            <h3 class="modal-title">Véhicule informations</h3>
             <button
               type="button"
               class="btn-close"
@@ -118,90 +122,134 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="carDetailsScan">
-              <div class="">
-                <div class="list-group list-group-flush my-n3">
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Marque </h5>
-                      </div>
-                      <div class="col-auto">
-                        <!-- Time -->
-                        <span class="text-muted" id="n-marque"> -- </span>
-                      </div>
-                    </div>
-                    <!-- / .row -->
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Model </h5>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-muted" id="n-model"> -- </span>
+            <div class="">
+              <div class="alert alert-warning" role="alert">
+                <span class="fe fe-alert-circle"></span>
+                Merci de nous fournir une image scannée de haute qualité, bien
+                centrée et recadrée.
+              </div>
+              <form enctype="multipart/form-data">
+                <div class="position-relative">
+                  <!-- <diV class="card loaderScan posi tion-absolute start-0 top-0 z-10 w-100 d-noe" style="z-index:1">
+                    <div class="position-relative card-body">
+                      <h3 class="text-muted text-center mb-4">Scanning...</h3>
+                      <img src="https://cdn-icons-png.flaticon.com/512/9751/9751675.png" width="200" alt="" class="positio n-absolute mx-auto d-flex">
+                      <embed src="https://lottie.host/embed/5bf3949e-ea60-4a7c-896f-4d20aacd27d8/qSalTleEE5.json" type="" id="scanLoader" class="d-noe position-absolute top-50 start-50 translate-middle">
+                        
+                      <div class="progress progress-sm mt-4">
+                        <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </div>
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Immatriculation </h5>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="" id="n-immatriculation"> -- </a>
-                      </div>
-                    </div>
-                  </div>
+                  </diV> -->
 
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <!-- Title -->
-                        <h5 class="mb-0"> Numero Chassis </h5>
-                      </div>
-                      <div class="col-auto">
-                        <!-- Text -->
-                        <span class="text-muted" id="n-nchassis"> -- </span>
-                      </div>
+                  <div class="row mb-4 justify-content-end">
+                    <div class="col-12 col-md-6">
+                      <label for="fileRecto" class="camera">
+                        <div
+                          id="previewRecto"
+                          class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                        >
+                          <button
+                            id="clearframeRecto"
+                            class="btn btn-danger rounded-circle position-absolute"
+                          >
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div
+                            class="d-flex align-items-center justify-content-center w-100 h-100"
+                          >
+                            <img
+                              src=""
+                              alt="preview"
+                              id="frameRecto"
+                              class=""
+                            />
+                          </div>
+                        </div>
+                        <div class="avatar avatar-xl mb-3">
+                          <img
+                            src="/assets/img/icons/car-registration.svg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                        <!-- <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-camera"></span>
+                        </div> -->
+                        <div>Carte grise</div>
+                        <p class="text-muted small"
+                          >SVG, PNG, JPG (max. 1920x900)</p
+                        >
+                      </label>
+                      <input
+                        type="file"
+                        name="files.RegistrationDocument"
+                        accept="image/x-png,image/gif,image/jpeg"
+                        id="fileRecto"
+                        class="glob__dragDrop--input"
+                      />
                     </div>
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Carburant </h5>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-muted" id="n-fuyel"> -- </span>
-                      </div>
+                    <div class="col-12 col-md-6">
+                      <label for="fileRecto2" class="camera">
+                        <div
+                          id="previewRecto2"
+                          class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
+                        >
+                          <button
+                            id="clearframeRecto2"
+                            class="btn btn-danger rounded-circle position-absolute"
+                          >
+                            <span class="fe fe-x"></span>
+                          </button>
+                          <div
+                            class="d-flex align-items-center justify-content-center w-100 h-100"
+                          >
+                            <img
+                              src=""
+                              alt="preview"
+                              id="frameRecto2"
+                              class=""
+                            />
+                          </div>
+                        </div>
+                        <div class="avatar avatar-xl mb-3">
+                          <img
+                            src="/assets/img/icons/car-registration.svg"
+                            alt="..."
+                            class="avatar-img rounded"
+                          />
+                        </div>
+                        <!-- <img src="assets/img/icons/assets/img/icons/car-registration.svg" alt=""> -->
+                        <!-- <div class="btn btn-primary rounded-circle mb-3">
+                          <span class="fe fe-camera"></span>
+                        </div> -->
+                        <div class="">Carte grise (verso) </div>
+                        <p class="text-muted small"
+                          >SVG, PNG, JPG (max. 1920x900)</p
+                        >
+                      </label>
+                      <input
+                        type="file"
+                        name="filerecto2"
+                        accept="image/x-png,image/gif,image/jpeg"
+                        id="fileRecto2"
+                        class="glob__dragDrop--input"
+                      />
                     </div>
-                  </div>
-
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Date d'expiration </h5>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-muted" id="n-exdate"> -- </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0"> Nomber de Places </h5>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-muted" id="n-nbplaces"> -- </span>
-                      </div>
+                    <div class="col-12 col-md-5">
+                      <button
+                        type="submit"
+                        class="btn btn-primary w-100 mb-3"
+                        id="formscanCar"
+                      >
+                        <span class="fe fe-maximize me-2"></span> Scan
+                      </button>
+                      N'avez pas carte grise,
+                      <a href="#" class="underline"><u>Remplire Manuel</u></a>
                     </div>
                   </div>
                 </div>
-
-                <div class="my-4"> </div>
-              </div>
+              </form>
             </div>
           </div>
           <div class="modal-footer">
@@ -210,27 +258,6 @@
             <!-- <button class="btn btn-light border-0 rounded-circle me-2" data-bs-toggle="tooltip" data-item-id="76" data-bs-placement="bottom" title="Re-Scanner" data-bs-original-title="Re-Scanner">
                           <span class="fe fe-repeat"></span>
                       </button> -->
-            <button
-              class="btn btn-light border-0 rounded-circle me-2"
-              data-bs-toggle="tooltip"
-              data-item-id="76"
-              data-bs-placement="bottom"
-              title="Edit"
-              data-bs-original-title="Edit"
-            >
-              <span class="fe fe-edit-2"></span>
-            </button>
-            <button
-              id="saveCar"
-              class="btn btn-primary border-0 rounded-circle me-0"
-              data-bs-toggle="tooltip"
-              data-item-id="76"
-              data-bs-placement="bottom"
-              title="Sauvegarder"
-              data-bs-original-title="Edit"
-            >
-              <span class="fe fe-save"></span>
-            </button>
           </div>
         </div>
       </div>
@@ -263,7 +290,7 @@
                 <!-- List group -->
                 <div
                   class="list-group list-group-flush list-group-focus list my-n3"
-                  ><a class="list-group-item" href="./team-overview.html">
+                  ><a class="list-group-item" href="#l">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -286,8 +313,9 @@
                         </p>
                       </div>
                     </div>
-                    <!-- / .row --> </a
-                  ><a class="list-group-item" href="./team-overview.html">
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item" href="#l">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -576,7 +604,11 @@
                     <h1 class="header-title">Client</h1>
                   </div>
                   <div class="col-auto">
-                    <button class="btn btn-rounded-circle btn-primary">
+                    <button
+                      class="btn btn-rounded-circle btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#carDetailModal"
+                    >
                       <span class="fe fe-star"></span>
                     </button>
                   </div>
@@ -585,650 +617,142 @@
             </div>
 
             <div class="">
-              <form
-                action="#"
-                enctype="multipart/form-data"
-                class="AddNewCustomer"
-              >
-                <div class="">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Marque</label>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Modèl</label>
-                        <input
-                          type="text"
-                          id="car_model"
-                          name="Model"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Immatriculation W</label>
-                        <input
-                          type="text"
-                          id="car_immatriculation_w"
-                          name="LicensePlateWW"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Immatriculation</label>
-                        <input
-                          type="text"
-                          id="car_immatriculation"
-                          name="LicensePlate"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <div class="form-group">
-                        <label class="form-label">Carburant</label>
-                        <select
-                          id="car_fuel"
-                          class="form-select"
-                          name="FuelType"
-                        >
-                          <option selected>Essence</option>
-                          <option>Diesel</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-3">
-                      <div class="form-group">
-                        <label class="form-label">Nombre de places</label>
-                        <input
-                          type="number"
-                          id="car_nb_places"
-                          class="form-control"
-                          name="Seats"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">
-                          Date de première utilisation
-                        </label>
-                        <input
-                          id="car_first_use"
-                          type="text"
-                          class="form-control flatpickr-input"
-                          data-flatpickr=""
-                          readonly="readonly"
-                          name="FisrtUse"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Nom</label>
-                        <input type="text" class="form-control" name="Name" />
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Catégorie</label>
-                        <select class="form-select" name="Categorie">
-                          <option selected>Économique</option>
-                          <option>Compacte</option>
-                          <option>Luxe</option>
-                          <option>SUV</option>
-                          <option>Décapotable</option>
-                          <option>Sport</option>
-                          <option>Familiale</option>
-                          <option>Décapotable</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                      <div class="form-group">
-                        <label class="form-label">Transmission</label>
-                        <div class="btn-group-toggle">
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Transmission"
-                            id="Manuel"
-                            value="Manuel"
-                            checked=""
-                          />
-                          <label class="btn btn-white me-3" for="Manuel">
-                            Manuel
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Transmission"
-                            id="Automatic"
-                            value="Automatic"
-                            autocomplete="off"
-                          />
-                          <label class="btn btn-white" for="Automatic">
-                            Automatic
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-8">
-                      <div class="form-group">
-                        <label class="form-label">Coleur</label>
-
-                        <div class="btn-group-toggle">
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="red"
-                            value="red"
-                            checked
-                          />
-                          <label class="color" for="orange">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: red"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="orange"
-                            value="orange"
-                          />
-                          <label class="color" for="orange">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(252, 161, 32)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="yellow"
-                            value="yellow"
-                          />
-                          <label class="color" for="yellow">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(252, 219, 126)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="green"
-                            value="green"
-                          />
-                          <label class="color" for="green">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(74, 210, 149)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="skay"
-                            value="skay"
-                          />
-                          <label class="color" for="skay">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(146, 205, 250)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="blue"
-                            value="blue"
-                          />
-                          <label class="color" for="blue">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(18, 115, 235)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="purple"
-                            value="purple"
-                          />
-                          <label class="color" for="purple">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(128, 128, 241)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="darkgray"
-                            value="darkgray"
-                          />
-                          <label class="color" for="darkgray">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(29, 38, 45)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="gray"
-                            value="gray"
-                          />
-                          <label class="color" for="gray">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(186, 200, 211)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-
-                          <input
-                            type="radio"
-                            class="btn-check"
-                            name="Color"
-                            name="options"
-                            id="white"
-                            value="white"
-                          />
-                          <label class="color" for="white">
-                            <span class="avatar avatar-sm">
-                              <div
-                                class="avatar-title rounded-circle"
-                                style="background-color: rgb(246, 246, 246)"
-                              >
-                              </div>
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Kilométrage</label>
-                        <div class="input-group input-group-merge mb-3">
-                          <input
-                            class="form-control"
-                            placeholder=""
-                            type="number"
-                            aria-label="Input group appended"
-                            aria-describedby="inputGroup"
-                            name="Mileage"
-                          />
-                          <div class="input-group-text" id="inputGroup">
-                            <span class="fe fe-sliders"></span>
-                          </div>
-                        </div>
-                      </div>
+              <form id="" class="">
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="createFirstName">First Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createFirstName"
+                      />
                     </div>
                   </div>
-                  <div class="row mb-4 justify-content-end">
-                    <!-- <div class="col-12 col-md-4">
-
-                      <label for="fileRecto" class="camera">
-                        <div id="previewRecto" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                          
-                          <button id="clearframeRecto" class="btn btn-danger rounded-circle position-absolute">
-                            <span class="fe fe-x"></span>
-                          </button>
-                          <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                            <img src="" alt="preview" id="frameRecto" class="">
-                          </div>
-                        </div>
-                        <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                          <span class="fe fe-camera"></span>
-                        </div>
-                        <div>Main photo</div>
-                        <p class="text-muted small">SVG, PNG, JPG</p>
-                      </label>
-                      <input type="file" name="files.RegistrationDocument" accept="image/x-png,image/gif,image/jpeg" id="fileRecto" class="glob__dragDrop--input">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group">
-                          <label class="form-label">Status</label>
-                          <select class="form-select" name="Status">
-                            <option selected>Available</option>
-                            <option>Loue</option>
-                            <option>Maintenance</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="col-12 col-md-8">
-                      <div class="row">
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-sm btn-primary rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Front</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Back</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Top</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Bottom</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Right</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                        <div class="col-md-4 col-6">
-                          <label for="" class="camera">
-                            <div id="previewRecto2" class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none">
-                              <button id="clearframeRecto2" class="btn btn-danger rounded-circle position-absolute">
-                                <span class="fe fe-x"></span>
-                              </button>
-                              <div class="d-flex align-items-center justify-content-center w-100 h-100">
-                                <img src="" alt="preview" id="frameRecto2" class="">
-                              </div>
-                            </div>
-                            <div class="btn btn-primary btn-sm rounded-circle mb-3">
-                              <span class="fe fe-plus"></span>
-                            </div>
-                            <div class="">Left</div>
-                          </label>
-                          <input type="file" name="" accept="image/x-png,image/gif,image/jpeg" id="" class="glob__dragDrop--input">
-                        </div>
-                      </div>
-                      
-                    </div> -->
-                  </div>
-
-                  <hr class="my-5" />
-                  <h2 class="mb-4">
-                    Prix de Location
-                    <span class="badge bg-primary-soft ms-1 mt-n1"
-                      >Moroccan Dirham</span
-                    >
-                  </h2>
-                  <!-- <hr class="my-5" /> -->
-
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Prix par Jour</label>
-                        <div class="input-group input-group-merge mb-3">
-                          <input
-                            class="form-control"
-                            placeholder=""
-                            type="number"
-                            aria-label="Input group appended"
-                            aria-describedby="inputGroup"
-                            name="RentalRate"
-                          />
-                          <div class="input-group-text" id="inputGroup">
-                            <span class="fe fe-dollar-sign"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <div class="form-group">
-                        <label class="form-label">Prix par Heure</label>
-                        <div class="input-group input-group-merge mb-3">
-                          <input
-                            class="form-control"
-                            placeholder=""
-                            type="number"
-                            aria-label="Input group appended"
-                            aria-describedby="inputGroup"
-                          />
-                          <div class="input-group-text" id="inputGroup">
-                            <span class="fe fe-dollar-sign"></span>
-                          </div>
-                        </div>
-                      </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="createLastName">Last Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createLastName"
+                      />
                     </div>
                   </div>
-
-                  <hr class="my-5" />
-                  <h2 class="mb-4"> Caractéristiques du Véhicule </h2>
-                  <!-- <hr class="my-5" /> -->
-                  <div class="row">
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="GPS"
-                          checked
-                        />
-                        <label class="form-check-label" for="GPS"
-                          >Système de navigation</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="Climatisation"
-                        />
-                        <label class="form-check-label" for="Climatisation">
-                          Climatisation</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="Bluetooth"
-                        />
-                        <label class="form-check-label" for="Bluetooth">
-                          Bluetooth</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="RV"
-                        />
-                        <label class="form-check-label" for="RV">
-                          Régulateur de vitesse</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="TO"
-                        />
-                        <label class="form-check-label" for="TO">
-                          Toit ouvrant</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="CR"
-                        />
-                        <label class="form-check-label" for="CR">
-                          Caméra de recul</label
-                        >
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="VE"
-                        />
-                        <label class="form-check-label" for="VE">
-                          Vitres électriques
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-4">
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="DD"
-                        />
-                        <label class="form-check-label" for="DD">
-                          Démarrage à distance
-                        </label>
-                      </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="createDateOfBirth">Date of Birth</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="createDateOfBirth"
+                      />
                     </div>
                   </div>
-                  <button class="btn btn-primary" type="submit"
-                    >Enregistrer
-                  </button>
                 </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createDriverLicenseNumber">
+                        Driver License Number
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createDriverLicenseNumber"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createDriverLicenseExpiration">
+                        Driver License Expiration
+                      </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="createDriverLicenseExpiration"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createCniNumber">CNI Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createCniNumber"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createCniExpiration">CNI Expiration</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="createCniExpiration"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createEmail">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="createEmail"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="createPhone">Phone</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="createPhone"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="createAddress">Address</label>
+                  <input type="text" class="form-control" id="createAddress" />
+                </div>
+
+                <!-- <div class="form-group">
+                <label for="editIsBlacklisted">Is Blacklisted</label>
+                <input
+                  type="checkbox"
+                  class="form-control"
+                  id="editIsBlacklisted"
+                />
+              </div>
+              <div class="form-group">
+                <label for="editBlacklistReason">Blacklist Reason</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editBlacklistReason"
+                />
+              </div> -->
+
+                <button
+                  class="btn btn-primary"
+                  id="saveCreateCustomerButton"
+                  type="submit"
+                >
+                  nregistrer
+                </button>
               </form>
             </div>
 
