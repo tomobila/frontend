@@ -8,9 +8,9 @@ const client = {
 // const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 // const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
 
-const APICars = `http://localhost:1337/api/cars/?populate=*&filters[Agency][id][$eq]=${client.id}`;
-const localhost = "http://localhost:1337"
-const APICar = `http://localhost:1337/api/cars/`
+const localhost = "http://localhost:1338"
+const APICars = `http://localhost:1338/api/vehicles/?populate=*&filters[agency][id][$eq]=1`;
+const APICar = `http://localhost:1338/api/vehicles/`
 
 const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 
@@ -18,11 +18,6 @@ const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    fetch('http://localhost:1337/api/cars/count')
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
 
     const columns = [
         {
@@ -300,19 +295,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function splitStringIntoSpans(str) {
-        // Split the string into an array of elements using the hyphen as the delimiter
-        const elements = str.split('-');
+    // function splitStringIntoSpans(str) {
+    //     // Split the string into an array of elements using the hyphen as the delimiter
+    //     const elements = str.split('-');
 
-        // Create an array to hold the HTML for each span
-        const spans = elements.map(element => {
-            // Create the HTML for the span element
-            return `<span>${element}</span>`;
-        });
+    //     // Create an array to hold the HTML for each span
+    //     const spans = elements.map(element => {
+    //         // Create the HTML for the span element
+    //         return `<span>${element}</span>`;
+    //     });
 
-        // Join the array of spans into a single string
-        return spans.join('');
-    }
+    //     // Join the array of spans into a single string
+    //     return spans.join('');
+    // }
 
     const carsCard = document.getElementById('carsCard');
     if (carsCard) {
@@ -333,87 +328,150 @@ document.addEventListener("DOMContentLoaded", function () {
                     ? `${localhost}${item.attributes.MainImage.data.attributes.url}`
                     : fallbackImageUrl;
 
-                const spansHtml = splitStringIntoSpans(item.attributes.LicensePlate);
-                console.log(spansHtml)
+                // const spansHtml = splitStringIntoSpans(item.attributes.LicensePlate);
+                // console.log(spansHtml)
                 return `
                 <div class="col-12 col-md-6 col-xl-4">
-                    <a href="vehicule.html?id=${item.id}" class="card vCard">
-    
-                        <div class="position-relative">
-                                ${VStatus(item.attributes.Status)} 
-                            <div class="avatar avatar-xs  position-absolute" style="top: 15px;    width: 100vw; left: 15px;background-image: url(../assets/img/brands/${item.attributes.Make}.png); background-repeat: no-repeat;  background-size: contain;">
-                                
-                            </div>
-                            <img src="${imageUrl}" alt="..." class="card-img-top px-6 pt-4">
-                        </div>
-        
-                        <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        
-
-                                        <h2 class="card-title text-center mb-0">
-                                            ${item.attributes.Name}
-                                        </h2>
-            
-                                        <p class="small text-center text-muted mb-3">
-                                            ${item.attributes.Model}
-                                        </p>
-            
-                                        <p class="text-center mb-4">
-                                        <!-- <img src="assets/img/plaque.png" alt="plaque" class="w-100" />
-                                            <span>${spansHtml}</span>-->
-                                            <span class="badge bg-secondary-soft">
-                                                ${item.attributes.Categorie}
-                                            </span>
-                                            <span class="badge bg-secondary-soft">
-                                                ${item.attributes.FuelType}
-                                            </span>
-                                        </p>
-                                    </div>
-        
-                                </div>
-        
-                                <div class="row g-0 border-top border-bottom">
-                                
-                                    <div class="col-4 py-3 text-center ">
-            
-                                        <h6 class="text-uppercase text-muted">
-                                            Transmission
-                                        </h6>
-            
-                                        <h3 class="mb-0">
-                                            ${item.attributes.Transmission}
-                                        </h3>
-            
-                                    </div>
-                                    <div class="col-4 py-3 text-center border-start">
-            
-                                        <h6 class="text-uppercase text-muted">
-                                            Nb. places
-                                        </h6>
-            
-                                        <h3 class="mb-0">
-                                            ${item.attributes.Seats}
-                                        </h3>
-            
-                                    </div>
-                                    <div class="col-4 py-3 text-center border-start">
-            
-                                        <h6 class="text-uppercase text-muted">
-                                            Annee
-                                        </h6>
-            
-                                        <h3 class="mb-0">${item.attributes.Year}</h3>
-            
-                                    </div>
-                                </div>
-                                    dd
-                                
-                            </div>
-    
+                <div class="card">
+                  <!-- Dropdown -->
+                  <div class="dropdown card-dropdown">
+                    <a
+                      href=""
+                      class="dropdown-ellipses dropdown-toggle"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <i class="fe fe-more-vertical"></i>
                     </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      <a
+                        href="#"
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#updateAssurance"
+                      >
+                        Assurance
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVidange"
+                        data-bs-toggle="modal"
+                      >
+                        Vidange
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVisite"
+                        data-bs-toggle="modal"
+                      >
+                        Visite Technique
+                      </a>
+                      <a
+                        href="#!"
+                        class="dropdown-item"
+                        data-bs-target="#updateVignette"
+                        data-bs-toggle="modal"
+                      >
+                        Vignette
+                      </a>
+                      <hr />
+                      <a
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEditCar"
+                      >
+                        Editer
+                      </a>
+                      <a
+                        class="dropdown-item text-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#confirmationModal"
+                      >
+                        Supprimer
+                      </a>
+                    </div>
+                  </div>
+
+                  <span
+                    class="avatar avatar-sm p-1"
+                    style="left: 15px; top: 15px"
+                  >
+                    <img
+                      src="assets/img/brands/${item.attributes.make}.png"
+                      alt=""
+                      class="avatar-img rounded"
+                    />
+                  </span>
+
+                  <img
+                    src="${localhost}${item.attributes.mainImage.data.attributes.url}"
+                    alt="car"
+                    style="width: 240px; margin: auto"
+                    class="card-img-top"
+                  />
+
+                  <div class="card-body text-center p-0">
+                    <h2 class="card-title">
+                      <a href="vehicule.html">${item.attributes.name}</a>
+                    </h2>
+
+                    <span
+                      class="mb-3 px-2 border-gray border border-black d-inline-block rounded-1"
+                    >
+                      <span class="fw-bold">
+                        <!--<span class="border-end border-gray px-2">212142</span>
+                        <span class="border-end border-gray px-2">A</span>
+                        <span>13</span>-->
+                        ${item.attributes.licensePlate}
+                      </span>
+                    </span>
+
+                    <p class="card-text">
+                      <span class="badge bg-secondary-soft"> ${item.attributes.category} </span>
+                      <span class="badge bg-secondary-soft"> ${item.attributes.fuelType} </span>
+                    </p>
+                    <div class="row g-0 border-top border-botto">
+                      <div class="col-4 py-3 text-center">
+                        <h6 class="text-uppercase text-muted">
+                          Transmission
+                        </h6>
+
+                        <h3 class="mb-0">  ${item.attributes.transmission} </h3>
+                      </div>
+                      <div class="col-4 py-3 text-center border-start">
+                        <h6 class="text-uppercase text-muted"> Nb. places </h6>
+
+                        <h3 class="mb-0">${item.attributes.seats}  </h3>
+                      </div>
+                      <div class="col-4 py-3 text-center border-start">
+                        <h6 class="text-uppercase text-muted"> Annee </h6>
+
+                        <h3 class="mb-0">${item.attributes.year}</h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-footer card-footer">
+                    <div class="row align-items-center justify-content-between">
+                      <div class="col-auto">
+                        <small>
+                          <span class="text-success">●</span>
+                          <span class="badge bg-success-soft"> Available </span>
+                        </small>
+                      </div>
+                      <div class="col-auto">
+                        <a href="" class="btn btn-sm btn-primary">
+                          Check Availablity
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
                 `;
 
             })
