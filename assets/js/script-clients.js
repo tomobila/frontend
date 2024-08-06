@@ -15,7 +15,6 @@ const newApiCustomers = 'http://localhost:1338/api/customers/?populate=*&filters
 const tableColumns = [
     {
         data: 'id',
-        className: "",
         render: function (data, type, row) {
 
             return `
