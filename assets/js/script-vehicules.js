@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
             className: "",
             render: function (data, type, row) {
 
-                const imageUrl = row.attributes.MainImage && row.attributes.MainImage.data && row.attributes.MainImage.data.attributes && row.attributes.MainImage.data.attributes.url
-                    ? `${localhost}${row.attributes.MainImage.data.attributes.url}`
+                const imageUrl = row.attributes.mainImage && row.attributes.mainImage.data && row.attributes.mainImage.data.attributes && row.attributes.mainImage.data.attributes.url
+                    ? `${localhost}${row.attributes.mainImage.data.attributes.url}`
                     : fallbackImageUrl;
 
                 return `
@@ -34,12 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="avatar avatar-4by3 align-middle me-3" >
                         <img src="${imageUrl}" class="avatar-img rounded p-1">
                     </div>
-                    <p class='m-0'>${row.attributes.Name}</p>
+                    <p class='m-0'>${row.attributes.name}</p>
                     </div>`
             },
         },
         {
-            data: 'attributes.Make',
+            data: 'attributes.make',
             render: function (data, row) {
                 return `
                 <div class="d-flex align-items-end justify-content-start">
@@ -51,41 +51,41 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         },
         {
-            data: 'attributes.Model',
+            data: 'attributes.model',
         },
         {
-            data: 'attributes.Categorie',
+            data: 'attributes.category',
         },
         {
-            data: 'attributes.LicensePlate',
+            data: 'attributes.licensePlate',
         },
         {
-            data: 'attributes.FuelType',
+            data: 'attributes.fuelType',
         },
         {
             data: 'id',
             className: "",
             render: function (data, type, row) {
 
-                switch (row.attributes.Status) {
+                switch (row.attributes.status) {
                     case "Available":
                         return `
-                            <span class='item-score badge bg-success-soft'>${row.attributes.Status}</span>
+                            <span class='item-score badge bg-success-soft'>${row.attributes.status}</span>
                             `
                         break;
-                    case "Loue":
+                    case "Rented":
                         return `
-                            <span class='item-score badge bg-primary-soft'>${row.attributes.Status}</span>
+                            <span class='item-score badge bg-primary-soft'>${row.attributes.status}</span>
                             `
                         break;
-                    case "maintenance":
+                    case "Inactive":
                         return `
-                            <span class='item-score badge bg-warning-soft'>${row.attributes.Status}</span>
+                            <span class='item-score badge bg-warning-soft'>${row.attributes.status}</span>
                             `
                         break;
                     default:
                         return `
-                            <span class='item-score badge bg-info-soft'>${row.attributes.Status}</span>
+                            <span class='item-score badge bg-info-soft'>${row.attributes.status}</span>
                             `
                         break;
                 }
@@ -101,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="d-flex align-items-center">
                     <div class="px-2 d-flex align-items-center">
                         <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip"  data-item-id="${row.id}" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
+                            <span class="fe fe-eye"></span>
+                        </button>
+                        <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip"  data-item-id="${row.id}" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
                             <span class="fe fe-edit-2"></span>
                         </button>
 
@@ -112,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="dropdown">
                         <a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-more-vertical"></i>
+                            <i class="fe fe-more-vertical"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
                         <a href="#" class="dropdown-item">
