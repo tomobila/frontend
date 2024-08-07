@@ -1,6 +1,6 @@
 const client = {
-    id: 1,
-    name: 'Azaf car'
+  id: 1,
+  name: 'Azaf car'
 }
 
 
@@ -19,85 +19,85 @@ const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    const columns = [
-        {
-            data: 'id',
-            className: "",
-            render: function (data, type, row) {
+  const columns = [
+    {
+      data: 'id',
+      className: "",
+      render: function (data, type, row) {
 
-                const imageUrl = row.attributes.mainImage && row.attributes.mainImage.data && row.attributes.mainImage.data.attributes && row.attributes.mainImage.data.attributes.url
-                    ? `${localhost}${row.attributes.mainImage.data.attributes.url}`
-                    : fallbackImageUrl;
+        const imageUrl = row.attributes.mainImage && row.attributes.mainImage.data && row.attributes.mainImage.data.attributes && row.attributes.mainImage.data.attributes.url
+          ? `${localhost}${row.attributes.mainImage.data.attributes.url}`
+          : fallbackImageUrl;
 
-                return `
+        return `
                 <div class="d-flex align-items-center mb-2">
                     <div class="avatar avatar-4by3 align-middle me-3" >
                         <img src="${imageUrl}" class="avatar-img rounded p-1">
                     </div>
                     <p class='m-0'>${row.attributes.name}</p>
                     </div>`
-            },
-        },
-        {
-            data: 'attributes.make',
-            render: function (data, row) {
-                return `
+      },
+    },
+    {
+      data: 'attributes.make',
+      render: function (data, row) {
+        return `
                 <div class="d-flex align-items-end justify-content-start">
                 <div class="avatar avatar-sm" title="${data}" style="background-image: url(../assets/img/brands/${data}.png);  background-repeat: no-repeat;  background-size: contain;">
                     <!--  <img src="../assets/img/brands/${data}.png" alt="car" class="avatar-img rounded "> -->
                 </div>
                 </div>
                 `
-            }
-        },
-        {
-            data: 'attributes.model',
-        },
-        {
-            data: 'attributes.category',
-        },
-        {
-            data: 'attributes.licensePlate',
-        },
-        {
-            data: 'attributes.fuelType',
-        },
-        {
-            data: 'id',
-            className: "",
-            render: function (data, type, row) {
+      }
+    },
+    {
+      data: 'attributes.model',
+    },
+    {
+      data: 'attributes.category',
+    },
+    {
+      data: 'attributes.licensePlate',
+    },
+    {
+      data: 'attributes.fuelType',
+    },
+    {
+      data: 'id',
+      className: "",
+      render: function (data, type, row) {
 
-                switch (row.attributes.status) {
-                    case "Available":
-                        return `
+        switch (row.attributes.status) {
+          case "Available":
+            return `
                             <span class='item-score badge bg-success-soft'>${row.attributes.status}</span>
                             `
-                        break;
-                    case "Rented":
-                        return `
+            break;
+          case "Rented":
+            return `
                             <span class='item-score badge bg-primary-soft'>${row.attributes.status}</span>
                             `
-                        break;
-                    case "Inactive":
-                        return `
+            break;
+          case "Inactive":
+            return `
                             <span class='item-score badge bg-warning-soft'>${row.attributes.status}</span>
                             `
-                        break;
-                    default:
-                        return `
+            break;
+          default:
+            return `
                             <span class='item-score badge bg-info-soft'>${row.attributes.status}</span>
                             `
-                        break;
-                }
+            break;
+        }
 
-            },
-        },
-        {
-            data: 'id',
-            className: "",
-            render: function (data, type, row) {
+      },
+    },
+    {
+      data: 'id',
+      className: "",
+      render: function (data, type, row) {
 
-                return `
+        return `
                 <div class="d-flex align-items-center">
                     <div class="px-2 d-flex align-items-center">
                         <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip"  data-item-id="${row.id}" data-bs-placement="bottom" title="Edit" data-bs-original-title="Edit">
@@ -134,38 +134,38 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     </div>
                     `
-            },
-        },
+      },
+    },
 
-    ]
-
-
-    var myData = {};
-
-    const initDatatable = new DataTable('#listCars', {
-        processing: true,
-        bPaginate: false,
-        columns: columns,
-        bFilter: true,
-        language: {
-            searchPlaceholder: "Recherche"
-        },
-        bInfo: true,
-        order: [[6, "asc"]],
-        fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-            return `${iStart}-${iEnd} to ${iTotal}`;
-        },
-        ajax: {
-            url: APICars,
-            type: "GET",
-            data: function (d) {
-                return $.extend(d, myData);
-            },
-        },
-    })
+  ]
 
 
-    const noCar = `
+  var myData = {};
+
+  const initDatatable = new DataTable('#listCars', {
+    processing: true,
+    bPaginate: false,
+    columns: columns,
+    bFilter: true,
+    language: {
+      searchPlaceholder: "Recherche"
+    },
+    bInfo: true,
+    order: [[6, "asc"]],
+    fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
+      return `${iStart}-${iEnd} to ${iTotal}`;
+    },
+    ajax: {
+      url: APICars,
+      type: "GET",
+      data: function (d) {
+        return $.extend(d, myData);
+      },
+    },
+  })
+
+
+  const noCar = `
       <div class="row my-6">
           <div class="col">
               
@@ -191,149 +191,154 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>`
 
-    var carIdToDelete = 0;
 
-    initDatatable.on('draw', function () {
+  initDatatable.on('draw', function () {
 
-        const singleCarDelete = document.querySelectorAll(".singleCarDelete");
-        singleCarDelete.forEach(item => {
+  })
 
-            item.addEventListener('click', event => {
+  var carIdToDelete = 0;
 
-                event.stopPropagation();
-                carIdToDelete = item.getAttribute('data-item-id');
-                console.log('====================================');
-                console.log(carIdToDelete);
-                console.log('====================================');
-                $('#confirmationModal').modal('show');
+  const carDelete = document.querySelectorAll(".carDelete");
+  carDelete.forEach(item => {
+    console.log('====================================');
+    console.log("dsdsds");
+    console.log('====================================');
+    item.addEventListener('click', event => {
+      event.stopPropagation();
+      carIdToDelete = item.getAttribute('data-item-id');
+      console.log('====================================');
+      console.log("ddd");
+      console.log('====================================');
+      $('#confirmationModal').modal('show');
 
-            });
-        });
-    })
-
-
-    // DELETE CAR
-
-    document.getElementById('confirmDelete').addEventListener('click', function () {
-        if (carIdToDelete != 0) {
-
-            fetch(`${APICar}${carIdToDelete}`, {
-                method: 'DELETE'
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    initDatatable.ajax.reload();
-
-                    $('#confirmationModal').modal('hide');
-                    // alert('Item deleted successfully');
-                    carIdToDelete = 0;
-                })
-                .catch(error => {
-                    initDatatable.ajax.reload();
-                    // Handle error
-                    $('#confirmationModal').modal('hide');
-                    // alert('Error deleting item: ' + error.message);
-                    carIdToDelete = null;
-                });
-        }
     });
+  });
 
+  document.addEventListener('click', function (e) {
+    if (e.target) {
+      let classes = Array.from(e.target.classList);
+      if (classes.includes("carDelete")) {
+        let item = e.target;
+        carIdToDelete = item.getAttribute("data-item-id");
+        console.log('====================================');
+        console.log(carIdToDelete);
+        console.log('====================================');
+        $('#confirmationModal').modal('show');
 
-    const older = document.getElementById("older");
-    const newer = document.getElementById("newer");
-
-
-    if (older) {
-
-        older.addEventListener("click", () => {
-
-            console.log(initDatatable.page.info());
-            initDatatable.page('previous').draw('page')
-        })
+      }
     }
-    if (newer) {
+  })
 
-        newer.addEventListener("click", () => {
-            console.log("prev");
-            initDatatable.page('next').draw('page')
+  // DELETE CAR
+  const deleteButton = document.getElementById('confirmDelete')
+  deleteButton.addEventListener('click', function () {
+    console.log('====================================');
+    console.log(carIdToDelete);
+    console.log('====================================');
+    if (carIdToDelete != 0) {
+
+      fetch(`${APICar}${carIdToDelete}`, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
         })
-    }
+        .then(data => {
+          // initDatatable.ajax.reload();
 
-    const VStatus = (statu) => {
-        switch (statu) {
-            case "Available":
-                return `
+          $('#confirmationModal').modal('hide');
+          // alert('Item deleted successfully');
+          carIdToDelete = 0;
+        })
+        .catch(error => {
+          // initDatatable.ajax.reload();
+          // Handle error
+          $('#confirmationModal').modal('hide');
+          // alert('Error deleting item: ' + error.message);
+          carIdToDelete = null;
+        });
+    }
+  });
+
+
+  const older = document.getElementById("older");
+  const newer = document.getElementById("newer");
+
+  if (older) {
+
+    older.addEventListener("click", () => {
+
+      console.log(initDatatable.page.info());
+      initDatatable.page('previous').draw('page')
+    })
+  }
+  if (newer) {
+
+    newer.addEventListener("click", () => {
+      console.log("prev");
+      initDatatable.page('next').draw('page')
+    })
+  }
+
+  // function splitStringIntoSpans(str) {
+  //     // Split the string into an array of elements using the hyphen as the delimiter
+  //     const elements = str.split('-');
+
+  //     // Create an array to hold the HTML for each span
+  //     const spans = elements.map(element => {
+  //         // Create the HTML for the span element
+  //         return `<span>${element}</span>`;
+  //     });
+
+  //     // Join the array of spans into a single string
+  //     return spans.join('');
+  // }
+  const VStatus = (statu) => {
+    switch (statu) {
+      case "Available":
+        return `
                     <span class="badge bg-success-soft position-absolute" style="top: 10px; right: 10px;">
                         ${statu}
                     </span>
                 `
-                break;
-            case "Loue":
-                return `
+        break;
+      case "Loue":
+        return `
                     <span class="badge bg-primary-soft position-absolute" style="top: 10px; right: 10px;">
                         ${statu}
                     </span>
                 `
-                break;
-            case "maintenance":
-                return `
+        break;
+      case "maintenance":
+        return `
                     <span class="badge bg-danger-soft position-absolute" style="top: 10px; right: 10px;">
                         ${statu}
                     </span>
                 `
-                break;
+        break;
 
-            default:
-                return `
+      default:
+        return `
                     <span class="badge bg-primary-soft position-absolute" style="top: 10px; right: 10px;">
                         ${statu}
                     </span>
                 `
-                break;
-        }
+        break;
     }
+  }
+  const buildCarCard = async (cars) => {
 
-    // function splitStringIntoSpans(str) {
-    //     // Split the string into an array of elements using the hyphen as the delimiter
-    //     const elements = str.split('-');
+    const UI = cars.map((item) => {
+      const imageUrl = item.attributes.MainImage && item.attributes.MainImage.data && item.attributes.MainImage.data.attributes && item.attributes.MainImage.data.attributes.url
+        ? `${localhost}${item.attributes.MainImage.data.attributes.url}`
+        : fallbackImageUrl;
 
-    //     // Create an array to hold the HTML for each span
-    //     const spans = elements.map(element => {
-    //         // Create the HTML for the span element
-    //         return `<span>${element}</span>`;
-    //     });
-
-    //     // Join the array of spans into a single string
-    //     return spans.join('');
-    // }
-
-    const carsCard = document.getElementById('carsCard');
-    if (carsCard) {
-        fetch(APICars)
-            .then(response => response.json())
-            .then(data => {
-                let count = data.data.length
-                console.log(data.data)
-                count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
-            })
-            .catch(err => console.error(err));
-
-        const buildCarCard = (cars) => {
-
-
-            const UI = cars.map((item) => {
-                const imageUrl = item.attributes.MainImage && item.attributes.MainImage.data && item.attributes.MainImage.data.attributes && item.attributes.MainImage.data.attributes.url
-                    ? `${localhost}${item.attributes.MainImage.data.attributes.url}`
-                    : fallbackImageUrl;
-
-                // const spansHtml = splitStringIntoSpans(item.attributes.LicensePlate);
-                // console.log(spansHtml)
-                return `
+      // const spansHtml = splitStringIntoSpans(item.attributes.LicensePlate);
+      // console.log(spansHtml)
+      return `
                 <div class="col-12 col-md-6 col-xl-4">
                 <div class="card">
                   <!-- Dropdown -->
@@ -389,13 +394,12 @@ document.addEventListener("DOMContentLoaded", function () {
                       >
                         Editer
                       </a>
-                      <a
-                        class="dropdown-item text-danger"
-                        data-bs-toggle="modal"
-                        data-bs-target="#confirmationModal"
+                      <buttom 
+                        class="dropdown-item text-danger carDelete"
+                        data-item-id="${item.id}"
                       >
                         Supprimer
-                      </a>
+                      </buttom>
                     </div>
                   </div>
 
@@ -477,12 +481,25 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
                 `;
 
-            })
+    })
 
-            for (var i = 0; i < UI.length; i++) {
-                carsCard.innerHTML += UI[i];
-            }
-        }
+    for (var i = 0; i < UI.length; i++) {
+      carsCard.innerHTML += UI[i];
     }
+  }
+
+  const carsCard = document.getElementById('carsCard');
+  if (carsCard) {
+    fetch(APICars)
+      .then(response => response.json())
+      .then(data => {
+        let count = data.data.length
+        console.log(data.data)
+        count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
+      })
+      .catch(err => console.error(err));
+
+
+  }
 
 })
