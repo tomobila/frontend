@@ -49,10 +49,10 @@ const tableColumns = [
     },
     {
         data: 'id',
-        className: "d-flex align-items-center",
+        className: "",
         render: function (data, type, row) {
             return `
-            <div class="px-2">
+            <div class="px-2 d-flex align-items-center">
                 <button class="btn btn-white border-0 rounded-circle ms-0 singleCustomerEdit" data-item-id="${row.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Archive" data-bs-original-title="Archive">
                     <span class="fe fe-edit-2"></span>
                 </button>

@@ -6,7 +6,7 @@ const client = {
 
 const APIPaiments = `https://panel.tomobila.com/api/payments/?populate=*`;
 const localhost = "https://panel.tomobila.com"
-
+const totalAmountHTML = document.getElementById("totalAmount")
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             console.log(data);
+            const totalAmount = data.data.reduce((total, item) => {
+                return total + item.attributes.amount;
+            }, 0);
+
+            console.log(`Total amount: ${totalAmount}`);
+            document.getElementById("totalAmount").textContent = totalAmount
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -107,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             className: "",
             render: function (data, type, row) {
                 return `
-            <div class="px-2">
+            <div class="px-2 d-flex  align-items-end justify-content-end">
                 <button class="btn btn-white border-0 rounded-circle ms-0 singleCustomerEdit" data-item-id="${row.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Archive" data-bs-original-title="Archive">
                     <span class="fe fe-edit-2"></span>
                 </button>

@@ -1028,7 +1028,7 @@
             </div>
 
           </div>
-          <div class="col-12 col-xl-6 d-none">
+          <div class="col-12 col-xl-6 ">
             <div class="card">
               <div class="card-header">
 
@@ -1392,8 +1392,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <!-- Map JS -->
-    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script> -->
+    
     
     <!-- Vendor JS -->
     <script src="assets/js/vendor.bundle.js"></script>
@@ -1472,8 +1471,8 @@
                 arg.dayNumberText = arg.dayNumberText.replace(/.*(\d{1,2}).*/, '$1');
               },
               events: [
-                { id: '1', resourceId: 'a', title: 'Mehdi', start: '2024-07-13T10:00:00', end: '2024-07-26T12:00:00' },
-                { id: '2', resourceId: 'b', title: 'Soufiane', start: '2024-07-03T13:00:00', end: '2024-07-23T15:00:00' },
+                { id: '1', resourceId: 'a', title: 'Mehdi', start: '2024-07-03T10:00:00', end: '2024-07-13T12:00:00' },
+                { id: '2', resourceId: 'a', title: 'Soufiane', start: '2024-07-13T13:00:00', end: '2024-07-23T15:00:00' },
                 { id: '3', resourceId: 'c', title: 'Azahro', start: '2024-07-20T09:00:00', end: '2024-07-29T11:00:00' },
                 { id: '1', resourceId: 'd', title: 'Rachid', start: '2024-07-11', end: '2024-07-16' },
                 { id: '1', resourceId: 'd', title: 'Hamid', start: '2024-07-02', end: '2024-07-11' },
@@ -1568,7 +1567,6 @@
             
             window.addEventListener('resize', updateAspectRatio);
             updateAspectRatio();
-            
             calendar.render();
           });
 
