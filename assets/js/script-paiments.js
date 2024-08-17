@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const columns = [
         {
             data: 'attributes.booking',
+            className: "p-3",
             render: function (data) {
 
                 return `
-                    <span>#${data.data.id}</span>
+                    <a class="text-muted" href="n-contrat.html?id=${data.data.id}">#${data.data.id}</a>
                 `
             }
 
@@ -50,11 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         },
         {
-            data: 'attributes.paymentMethod',
-
-        },
-        {
             data: 'attributes.amount',
+            render: function (row, type, data) {
+
+                return `
+                <div class="">
+                    ${row}
+                </div>
+                `
+            }
 
         },
         {
@@ -67,39 +72,53 @@ document.addEventListener("DOMContentLoaded", function () {
                             return `
                         <span class="badge bg-warning">
                             ${statu}
-                        </span>
-                `
+                        </span>`
                             break;
                         case "Pending":
                             return `
                         <span class="badge bg-danger">
                             ${statu}
-                        </span>
-                `
+                        </span>`
                             break;
                         case "Completed":
                             return `
-                    <span class="badge bg-success">
-                        ${statu}
-                    </span>
-                `
+                                    <span class="badge bg-success">
+                                        ${statu}
+                                    </span>`
                             break;
-
                         default:
                             return `
-                    <span class="badge bg-primary">
-                        ${statu}
-                    </span>
-                `
+                                <span class="badge bg-primary">
+                                    ${statu}
+                                </span>`
                             break;
                     }
                 }
-                return `
-                ${VStatus(data)}
-                `
+                return `${VStatus(data)}`
             }
 
-        }
+        },
+        {
+            data: 'attributes.paymentMethod',
+
+        },
+        {
+            data: 'id',
+            className: "",
+            render: function (data, type, row) {
+                return `
+            <div class="px-2">
+                <button class="btn btn-white border-0 rounded-circle ms-0 singleCustomerEdit" data-item-id="${row.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Archive" data-bs-original-title="Archive">
+                    <span class="fe fe-edit-2"></span>
+                </button>
+
+                <button  class="btn btn-white text-danger border-0 rounded-circle ms-0 singleCustomerDelete" data-item-id="${row.id}"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" data-bs-original-title="Delete">
+                    <span class="fe fe-trash-2"></span>
+                </button>
+            </div>
+            `
+            },
+        },
 
     ]
 
