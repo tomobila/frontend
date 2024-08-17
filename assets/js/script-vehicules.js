@@ -8,13 +8,100 @@ const client = {
 // const APIScanCustomerId = "https://docai.api.tomobila.com/api/v1/upload/customer-id"
 // const APIScanCar = "https://docai.api.tomobila.com/api/v1/upload/car-registration"
 
-const localhost = "http://localhost:1338"
-const APICars = `http://localhost:1338/api/vehicles/?populate=*&filters[agency][id][$eq]=1`;
+const localhost = "https://panel.tomobila.com"
+// const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*&filters[agency][id][$eq]=1`;
+const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*`;
 const APICar = `http://localhost:1338/api/vehicles/`
 
 const fallbackImageUrl = 'assets/img/default_lrg.jpg'
 
+// const notyf = new Notyf({
+//   dismissible: true,
+//   position: {
+//     x: 'center',
+//     y: 'bottom',
+//   },
+//   types: [
+//     {
+//       type: 'success',
+//       background: '#12263f',
+//       duration: 2000,
+//       icon: false,
+//       dismissible: true
+//     },
+//     {
+//       type: 'error',
+//       background: '#860d04',
+//       duration: 2000,
+//       dismissible: true
+//     }
+//   ]
+// })
 
+const getVehicles = () => {
+
+  fetch(APICars)
+    .then(response => response.json())
+    .then(data => {
+
+      let count = data.data.length
+
+      console.log(data.data)
+      // count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
+
+      if (count == 0) {
+        console.log("0 signatures")
+        setTimeout(() => {
+          // signatureListLoader.classList.add("d-none");
+          carsCard.innerHTML = noCar;
+        }, 1500);
+
+      } else {
+        setTimeout(() => {
+          // signatureListLoader.classList.add("d-none");
+          buildCarCard(data.data);
+          // setDeleteSign();
+        }, 1500);
+      }
+    })
+    .catch(err => console.error(err));
+
+  // axios.post(urlSignature, payload)
+  //   .then(function (response) {
+
+  //     if (response.status == 200) {
+
+  //       let signatures = response.data;
+  //       let count = signatures.data.length
+
+  //       if (count == 0) {
+  //         console.log("0 signatures")
+  //         setTimeout(() => {
+  //           // signatureListLoader.classList.add("d-none");
+  //           signatureList.innerHTML = noSignature;
+  //         }, 1500);
+
+  //       } else {
+
+  //         let arr = signatures.data;
+  //         setTimeout(() => {
+  //           // signatureListLoader.classList.add("d-none");
+  //           buildSignature(arr);
+  //           setDeleteSign();
+  //         }, 1500);
+  //       }
+
+  //     } else {
+  //       signatureListLoader.classList.add("d-none");
+  //       signatureList.innerHTML = noSignature;
+  //     }
+
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error);
+  //     notyf.error(response.data);
+  //   });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -139,7 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   ]
 
-
   var myData = {};
 
   const initDatatable = new DataTable('#listCars', {
@@ -196,19 +282,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   })
 
-  var carIdToDelete = 0;
+  getVehicles();
 
+  var carIdToDelete = 0;
   const carDelete = document.querySelectorAll(".carDelete");
   carDelete.forEach(item => {
-    console.log('====================================');
-    console.log("dsdsds");
-    console.log('====================================');
     item.addEventListener('click', event => {
       event.stopPropagation();
       carIdToDelete = item.getAttribute('data-item-id');
-      console.log('====================================');
-      console.log("ddd");
-      console.log('====================================');
       $('#confirmationModal').modal('show');
 
     });
@@ -230,11 +311,9 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
   // DELETE CAR
-  const deleteButton = document.getElementById('confirmDelete')
-  deleteButton.addEventListener('click', function () {
-    console.log('====================================');
-    console.log(carIdToDelete);
-    console.log('====================================');
+  const confirmDelete = document.getElementById('confirmDelete')
+  confirmDelete.addEventListener('click', function () {
+
     if (carIdToDelete != 0) {
 
       fetch(`${APICar}${carIdToDelete}`, {
@@ -250,6 +329,8 @@ document.addEventListener("DOMContentLoaded", function () {
           // initDatatable.ajax.reload();
 
           $('#confirmationModal').modal('hide');
+          carsCard.innerHTML = ""
+          getVehicles();
           // alert('Item deleted successfully');
           carIdToDelete = 0;
         })
@@ -329,7 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
   }
-  const buildCarCard = async (cars) => {
+  const buildCarCard = (cars) => {
 
     const UI = cars.map((item) => {
       const imageUrl = item.attributes.MainImage && item.attributes.MainImage.data && item.attributes.MainImage.data.attributes && item.attributes.MainImage.data.attributes.url
@@ -480,7 +561,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
               </div>
                 `;
-
     })
 
     for (var i = 0; i < UI.length; i++) {
@@ -498,8 +578,6 @@ document.addEventListener("DOMContentLoaded", function () {
         count > 0 ? buildCarCard(data.data) : carsCard.innerHTML = noCar;
       })
       .catch(err => console.error(err));
-
-
   }
 
 })

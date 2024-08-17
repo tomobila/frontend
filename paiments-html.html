@@ -55,7 +55,6 @@
       type="text/javascript"
     ></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
     <script src="assets/js/script-paiments.js"></script>
   </head>
@@ -706,7 +705,9 @@
             <li class="nav-item">
               <a class="nav-link" href="clients.html"> Clients </a>
             </li>
-
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="reservations.html"> Reservations </a>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="contrats.html"> Contrats </a>
             </li>
@@ -808,20 +809,73 @@
       <div class="container">
         <div class="card">
           <div class="table-responsive">
-            <table
-              id="listPaiments"
-              class="table table-sm table-nowrap card-table"
-            >
+            <table class="table table-sm table-nowrap card-table">
               <thead>
                 <tr>
                   <th>contrat ID</th>
-                  <th>Date d'ajoute</th>
+                  <th>Date</th>
                   <th>Méthode</th>
                   <th>Amount</th>
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody class="fs-base"> </tbody>
+              <tbody class="fs-base">
+                <tr>
+                  <td> #10395 </td>
+                  <td>
+                    <time datetime="2020-04-24">Apr. 24, 2020</time>
+                  </td>
+                  <td>Cheque</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-danger">Rejected</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td> #10244 </td>
+                  <td>
+                    <time datetime="2020-03-24">Mar. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-success">Paid</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td> #10119 </td>
+                  <td>
+                    <time datetime="2020-02-24">Feb. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-warning">En cours</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td> #10062 </td>
+                  <td>
+                    <time datetime="2020-01-24">Jan. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-success">Paid</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td> #10062 </td>
+                  <td>
+                    <time datetime="2020-01-24">Jan. 24, 2020</time>
+                  </td>
+                  <td>Espèces</td>
+                  <td> $29.00 </td>
+                  <td>
+                    <span class="badge bg-success">Paid</span>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

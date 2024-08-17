@@ -38,6 +38,8 @@
       }
     </style>
 
+    <!-- Title -->
+
     <title>Tomobila</title>
 
     <link
@@ -55,26 +57,27 @@
       type="text/javascript"
     ></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
-    <script src="assets/js/script-paiments.js"></script>
+    <!-- <script src="timepicker-ui.umd.js"></script>
+    <script src="node_modules/path/timepicker-ui.umd.js"></script>
+    <script src="/path/timepicker-ui.umd.js"></script> -->
+    <!-- <script src="assets/js/script-contrats.js"></script> -->
   </head>
   <body>
-    <!-- Add payement -->
     <div
       class="modal fade"
-      id="addPaiment"
+      id="prologationContrat"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="addPaiment"
+      aria-labelledby="prologationContrat"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="confirmationModalLabel">
-              Ajouter Paiement
-            </h4>
+            <h3 class="modal-title" id="confirmationModalLabel">
+              Contrat: #SDF9823KD
+            </h3>
             <button
               type="button"
               class="btn-close"
@@ -83,90 +86,36 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="row">
-              <div class="col-12 col-md-5">
-                <div class="form-group">
-                  <label class="form-label">Fait le </label>
-                  <input
-                    type="text"
-                    class="form-control flatpickr-input"
-                    data-flatpickr=""
-                    readonly="readonly"
-                    name=""
-                  />
-                </div>
-              </div>
+            <!-- <div class="form-floating form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email address</label>
+            </div> -->
+            <label class="form-label" for=""
+              >Prologation Combien de jour?</label
+            >
+            <div class="input-group mb-3">
+              <button class="btn btn-white" type="button"> - </button>
 
-              <div class="col-12 col-md-4">
-                <div class="form-group mb-1">
-                  <label class="form-label">Méthode de paiement</label>
-                  <select name="" class="form-control" id="">
-                    <option value="">Especes</option>
-                    <option value="">Cheque</option>
-                    <option value="">Carte bancaire</option>
-                  </select>
-                </div>
-                <!-- <small class="form-text text-muted">25-Avr-2025 </small> -->
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="form-group">
-                  <label class="form-label">Montant </label>
-                  <input
-                    type="number"
-                    name=""
-                    class="form-control"
-                    placeholder="100"
-                  />
-                </div>
-              </div>
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label class="form-label">Comment </label>
-                  <textarea name="" class="form-control" id=""></textarea>
-                </div>
-              </div>
-
-              <div class="col-12 col-md-12">
-                <label for="fileRecto" class="camera">
-                  <div
-                    id=""
-                    class="position-absolute start-0 top-0 w-100 h-100 bg-white d-none"
-                  >
-                    <button
-                      id="clearframeRecto"
-                      class="btn btn-danger rounded-circle position-absolute"
-                    >
-                      <span class="fe fe-x"></span>
-                    </button>
-                    <div
-                      class="d-flex align-items-center justify-content-center w-100 h-100"
-                    >
-                      <img src="" alt="preview" id="frameRecto" class="" />
-                    </div>
-                  </div>
-
-                  <div class="btn btn-primary rounded-circle mb-3">
-                    <span class="fe fe-camera"></span>
-                  </div>
-                  <div>Attachement</div>
-                  <p class="text-muted small">SVG, PNG, JPG (max. 4 Mo)</p>
-                </label>
-                <input
-                  type="file"
-                  name="files.RegistrationDocument"
-                  accept="image/x-png,image/gif,image/jpeg"
-                  id="fileRecto"
-                  class="glob__dragDrop--input"
-                />
-              </div>
+              <input
+                type="number"
+                class="form-control"
+                placeholder=""
+                value="3"
+              />
+              <button class="btn btn-white" type="button"> + </button>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-white" data-bs-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-primary" id="">
-              Ajouter
+            <button type="button" class="btn btn-primary" id="confirmDelete">
+              Prolonger
             </button>
           </div>
         </div>
@@ -189,15 +138,14 @@
         </button>
 
         <!-- Brand -->
-        <!-- <a class="navbar-brand me-auto" href="./index.html">
+        <a class="navbar-brand me-auto" href="./index.html">
           <img src="./assets/img/logo.svg" alt="..." class="navbar-brand-img" />
-        </a> -->
+        </a>
 
         <!-- Form -->
         <form class="form-inline me-4 d-none d-lg-flex">
           <div
             class="input-group input-group-rounded input-group-merge input-group-reverse"
-            data-list='{"valueNames": ["name"]}'
           >
             <!-- Input -->
             <input
@@ -219,7 +167,8 @@
                 <!-- List group -->
                 <div
                   class="list-group list-group-flush list-group-focus list my-n3"
-                  ><a class="list-group-item" href="./team-overview.html">
+                >
+                  <a class="list-group-item" href="#">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -242,8 +191,9 @@
                         </p>
                       </div>
                     </div>
-                    <!-- / .row --> </a
-                  ><a class="list-group-item" href="./team-overview.html">
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item" href="#">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -268,8 +218,9 @@
                         </p>
                       </div>
                     </div>
-                    <!-- / .row --> </a
-                  ><a class="list-group-item" href="./project-overview.html">
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item" href="./project-overview.html">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -294,8 +245,9 @@
                         </p>
                       </div>
                     </div>
-                    <!-- / .row --> </a
-                  ><a class="list-group-item" href="./project-overview.html">
+                    <!-- / .row -->
+                  </a>
+                  <a class="list-group-item" href="./project-overview.html">
                     <div class="row align-items-center">
                       <div class="col-auto">
                         <!-- Avatar -->
@@ -706,12 +658,14 @@
             <li class="nav-item">
               <a class="nav-link" href="clients.html"> Clients </a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="contrats.html"> Contrats </a>
+              <a class="nav-link" href="reservations.html"> Reservations </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="paiments.html"> Paiements </a>
+              <a class="nav-link active" href="contrats.html"> Contrats </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="paiments.html"> Paiements </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="setting.html"> Agence </a>
@@ -727,101 +681,351 @@
       <div class="header">
         <div class="container">
           <div class="header-body">
-            <div class="row align-items-end">
+            <div class="row align-items-center">
               <div class="col">
                 <!-- Pretitle -->
-                <h6 class="header-pretitle text-secondary"> Overview </h6>
+                <h6 class="header-pretitle"> Overview </h6>
 
                 <!-- Title -->
-                <h1 class="header-title"> Paiements </h1>
+                <h1 class="header-title text-truncate"> Contrats </h1>
               </div>
               <div class="col-auto">
-                <!-- Nav -->
-                <ul class="nav nav-tabs header-tabs">
-                  <li
-                    class="nav-item"
-                    data-toggle="chart"
-                    data-target="#earningsChart"
-                    data-trigger="click"
-                    data-action="toggle"
-                    data-dataset="0"
-                  >
-                    <span
-                      class="nav-link text-center active"
-                      data-bs-toggle="tab"
-                    >
-                      <h6 class="header-pretitle text-secondary"> Total </h6>
-                      <h3 class="mb-0"> $19.2k </h3>
-                    </span>
-                  </li>
-                  <li
-                    class="nav-item"
-                    data-toggle="chart"
-                    data-target="#earningsChart"
-                    data-trigger="click"
-                    data-action="toggle"
-                    data-dataset="1"
-                  >
-                    <span class="nav-link text-center" data-bs-toggle="tab">
-                      <h6 class="header-pretitle text-secondary">
-                        en attente
-                      </h6>
-                      <h3 class="mb-0"> 92.1k </h3>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-auto">
-                <a
-                  href="#"
-                  class="btn btn-primary ms-2"
-                  data-bs-target="#addPaiment"
-                  data-bs-toggle="modal"
-                >
-                  Ajouter Paiement
+                <!-- Navigation (button group) -->
+                <!-- <div class="nav btn-group d-inline-flex" role="tablist">
+                  <button class="btn btn-white active" id="contactsListTab" data-bs-toggle="tab" data-bs-target="#contactsListPane" role="tab" aria-controls="contactsListPane" aria-selected="true">
+                    <span class="fe fe-list"></span>
+                  </button>
+                  <button class="btn btn-white" id="contactsCardsTab" data-bs-toggle="tab" data-bs-target="#contactsCardsPane" role="tab" aria-controls="contactsCardsPane" aria-selected="false">
+                    <span class="fe fe-grid"></span>
+                  </button>
+                </div>  -->
+                <!-- / .nav -->
+
+                <!-- Buttons -->
+                <a href="n-contrat.html" class="btn btn-primary ms-2">
+                  Nouveau Contrat
                 </a>
               </div>
             </div>
             <!-- / .row -->
           </div>
-          <!-- <div class="header-body">
-            <div class="row align-items-center">
-              <div class="col">
-                <h6 class="header-pretitle"> Overview </h6>
-
-                <h1 class="header-title text-truncate"> Paiements </h1>
-              </div>
-              <div class="col-auto">
-                <a
-                  href="#"
-                  class="btn btn-primary ms-2"
-                  data-bs-target="#addPaiment"
-                  data-bs-toggle="modal"
-                >
-                  Ajouter Paiement
-                </a>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
       <div class="container">
         <div class="card">
-          <div class="table-responsive">
-            <table
-              id="listPaiments"
-              class="table table-sm table-nowrap card-table"
-            >
+          <div class="card-header">
+            <!-- Title -->
+            <h4 class="card-header-title"> Search </h4>
+
+            <!-- Button -->
+            <!-- <a href="widgets.html#!" class="btn btn-sm btn-white"> Export </a> -->
+          </div>
+          <div class="table-responsive mb-0">
+            <table class="table table-sm table-nowrap card-table">
               <thead>
                 <tr>
-                  <th>contrat ID</th>
-                  <th>Date d'ajoute</th>
-                  <th>Méthode</th>
-                  <th>Amount</th>
-                  <th>Status</th>
+                  <th> Date creation </th>
+                  <th> Véhicule </th>
+                  <th> Periode </th>
+                  <th>Client</th>
+                  <th>Prix</th>
+                  <th>Paiements</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
-              <tbody class="fs-base"> </tbody>
+              <tbody>
+                <tr>
+                  <td>
+                    <div
+                      class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <time>07 Avr 2024</time>
+                      <time>12:00:00</time>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center mb-2">
+                      <div class="avatar avatar-4by3 align-middle me-3">
+                        <img
+                          src="https://lakzizcars.com/wp-content/uploads/2024/05/fiat-500_.png"
+                          class="avatar-img rounded p-1"
+                        />
+                      </div>
+                      <div class="d-flex flex-column align-items-center">
+                        <h4 class="m-2">Black Tucson </h4>
+                        <span
+                          class="mb-3 px-2 border-gray border border-black d-inline-block rounded-1"
+                        >
+                          <span class="fw-bold">
+                            <span class="border-end border-gray px-2">
+                              212142
+                            </span>
+                            <span class="border-end border-gray px-2">A</span>
+                            <span>13</span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <time>21 Jui 2024</time> -
+                      <time>12:00:00</time>
+                    </div>
+                    <div>
+                      <time>28 Jui 2024</time> -
+                      <time>12:00:00</time>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="d-flex align-items-center flex-column">
+                      <h4 class="fw-normal mb-1">Soufiane Bahad</h4>
+                      <a href="tel:000000" class="text-muted">0777551234</a>
+                    </div>
+                  </td>
+                  <td>
+                    <span>1400</span>
+                  </td>
+
+                  <td>
+                    <div class="row align-items-center g-0">
+                      <div class="col-auto">
+                        <span class="me-2">55%</span>
+                      </div>
+                      <div class="col">
+                        <!-- Progress -->
+                        <div class="progress progress-sm">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 55%"
+                            aria-valuenow="55"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge bg-success-soft">Terminé</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <a
+                        href="n-contrat.html"
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Voir"
+                        data-bs-original-title="Voir"
+                      >
+                        <span class="fe fe-eye"></span>
+                      </a>
+
+                      <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Archive"
+                        data-bs-original-title="Edit"
+                      >
+                        <span class="fe fe-edit-2"></span>
+                      </button>
+                      <div class="dropdown ms-2">
+                        <a
+                          class="dropdown-ellipses dropdown-toggle"
+                          href="crm-contacts.html#"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a
+                            href="#"
+                            class="dropdown-item"
+                            data-bs-toggle="modal"
+                            data-bs-target="#prologationContrat"
+                          >
+                            Prologation
+                          </a>
+                          <a href="#" class="dropdown-item"> Terminé</a>
+                          <hr />
+                          <a href="#" class="dropdown-item text-warning">
+                            Dammage
+                          </a>
+                          <a href="#" class="dropdown-item text-danger">
+                            Annuler
+                          </a>
+                        </div>
+                      </div>
+
+                      <!-- <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Delete"
+                        data-bs-original-title="Delete"
+                      >
+                        <span class="fe fe-trash-2"></span>
+                      </button> -->
+                    </div>
+                  </td>
+                  <!-- <td>
+                    
+                  </td> -->
+                </tr>
+                <tr>
+                  <td>
+                    <div
+                      class="d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <time>07 Avr 2024</time>
+                      <time>12:00:00</time>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center mb-2">
+                      <div class="avatar avatar-4by3 align-middle me-3">
+                        <img
+                          src="https://lakzizcars.com/wp-content/uploads/2024/05/fiat-500_.png"
+                          class="avatar-img rounded p-1"
+                        />
+                      </div>
+                      <div class="d-flex flex-column align-items-center">
+                        <h4 class="m-2">Black Tucson </h4>
+                        <span
+                          class="mb-3 px-2 border-gray border border-black d-inline-block rounded-1"
+                        >
+                          <span class="fw-bold">
+                            <span class="border-end border-gray px-2">
+                              212142
+                            </span>
+                            <span class="border-end border-gray px-2">A</span>
+                            <span>13</span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <time>21 Jui 2024</time> -
+                      <time>12:00:00</time>
+                    </div>
+                    <div>
+                      <time>28 Jui 2024</time> -
+                      <time>12:00:00</time>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="d-flex align-items-center flex-column">
+                      <h4 class="fw-normal mb-1">Soufiane Bahad</h4>
+                      <a href="tel:000000" class="text-muted">0777551234</a>
+                    </div>
+                  </td>
+                  <td>
+                    <span>1400</span>
+                  </td>
+
+                  <td>
+                    <div class="row align-items-center g-0">
+                      <div class="col-auto">
+                        <span class="me-2">55%</span>
+                      </div>
+                      <div class="col">
+                        <!-- Progress -->
+                        <div class="progress progress-sm">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 55%"
+                            aria-valuenow="55"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="badge bg-success-soft">Terminé</span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <a
+                        href="n-contrat.html"
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Voir"
+                        data-bs-original-title="Voir"
+                      >
+                        <span class="fe fe-eye"></span>
+                      </a>
+
+                      <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Archive"
+                        data-bs-original-title="Edit"
+                      >
+                        <span class="fe fe-edit-2"></span>
+                      </button>
+                      <div class="dropdown ms-2">
+                        <a
+                          class="dropdown-ellipses dropdown-toggle"
+                          href="crm-contacts.html#"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="fe fe-more-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                          <a
+                            href="#"
+                            class="dropdown-item"
+                            data-bs-toggle="modal"
+                            data-bs-target="#prologationContrat"
+                          >
+                            Prologation
+                          </a>
+                          <a href="#" class="dropdown-item"> Terminé</a>
+                          <hr />
+                          <a href="#" class="dropdown-item text-warning">
+                            Dammage</a
+                          >
+                          <a href="#" class="dropdown-item text-danger">
+                            Annuler
+                          </a>
+                        </div>
+                      </div>
+
+                      <!-- <button
+                        class="btn btn-white border-0 rounded-circle ms-0 singleEmailDelete"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title="Delete"
+                        data-bs-original-title="Delete"
+                      >
+                        <span class="fe fe-trash-2"></span>
+                      </button> -->
+                    </div>
+                  </td>
+                  <!-- <td>
+                    
+                  </td> -->
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
