@@ -1,9 +1,5 @@
 const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*`;
 const localhost = "https://panel.tomobila.com"
-var extractedData = []
-
-
-
 
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -183,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         })
         .then(data => {
             // console.log(data);
-            extractedData = data.data.map(item => ({
+            let extractedData = data.data.map(item => ({
                 id: item.id,
                 title: item.attributes.name,
                 img: localhost + item.attributes.mainImage.data.attributes.url // Assuming the main image URL is needed
