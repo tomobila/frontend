@@ -42,34 +42,34 @@ document.addEventListener("DOMContentLoaded", async function () {
         editable: true,
         selectable: true,
         resourceAreaHeaderContent: 'Vehicules',
-        resources:
-            [
-                {
-                    "id": "a",
-                    "title": "Dacia A",
-                    "eventColor": "#1a49f8",
-                    "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
-                },
-                {
-                    "id": "b",
-                    "title": "Duster black",
-                    "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
-                    "eventColor": "#1a49f8"
-                },
-                {
-                    "id": "c",
-                    "title": "Ranf Rover C",
-                    "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
-                    "eventColor": "#1a49f8"
-                },
-                {
-                    "id": "d",
-                    "title": "Mercedes C",
-                    "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
-                    "eventColor": "green"
-                }
-            ]
-        ,
+        // resources:
+        //     [
+        //         {
+        //             "id": "a",
+        //             "title": "Dacia A",
+        //             "eventColor": "#1a49f8",
+        //             "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
+        //         },
+        //         {
+        //             "id": "b",
+        //             "title": "Duster black",
+        //             "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
+        //             "eventColor": "#1a49f8"
+        //         },
+        //         {
+        //             "id": "c",
+        //             "title": "Ranf Rover C",
+        //             "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
+        //             "eventColor": "#1a49f8"
+        //         },
+        //         {
+        //             "id": "d",
+        //             "title": "Mercedes C",
+        //             "img": "https://lakzizcars.com/wp-content/uploads/2024/04/dacia-logan-2024lal-1.png",
+        //             "eventColor": "green"
+        //         }
+        //     ]
+        // ,
         dayCellContent: function (arg) {
             arg.dayNumberText = arg.dayNumberText.replace(/.*(\d{1,2}).*/, '$1');
         },
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                       <span> ${Math.round(progress)}%</span>
                       
                     </div>
-                      </div>
+                </div>
                       `;
             return { html: customHtml };
 
@@ -198,6 +198,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 resource.remove();
             });
 
+            extractedData.forEach(resource => {
+                calendar.addResource(resource);
+            });
+            calendar.render();
         })
         .catch(error => {
             console.error('Error fetching data:', error);
