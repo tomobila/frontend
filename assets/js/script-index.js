@@ -3,6 +3,16 @@ const APIBookings = `https://panel.tomobila.com/api/bookings/?populate=*`;
 
 const localhost = "https://panel.tomobila.com"
 
+function determineColorBasedOnResource(resourceStatus) {
+    // Define your logic to assign colors based on resourceId
+    const resourceColorMap = {
+        'Pending': 'orange',
+        'Confirmed': 'green',
+        'Cancelled': 'red'
+    };
+    return resourceColorMap[resourceStatus] || '#1a49f8'; // Fallback color
+}
+
 document.addEventListener("DOMContentLoaded", async function () {
 
     var calendarEl = document.getElementById('calendar');
@@ -22,7 +32,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             const ressources = resourcesData.data.map(item => ({
                 id: item.id,
                 title: item.attributes.name,
-                img: localhost + item.attributes.mainImage.data.attributes.url
+                img: localhost + item.attributes.mainImage.data.attributes.url,
+                eventColor: '#1a49f8',
             }));
 
             // Transform events
@@ -32,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 start: event.attributes.startDate,
                 end: event.attributes.endDate,
                 resourceId: event.attributes.vehicle.data.id,
-                eventColor: 'red',
+                eventColor: determineColorBasedOnResource(event.attributes.status),
             }));
 
             console.log(ressources, events);
@@ -66,7 +77,24 @@ document.addEventListener("DOMContentLoaded", async function () {
                 initialView: 'resourceTimelineMonth',
                 aspectRatio: 3.5,
                 resources: ressources,
-                events: events,
+                events: [
+                    {
+                        "id": 5,
+                        "title": "Mehdi Lahraichi",
+                        "start": "2024-09-02T23:00:00.000Z",
+                        "end": "2024-09-20T00:00:00.000Z",
+                        "resourceId": 1,
+                        "eventColor": "red"
+                    },
+                    {
+                        "id": 4,
+                        "title": "abdel azahrou",
+                        "start": "2024-08-03T23:00:00.000Z",
+                        "end": "2024-08-08T00:00:00.000Z",
+                        "resourceId": 2,
+                        "eventColor": "#000"
+                    }
+                ],
                 // initialDate: new Date(),
                 // initialDate: new Date().toISOString().split('T')[0],
                 editable: true,
@@ -98,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                     let img = document.createElement('img')
                     img.classList.add('avatar-img', 'rounded', 'p-1')
-                    img.src = resource.extendedProps.img; // Use the image URL from the resource
+                    img.src = resource.extendedProps.img;
 
                     let title = document.createElement('p');
                     title.classList.add('m-0');
@@ -113,7 +141,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                     return { domNodes: [container] };
                 },
                 eventContent: function (arg) {
-
+                    console.log('====================================');
+                    console.log(arg);
+                    console.log('====================================');
                     let event = arg.event;
                     let now = new Date();
                     let start = event.start;
@@ -128,7 +158,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     }
 
                     let customHtml = `
-                    <div class="fc-event-custom d-flex">
+                    <div class="d-flex">
                         <div class="avatar avatar-xs me-3">
                             <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
                         </div>

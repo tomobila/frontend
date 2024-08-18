@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", async function () {
     const notyf = new Notyf();
-    const APICustomer = "http://localhost:1338/api/customers/"
+    const APICustomer = "https://panel.tomobila.com/api/customers/"
 
     const saveCreateCustomerButton = document.getElementById('saveCreateCustomerButton');
     saveCreateCustomerButton.addEventListener('click', function (event) {
