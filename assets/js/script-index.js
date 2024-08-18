@@ -1,5 +1,7 @@
 const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*`;
 const APIBookings = `https://panel.tomobila.com/api/bookings/?populate=*`;
+const APICustomers = `https://panel.tomobila.com/api/customers/`;
+const APIPayments = `https://panel.tomobila.com/api/payments/`;
 
 const localhost = "https://panel.tomobila.com"
 
@@ -19,14 +21,39 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     Promise.all([
         fetch(APICars), // Endpoint for resources
-        fetch(APIBookings) // Endpoint for events
+        fetch(APIBookings),
+        fetch(APICustomers), // Endpoint for events
+        fetch(APIPayments)
     ])
         .then(responses => Promise.all(responses.map(res => {
             if (!res.ok) throw new Error('Network response was not ok');
             return res.json();
         })))
+
         .then(data => {
-            const [resourcesData, eventsData] = data;
+            const [resourcesData, eventsData, customersData, paymentsData] = data;
+
+            const totalVehicles = resourcesData.meta.pagination.total;
+            const totalBookings = eventsData.meta.pagination.total;
+            const totalCustomers = customersData.meta.pagination.total;
+
+            let totalAmount = 0;
+
+            paymentsData.data.forEach(item => {
+
+                totalAmount += item.attributes.amount;
+            });
+
+            // console.log(totalVehicles, totalBookings, totalCustomers);
+
+            document.getElementById("totalBooking").innerHTML = totalBookings
+
+            document.getElementById("totalCustomer").innerHTML = totalCustomers
+
+            document.getElementById("totalVehicle").innerHTML = totalVehicles
+
+            document.getElementById("totalbenif").innerHTML = totalAmount
+
 
             // Transform resources
             const ressources = resourcesData.data.map(item => ({
@@ -135,7 +162,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     let progress = 0;
                     if (now > start && now < end) {
                         progress = ((now - start) / (end - start)) * 100;
-                        console.log(progress);
+                        // console.log(progress);
                     } else if (now >= end) {
                         progress = 100;
                     }
