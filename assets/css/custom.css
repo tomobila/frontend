@@ -276,3 +276,8 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
         /* le centre */
         linear-gradient(-90deg, #888, #DDD) border-box;
 }
+
+.customHtml {
+    padding: 5px;
+    border-radius: 30px;
+}

@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     }
 
                     let customHtml = `
-                    <div class="d-flex" style="background:${event.extendedProps.eventColor}">
+                    <div class="d-flex customHtml " style="background:${event.extendedProps.eventColor}">
                         <div class="avatar avatar-xs me-3">
                             <img src="assets/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
                         </div>
