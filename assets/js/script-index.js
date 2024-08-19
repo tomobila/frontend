@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                             <div class="fc-event-title">${event.title}</div>
                             <div class="fc-event-progress-bar bg-white h-2" style="width: ${progress}%" ></div>
                         </div>
-                        <span> ${Math.round(progress)}%</span>
+                        <!-- <span> ${Math.round(progress)}%</span>-->
                         
                         </div>
                     </div>
