@@ -4,7 +4,7 @@ const client = {
 }
 
 
-const APIPaiments = `https://panel.tomobila.com/api/payments/?populate=*`;
+const APIPaiments = `https://panel.tomobila.com/api/payments/?populate[booking][populate]=*`;
 const localhost = "https://panel.tomobila.com"
 const totalAmountHTML = document.getElementById("totalAmount")
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 0);
 
             console.log(`Total amount: ${totalAmount}`);
-            document.getElementById("totalAmount").textContent = totalAmount
+            // document.getElementById("totalAmount").textContent = totalAmount
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -45,13 +45,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         },
         {
-            data: 'attributes.createdAt',
+            data: 'attributes.paymentDate',
             render: function (row, type, data) {
-
+                console.log('====================================');
+                console.log(data);
+                console.log('====================================');
                 return `
                 <div class="d-flex flex-row justify-content-start">
-                    <time>${moment(data).format('DD MMM YYYY')} - ${moment(data).format('HH:mm:ss')}</time> <time></time>
-                </div>
+                    <time>${moment(row).format('DD MMM YYYY')} 
+                    </div>
+                    `
+                // - ${moment(row).format('HH:mm')}</time> 
+            }
+
+        },
+        {
+            data: 'attributes.booking',
+
+            render: function (data) {
+
+                return `
+                    <p>${data.data.attributes.mainDriver.data.attributes.firstName} ${data.data.attributes.mainDriver.data.attributes.lastName}</p>
                 `
             }
 
@@ -106,6 +120,18 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             data: 'attributes.paymentMethod',
+
+        },
+        {
+            data: 'attributes.record_files',
+            render: function (row, type, data) {
+
+                return `
+                <span class="fe fe-paperclip"></span>
+                `
+            }
+
+
 
         },
         {
