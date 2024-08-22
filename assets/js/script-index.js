@@ -1,5 +1,5 @@
 const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*`;
-const APIBookings = `https://panel.tomobila.com/api/bookings/?populate=*&`;
+const APIBookings = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[payments]=*&populate[mainDriver]=*`;
 const APICustomers = `https://panel.tomobila.com/api/customers/`;
 const APIPayments = `https://panel.tomobila.com/api/payments/`;
 
@@ -225,9 +225,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             data: 'attributes.vehicle',
             className: '',
             render: function (data, row, type) {
-                console.log('====================================');
-                console.log(data);
-                console.log('====================================');
 
                 let licence = data.data.attributes.licensePlate
                 let parts = licence.split("-");
@@ -407,7 +404,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             searchPlaceholder: "Recherche"
         },
         bInfo: true,
-        order: [[0, "asc"]],
+        order: [[0, "desc"]],
         fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
             return `${iStart}-${iEnd} to ${iTotal}`;
         },
