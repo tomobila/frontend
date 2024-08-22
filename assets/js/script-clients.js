@@ -77,7 +77,7 @@ function populateEditForm(customer) {
     document.getElementById('editDriverLicenseNumber').value = customer.attributes.driverLicenseNumber;
     document.getElementById('editAddress').value = customer.attributes.address;
     document.getElementById('editDriverLicenseExpiration').value = customer.attributes.driverLicenseExpiration;
-    document.getElementById('editCniNumber').value = customer.attributes.cniNumber;
+    document.getElementById('editCniNumber').value = customer.attributes.idNumber;
     document.getElementById('editCniExpiration').value = customer.attributes.cniExpiration;
     // document.getElementById('editIsBlacklisted').checked = customer.isBlacklisted;
     // document.getElementById('editBlacklistReason').value = customer.blacklistReason;
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 driverLicenseNumber: document.getElementById('editDriverLicenseNumber').value,
                 address: document.getElementById('editAddress').value,
                 driverLicenseExpiration: document.getElementById('editDriverLicenseExpiration').value,
-                cniNumber: document.getElementById('editCniNumber').value,
+                idNumber: document.getElementById('editCniNumber').value,
                 cniExpiration: document.getElementById('editCniExpiration').value,
                 // isBlacklisted: document.getElementById('editIsBlacklisted').checked,
                 // blacklistReason: document.getElementById('editBlacklistReason').value

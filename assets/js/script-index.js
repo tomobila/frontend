@@ -14,6 +14,31 @@ function determineColorBasedOnResource(resourceStatus) {
     return resourceColorMap[resourceStatus] || '#1a49f8'; // Fallback color
 }
 
+function calculatePaymentComparison(booking) {
+    const totalCost = booking.attributes.totalCost;
+
+    // Calculate the total payments made
+    const totalPayments = booking.attributes.payments.data.reduce((sum, payment) => {
+        if (payment.attributes.status === "Completed") {
+            return sum + payment.attributes.amount;
+        }
+        return sum;
+    }, 0);
+
+    // Compare total payments with total cost
+    const difference = totalCost - totalPayments;
+
+    // Result
+    return {
+        bookingId: booking.id,
+        totalCost: totalCost,
+        totalPayments: totalPayments,
+        isPaidInFull: difference <= 0,
+        amountDue: difference > 0 ? difference : 0
+    };
+}
+
+
 document.addEventListener("DOMContentLoaded", async function () {
 
     var calendarEl = document.getElementById('calendar');
@@ -39,7 +64,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             let totalAmount = 0;
 
             paymentsData.data.forEach(item => {
-
                 totalAmount += item.attributes.amount;
             });
 
@@ -416,5 +440,34 @@ document.addEventListener("DOMContentLoaded", async function () {
             },
         },
     })
+
+    // 
+    //
+    // 
+    async function fetchUnpaidBookings() {
+        try {
+            // Step 1: Retrieve bookings from the API
+            const response = await fetch('https://panel.tomobila.com/api/bookings/?populate=payments');
+            const data = await response.json();
+            const bookings = data.data; // Assuming the bookings are in the 'data' array
+
+            // Step 2: Process bookings and filter unpaid ones
+            const unpaidBookings = bookings
+                .map(calculatePaymentComparison)
+                .filter(result => result.amountDue > 0);
+
+            // Step 3: Store or use the unpaid bookings
+            console.log('Unpaid Bookings:', unpaidBookings);
+
+            // You can return, store, or process these unpaid bookings as needed
+            return unpaidBookings;
+        } catch (error) {
+            console.error('Error fetching or processing bookings:', error);
+        }
+    }
+
+    fetchUnpaidBookings();
+
+
 
 })
