@@ -28,13 +28,19 @@ function calculatePaymentComparison(booking) {
     // Compare total payments with total cost
     const difference = totalCost - totalPayments;
 
+    // Extract mainDriver's name
+    const mainDriverName = `${booking.attributes.mainDriver.data?.attributes.firstName || ''} ${booking.attributes.mainDriver.data?.attributes.lastName || ''}`.trim();
+    const mainDriverPhone = `${booking.attributes.mainDriver.data?.attributes.phone || ''}`.trim()
+
     // Result
     return {
         bookingId: booking.id,
         totalCost: totalCost,
         totalPayments: totalPayments,
         isPaidInFull: difference <= 0,
-        amountDue: difference > 0 ? difference : 0
+        amountDue: difference > 0 ? difference : 0,
+        mainDriverName: mainDriverName,
+        mainDriverPhone: mainDriverPhone
     };
 }
 
@@ -67,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 totalAmount += item.attributes.amount;
             });
 
-            console.log(eventsData);
+            // console.log(eventsData);
 
             document.getElementById("totalBooking").innerHTML = totalBookings
 
@@ -443,21 +449,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // 
     //
-    // 
+    //
     async function fetchUnpaidBookings() {
         try {
             // Step 1: Retrieve bookings from the API
-            const response = await fetch('https://panel.tomobila.com/api/bookings/?populate=payments');
+            const response = await fetch('https://panel.tomobila.com/api/bookings/?populate[payments]=*&populate[mainDriver]=*');
             const data = await response.json();
             const bookings = data.data; // Assuming the bookings are in the 'data' array
 
             // Step 2: Process bookings and filter unpaid ones
-            const unpaidBookings = bookings
+            unpaidBookings = bookings
                 .map(calculatePaymentComparison)
                 .filter(result => result.amountDue > 0);
 
+            populateDataTable(unpaidBookings);
+
             // Step 3: Store or use the unpaid bookings
-            console.log('Unpaid Bookings:', unpaidBookings);
+            // console.log('Unpaid Bookings:', unpaidBookings);
 
             // You can return, store, or process these unpaid bookings as needed
             return unpaidBookings;
@@ -466,6 +474,32 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
+    function populateDataTable(data) {
+        $(document).ready(function () {
+            $('#unpaidBookingsTable').DataTable({
+                data: data,
+                pageLength: 6,
+                searching: false,
+                bPaginate: false,
+                order: [[0, "desc"]],
+                columns: [
+                    {
+                        data: 'mainDriverName',
+                        render: function (data, type, row) {
+                            console.log('====================================');
+                            console.log(row);
+                            console.log('====================================');
+                            return `<a class="text-primary" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>`
+                        }
+                    },
+                    { data: 'bookingId' },
+                    { data: 'totalCost' },
+                    { data: 'totalPayments' },
+                    { data: 'amountDue' },
+                ]
+            });
+        });
+    }
     fetchUnpaidBookings();
 
 
