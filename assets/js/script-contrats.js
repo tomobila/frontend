@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return `
                 <div class="d-flex flex-column align-items-center justify-content-center">
-                    <time>${moment(data).format('DD MMM YYYY')}</time> <time>${moment(data).format('HH:mm:ss')}</time>
+                    <time>${moment(row).format('DD MMM YYYY')}</time> <time>${moment(row).format('HH:mm:ss')}</time>
                 </div>
                 `
             }
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
             searchPlaceholder: "Recherche"
         },
         bInfo: true,
-        order: [[0, "asc"]],
+        order: [[0, "desc"]],
         fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
             return `${iStart}-${iEnd} to ${iTotal}`;
         },
@@ -249,7 +249,6 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
     })
-
 
     const older = document.getElementById("older");
     const newer = document.getElementById("newer");
