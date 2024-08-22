@@ -388,11 +388,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             render: function (data) {
                 return `
                 <div class="d-flex align-items-center">
-                      <a href="n-contrat.html?id=${data}" class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Voir">
+                      <a href="n-contrat.html?id=${data}" class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Voir">
                         <span class="fe fe-eye"></span>
                       </a>
 
-                      <button class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Archive">
+                      <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Archive">
                         <span class="fe fe-edit-2"></span>
                       </button>
                       <div class="dropdown ms-2">
@@ -489,13 +489,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                             console.log('====================================');
                             console.log(row);
                             console.log('====================================');
-                            return `<a class="text-primary" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>`
+                            return `<a class="btn btn-white border-0 rounded-circle ms-0" href="tel:${row.mainDriverPhone}" target="_blank"><span class="fe fe-phone"></span></a>`
                         }
                     },
-                    { data: 'bookingId' },
-                    { data: 'totalCost' },
+                    {
+                        data: 'mainDriverName',
+                        render: function (data, type, row) {
+                            return `<a class="text-primary py-4" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>`
+                        }
+                    },
                     { data: 'totalPayments' },
                     { data: 'amountDue' },
+                    { data: 'totalCost' },
+
                 ]
             });
         });
