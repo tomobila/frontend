@@ -5,7 +5,6 @@ console.log(parameterValue)
 const APIContrats = `https://panel.tomobila.com/api/bookings/${parameterValue}/?populate[vehicle][populate]=*&populate[mainDriver][populate]=*&populate[payments][populate]=*`;
 
 
-
 document.addEventListener("DOMContentLoaded", async function () {
 
   if (parameterValue > 0) {
@@ -21,8 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let dataBooking = data.data
         let driver1 = data.data.attributes.mainDriver.data
-        console.log(driver1);
-
+        console.log(dataBooking);
 
         const contratID = document.getElementById('contratID');
         const contratID2 = document.getElementById('contratID2');
