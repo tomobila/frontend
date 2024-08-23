@@ -481,26 +481,61 @@ document.addEventListener("DOMContentLoaded", async function () {
                 pageLength: 6,
                 searching: false,
                 bPaginate: false,
-                order: [[0, "desc"]],
+                order: [[2, "desc"]],
                 columns: [
-                    {
-                        data: 'mainDriverName',
-                        render: function (data, type, row) {
-                            console.log('====================================');
-                            console.log(row);
-                            console.log('====================================');
-                            return `<a class="btn btn-white border-0 rounded-circle ms-0" href="tel:${row.mainDriverPhone}" target="_blank"><span class="fe fe-phone"></span></a>`
-                        }
-                    },
+
                     {
                         data: 'mainDriverName',
                         render: function (data, type, row) {
                             return `<a class="text-primary py-4" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>`
                         }
                     },
-                    { data: 'totalPayments' },
                     { data: 'amountDue' },
-                    { data: 'totalCost' },
+                    {
+                        data: 'totalCost',
+                        className: '',
+                        render: function (data, type, row) {
+                            console.log('====================================');
+                            console.log(row);
+                            console.log('====================================');
+
+                            let due = row.amountDue
+                            let totalCost = row.totalCost;
+
+
+                            // let total = data.totalCost
+
+                            // const difference = total - totalAmount;
+                            const percentageIncrease = (due / totalCost) * 100;
+
+
+                            return `
+                                <div class="row align-items-center g-0">
+                                <div class="col-auto">
+                                    <span class="me-2 small">${percentageIncrease.toFixed(0)}%</span>
+                                </div>
+                                <div class="col ">
+                                    <div class="progress progress-sm">
+                                    <div class="progress-bar ${percentageIncrease == 100 ? "bg-warning" : "bg-secondary"} " role="progressbar" style="width: ${percentageIncrease}%" aria-valuenow="${percentageIncrease}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                </div>
+                            `
+                        }
+                    },
+                    {
+                        data: 'totalCost',
+                        render: function (data, type, row) {
+                            return `<div class="text-center">${data}</div>`
+                        }
+                    },
+                    {
+                        data: 'mainDriverName',
+                        render: function (data, type, row) {
+
+                            return `<a class="btn btn-white border-0 rounded-circle ms-0" href="tel:${row.mainDriverPhone}" target="_blank"><span class="fe fe-phone"></span></a>`
+                        }
+                    },
 
                 ]
             });
