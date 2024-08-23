@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let dataBooking = data.data
         let driver1 = data.data.attributes.mainDriver.data
-        let driver2 = data.data.attributes.mainDriver.data
-        console.log(data);
+        let driver2 = data.data.attributes.secondDriver.data
+        let vehicle = data.data.attributes.vehicle.data.attributes
+        console.log(vehicle);
 
         const contratID = document.getElementById('contratID');
         const contratID2 = document.getElementById('contratID2');
@@ -34,16 +35,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         const driverExpireID = document.getElementById('driverExpireID');
         const driverLicence = document.getElementById('driverLicence');
         const driverLicenceID = document.getElementById('driverLicenceID');
-
+        // Driver 2
         const contratMainDrive2 = document.getElementById('contratMainDrive2');
         const driverBirth2 = document.getElementById('driverBirth2');
         const driverID2 = document.getElementById('driverID2');
         const driverExpireID2 = document.getElementById('driverExpireID2');
         const driverLicence2 = document.getElementById('driverLicence2');
         const driverLicenceID2 = document.getElementById('driverLicenceID2');
-
-
-
 
         contratID.innerHTML = "#AZ-" + dataBooking.id
         contratID2.innerHTML = "#AZ-" + dataBooking.id
@@ -56,6 +54,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         driverExpireID.innerText = driver1.attributes.idExpiration
         driverLicence.innerText = driver1.attributes.driverLicenseNumber
         driverLicenceID.innerText = driver1.attributes.driverLicenseExpiration
+
+        contratMainDrive2.innerText = `${driver2?.attributes?.firstName || ''} ${driver2?.attributes?.lastName || '-- -- '}`;
+        driverBirth2.innerText = driver2?.attributes.DateOfBirth || '---- -- -- '
+        driverID2.innerText = driver2?.attributes.idNumber || '----'
+        driverExpireID2.innerText = driver2?.attributes.idExpiration || '---- -- -- '
+        driverLicence2.innerText = driver2?.attributes.driverLicenseNumber || '------'
+        driverLicenceID2.innerText = driver2?.attributes.driverLicenseExpiration || '---- -- --'
+
 
       })
       .catch(error => {
