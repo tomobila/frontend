@@ -30,6 +30,8 @@
       id="stylesheetDark"
     />
 
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+
     <link rel="stylesheet" href="assets/css/custom.css" />
 
     <style>
@@ -58,7 +60,7 @@
     ></script>
     <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
 
-    <!-- <script src="assets/js/script-contrats.js"></script> -->
+    <script src="assets/js/script-n-contrat.js"></script>
   </head>
   <body>
     <!-- Clients -->
@@ -858,7 +860,7 @@
                   <div class="col">
                     <h6 class="header-pretitle">Contrat</h6>
 
-                    <h1 class="header-title"> #SDF9823KD </h1>
+                    <h1 class="header-title" id="contratID"> -- </h1>
                   </div>
                   <!-- <div class="col-auto">
                     <a href="#!" class="btn btn-white lift"> Imprimer </a>
@@ -915,25 +917,20 @@
                     </button>
                   </div>
                   <div class="col-auto text-end">
-                    <div class="form-group mb-0">
+                    <!-- <div class="form-group mb-0">
                       <label class="form-label">Status </label>
-                      <select name="" class="form-control p-3" id="">
+                      <select name="" class="form-control p-3">
                         <option value="">En Cours</option>
                         <option value="">Termine</option>
                       </select>
-                    </div>
+                    </div> -->
+                    <div class="badge bg-warning" id="contratStatus"> -- </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="card card-body p-5">
-              <div class="row mb-4">
-                <div class="col text-end">
-                  <div class="badge bg-warning"> En cours </div>
-                </div>
-              </div>
-
               <div class="row">
                 <div class="col-12 col-md-6">
                   <img
@@ -945,8 +942,11 @@
 
                   <p class="text-muted mb-4">
                     Contrat N° :
-                    <strong class="text-body">RA-2407-00097</strong> <br />
-                    2024-07-25 23:32
+                    <strong class="text-body" id="contratID2"
+                      >RA-2407-00097</strong
+                    >
+                    <br />
+                    <span id="contratCreated">-- -- -- -- </span>
                     <br />
                   </p>
                 </div>
@@ -976,7 +976,9 @@
                           </h6>
 
                           <!-- Heading -->
-                          <span class="h2 mb-0"> Abdel Azahrou </span>
+                          <span class="h2 mb-0" id="contratMainDrive">
+                            -- --
+                          </span>
                           <p class="text-muted mb-0">
                             Date de Naissance: 1993-01-20 <br />
                             CIN: BL120566 <br />
