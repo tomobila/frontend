@@ -88,7 +88,47 @@ document.addEventListener("DOMContentLoaded", async function () {
         totalAmount += item.attributes.amount;
       });
 
-      // console.log(eventsData);
+      let vehicles = resourcesData.data
+      console.log(vehicles);
+      const statusCounts = resourcesData.data.reduce((acc, car) => {
+        const status = car.attributes.status;
+        acc[status] = (acc[status] || 0) + 1;
+        return acc;
+      }, {});
+
+      const dataDonuts = {
+        labels: Object.keys(statusCounts),
+        datasets: [{
+          data: Object.values(statusCounts),
+          backgroundColor: [
+            'green',  // Color for "Available"
+            '#1a49f8',
+            'red'// Color for "Rented"
+          ],
+          options: {
+            responsive: true,
+          }
+        }]
+      };
+
+      const ctx = document.getElementById('carStatus').getContext('2d');
+      const carStatusDonutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: dataDonuts,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            tooltip: {
+              enabled: false,
+            }
+          },
+          cutout: '80%',
+
+        }
+      });
 
       document.getElementById("totalBooking").innerHTML = totalBookings
 
@@ -561,6 +601,28 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   fetchUnpaidBookings();
 
+  // var ctx = document.getElementById('carStatus').getContext('2d');
 
+  // var myPieChart = new Chart(ctx, {
+  //   type: 'doughnut',
+  //   data: {
+  //     // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //     datasets: [{
+  //       // label: '# of Votes ',
+  //       // data: [12, 19, 3, 5, 2, 3],
+  //       data: dataDonuts,
+  //       // backgroundColor: [
+  //       //   'rgba(255, 99, 132)',
+  //       //   'rgba(54, 162, 235 )',
+  //       //   'rgba(255, 206, 86)',
+  //       //   'rgba(75, 192, 192)',
+  //       //   'rgba(153, 102, 255)',
+  //       // ],
+  //     }]
+  //   },
+  //   options: {
+  //     responsive: true,
+  //   }
+  // })
 
 })

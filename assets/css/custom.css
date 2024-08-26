@@ -410,3 +410,31 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 
 /*  */
+
+#legendDiv {
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#legendDiv ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#legendDiv li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#legendDiv li span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}

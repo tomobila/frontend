@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/theme.bundle.css" id="stylesheetLight" />
     <link rel="stylesheet" href="assets/css/theme-dark.bundle.css" id="stylesheetDark" />
     
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
     <style>body { display: none; }</style>
     
     <!-- Title -->
@@ -661,25 +663,31 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-xl-6">
-            <!-- <img src="assets/img/offer.png" class="card-img-top" alt=""> -->
-            <!-- <div class="card">
+          <div class="col-12 col-xl-5">
+           
+            <div class="card">
               <div class="card-header">
 
                 <h4 class="card-header-title">
-                  Paiements
+                  Vehicules Status
                 </h4>
               </div>
               <div class="card-body">
 
                 <div class="chart chart-appended">
-                  <canvas id="trafficChart" class="chart-canvas" data-toggle="legend" data-target="#trafficChartLegend"></canvas>
+                  <canvas id="carStatus" class="chart-canvas" data-toggle="legend" data-target="#carStatusLegend"></canvas>
                 </div>
 
-                <div id="trafficChartLegend" class="chart-legend"></div>
+                <div id="legendDiv">
+                  <ul>
+                    <li><span style="background-color: green"></span> Available</li>
+                    <li><span style="background-color: #1a49f8"></span> Rental</li>
+                    <li><span style="background-color: red"></span> Inactive</li>
+                  </ul>
+                </div>
 
               </div>
-            </div> -->
+            </div>
           </div>
         </div> 
 
@@ -821,6 +829,8 @@
 
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.14/index.global.min.js'></script>
-
+    <script>
+    
+    </script>
   </body>
 </html>
