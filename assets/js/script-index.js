@@ -442,7 +442,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     processing: true,
     bPaginate: false,
     columns: columns,
-    pageLength: 5,
+    pageLength: 4,
     bFilter: true,
     searching: false,
     language: {
@@ -452,9 +452,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
     bInfo: true,
     order: [[0, "desc"]],
-    fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-      return `${iStart}-${iEnd} to ${iTotal}`;
-    },
     ajax: {
       url: APIBookings,
       type: "GET",
@@ -498,6 +495,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         pageLength: 6,
         searching: false,
         bPaginate: false,
+        language: {
+          processing: loaderEmails
+        },
         order: [[2, "desc"]],
         columns: [
 
