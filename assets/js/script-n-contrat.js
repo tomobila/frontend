@@ -1,9 +1,9 @@
 const readerUrl = new URL(window.location.href);
 const parameterValue = readerUrl.searchParams.get('id');
-console.log(parameterValue)
+// console.log(parameterValue)
 
 const APIContrats = `https://panel.tomobila.com/api/bookings/${parameterValue}/?populate[vehicle][populate]=*&populate[secondDriver][populate]=*&populate[mainDriver][populate]=*&populate[payments][populate]=*`;
-
+const URLApi = "https://panel.tomobila.com"
 
 document.addEventListener("DOMContentLoaded", async function () {
 
@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         let driver1 = data.data.attributes.mainDriver.data
         let driver2 = data.data.attributes.secondDriver.data
         let vehicle = data.data.attributes.vehicle.data.attributes
-        console.log(vehicle);
+        let payments = dataBooking.attributes.payments.data
+        console.log(dataBooking);
 
         const contratID = document.getElementById('contratID');
         const contratID2 = document.getElementById('contratID2');
@@ -43,6 +44,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         const driverLicence2 = document.getElementById('driverLicence2');
         const driverLicenceID2 = document.getElementById('driverLicenceID2');
 
+        // Vehicle
+        const vehicleName = document.getElementById('vehicleName');
+        const vehicleMainImage = document.getElementById('vehicleMainImage');
+        const vehicleMatricule = document.getElementById('vehicleMatricule');
+        const vehicleYear = document.getElementById('vehicleYear');
+
         contratID.innerHTML = "#AZ-" + dataBooking.id
         contratID2.innerHTML = "#AZ-" + dataBooking.id
         contratStatus.innerText = dataBooking.attributes.status
@@ -61,6 +68,23 @@ document.addEventListener("DOMContentLoaded", async function () {
         driverExpireID2.innerText = driver2?.attributes.idExpiration || '---- -- -- '
         driverLicence2.innerText = driver2?.attributes.driverLicenseNumber || '------'
         driverLicenceID2.innerText = driver2?.attributes.driverLicenseExpiration || '---- -- --'
+
+        vehicleName.innerText = vehicle.name
+        vehicleMainImage.src = URLApi + vehicle.mainImage.data.attributes.formats.small.url
+        let licence = vehicle.licensePlate
+        let parts = licence.split("-");
+
+        vehicleMatricule.innerHTML =
+          `<div class="mb-3 px-2 border-gray border border-black d-inline-block rounded-1 fw-bold">
+        <span class="border-end border-gray px-2">${parts[0]}</span>
+        <span class="border-end border-gray px-2">${parts[1]}</span>
+        <span>${parts[2]}</span>
+        </div>`;
+
+        vehicleYear.innerText = moment(vehicle.year).format("YYYY")
+        // console.log('=====================================');
+        // console.log(vehicle.name);
+        // console.log('===================================');
 
 
       })

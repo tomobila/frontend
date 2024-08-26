@@ -1,6 +1,6 @@
 const client = {
-    id: 1,
-    name: 'Azaf car'
+  id: 1,
+  name: 'Azaf car'
 }
 
 
@@ -10,43 +10,43 @@ const localhost = "https://panel.tomobila.com"
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    fetch(APIContrats)
+  fetch(APIContrats)
 
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
 
 
-    const columns = [
-        {
-            data: 'attributes.createdAt',
-            render: function (row, type, data) {
+  const columns = [
+    {
+      data: 'attributes.createdAt',
+      render: function (row, type, data) {
 
-                return `
+        return `
                 <div class="d-flex flex-column align-items-center justify-content-center">
                     <time>${moment(row).format('DD MMM YYYY')}</time> <time>${moment(row).format('HH:mm:ss')}</time>
                 </div>
                 `
-            }
-        },
-        {
-            data: 'attributes.vehicle',
-            className: '',
-            render: function (data) {
+      }
+    },
+    {
+      data: 'attributes.vehicle',
+      className: '',
+      render: function (data) {
 
-                let licence = data.data.attributes.licensePlate
-                let parts = licence.split("-");
+        let licence = data.data.attributes.licensePlate
+        let parts = licence.split("-");
 
-                return `
+        return `
                     <div class="d-flex align-items-center mb-2">
                       <div class="avatar avatar-4by3 align-middle me-3">
                         <img src="${localhost}${data.data.attributes.mainImage.data.attributes.url} " class="avatar-img rounded p-1">
@@ -60,17 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                     </div>
-
                 `
-            }
-        },
-        {
-            data: 'id',
-            className: '',
-            render: function (row, type, data) {
+      }
+    },
+    {
+      data: 'id',
+      className: '',
+      render: function (row, type, data) {
 
-                moment(data.attributes.startDate).format('DD MMM YYYY')
-                return `
+        moment(data.attributes.startDate).format('DD MMM YYYY')
+        return `
                     <div>
                       <time>${moment(data.attributes.startDate).format('DD MMM YYYY')}</time> - <time>${moment(data.attributes.startDate).format('HH:mm:ss')}</time>
                     </div>
@@ -78,45 +77,45 @@ document.addEventListener("DOMContentLoaded", function () {
                       <time>${moment(data.attributes.endDate).format('DD MMM YYYY')}</time> - <time>${moment(data.attributes.endDate).format('HH:mm:ss')}</time>
                     </div>
                 `
-            }
-        },
-        {
-            data: 'attributes.mainDriver',
-            className: '',
-            render: function (data) {
+      }
+    },
+    {
+      data: 'attributes.mainDriver',
+      className: '',
+      render: function (data) {
 
-                return `
+        return `
                     <div class="d-flex align-items-center flex-column">
                       <h4 class="fw-normal mb-1">${data.data.attributes.firstName} ${data.data.attributes.lastName}</h4>
                       <a href="tel:${data.data.attributes.phone}" class="text-muted">${data.data.attributes.phone}</a>
                     </div>
                 `
-            }
+      }
 
-        },
-        {
-            data: 'attributes.totalCost',
-        },
-        {
-            data: 'attributes',
-            className: '',
-            render: function (data, type, row) {
+    },
+    {
+      data: 'attributes.totalCost',
+    },
+    {
+      data: 'attributes',
+      className: '',
+      render: function (data, type, row) {
 
-                let tpayment = data.payments.data
-                const payments = [];
-                let totalAmount = 0;
+        let tpayment = data.payments.data
+        const payments = [];
+        let totalAmount = 0;
 
-                tpayment.forEach(payment => {
-                    totalAmount += payment.attributes.amount;
-                })
+        tpayment.forEach(payment => {
+          totalAmount += payment.attributes.amount;
+        })
 
-                let total = data.totalCost
+        let total = data.totalCost
 
-                const difference = total - totalAmount;
-                const percentageIncrease = (totalAmount / total) * 100;
+        const difference = total - totalAmount;
+        const percentageIncrease = (totalAmount / total) * 100;
 
 
-                return `
+        return `
                     <div class="row align-items-center g-0">
                       <div class="col-auto">
                         <span class="me-2">${percentageIncrease.toFixed(0)}%</span>
@@ -128,54 +127,54 @@ document.addEventListener("DOMContentLoaded", function () {
                       </div>
                     </div>
                 `
-            }
-        },
-        {
-            data: 'attributes.status',
-            render: function (data) {
+      }
+    },
+    {
+      data: 'attributes.status',
+      render: function (data) {
 
-                const VStatus = (statu) => {
-                    switch (statu) {
-                        case "Pending":
-                            return `
+        const VStatus = (statu) => {
+          switch (statu) {
+            case "Pending":
+              return `
                         <span class="badge bg-warning">
                             ${statu}
                         </span>
                 `
-                            break;
-                        case "Cancelled":
-                            return `
+              break;
+            case "Cancelled":
+              return `
                         <span class="badge bg-danger">
                             ${statu}
                         </span>
                 `
-                            break;
-                        case "Confirmed":
-                            return `
+              break;
+            case "Confirmed":
+              return `
                     <span class="badge bg-success">
                         ${statu}
                     </span>
                 `
-                            break;
+              break;
 
-                        default:
-                            return `
+            default:
+              return `
                     <span class="badge bg-primary">
                         ${statu}
                     </span>
                 `
-                            break;
-                    }
-                }
-                return `
+              break;
+          }
+        }
+        return `
                 ${VStatus(data)}
                 `
-            }
-        },
-        {
-            data: 'id',
-            render: function (data) {
-                return `
+      }
+    },
+    {
+      data: 'id',
+      render: function (data) {
+        return `
                 <div class="d-flex align-items-center">
                       <a href="n-contrat.html?id=${data}" class="btn btn-white border-0 rounded-circle ms-0 singleEmailArchive" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Voir">
                         <span class="fe fe-eye"></span>
@@ -205,70 +204,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     </div>
                 `
-            }
-        },
-        // {
-        //     data: 'id',
-        //     className: "d-flex align-items-center mb-2",
-        //     render: function (data, type, row) {
+      }
+    },
+    // {
+    //     data: 'id',
+    //     className: "d-flex align-items-center mb-2",
+    //     render: function (data, type, row) {
 
-        //         return `
-        //             <div class="avatar avatar-sm me-3">
-        //                 <span class="avatar-title rounded-circle">
-        //                 ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
-        //                 </span>
-        //             </div>
-        //             <b class='m-0'>${row.attributes.LastName} ${row.attributes.FirstName}</b>
-        //             `
-        //     },
-        // },
+    //         return `
+    //             <div class="avatar avatar-sm me-3">
+    //                 <span class="avatar-title rounded-circle">
+    //                 ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
+    //                 </span>
+    //             </div>
+    //             <b class='m-0'>${row.attributes.LastName} ${row.attributes.FirstName}</b>
+    //             `
+    //     },
+    // },
 
 
-    ]
+  ]
 
-    var myData = {};
+  var myData = {};
 
-    const initDatatable = new DataTable('#listContrats', {
-        processing: true,
-        bPaginate: false,
-        columns: columns,
-        bFilter: true,
-        language: {
-            searchPlaceholder: "Recherche"
-        },
-        bInfo: true,
-        order: [[0, "desc"]],
-        fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-            return `${iStart}-${iEnd} to ${iTotal}`;
-        },
-        ajax: {
-            url: APIContrats,
-            type: "GET",
-            data: function (d) {
-                return $.extend(d, myData);
-            },
-        },
+  const initDatatable = new DataTable('#listContrats', {
+    processing: true,
+    bPaginate: false,
+    columns: columns,
+    bFilter: true,
+    language: {
+      searchPlaceholder: "Recherche"
+    },
+    bInfo: true,
+    order: [[0, "desc"]],
+    fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
+      return `${iStart}-${iEnd} to ${iTotal}`;
+    },
+    ajax: {
+      url: APIContrats,
+      type: "GET",
+      data: function (d) {
+        return $.extend(d, myData);
+      },
+    },
+  })
+
+  const older = document.getElementById("older");
+  const newer = document.getElementById("newer");
+
+
+  if (older) {
+
+    older.addEventListener("click", () => {
+
+      console.log(initDatatable.page.info());
+      initDatatable.page('previous').draw('page')
     })
+  }
+  if (newer) {
 
-    const older = document.getElementById("older");
-    const newer = document.getElementById("newer");
-
-
-    if (older) {
-
-        older.addEventListener("click", () => {
-
-            console.log(initDatatable.page.info());
-            initDatatable.page('previous').draw('page')
-        })
-    }
-    if (newer) {
-
-        newer.addEventListener("click", () => {
-            console.log("prev");
-            initDatatable.page('next').draw('page')
-        })
-    }
+    newer.addEventListener("click", () => {
+      console.log("prev");
+      initDatatable.page('next').draw('page')
+    })
+  }
 
 
 })
