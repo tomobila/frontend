@@ -96,15 +96,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Billing
         const numberOfDays = moment(dataBooking.attributes.endDate).diff(moment(dataBooking.attributes.startDate), 'days');
         totalName.innerText = vehicle.name
-        totalDays.innerText = numberOfDays
+        totalDays.innerText = numberOfDays + " jrs"
         let total = numberOfDays * vehicle.rentalRate
         totalPrice.innerText = total
 
         let delivery = Number(totalDelivery.innerText)
         globalTotal.innerText = total + delivery
 
-
         addRowsToTable(payments)
+
+        const totalAmount = payments.reduce((total, payment) => {
+          return total + payment.attributes.amount;
+        }, 0);
+
+        // console.log(`Total Amount: ${totalAmount}`);
+        amoutReste.innerText = globalTotal.innerText - totalAmount
 
       })
       .catch(error => {
