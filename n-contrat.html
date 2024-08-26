@@ -230,7 +230,6 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 pt-6">
-                  <!-- <label for="">Etat </label> -->
                   <img
                     src="assets/img/car-details.jpg"
                     alt=""
@@ -243,10 +242,9 @@
                       type="range"
                       min="0"
                       max="100"
-                      step="20"
-                      value="20"
+                      step="10"
                       class="custom-slider custom-slider-bullet"
-                      id="canva__width"
+                      id="checkCarGasoil"
                     />
                   </div>
                 </div>
@@ -258,34 +256,28 @@
                       class="form-control flatpickr-input"
                       data-flatpickr=""
                       readonly="readonly"
-                      name=""
+                      id="checkCarDate"
                     />
                   </div>
                   <div class="form-group">
                     <label class="form-label">Heur de livraison </label>
                     <div class="row">
                       <div class="col">
-                        <input type="time" name="" id="" class="form-control" />
+                        <input
+                          type="time"
+                          id="checkCarHour"
+                          class="form-control"
+                        />
                       </div>
-                      <!-- <div class="col-6">
-                        <select class="form-select mb-3">
-                          <option>00:00</option>
-                          <option>00:30</option>
-                          <option>01:00</option>
-                        </select>
-                      </div>
-                      <div class="col-6">
-                        <select class="form-select mb-3">
-                          <option>00:00</option>
-                          <option>00:30</option>
-                          <option>01:00</option>
-                        </select>
-                      </div> -->
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Lieu de livraison </label>
-                    <input type="text" class="form-control" name="" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="checkCarPlace"
+                    />
                   </div>
                 </div>
               </div>
@@ -295,7 +287,7 @@
             <button type="button" class="btn btn-white" data-bs-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-primary" id="">
+            <button type="button" class="btn btn-primary" id="checkCarSave">
               Enregistrer
             </button>
           </div>
@@ -323,12 +315,12 @@
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              >
+              </button>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-6 pt-6">
-                  <!-- <label for="">Etat </label> -->
                   <img
                     src="assets/img/car-details.jpg"
                     alt=""
@@ -341,10 +333,10 @@
                       type="range"
                       min="0"
                       max="100"
-                      step="20"
-                      value="20"
+                      step="10"
+                      value="0"
                       class="custom-slider custom-slider-bullet"
-                      id="canva__width"
+                      id="checkOutCarGasoil"
                     />
                   </div>
                 </div>
@@ -356,20 +348,29 @@
                       class="form-control flatpickr-input"
                       data-flatpickr=""
                       readonly="readonly"
-                      name=""
+                      id="checkOutCarDate"
+                      minDate="today"
                     />
                   </div>
                   <div class="form-group">
                     <label class="form-label">Heur de livraison </label>
                     <div class="row">
                       <div class="col">
-                        <input type="time" name="" id="" class="form-control" />
+                        <input
+                          type="time"
+                          id="checkOutCarHour"
+                          class="form-control"
+                        />
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Lieu de livraison </label>
-                    <input type="text" class="form-control" name="" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="checkOutCarPlace"
+                    />
                   </div>
                 </div>
               </div>
@@ -379,7 +380,7 @@
             <button type="button" class="btn btn-white" data-bs-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-primary" id="">
+            <button type="button" class="btn btn-primary" id="checkOutCarSave">
               Enregistrer
             </button>
           </div>
@@ -1198,7 +1199,7 @@
                             <div class="col-6">
                               <img
                                 src="assets/img/car-details.jpg"
-                                alt=""
+                                alt="car"
                                 width="200"
                               />
                             </div>
@@ -1212,9 +1213,9 @@
                                     <div class="col-auto">
                                       <time
                                         class="small text-muted"
-                                        datetime="1988-10-24"
+                                        id="inDate"
                                       >
-                                        2024-07-25 12:30:00
+                                        -- -- --
                                       </time>
                                     </div>
                                   </div>
@@ -1224,8 +1225,11 @@
                                     <div class="col">
                                       <small>Depart</small>
                                     </div>
-                                    <div class="col-auto small text-muted">
-                                      Airport Mohammed V
+                                    <div
+                                      class="col-auto small text-muted"
+                                      id="inPlace"
+                                    >
+                                      ----
                                     </div>
                                   </div>
                                 </div>
@@ -1236,15 +1240,16 @@
                         <div class="col">
                           <div class="row align-items-center g-0">
                             <div class="col-auto">
-                              <div class="small me-2">25%</div>
+                              <div class="small me-2" id="inGasoil">-- %</div>
                             </div>
                             <div class="col">
                               <div class="progress progress-sm">
                                 <div
                                   class="progress-bar"
                                   role="progressbar"
-                                  style="width: 25%"
-                                  aria-valuenow="25"
+                                  id="inGasoilP"
+                                  style="width: 0%"
+                                  aria-valuenow=""
                                   aria-valuemin="0"
                                   aria-valuemax="100"
                                 ></div>
@@ -1276,7 +1281,7 @@
                             <div class="col-6">
                               <img
                                 src="assets/img/car-details.jpg"
-                                alt=""
+                                alt="car"
                                 width="200"
                               />
                             </div>
@@ -1290,9 +1295,9 @@
                                     <div class="col-auto">
                                       <time
                                         class="small text-muted"
-                                        datetime="1988-10-24"
+                                        id="outDate"
                                       >
-                                        2024-07-25 12:30:00
+                                        -- -- --
                                       </time>
                                     </div>
                                   </div>
@@ -1302,8 +1307,11 @@
                                     <div class="col">
                                       <small>Depart</small>
                                     </div>
-                                    <div class="col-auto small text-muted">
-                                      Airport Mohammed V
+                                    <div
+                                      class="col-auto small text-muted"
+                                      id="outPlace"
+                                    >
+                                      ----
                                     </div>
                                   </div>
                                 </div>
@@ -1314,17 +1322,18 @@
                         <div class="col">
                           <div class="row align-items-center g-0">
                             <div class="col-auto">
-                              <div class="small me-2">25%</div>
+                              <div class="small me-2" id="outGasoil">--%</div>
                             </div>
                             <div class="col">
                               <div class="progress progress-sm">
                                 <div
                                   class="progress-bar"
                                   role="progressbar"
-                                  style="width: 25%"
-                                  aria-valuenow="25"
+                                  style="width: 0%"
+                                  aria-valuenow=""
                                   aria-valuemin="0"
                                   aria-valuemax="100"
+                                  id="outGasoilP"
                                 ></div>
                               </div>
                             </div>
@@ -1346,7 +1355,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
-                    <table class="table my-4">
+                    <table class="table">
                       <thead>
                         <tr>
                           <th class="px-0 bg-transparent border-top-0">

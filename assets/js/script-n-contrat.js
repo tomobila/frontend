@@ -25,30 +25,41 @@ document.addEventListener("DOMContentLoaded", async function () {
         let payments = dataBooking.attributes.payments.data
         console.log(dataBooking);
 
-        const contratID = document.getElementById('contratID');
-        const contratID2 = document.getElementById('contratID2');
-        const contratStatus = document.getElementById('contratStatus');
-        const contratCreated = document.getElementById('contratCreated');
-        // Driver details
-        const contratMainDrive = document.getElementById('contratMainDrive');
-        const driverBirth = document.getElementById('driverBirth');
-        const driverID = document.getElementById('driverID');
-        const driverExpireID = document.getElementById('driverExpireID');
-        const driverLicence = document.getElementById('driverLicence');
-        const driverLicenceID = document.getElementById('driverLicenceID');
-        // Driver 2
-        const contratMainDrive2 = document.getElementById('contratMainDrive2');
-        const driverBirth2 = document.getElementById('driverBirth2');
-        const driverID2 = document.getElementById('driverID2');
-        const driverExpireID2 = document.getElementById('driverExpireID2');
-        const driverLicence2 = document.getElementById('driverLicence2');
-        const driverLicenceID2 = document.getElementById('driverLicenceID2');
-
-        // Vehicle
-        const vehicleName = document.getElementById('vehicleName');
-        const vehicleMainImage = document.getElementById('vehicleMainImage');
-        const vehicleMatricule = document.getElementById('vehicleMatricule');
-        const vehicleYear = document.getElementById('vehicleYear');
+        // const contratID = document.getElementById('contratID');
+        // const contratID2 = document.getElementById('contratID2');
+        // const contratStatus = document.getElementById('contratStatus');
+        // const contratCreated = document.getElementById('contratCreated');
+        // // Driver details
+        // const contratMainDrive = document.getElementById('contratMainDrive');
+        // const driverBirth = document.getElementById('driverBirth');
+        // const driverID = document.getElementById('driverID');
+        // const driverExpireID = document.getElementById('driverExpireID');
+        // const driverLicence = document.getElementById('driverLicence');
+        // const driverLicenceID = document.getElementById('driverLicenceID');
+        // // Driver 2
+        // const contratMainDrive2 = document.getElementById('contratMainDrive2');
+        // const driverBirth2 = document.getElementById('driverBirth2');
+        // const driverID2 = document.getElementById('driverID2');
+        // const driverExpireID2 = document.getElementById('driverExpireID2');
+        // const driverLicence2 = document.getElementById('driverLicence2');
+        // const driverLicenceID2 = document.getElementById('driverLicenceID2');
+        // // Vehicle
+        // const vehicleName = document.getElementById('vehicleName');
+        // const vehicleMainImage = document.getElementById('vehicleMainImage');
+        // const vehicleMatricule = document.getElementById('vehicleMatricule');
+        // const vehicleYear = document.getElementById('vehicleYear');
+        // // Livraison
+        // const checkCarGasoil = document.getElementById('checkCarGasoil');
+        // const checkCarDate = document.getElementById('checkCarDate');
+        // const checkCarHour = document.getElementById('checkCarHour');
+        // const inDate = document.getElementById('inDate');
+        // const inPlace = document.getElementById('inPlace');
+        // // Reception
+        // const outDate = document.getElementById('outDate');
+        // const outPlace = document.getElementById('outPlace');
+        // const checkOutCarGasoil = document.getElementById('checkOutCarGasoil');
+        // const checkOutCarDate = document.getElementById('checkOutCarDate');
+        // const checkOutCarHour = document.getElementById('checkOutCarHour');
 
         contratID.innerHTML = "#AZ-" + dataBooking.id
         contratID2.innerHTML = "#AZ-" + dataBooking.id
@@ -82,9 +93,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         </div>`;
 
         vehicleYear.innerText = moment(vehicle.year).format("YYYY")
-        // console.log('=====================================');
-        // console.log(vehicle.name);
-        // console.log('===================================');
+        checkCarGasoil.value = dataBooking.attributes.initialFuelLevel
+        inGasoil.innerText = dataBooking.attributes.initialFuelLevel + "%"
+        inGasoilP.setAttribute("style", `width:${dataBooking.attributes.initialFuelLevel}%`)
+        checkCarHour.value = moment(dataBooking.attributes.startDate).format("HH:MM")
+        checkCarDate.value = moment(dataBooking.attributes.startDate).format("DD MMM YYYY")
+        inDate.innerText = moment(dataBooking.attributes.startDate).format("DD MMM YYYY") + " " + moment(dataBooking.attributes.startDate).format("HH:MM")
+
+
+        outDate.innerText = moment(dataBooking.attributes.endDate).format("DD MMM YYYY") + " " + moment(dataBooking.attributes.endDate).format("HH:MM")
+        checkOutCarGasoil.value = dataBooking.attributes.returnFuelLevel == null ? 0 : dataBooking.attributes.returnFuelLevel
+        checkOutCarDate.value = moment(dataBooking.attributes.endDate).format("DD MMM YYYY")
+        checkOutCarHour.value = moment(dataBooking.attributes.endDate).format("HH:MM")
+        outGasoil.innerText = dataBooking.attributes.returnFuelLevel == null ? 0 + "%" : dataBooking.attributes.returnFuelLevel + "%"
+        outGasoilP.setAttribute("style", `width:${dataBooking.attributes.returnFuelLevel}%`)
 
 
       })
