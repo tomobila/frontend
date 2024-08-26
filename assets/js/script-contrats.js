@@ -229,8 +229,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const initDatatable = new DataTable('#listContrats', {
     processing: true,
-    bPaginate: false,
+    bPaginate: true,
+    dom: '<"top"f>rt<"bottom"lip>',
     columns: columns,
+    pageLength: 10,
     bFilter: true,
     language: {
       searchPlaceholder: "Recherche"

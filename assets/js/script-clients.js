@@ -94,17 +94,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const listClients = new DataTable('#listClients', {
     processing: true,
-    bPaginate: false,
+    bPaginate: true,
+    dom: '<"top"f>rt<"bottom"lip>',
     columns: tableColumns,
+    pageLength: 10,
     bFilter: true,
     language: {
-      searchPlaceholder: "Recherche"
+      searchPlaceholder: "Recherche",
+      paginate: {
+        previous: '<a class="page-link ps-4 pe-0 border-start" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
+        next: '<a class="page-link ps-4 pe-0 border-start" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon
+      }
     },
     bInfo: true,
     order: [[1, "desc"]],
-    fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
-      return `${iStart}-${iEnd} to ${iTotal}`;
-    },
+    // fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
+    //   return `${iStart}-${iEnd} to ${iTotal}`;
+    // },
     ajax: {
       url: newApiCustomers,
       type: "GET",

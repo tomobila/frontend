@@ -281,3 +281,28 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
     padding: 5px;
     border-radius: 30px;
 }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border-width: 0 0 1px !important;
+    background: transparent !important;
+    border-color: #1a49f8;
+    color: #12263f;
+    margin-top: -1px;
+    padding: 1.25rem .75rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: transparent;
+    border-radius: 0 !important;
+    border-width: 1px 0 0;
+    color: #95aac9;
+    margin-top: -1px;
+    padding: 1.25rem .75rem !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: transparent !important;
+    border: 0 !important;
+    color: #12263f !important;
+}
