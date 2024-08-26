@@ -338,3 +338,9 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
 .paginate_button.previous {
     border-right: solid #e3ebf6 !important;
 }
+
+@media screen and (max-width: 480px) {
+    body {
+        padding-bottom: 100px;
+    }
+}
