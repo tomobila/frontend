@@ -10,14 +10,14 @@ function addRowsToTable(dataArray) {
   const tableBody = document.getElementById('payment-table-body');
 
   dataArray.forEach(paymentData => {
-    const paymentDate = moment(paymentData.attributes.paymentDate).format("DD MMM YYYY");
+    const paymentDate = moment(paymentData.attributes.paymentDate).format("DD MMM YYYY HH:MM");
     const paymentMethod = paymentData.attributes.paymentMethod;
     const amount = paymentData.attributes.amount;
 
     // Create a new row
     const newRow = `<tr>
                       <td class="px-0 text-end">${paymentDate}</td>
-                      <td class="px-0 text-end">${paymentMethod}</td>
+                      <td class="px-0 text-center">${paymentMethod}</td>
                       <td class="px-0 text-end">${amount}</td>
                   </tr>`;
 
@@ -45,42 +45,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         let vehicle = data.data.attributes.vehicle.data.attributes
         let payments = dataBooking.attributes.payments.data
         console.log(payments);
-
-        // const contratID = document.getElementById('contratID');
-        // const contratID2 = document.getElementById('contratID2');
-        // const contratStatus = document.getElementById('contratStatus');
-        // const contratCreated = document.getElementById('contratCreated');
-        // // Driver details
-        // const contratMainDrive = document.getElementById('contratMainDrive');
-        // const driverBirth = document.getElementById('driverBirth');
-        // const driverID = document.getElementById('driverID');
-        // const driverExpireID = document.getElementById('driverExpireID');
-        // const driverLicence = document.getElementById('driverLicence');
-        // const driverLicenceID = document.getElementById('driverLicenceID');
-        // // Driver 2
-        // const contratMainDrive2 = document.getElementById('contratMainDrive2');
-        // const driverBirth2 = document.getElementById('driverBirth2');
-        // const driverID2 = document.getElementById('driverID2');
-        // const driverExpireID2 = document.getElementById('driverExpireID2');
-        // const driverLicence2 = document.getElementById('driverLicence2');
-        // const driverLicenceID2 = document.getElementById('driverLicenceID2');
-        // // Vehicle
-        // const vehicleName = document.getElementById('vehicleName');
-        // const vehicleMainImage = document.getElementById('vehicleMainImage');
-        // const vehicleMatricule = document.getElementById('vehicleMatricule');
-        // const vehicleYear = document.getElementById('vehicleYear');
-        // // Livraison
-        // const checkCarGasoil = document.getElementById('checkCarGasoil');
-        // const checkCarDate = document.getElementById('checkCarDate');
-        // const checkCarHour = document.getElementById('checkCarHour');
-        // const inDate = document.getElementById('inDate');
-        // const inPlace = document.getElementById('inPlace');
-        // // Reception
-        // const outDate = document.getElementById('outDate');
-        // const outPlace = document.getElementById('outPlace');
-        // const checkOutCarGasoil = document.getElementById('checkOutCarGasoil');
-        // const checkOutCarDate = document.getElementById('checkOutCarDate');
-        // const checkOutCarHour = document.getElementById('checkOutCarHour');
 
         contratID.innerHTML = "#AZ-" + dataBooking.id
         contratID2.innerHTML = "#AZ-" + dataBooking.id
