@@ -413,8 +413,8 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
 
 #legendDiv {
     margin-top: 50px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    /* font-family: Arial, sans-serif; */
+    font-size: 12px;
 }
 
 #legendDiv ul {
@@ -432,8 +432,8 @@ input[type=range].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 
 #legendDiv li span {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 10px;
