@@ -5,6 +5,21 @@ const APIPayments = `https://panel.tomobila.com/api/payments/`;
 
 const localhost = "https://panel.tomobila.com"
 
+const paginatedLenght = 5
+var loaderEmails = '<div class="position-absolute top-0 left-0 w-100 h-100 bg-white">'
+for (let i = 0; i < paginatedLenght; i++) {
+  loaderEmails += `
+                  <div class="mail__skeleton d-flex flex-row p-2">
+                    
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-sender me-4"></div>
+                    <div class="skeleton-subject me-4 flex-fill"></div>
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-date"></div>
+                  </div>`
+}
+loaderEmails += `</div>`
+
 function determineColorBasedOnResource(resourceStatus) {
   const resourceColorMap = {
     'Pending': 'orange',
@@ -431,7 +446,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     bFilter: true,
     searching: false,
     language: {
-      searchPlaceholder: "Recherche"
+      searchPlaceholder: "Recherche",
+      processing: loaderEmails
+
     },
     bInfo: true,
     order: [[0, "desc"]],

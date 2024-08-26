@@ -8,6 +8,21 @@ const APIPaiments = `https://panel.tomobila.com/api/payments/?populate[booking][
 const localhost = "https://panel.tomobila.com"
 const totalAmountHTML = document.getElementById("totalAmount")
 
+const paginatedLenght = 10
+var loaderEmails = '<div class="position-absolute top-0 left-0 w-100 h-100 bg-white">'
+for (let i = 0; i < paginatedLenght; i++) {
+  loaderEmails += `
+                  <div class="mail__skeleton d-flex flex-row p-2">
+                    
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-sender me-4"></div>
+                    <div class="skeleton-subject me-4 flex-fill"></div>
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-date"></div>
+                  </div>`
+}
+loaderEmails += `</div>`
+
 document.addEventListener("DOMContentLoaded", function () {
 
   fetch(APIPaiments)
@@ -165,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
     language: {
       searchPlaceholder: "Recherche",
       lengthMenu: ' _MENU_ ',
+      processing: loaderEmails,
       paginate: {
         previous: '<a class="" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
         next: '<a class="" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon

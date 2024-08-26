@@ -11,7 +11,20 @@ const APICustomer = "https://panel.tomobila.com/api/customers/"
 // const newApiCustomers = `http://localhost:1338/api/customers/?populate[agency_customer][populate]=agency&filters[agency_customer][agency][id][$eq]=1`
 const newApiCustomers = 'https://panel.tomobila.com/api/customers/?populate=*&filters[agency][id][$eq]=1'
 
-
+const paginatedLenght = 5
+var loaderEmails = '<div class="position-absolute top-0 left-0 w-100 h-100 bg-white">'
+for (let i = 0; i < paginatedLenght; i++) {
+  loaderEmails += `
+                  <div class="mail__skeleton d-flex flex-row p-2">
+                    
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-sender me-4"></div>
+                    <div class="skeleton-subject me-4 flex-fill"></div>
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-date"></div>
+                  </div>`
+}
+loaderEmails += `</div>`
 const tableColumns = [
   {
     data: 'id',
@@ -104,7 +117,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       paginate: {
         previous: '<a class="" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
         next: '<a class="" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon
-      }
+      },
+      processing: loaderEmails
     },
     bInfo: true,
     columns: tableColumns,
@@ -121,22 +135,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     },
   })
 
-
-  const older = document.getElementById("older");
-  const newer = document.getElementById("newer");
-
-  if (older) {
-    older.addEventListener("click", () => {
-      console.log(initDatatable.page.info());
-      initDatatable.page('previous').draw('page')
-    })
-  }
-  if (newer) {
-    newer.addEventListener("click", () => {
-      console.log(initDatatable.page.info());
-      initDatatable.page('next').draw('page')
-    })
-  }
 
   var carIdToDelete = 0;
 

@@ -3,10 +3,23 @@ const client = {
   name: 'Azaf car'
 }
 
-
 const APIContrats = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[mainDriver][populate]=*&populate[payments][populate]=*`;
 const localhost = "https://panel.tomobila.com"
 
+const paginatedLenght = 10
+var loaderEmails = '<div class="position-absolute top-0 left-0 w-100 h-100 bg-white">'
+for (let i = 0; i < paginatedLenght; i++) {
+  loaderEmails += `
+                  <div class="mail__skeleton d-flex flex-row p-2">
+                    
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-sender me-4"></div>
+                    <div class="skeleton-subject me-4 flex-fill"></div>
+                    <div class="skeleton-star me-4"></div>
+                    <div class="skeleton-date"></div>
+                  </div>`
+}
+loaderEmails += `</div>`
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -223,7 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
       paginate: {
         previous: '<a class="" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
         next: '<a class="" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon
-      }
+      },
+      processing: loaderEmails
     },
     bInfo: true,
     columns: columns,
@@ -239,26 +253,6 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   })
-
-  const older = document.getElementById("older");
-  const newer = document.getElementById("newer");
-
-
-  if (older) {
-
-    older.addEventListener("click", () => {
-
-      console.log(initDatatable.page.info());
-      initDatatable.page('previous').draw('page')
-    })
-  }
-  if (newer) {
-
-    newer.addEventListener("click", () => {
-      console.log("prev");
-      initDatatable.page('next').draw('page')
-    })
-  }
 
 
 })
