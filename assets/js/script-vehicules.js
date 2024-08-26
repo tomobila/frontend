@@ -230,13 +230,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const initDatatable = new DataTable('#listCars', {
     processing: true,
-    bPaginate: false,
-    columns: columns,
+    bPaginate: true,
+    dom: '<"top"fl>rt<"bottom"ip>',
+    pageLength: 10,
     bFilter: true,
     language: {
-      searchPlaceholder: "Recherche"
+      searchPlaceholder: "Recherche",
+      lengthMenu: ' _MENU_ ',
+      paginate: {
+        previous: '<a class="" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
+        next: '<a class="" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon
+      }
     },
     bInfo: true,
+    columns: columns,
     order: [[6, "asc"]],
     fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
       return `${iStart}-${iEnd} to ${iTotal}`;

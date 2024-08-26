@@ -206,22 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
       }
     },
-    // {
-    //     data: 'id',
-    //     className: "d-flex align-items-center mb-2",
-    //     render: function (data, type, row) {
-
-    //         return `
-    //             <div class="avatar avatar-sm me-3">
-    //                 <span class="avatar-title rounded-circle">
-    //                 ${row.attributes.LastName.charAt(0).toUpperCase()}${row.attributes.FirstName.charAt(0).toUpperCase()}
-    //                 </span>
-    //             </div>
-    //             <b class='m-0'>${row.attributes.LastName} ${row.attributes.FirstName}</b>
-    //             `
-    //     },
-    // },
-
 
   ]
 
@@ -230,14 +214,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const initDatatable = new DataTable('#listContrats', {
     processing: true,
     bPaginate: true,
-    dom: '<"top"f>rt<"bottom"lip>',
-    columns: columns,
+    dom: '<"top"fl>rt<"bottom"ip>',
     pageLength: 10,
     bFilter: true,
     language: {
-      searchPlaceholder: "Recherche"
+      searchPlaceholder: "Recherche",
+      lengthMenu: ' _MENU_ ',
+      paginate: {
+        previous: '<a class="" href="#"><i class= "fe fe-arrow-left ms-1" ></i></a> ', // Custom Previous button with an icon
+        next: '<a class="" href="#"><i class= "fe fe-arrow-right ms-1" ></i></a> ', // Custom Previous button with an icon
+      }
     },
     bInfo: true,
+    columns: columns,
     order: [[0, "desc"]],
     fnInfoCallback: function (oSettings, iStart, iEnd, iMax, iTotal, sPre) {
       return `${iStart}-${iEnd} to ${iTotal}`;
