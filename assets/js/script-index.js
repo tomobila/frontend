@@ -446,9 +446,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                       <a href="n-contrat.html?id=${data}" class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Voir">
                         <span class="fe fe-eye"></span>
                       </a>
-
-                     
-
                     </div>
                 `
       }

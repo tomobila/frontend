@@ -30,8 +30,6 @@
       id="stylesheetDark"
     />
 
-    <link rel="stylesheet" href="assets/css/custom.css" />
-
     <style>
       body {
         display: none;
@@ -57,6 +55,14 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
     <script src="assets/js/script-paiments.js"></script>
   </head>
   <body>
@@ -72,9 +78,9 @@
       <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="confirmationModalLabel">
+            <h3 class="modal-title" id="confirmationModalLabel">
               Ajouter Paiement
-            </h4>
+            </h3>
             <button
               type="button"
               class="btn-close"
@@ -84,6 +90,16 @@
           </div>
           <div class="modal-body">
             <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="form-label">contrat </label>
+                  <!-- <input type="text" class="form-control" id="contratsSelect" /> -->
+                  <select
+                    class="form-select js-data-example-ajax"
+                    id="contratsSelect"
+                  ></select>
+                </div>
+              </div>
               <div class="col-12 col-md-5">
                 <div class="form-group">
                   <label class="form-label">Fait le </label>
