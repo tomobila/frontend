@@ -447,27 +447,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         <span class="fe fe-eye"></span>
                       </a>
 
-                      <button class="btn btn-white border-0 rounded-circle ms-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Archive">
-                        <span class="fe fe-edit-2"></span>
-                      </button>
-                      <div class="dropdown ms-2">
-                        <a class="dropdown-ellipses dropdown-toggle" href="crm-contacts.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fe fe-more-vertical"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end">
-                          <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#prologationContrat">
-                            Prologation
-                          </a>
-                          <a href="#" class="dropdown-item"> Terminé</a>
-                          <hr>
-                          <a href="#" class="dropdown-item text-warning">
-                            Dammage
-                          </a>
-                          <a href="#" class="dropdown-item text-danger">
-                            Annuler
-                          </a>
-                        </div>
-                      </div>
+                     
 
                     </div>
                 `
