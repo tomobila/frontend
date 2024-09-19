@@ -1,5 +1,5 @@
 const APICars = `https://panel.tomobila.com/api/vehicles/?populate=*`;
-const APIBookings = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[payments]=*&populate[mainDriver]=*`;
+const APIBookings = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[payments]=*&populate[main_drivers]=*`;
 const APICustomers = `https://panel.tomobila.com/api/customers/`;
 const APIPayments = `https://panel.tomobila.com/api/payments/`;
 
@@ -44,8 +44,8 @@ function calculatePaymentComparison(booking) {
   const difference = totalCost - totalPayments;
 
   // Extract mainDriver's name
-  const mainDriverName = `${booking.attributes.mainDriver.data?.attributes.firstName || ''} ${booking.attributes.mainDriver.data?.attributes.lastName || ''}`.trim();
-  const mainDriverPhone = `${booking.attributes.mainDriver.data?.attributes.phone || ''}`.trim()
+  const mainDriverName = `${booking.attributes.main_drivers.data[0]?.attributes.firstName || ''} ${booking.attributes.main_drivers.data?.attributes.lastName || ''}`.trim();
+  const mainDriverPhone = `${booking.attributes.main_drivers.data[0]?.attributes.phone || ''}`.trim()
 
   // Result
   return {
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       let vehicles = resourcesData.data
-      console.log(vehicles);
+      // console.log(vehicles);
       const statusCounts = resourcesData.data.reduce((acc, car) => {
         const status = car.attributes.status;
         acc[status] = (acc[status] || 0) + 1;
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       // Transform events
       const events = eventsData.data.map(event => ({
         id: event.id,
-        title: event.attributes.mainDriver.data.attributes.firstName + " " + event.attributes.mainDriver.data.attributes.lastName,
+        title: event.attributes.main_drivers.data[0].attributes.firstName + " " + event.attributes.main_drivers.data[0].attributes.lastName,
         start: event.attributes.startDate,
         end: event.attributes.endDate,
         resourceId: event.attributes.vehicle.data.id,
@@ -484,7 +484,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function fetchUnpaidBookings() {
     try {
       // Step 1: Retrieve bookings from the API
-      const response = await fetch('https://panel.tomobila.com/api/bookings/?populate[payments]=*&populate[mainDriver]=*');
+      const response = await fetch('https://panel.tomobila.com/api/bookings/?populate[payments]=*&populate[main_drivers]=*');
       const data = await response.json();
       const bookings = data.data; // Assuming the bookings are in the 'data' array
 
@@ -517,7 +517,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         },
         order: [[2, "desc"]],
         columns: [
-
           {
             data: 'mainDriverName',
             render: function (data, type, row) {
@@ -527,8 +526,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 ${data.charAt(0).toUpperCase()}${data.charAt(0).toUpperCase()}
                 </span>
               </div>
-              <a class="text-primary py-4" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>
-              `
+              <a class="text-primary py-4" href="n-contrat.html?id=${row.bookingId}" target="_blank">#${row.bookingId} ${data}</a>`
             }
           },
           { data: 'amountDue' },
@@ -541,7 +539,6 @@ document.addEventListener("DOMContentLoaded", async function () {
               let totalCost = row.totalCost;
 
               const percentageIncrease = (due / totalCost) * 100;
-
 
               return `
                                 <div class="row align-items-center g-0">

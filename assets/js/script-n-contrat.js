@@ -2,7 +2,7 @@ const readerUrl = new URL(window.location.href);
 const parameterValue = readerUrl.searchParams.get('id');
 // console.log(parameterValue)
 
-const APIContrats = `https://panel.tomobila.com/api/bookings/${parameterValue}/?populate[vehicle][populate]=*&populate[secondDriver][populate]=*&populate[mainDriver][populate]=*&populate[payments][populate]=*`;
+const APIContrats = `https://panel.tomobila.com/api/bookings/${parameterValue}/?populate[vehicle][populate]=*&populate[second_drivers][populate]=*&populate[main_drivers][populate]=*&populate[payments][populate]=*`;
 const URLApi = "https://panel.tomobila.com"
 
 
@@ -40,30 +40,33 @@ document.addEventListener("DOMContentLoaded", async function () {
       .then(data => {
 
         let dataBooking = data.data
-        let driver1 = data.data.attributes.mainDriver.data
-        let driver2 = data.data.attributes.secondDriver.data
+        let driver1 = data.data.attributes.main_drivers.data
+        console.log('====================================');
+        console.log(driver1);
+        console.log('====================================');
+        let driver2 = data.data.attributes.second_drivers.data
         let vehicle = data.data.attributes.vehicle.data.attributes
         let payments = dataBooking.attributes.payments.data
-        console.log(payments);
+        // console.log(payments);
 
         contratID.innerHTML = "#AZ-" + dataBooking.id
         contratID2.innerHTML = "#AZ-" + dataBooking.id
         contratStatus.innerText = dataBooking.attributes.status
         contratCreated.innerHTML = moment(dataBooking.attributes.createdAt).format('DD MMM YYYY HH:MM')
         // Driver details
-        contratMainDrive.innerText = driver1.attributes.firstName + " " + driver1.attributes.lastName
-        driverBirth.innerText = driver1.attributes.DateOfBirth
-        driverID.innerText = driver1.attributes.idNumber
-        driverExpireID.innerText = driver1.attributes.idExpiration
-        driverLicence.innerText = driver1.attributes.driverLicenseNumber
-        driverLicenceID.innerText = driver1.attributes.driverLicenseExpiration
+        contratMainDrive.innerText = driver1[0].attributes.firstName + " " + driver1[0].attributes.lastName
+        driverBirth.innerText = driver1[0].attributes.DateOfBirth
+        driverID.innerText = driver1[0].attributes.idNumber
+        driverExpireID.innerText = driver1[0].attributes.idExpiration
+        driverLicence.innerText = driver1[0].attributes.driverLicenseNumber
+        driverLicenceID.innerText = driver1[0].attributes.driverLicenseExpiration
         // Driver 2
-        contratMainDrive2.innerText = `${driver2?.attributes?.firstName || ''} ${driver2?.attributes?.lastName || '-- -- '}`;
-        driverBirth2.innerText = driver2?.attributes.DateOfBirth || '---- -- -- '
-        driverID2.innerText = driver2?.attributes.idNumber || '----'
-        driverExpireID2.innerText = driver2?.attributes.idExpiration || '---- -- -- '
-        driverLicence2.innerText = driver2?.attributes.driverLicenseNumber || '------'
-        driverLicenceID2.innerText = driver2?.attributes.driverLicenseExpiration || '---- -- --'
+        contratMainDrive2.innerText = `${driver2[0]?.attributes?.firstName || ''} ${driver2[0]?.attributes?.lastName || '-- -- '}`;
+        driverBirth2.innerText = driver2[0]?.attributes.DateOfBirth || '---- -- -- '
+        driverID2.innerText = driver2[0]?.attributes.idNumber || '----'
+        driverExpireID2.innerText = driver2[0]?.attributes.idExpiration || '---- -- -- '
+        driverLicence2.innerText = driver2[0]?.attributes.driverLicenseNumber || '------'
+        driverLicenceID2.innerText = driver2[0]?.attributes.driverLicenseExpiration || '---- -- --'
         // vehicle
         vehicleName.innerText = vehicle.name
         vehicleMainImage.src = URLApi + vehicle.mainImage.data.attributes.formats.small.url

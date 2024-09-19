@@ -3,7 +3,7 @@ const client = {
   name: 'Azaf car'
 }
 
-const APIContrats = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[mainDriver][populate]=*&populate[payments][populate]=*`;
+const APIContrats = `https://panel.tomobila.com/api/bookings/?populate[vehicle][populate]=*&populate[main_drivers][populate]=*&populate[payments][populate]=*`;
 const localhost = "https://panel.tomobila.com"
 
 const paginatedLenght = 10
@@ -93,14 +93,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
     {
-      data: 'attributes.mainDriver',
+      data: 'attributes.main_drivers',
       className: '',
       render: function (data) {
-
+        // console.log('====================================');
+        // console.log(data.data[0]);
+        // console.log('====================================');
         return `
                     <div class="d-flex align-items-center flex-column">
-                      <h4 class="fw-normal mb-1">${data.data.attributes.firstName} ${data.data.attributes.lastName}</h4>
-                      <a href="tel:${data.data.attributes.phone}" class="text-muted">${data.data.attributes.phone}</a>
+                      <h4 class="fw-normal mb-1">${data.data[0].attributes.firstName} ${data.data[0].attributes.lastName}</h4>
+                      <a href="tel:${data.data[0].attributes.phone}" class="text-muted">${data.data[0].attributes.phone}</a>
                     </div>
                 `
       }

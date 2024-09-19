@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
       render: function (data) {
 
         return `
-                    <a class="text-muted" href="n-contrat.html?id=${data.data.id}">#${data.data.id}</a>
-                `
+                // <a class="text-muted" href="n-contrat.html?id=${data.id}">#${data.id}</a>
+              `
       }
 
     },
@@ -78,9 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
       data: 'attributes.booking',
 
       render: function (data) {
-
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
         return `
-                    <span>${data.data.attributes.mainDriver.data.attributes.firstName} ${data.data.attributes.mainDriver.data.attributes.lastName}</span>
+                    <span>${data.attributes.main_drivers.data[0].attributes.firstName} ${data.attributes.main_drivers.data[0].attributes.lastName}</span>
                 `
       }
 
