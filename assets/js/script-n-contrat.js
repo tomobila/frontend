@@ -119,4 +119,83 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
 
+  const apiUrl = 'https://panel.tomobila.com/api/customers'; // Replace with your actual Strapi API URL
+  // const apiUrl = 'https://your-strapi-instance/api/clients'; // Replace with your actual Strapi API URL
+  const clientList = document.getElementById('clientList');
+  let clients = [];
+
+  // Fetch data from Strapi API
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      clients = data.data; // Store clients for further use
+      renderClientList(clients);
+    })
+    .catch(error => console.error('Error fetching clients:', error));
+
+  // Function to render the client list
+  function renderClientList(clients) {
+    clientList.innerHTML = ''; // Clear the list
+    clients.forEach((client, index) => {
+      const fullName = `${client.attributes.firstName} ${client.attributes.lastName}`;
+      const driverLicense = client.attributes.idNumber;
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item';
+      listItem.innerHTML = `
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <!-- Avatar -->
+              <div class="avatar avatar-sm">
+                <span class="avatar-title rounded-circle">${client.attributes.firstName[0]}${client.attributes.lastName[0]}</span>
+              </div>
+            </div>
+            <div class="col ms-n2">
+              <!-- Title -->
+              <h5 class="mb-1 name">${fullName}</h5>
+              <!-- Driver License -->
+              <p class="small mb-0">
+                <!--
+                 <span class="text-success">●</span>-->
+                 ${driverLicense}
+              </p>
+            </div>
+            <div class="col-auto">
+              <!-- Button -->
+              <a href="#!" class="btn btn-sm btn-white ajouter-btn" data-index="${index}">Sélectionné</a>
+            </div>
+          </div>
+        `;
+      clientList.appendChild(listItem);
+    });
+
+    // Add event listeners for all "Ajouter" buttons
+    const ajouterButtons = document.querySelectorAll('.ajouter-btn');
+    ajouterButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const clientIndex = this.getAttribute('data-index');
+        const clientData = clients[clientIndex].attributes;
+        fillLocataireDetails(clientData);
+      });
+    });
+  }
+
+  // Function to fill the Locataire details with the selected client data
+  function fillLocataireDetails(client) {
+    document.getElementById('contratMainDrive').textContent = `${client.firstName} ${client.lastName}`;
+    document.getElementById('driverBirth').textContent = client.dateOfBirth || '---- -- --';
+    document.getElementById('driverID').textContent = client.idNumber || '-----';
+    document.getElementById('driverExpireID').textContent = client.idExpiration || '---- -- --';
+    document.getElementById('driverLicence').textContent = client.driverLicenseNumber || '-----';
+    document.getElementById('driverLicenceID').textContent = client.driverLicenseExpiration || '---- -- --';
+  }
+
+  // Search functionality
+  searchInput.addEventListener('input', function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredClients = clients.filter(client => {
+      const fullName = `${client.attributes.firstName} ${client.attributes.lastName}`.toLowerCase();
+      return fullName.includes(searchTerm);
+    });
+    renderClientList(filteredClients);
+  });
 })
