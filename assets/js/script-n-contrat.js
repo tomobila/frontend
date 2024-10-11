@@ -120,7 +120,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
   const apiUrl = 'https://panel.tomobila.com/api/customers'; // Replace with your actual Strapi API URL
-  // const apiUrl = 'https://your-strapi-instance/api/clients'; // Replace with your actual Strapi API URL
   const clientList = document.getElementById('clientList');
   let clients = [];
 
@@ -128,66 +127,80 @@ document.addEventListener("DOMContentLoaded", async function () {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      clients = data.data; // Store clients for further use
+      clients = data.data;
       renderClientList(clients);
     })
     .catch(error => console.error('Error fetching clients:', error));
 
-  // Function to render the client list
+  let currentTarget = ''; // Variable to store the target (e.g., locataire or secondConducteur)
+
+  // Add event listeners for the buttons to capture the section
+  document.querySelectorAll('button[data-target]').forEach(button => {
+    button.addEventListener('click', function () {
+      currentTarget = this.getAttribute('data-target'); // Store the section that was clicked
+    });
+  });
+
   function renderClientList(clients) {
-    clientList.innerHTML = ''; // Clear the list
-    clients.forEach((client, index) => {
+    const clientList = document.querySelector('#clientList'); // Target clientList inside the modal
+    clientList.innerHTML = ''; // Clear the list inside the modal
+
+    clients.forEach((client) => {
       const fullName = `${client.attributes.firstName} ${client.attributes.lastName}`;
       const driverLicense = client.attributes.idNumber;
+      const clientData = JSON.stringify(client.attributes); // Convert client data to JSON
+
       const listItem = document.createElement('li');
       listItem.className = 'list-group-item';
       listItem.innerHTML = `
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <!-- Avatar -->
-              <div class="avatar avatar-sm">
-                <span class="avatar-title rounded-circle">${client.attributes.firstName[0]}${client.attributes.lastName[0]}</span>
-              </div>
-            </div>
-            <div class="col ms-n2">
-              <!-- Title -->
-              <h5 class="mb-1 name">${fullName}</h5>
-              <!-- Driver License -->
-              <p class="small mb-0">
-                <!--
-                 <span class="text-success">●</span>-->
-                 ${driverLicense}
-              </p>
-            </div>
-            <div class="col-auto">
-              <!-- Button -->
-              <a href="#!" class="btn btn-sm btn-white ajouter-btn" data-index="${index}">Sélectionné</a>
-            </div>
+        <div class="row align-items-center">
+          <div class="col">
+            <!-- Title -->
+            <h5 class="mb-1 name">${fullName}</h5>
+            <!-- Driver License -->
+            <p class="small mb-0">${driverLicense}</p>
           </div>
-        `;
+          <div class="col-auto">
+            <!-- Button for Selection inside the modal -->
+            <a href="#!" class="btn btn-sm btn-white select-client-btn" data-client='${clientData}' data-bs-dismiss="modal">Sélectionner</a>
+          </div>
+        </div>
+      `;
       clientList.appendChild(listItem);
     });
 
-    // Add event listeners for all "Ajouter" buttons
-    const ajouterButtons = document.querySelectorAll('.ajouter-btn');
-    ajouterButtons.forEach(button => {
+    // Add event listeners for all "Sélectionner" buttons inside the modal
+    const selectClientButtons = document.querySelectorAll('.select-client-btn');
+    selectClientButtons.forEach(button => {
       button.addEventListener('click', function () {
-        const clientIndex = this.getAttribute('data-index');
-        const clientData = clients[clientIndex].attributes;
-        fillLocataireDetails(clientData);
+        const clientData = JSON.parse(this.getAttribute('data-client')); // Parse the client data from the attribute
+
+        // Based on the target, fill the correct section (Locataire or 2ème Conducteur)
+        fillCorrectSection(clientData);
       });
     });
   }
 
-  // Function to fill the Locataire details with the selected client data
-  function fillLocataireDetails(client) {
-    document.getElementById('contratMainDrive').textContent = `${client.firstName} ${client.lastName}`;
-    document.getElementById('driverBirth').textContent = client.dateOfBirth || '---- -- --';
-    document.getElementById('driverID').textContent = client.idNumber || '-----';
-    document.getElementById('driverExpireID').textContent = client.idExpiration || '---- -- --';
-    document.getElementById('driverLicence').textContent = client.driverLicenseNumber || '-----';
-    document.getElementById('driverLicenceID').textContent = client.driverLicenseExpiration || '---- -- --';
+  function fillCorrectSection(client) {
+    if (currentTarget === 'contratMainDrive') {
+      // Fill Locataire section
+      document.getElementById('contratMainDrive').textContent = `${client.firstName} ${client.lastName}`;
+      document.getElementById('driverBirth').textContent = client.dateOfBirth || '---- -- --';
+      document.getElementById('driverID').textContent = client.idNumber || '-----';
+      document.getElementById('driverExpireID').textContent = client.idExpiration || '---- -- --';
+      document.getElementById('driverLicence').textContent = client.driverLicenseNumber || '-----';
+      document.getElementById('driverLicenceID').textContent = client.driverLicenseExpiration || '---- -- --';
+    } else if (currentTarget === 'contratMainDrive2') {
+      // Fill 2ème Conducteur section
+      document.getElementById('contratMainDrive2').textContent = `${client.firstName} ${client.lastName}`;
+      document.getElementById('driverBirth2').textContent = client.dateOfBirth || '---- -- --';
+      document.getElementById('driverID2').textContent = client.idNumber || '-----';
+      document.getElementById('driverExpireID2').textContent = client.idExpiration || '---- -- --';
+      document.getElementById('driverLicence2').textContent = client.driverLicenseNumber || '-----';
+      document.getElementById('driverLicenceID2').textContent = client.driverLicenseExpiration || '---- -- --';
+    }
   }
+
 
   // Search functionality
   searchInput.addEventListener('input', function () {
