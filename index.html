@@ -165,7 +165,8 @@
           const data = await response.json();
 
           // Assuming the API returns a token
-          const token = data.token;
+          const token = data.jwt;
+          console.log(token);
 
           // Store the token (in localStorage or cookies)
           localStorage.setItem("authToken", token);
