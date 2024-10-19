@@ -156,13 +156,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         <div class="row align-items-center">
           <div class="col">
             <!-- Title -->
-            <h5 class="mb-1 name">${fullName}</h5>
+            <h4 class="mb-1 name">${fullName}</h4>
             <!-- Driver License -->
-            <p class="small mb-0">${driverLicense}</p>
+            <p class="small font-xs mb-0">${driverLicense}</p>
           </div>
           <div class="col-auto">
             <!-- Button for Selection inside the modal -->
-            <a href="#!" class="btn btn-sm btn-white select-client-btn" data-client='${clientData}' data-bs-dismiss="modal">Sélectionner</a>
+            <a href="#!" class="btn btn-sm btn-white select-client-btn" data-client='${clientData}' data-dismiss="modal">Sélectionner</a>
           </div>
         </div>
       `;
